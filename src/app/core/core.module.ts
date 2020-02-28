@@ -10,6 +10,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
   declarations: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [HeaderComponent, SidebarComponent]
 })
 export class CoreModule { }
