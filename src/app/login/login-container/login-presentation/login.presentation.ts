@@ -10,6 +10,6 @@ import { LoginPresenter } from '../login-presenter/login.presenter';
   viewProviders: [LoginPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginPresentationComponent  {
+export class LoginPresentation {
   constructor() {}
 }

@@ -10,6 +10,6 @@ import { CompanyListPresenter } from '../company-list-presenter/company-list.pre
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentationComponent  {
+export class CompanyListPresentation  {
   constructor() {}
 }

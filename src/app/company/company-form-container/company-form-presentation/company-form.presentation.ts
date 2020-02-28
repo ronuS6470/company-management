@@ -10,6 +10,6 @@ import { CompanyFormPresenter } from '../company-form-presenter/company-form.pre
   viewProviders: [CompanyFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyFormPresentationComponent  {
+export class CompanyFormPresentation  {
   constructor() {}
 }

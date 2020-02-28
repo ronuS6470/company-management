@@ -10,6 +10,6 @@ import { DocumentListPresenter } from '../document-list-presenter/document-list.
   viewProviders: [DocumentListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentListPresentationComponent  {
+export class DocumentListPresentation  {
   constructor() {}
 }

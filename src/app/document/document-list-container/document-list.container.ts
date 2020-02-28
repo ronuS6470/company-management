@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'cmp-document-list-container',
   templateUrl: './document-list.container.html'
 })
-export class DocumentListContainerComponent {
+export class DocumentListContainer {
   constructor() {}
 }

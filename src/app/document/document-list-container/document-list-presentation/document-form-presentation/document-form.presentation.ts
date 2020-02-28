@@ -10,6 +10,6 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
   viewProviders: [DocumentFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentFormPresentationComponent  {
+export class DocumentFormPresentation  {
   constructor() {}
 }

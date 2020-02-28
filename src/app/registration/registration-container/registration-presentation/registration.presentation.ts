@@ -10,6 +10,6 @@ import { RegistrationPresenter } from '../registration-presenter/registration.pr
   viewProviders: [RegistrationPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegistrationPresentationComponent  {
+export class RegistrationPresentation  {
   constructor() {}
 }
