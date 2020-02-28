@@ -10,6 +10,6 @@ import { CompanyFilterPresenter } from '../company-filter-presenter/company-filt
   viewProviders: [CompanyFilterPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyFilterPresentationComponent  {
+export class CompanyFilterPresentation  {
   constructor() {}
 }

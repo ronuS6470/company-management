@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'cmp-company-list-container',
   templateUrl: './company-list.container.html'
 })
-export class CompanyListContainerComponent {
+export class CompanyListContainer {
   constructor() {}
 }

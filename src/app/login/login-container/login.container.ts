@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'cmp-login-container',
   templateUrl: './login.container.html'
 })
-export class LoginContainerComponent {
+export class LoginContainer {
   constructor() {}
 }

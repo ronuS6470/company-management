@@ -10,6 +10,6 @@ import { DocumentFilterPresenter } from '../document-filter-presenter/document-f
   viewProviders: [DocumentFilterPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentFilterPresentationComponent  {
+export class DocumentFilterPresentation  {
   constructor() {}
 }

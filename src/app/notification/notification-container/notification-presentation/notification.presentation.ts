@@ -10,6 +10,6 @@ import { NotificationPresenter } from '../notification-presenter/notification.pr
   viewProviders: [NotificationPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NotificationPresentationComponent  {
+export class NotificationPresentation  {
   constructor() {}
 }
