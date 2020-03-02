@@ -1,4 +1,10 @@
-<cmp-header></cmp-header>
-
-<cmp-sidebar></cmp-sidebar>
-<router-outlet></router-outlet>
+<div class="wrapper d-flex w-100 h-100 overflow-hidden">
+    <cmp-sidebar></cmp-sidebar>
+    <div class="d-flex flex-column h-100 overflow-hidden">
+        <cmp-header class="flex-shrink-0"></cmp-header>
+        <div class="flex-grow-1 overflow-hidden">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </div>
+</div>
