@@ -44,4 +44,5 @@ export class CompanyFormPresentation {
       this.add.emit(this.companyFormPresenter.companyObj);
     }
   }
+
 }

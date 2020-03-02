@@ -15,7 +15,7 @@ export class CompanyService {
   /**
    * This method get all the records from JSON
    */
-  public getCompanies():Observable<Company[]>
+  public getCompanies(): Observable<Company[]>
   {
       return this.http.get<Company[]>(this.companyUrl);
   }
