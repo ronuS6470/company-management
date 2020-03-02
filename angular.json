@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "company-management"
+    }
+  },
+  "defaultProject": "company-management",
+  "cli": {
+    "analytics": false
+  }
 }
