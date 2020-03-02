@@ -1,1 +1,89 @@
-// Form controls styles goes here
+
+.company-form-container {
+    .nbc-logo {
+        height: 100px;
+        width: 100px;
+        border: 4px solid lighten($secondary, 40%);
+    }
+    .form-group,
+    #attachedFile {
+        border: 1px solid $gray-400;
+        border-radius: $border-radius;
+    }
+    .form-control-file {
+        outline: none;
+    }
+    .form-control {
+        padding: 2px 10px;
+        height: 24px;
+        color: $black;
+        border: none;
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    .label {
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    // attached files
+    #attachedFile {
+        height: calc(21px + 24px);
+    }
+    // custom radio button
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+    [type="radio"]:checked+label,
+    [type="radio"]:not(:checked)+label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+    }
+    [type="radio"]:checked+label:before,
+    [type="radio"]:not(:checked)+label:before {
+        content: '';
+        position: absolute;
+        @include position();
+        width: 18px;
+        height: 18px;
+        border: 1px solid $gray-400;
+        border-radius: 100%;
+        background: $white;
+    }
+    [type="radio"]:checked+label:after,
+    [type="radio"]:not(:checked)+label:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: $primary;
+        position: absolute;
+        @include position($top: 4px, $left: 4px);
+        border-radius: 100%;
+        transition: all 0.2s ease;
+    }
+    [type="radio"]:not(:checked)+label:after {
+        opacity: 0;
+        transform: scale(0);
+    }
+    [type="radio"]:checked+label:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+    // custom file control
+    .custom-file-label::after {
+        display: none;
+    }
+    #closeFile {
+        top: 11px;
+        right: 22px;
+        z-index: 1;
+    }
+}
+
+
