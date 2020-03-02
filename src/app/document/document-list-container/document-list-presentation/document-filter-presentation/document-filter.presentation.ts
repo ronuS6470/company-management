@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { DocumentFilterPresenter } from '../document-filter-presenter/document-filter.presenter';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,18 @@ import { DocumentFilterPresenter } from '../document-filter-presenter/document-f
   viewProviders: [DocumentFilterPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentFilterPresentation  {
-  constructor() {}
+export class DocumentFilterPresentation implements OnInit {
+  public filterForm: FormGroup;
+  constructor(
+    private filterPresenter: DocumentFilterPresenter,
+  ) { }
+
+  ngOnInit() {
+    this.filterForm = this.filterPresenter.buildForm();
+  }
+
+  search(filters: any): void {
+    Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
+    // this.groupFilters.emit(filters);
+  }
 }

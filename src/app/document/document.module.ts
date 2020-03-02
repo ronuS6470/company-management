@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocumentRoutingModule } from './document-routing.module';
 import {
   DocumentFormPresentation
@@ -11,6 +11,8 @@ import {
   DocumentFilterPresentation
 } from './document-list-container/document-list-presentation/document-filter-presentation/document-filter.presentation';
 import { DocumentService } from 'src/app/document/http-service/document.service';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,17 @@ import { DocumentService } from 'src/app/document/http-service/document.service'
   ],
   imports: [
     CommonModule,
-    DocumentRoutingModule
+    DocumentRoutingModule,
+    PortalModule,
+    OverlayModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [DocumentService]
+  providers: [
+    DocumentService
+  ],
+  entryComponents: [
+    DocumentFilterPresentation
+  ]
 })
 export class DocumentModule { }
