@@ -1,1 +1,21 @@
-Login Works ....
+Login Works ....<br><br>
+
+
+Enter your Username:<br><br>
+<input type="text" #uname> <br><br>
+Enter your Password:<br><br>
+<input type="password" #pwd><br><br>
+
+<button (click)="authenticate(uname.value, pwd.value)">Log In</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button routerLink='/registration'>Registration</button>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+  </tr>
+  <tr *ngFor="let credentials of login$">
+    <th>{{credentials.username}}</th>
+    <th>{{credentials.password}}</th>
+  </tr>
+</table>
