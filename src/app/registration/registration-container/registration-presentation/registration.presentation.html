@@ -1,1 +1,38 @@
-Registration Works ....
+Registration Works ....<br><br>
+
+<div>
+    <form [formGroup]="userDetails" (ngSubmit)="onSubmit()">
+        <div>
+            Enter UserName:<br><br>
+            <input type="text" formControlName="username"><br><br>
+            <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                <div *ngIf="f.username.errors.minlength" style="color: red;">
+                  <b>Name must be at least 4 characters long.</b>
+                </div>     
+            </div>
+        </div>
+        <div>
+            Enter Password:<br><br>
+            <input type="text" formControlName="password"><br><br>
+            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                <div *ngIf="f.password.errors.minlength" style="color: red;">
+                  <b>Password must be at least 4 characters long.</b>
+                </div>     
+            </div>
+        </div>
+        <div>
+            ReEnter Password:<br><br>
+            <input type="text" formControlName="confirmPassword"><br><br>
+            <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                <div *ngIf="f.confirmPassword.errors.minlength" style="color: red;">
+                  <b>Password must be at least 4 characters long.</b>
+                </div>     
+            </div>
+        </div>
+
+        
+        <div>
+            <button type="submit">Register</button>
+        </div>
+        </form>
+</div>
