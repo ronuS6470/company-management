@@ -6,8 +6,43 @@
 
 html,
 body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    outline: none;
+
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+}
+.bg-body {
+  background-color: $bg-color;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+a,
+button,
+.btn,
+.custom-dropdown {
+  cursor: pointer;
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+
