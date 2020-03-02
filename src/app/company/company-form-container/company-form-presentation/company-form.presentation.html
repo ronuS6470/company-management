@@ -1,1 +1,75 @@
-CompanyForm Works ....
+<div class="container" id="company" style="background-color: burlywood">
+    <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            Name: <input type="text" formControlName="clientName"
+                [ngClass]="{ 'is-invalid': submitted && controls.clientName.errors }" />
+            <div *ngIf="submitted && controls.clientName.errors" class="invalid-feedback">
+                <div *ngIf="controls.clientName.errors.required">Client Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Client Type: <input type="text" formControlName="clientType"
+                [ngClass]="{ 'is-invalid': submitted && controls.clientType.errors }" />
+            <div *ngIf="submitted && controls.clientType.errors" class="invalid-feedback">
+                <div *ngIf="controls.clientType.errors.required">Client type is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Bussiness Type: <input type="text" formControlName="businessType"
+                [ngClass]="{ 'is-invalid': submitted && controls.businessType.errors }" />
+            <div *ngIf="submitted && controls.businessType.errors" class="invalid-feedback">
+                <div *ngIf="controls.businessType.errors.required">Bussiness type is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Contact No.: <input type="text" formControlName="contactNumber"
+                [ngClass]="{ 'is-invalid': submitted && controls.contactNumber.errors }" />
+            <div *ngIf="submitted && controls.contactNumber.errors" class="invalid-feedback">
+                <div *ngIf="controls.contactNumber.errors.required">Contact no. is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Location: <input type="text" formControlName="location"
+                [ngClass]="{ 'is-invalid': submitted && controls.location.errors }" />
+            <div *ngIf="submitted && controls.location.errors" class="invalid-feedback">
+                <div *ngIf="controls.location.errors.required">Location is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Email:
+            <input type="text" formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && controls.email.errors }" />
+            <div *ngIf="submitted && controls.email.errors" class="invalid-feedback">
+                <div *ngIf="controls.email.errors.required">Email is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Contact Person:
+            <input type="text" formControlName="contactPersonName"
+                [ngClass]="{ 'is-invalid': submitted && controls.contactPersonName.errors }" />
+            <div *ngIf="submitted && controls.contactPersonName.errors" class="invalid-feedback">
+                <div *ngIf="controls.contactPersonName.errors.required"> Contact Person is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Designation:
+            <input type="text" formControlName="designation"
+                [ngClass]="{ 'is-invalid': submitted && controls.designation.errors }" />
+            <div *ngIf="submitted && controls.designation.errors" class="invalid-feedback">
+                <div *ngIf="controls.designation.errors.required">Designation is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Contact Person Mno:-
+            <input type="text" formControlName="contactPersonMobile"
+                [ngClass]="{ 'is-invalid': submitted && controls.contactPersonMobile.errors }" />
+            <div *ngIf="submitted && controls.contactPersonMobile.errors" class="invalid-feedback">
+                <div *ngIf="controls.contactPersonMobile.errors.required">Contact Person Mobile is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            Attachment:- <input type="text" formControlName="attachment" />
+        </div>
+        <button type="submit"> Submit </button>
+    </form>
+</div>

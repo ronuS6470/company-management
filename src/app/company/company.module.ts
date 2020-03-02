@@ -9,6 +9,8 @@ import { CompanyListPresentation } from './company-list-container/company-list-p
 import {
   CompanyFilterPresentation
 } from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import {
   ],
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    CompanyRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CompanyModule { }
