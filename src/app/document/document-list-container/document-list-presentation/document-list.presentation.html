@@ -1,1 +1,25 @@
-DocumentList Works ....
+<div class="document-form">
+    <form [formGroup]="documentFormDetails" (ngSubmit)="onSubmit()" style="text-align:justify;">
+        <div>
+            <b style="font-size: larger;"> Enter the Document Name :</b><br>
+            <input type="text" placeholder="Document Name*" formControlName="documentName"  size="50"/><br>
+            <div *ngIf="controls.documentName.invalid && (controls.documentName.dirty || controls.documentName.touched)">
+             <div *ngIf="controls.documentName.errors.minlength" style="color: red;">
+               <b>Document Name must be at least 4 characters long.</b>
+             </div>
+           </div>
+           <br>
+        <div>
+            <b style="font-size: larger;"> Enter the Owner :</b><br>
+            <input type="text" placeholder="Owner*" formControlName="documentOwner"  size="50"/><br>
+        </div>  
+        <br>
+        <div>
+            <b style="font-size: larger;"> Enter the Activity :</b><br>
+            <input type="text" placeholder="Activity*" formControlName="activity"  size="50"/><br>
+        </div>
+        <button type="submit" [disabled]="!documentFormDetails.valid">Enter</button>
+        <button type="reset">Clear</button>
+        </div>
+    </form>
+</div>
