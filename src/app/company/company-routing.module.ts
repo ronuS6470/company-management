@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'list',
     component: CompanyListContainer,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'add',
