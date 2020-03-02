@@ -1,1 +1,435 @@
-CompanyList Works ....
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assigment</title>
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="main-content h-100">
+        <header class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="companie-lable">Companies</h1>
+            </div>
+            <div>
+                <button class="mr-3 bg-transparent border-0 delete-btn">
+                    <span class="fa fa-trash-o text-danger"></span>
+                </button>
+                <button class="btn bg-white mr-2">
+                        <span>Filter</span>
+                        <span class="fa fa-filter text-primary ml-2"></span>
+                </button>
+                <button class="btn btn-primary">
+                        <span class="fa fa-plus mr-1"></span>
+                        <span>Add Companies</span>
+                </button>
+            </div>
+        </header>
+        <div class="table-responsive">
+            <table class="table table-borderless d-flex flex-column ">
+                <thead class="d-flex w-100">
+                    <tr>
+                        <th scope="col" class="checkbox-col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg pointer" id="customCheck1">
+                                <label class="custom-control-label " for="customCheck1"></label>
+                            </div>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted">reg</th>
+                        <th scope="col" class="text-uppercase text-muted">company</th>
+                        <th scope="col" class="text-uppercase text-muted">client name</th>
+                        <th scope="col" class="text-uppercase text-muted">location</th>
+                        <th scope="col" class="text-uppercase text-muted">contact number</th>
+                        <th scope="col" class="text-uppercase text-muted">email</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="d-flex flex-column overflow-auto">
+                    <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/NBC_logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end pr-3">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropleft show dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/starbucks-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/NBC_logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/starbucks-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/NBC_logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end"> 
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/starbucks-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/NBC_logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/starbucks-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu  dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/NBC_logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                  <tr class="bg-white d-flex">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/img/starbucks-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td class="d-flex justify-content-end">
+                            <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
