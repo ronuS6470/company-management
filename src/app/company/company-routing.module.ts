@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CompanyListContainer } from './company-list-container/company-list.container';
 import { CompanyFormContainer } from './company-form-container/company-form.container';
 
-
 const routes: Routes = [
   {
     path: 'list',

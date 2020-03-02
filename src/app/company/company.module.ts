@@ -8,7 +8,7 @@ import { CompanyFormPresentation } from './company-form-container/company-form-p
 import { CompanyListContainer } from './company-list-container/company-list.container';
 import { CompanyListPresentation } from './company-list-container/company-list-presentation/company-list.presentation';
 import { CompanyFilterPresentation } from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { CompanyService } from './company.service';
 
 @NgModule({
@@ -24,8 +24,10 @@ import { CompanyService } from './company.service';
     CommonModule,
     CompanyRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers:[CompanyService]
+
 })
 export class CompanyModule { }
