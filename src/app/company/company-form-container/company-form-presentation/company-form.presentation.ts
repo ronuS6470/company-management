@@ -12,7 +12,7 @@ import { Company } from '../../company.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyFormPresentation  {
+export class CompanyFormPresentation {
   @Output() add: EventEmitter<Company>;
   companyForm: FormGroup;
   submitted: boolean;
@@ -21,20 +21,20 @@ export class CompanyFormPresentation  {
     this.submitted = false;
     this.add = new EventEmitter<Company>(); // add event for company data
   }
+
+  ngOnInit(): void {
+    this.companyForm = this.companyFormPresenter.buildCompanyForm();
+  }
 /**
  * getter for orm control
  */
   get controls() { return this.companyForm.controls; }
 
-  ngOnInit() {
-    this.companyForm = this.companyFormPresenter.buildCompanyForm();
-  }
 
   /**
    * add company data
    */
   onSubmit() {
-    debugger
     this.submitted = true;
     if (this.companyForm.invalid) {
       return;

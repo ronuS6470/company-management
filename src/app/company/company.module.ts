@@ -6,12 +6,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyFormContainer } from './company-form-container/company-form.container';
-import { CompanyFormPresentation } from './company-form-container/company-form-presentation/company-form.presentation';
 import { CompanyListContainer } from './company-list-container/company-list.container';
 import { CompanyListPresentation } from './company-list-container/company-list-presentation/company-list.presentation';
-import { CompanyFilterPresentation } from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
+import {
+  CompanyFilterPresentation
+} from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { CompanyService } from './company.service';
+import { CompanyFormPresentation } from './company-form-container/company-form-presentation/company-form.presentation';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { CompanyService } from './company.service';
     CompanyListContainer,
     CompanyListPresentation,
     CompanyFilterPresentation,
-    
+
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,7 @@ import { CompanyService } from './company.service';
     OverlayModule,
     PortalModule,
   ],
-  providers:[CompanyService],
+  providers: [CompanyService],
   entryComponents: [CompanyFilterPresentation]
 })
 export class CompanyModule { }
