@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
 // ---------------------------------- //
+import { Company } from '../../company.model';
 import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
-
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'cmp-company-list-ui',
@@ -11,5 +12,16 @@ import { CompanyListPresenter } from '../company-list-presenter/company-list.pre
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompanyListPresentation  {
+  
+  
+  @Input() public companyList$:Observable<Company[]>;
+  @Output() deleteCompany = new EventEmitter<number>();
+
+  delete(id:number):void
+  { 
+    debugger;
+    this.deleteCompany.emit(id);    
+  }
+
   constructor() {}
 }
