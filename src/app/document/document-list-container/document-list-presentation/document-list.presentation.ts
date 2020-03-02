@@ -11,5 +11,12 @@ import { DocumentListPresenter } from '../document-list-presenter/document-list.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentListPresentation  {
-  constructor() {}
+  constructor(private documentListPresenter:DocumentListPresenter) {
+  
+  }
+
+  loadDocumentForm(document:any):void
+  {
+    this.documentListPresenter.loadForm(document)
+  }
 }
