@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Aastha Yadav
+ */
+
 import { Component } from '@angular/core';
 
 @Component({
