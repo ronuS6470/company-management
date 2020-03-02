@@ -10,7 +10,7 @@ import { DocumentListPresentation } from './document-list-container/document-lis
 import {
   DocumentFilterPresentation
 } from './document-list-container/document-list-presentation/document-filter-presentation/document-filter.presentation';
-
+import { DocumentService } from 'src/app/document/http-service/document.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import {
   imports: [
     CommonModule,
     DocumentRoutingModule
-  ]
+  ],
+  providers: [DocumentService]
 })
 export class DocumentModule { }

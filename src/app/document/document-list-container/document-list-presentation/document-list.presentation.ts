@@ -1,6 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy , Input, Output, EventEmitter} from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
+import { Observable } from 'rxjs';
+import {Document} from 'src/app/document/document.model'
 
 
 @Component({
@@ -11,5 +13,15 @@ import { DocumentListPresenter } from '../document-list-presenter/document-list.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentListPresentation  {
-  constructor() {}
+
+  @Input() public documentData : Observable<Document[]>
+  @Output() public delete;
+  todayDate: Date = new Date();
+  
+  constructor() {
+    this.delete=new EventEmitter<number>();
+  }
+  public deleteDocument(id:number){
+    this.delete.emit(id);
+  }
 }
