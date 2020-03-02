@@ -1,1 +1,31 @@
-CompanyFilter Works ....
+<form novalidate [formGroup]="form">
+    <h3>Group Filter</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" formControlName="clientName" class="form-control" placeholder="clientName" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="businessType" class="form-control" placeholder="businessType" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="email" class="form-control" placeholder="Email" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="contactNumber" class="form-control" placeholder="contactNumber" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="location" class="form-control" placeholder="location" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="contactPersonName" class="form-control" placeholder="contactPersonName" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" formControlName="contactPersonMobile" class="form-control" placeholder="contactPersonMobile" />
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <button class="btn btn-primary float-right" (click)="search(form.value)">Search</button>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <button type="reset" class="btn btn-primary float-right">clear</button>
+        </div>
+    </div>

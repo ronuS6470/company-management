@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http'
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyFormContainer } from './company-form-container/company-form.container';
 import { CompanyFormPresentation } from './company-form-container/company-form-presentation/company-form.presentation';
@@ -26,8 +28,10 @@ import { CompanyService } from './company.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    OverlayModule,
+    PortalModule,
   ],
-  providers:[CompanyService]
-
+  providers:[CompanyService],
+  entryComponents: [CompanyFilterPresentation]
 })
 export class CompanyModule { }
