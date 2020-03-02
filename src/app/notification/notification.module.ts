@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NotificationRoutingModule } from './notification-routing.module';
 import { NotificationContainer } from './notification-container/notification.container';
 import { NotificationPresentation } from './notification-container/notification-presentation/notification.presentation';
+import { NotificationHttpService } from './notification-http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { NotificationPresentation } from './notification-container/notification-
   ],
   imports: [
     CommonModule,
-    NotificationRoutingModule
-  ]
+    NotificationRoutingModule,
+    HttpClientModule
+  ],
+  providers:[NotificationHttpService],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class NotificationModule { }

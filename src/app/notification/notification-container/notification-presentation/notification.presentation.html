@@ -1,1 +1,17 @@
 Notification Works ....
+<table>
+    
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Notification</th>
+            
+        </tr>
+    
+        <tr *ngFor="let notifi of notification$ |async ">
+            <td>{{notifi.date}}</td>
+            <td>{{notifi.time}}</td>
+            <td>{{notifi.notification}}</td>
+       </tr>
+
+</table>
