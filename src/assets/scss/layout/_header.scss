@@ -1,1 +1,27 @@
-// Header area style
+.notification-icon {
+    position: relative;
+    .notification-badge {
+        position: absolute;
+        top: -10px;
+        left: 9px;
+    }
+}
+
+.header-img-size {
+    height: 30px;
+    width: 30px;
+}
+
+.nav-search-relative {
+    position: relative;
+    .search-icon-absolute {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0px;
+    }
+}
+
+.form-control {
+    padding: 0.375rem 0 0.375rem 1.75rem;
+}
