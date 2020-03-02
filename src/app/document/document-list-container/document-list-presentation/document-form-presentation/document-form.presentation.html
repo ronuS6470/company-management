@@ -1,67 +1,82 @@
+<!-- ADD form content -->
+<div class="content h-100 overflow-hidden d-flex flex-column">
+  <!-- content header -->
+  <div
+    class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
+    <!-- breadcrum -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent px-0">
+        <li class="breadcrumb-item"><a href="#" class="text-secondary">Documents</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New</li>
+      </ol>
+    </nav>
+    <!-- form action buttons -->
+    <div class="d-flex flex-wrap d-md-block">
+      <button class="btn bg-white px-5 py-2 rounded-0 mr-sm-3 flex-grow-1">Cancel</button>
+      <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1">Save</button>
+    </div>
+  </div>
+  <!-- end content header -->
+  <!-- content body -->
+  <div class="content-body px-3 px-md-4 overflow-auto">
+    <!-- form container -->
+    <div class="company-form-container bg-white my-5 py-4 mx-5">
 
-<!-- <section id="addEdit" class="fluid-container p-5">
-<h1 class=" pl-5"><span class="text-muted">Documents></span>New</h1>
+      <!-- <figure class="text-center pt-4 pb-4">
+        <img src="../../../../assets/images/nbc-logo.png" class="nbc-logo rounded-circle" alt="Company Logo">
+      </figure> -->
 
-    <section id="addNew" class="container ml-5">
-        
-        <h4 class="text-muted">Document Detail</h4>
+      <!-- Document Add form -->
+      <div class="row no-gutters justify-content-center px-3 ">
+        <div class="col-12 col-md-5">
+
           <form>
-            <div class="form-group">
+            <div class="form-row mx-0">
+              <!-- Document Detail  -->
+              <h2 class="font-medium text-primary">Document Details</h2>
+              <!-- Document name  -->
+              <div class="col-12 px-0 my-3">
+                <div class="form-group d-flex flex-column">
+                  <label for="clientName" class="label text-secondary mb-0">Document
+                    Name</label>
+                  <input type="text" class="form-control" id="clientName" value="General Proposal Report">
+                </div>
+              </div>
+
               
-              <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="DOCUMENT NAME">
+
+              <!-- Owner name  -->
+              <div class="col-12 px-0 mb-3">
+                  <div class="form-group d-flex flex-column">
+                    <label for="ownerName" class="label text-secondary mb-0">Owner
+                      Name</label>
+                    <input type="text" class="form-control" id="ownerName" value="Angelica Ramos">
+                  </div>
+                </div>
               
+              
+              <!-- Activity -->
+
+              <div class="col-md-12 px-0">
+                <div class="form-group d-flex flex-column">
+                  <label for="location" class="label text-secondary mb-0">Activity</label>
+                  <select class="form-control bg-transparent" id="businessType">
+                    <option>General</option>
+                    <option>Training</option>
+                    <option>Security</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputName2">OWNER</label>
-              <input type="text" class="form-control" id="exampleInputName2">
-            </div>
-        
-            <div class="form-group">
-              <label for="exampleInputCreate1">CREATED</label>
-              <input type="text" class="form-control" id="exampleInputCreate1">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputActivity1">ACTIVITY</label>
-              <input type="text" class="form-control" id="exampleInputActivity1">
-            </div>
-            
-        
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        </section>
-        <br><br><br> -->
-        <!-- Start: Edit Form Area  -->
-        <!-- <section id="editDetail" class="container">
-          <div class="d-flex">
-              <h1>Edit Your Detail</h1>
-              <span class="edit-icon fa fa-pencil fa-2x"></span>
-          </div>
-          
-          
-          <form>
-            <div class="form-group">
-              <label for="exampleInputName1">DOCUMENT NAME</label>
-              <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
-              
-            </div>
-            <div class="form-group">
-              <label for="exampleInputName2">OWNER</label>
-              <input type="text" class="form-control" id="exampleInputName2">
-            </div>
-            
-            <div class="form-group">
-              <label for="exampleInputCreate1">CREATED</label>
-              <input type="text" class="form-control" id="exampleInputCreate1">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputActivity1">ACTIVITY</label>
-              <input type="text" class="form-control" id="exampleInputActivity1">
-            </div>
-            
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </section> -->
-        
-        <!-- End: Edit Form Area  -->
-<!-- </section> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end contnent body -->
+</div>
+
+
+
+
+
