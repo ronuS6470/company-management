@@ -1,0 +1,33 @@
+/* Document Table*/
+.table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    thead{
+      tr{
+        th{
+          font-weight: map-get($font-weights, 'regular' )
+        }
+      }
+    }
+    tbody{
+      tr{
+        td{
+            font-weight: map-get($font-weights, 'medium' )
+        }
+      }
+    }
+  }
+  
+  .user-icon {
+    height: 2em;
+    width: 2em;
+  }
+  
+.td-mwidth{
+    min-width: 172px;
+}
+
+
+.table-responsive{
+  height: 85%;
+}
