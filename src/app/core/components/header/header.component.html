@@ -1,5 +1,5 @@
-<header  class="border-bottom py-1" *ngIf="isLoggedIn$ | async as isLoggedIn"> 
-    <div class="d-flex justify-content-between">
+<header class="border-bottom py-1"> 
+    <div class="d-flex justify-content-between" >
         <div class=" d-flex">
             <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
                 <label class="fa fa-search search-icon-absolute m-0 py-2" for="searchLink"></label>
@@ -10,15 +10,15 @@
                   <!-- dropdown -->
 
             <div class="dropdown mr-2">
-                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="fa fa-bell-o notification-icon ">
+                <a class="btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [routerLink]="[ '/notification/list' ]" routerLinkActive="active">
+                    <span class="fa fa-bell-o notification-icon " >
                         <span class="badge badge-danger p-1 notification-badge">1</span>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">notification 1</a>
-                  <a class="dropdown-item my-2" href="#">notification 2</a>
-                  <a class="dropdown-item border-top  text-primary" routerLink="notification/list">View more</a>
+                  <a class="dropdown-item">notification 1</a>
+                  <a class="dropdown-item my-2">notification 2</a> 
+                  <a class="dropdown-item border-top text-primary" >View more</a>
                 </div>
               </div>
 
@@ -33,9 +33,8 @@
                          
                     </button>
                     <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuReference">
-                        <a class="dropdown-item" href="#">View Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#">Logout </a>
+                        <a class="dropdown-item">View Profile</a>
+                        <a class="dropdown-item text-danger" (click)="onLogout()" *ngIf="isLoggedIn">Logout</a>
                     </div>
                 </div>
                 <!--  -->
