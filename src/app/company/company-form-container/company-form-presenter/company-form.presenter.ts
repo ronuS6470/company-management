@@ -25,7 +25,7 @@ export class CompanyFormPresenter {
             contactPersonName: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
             designation: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
             contactPersonMobile: ['', [Validators.required, Validators.pattern('[0-9]{10,12}')]],
-            attachment: ['', Validators.required]
+            attachment: ['',]
         });
     }
 

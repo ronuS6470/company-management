@@ -1,7 +1,10 @@
-<button (click)="openDialog()">Open dialog<br>(Overlay)</button>
-
-<template [cdkPortalOutlet]="portelRef"></template>
+<!-- <button (click)="openDialog()">Open dialog<br>(Overlay)</button> -->
+<button class="btn bg-white mr-2" (click)="filter()">
+        <span>Filter</span>
+        <span class="fa fa-filter text-primary ml-2"></span>
+</button>
 <table class="table table-bordered ">
+
     <thead>
         <tr>
             <th>Checkbox</th>
@@ -42,7 +45,7 @@
             <th>{{companyData.email}}</th>
             <th>{{companyData.designation}}</th>
             <th> <button (click)="delete(companyData.id)">Delete</button>
-                <!-- <a routerLink="Edit/{{companyData.id}}">edit</a> -->
+                <a routerLink="Edit/{{companyData.id}}">edit</a>
             </th>
         </tr>
     </tbody>

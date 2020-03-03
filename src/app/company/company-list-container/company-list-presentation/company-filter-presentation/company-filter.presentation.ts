@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, EventEmitter, Output, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
+import { FormGroup } from '@angular/forms';
+
 
 /**
  * @author amit
@@ -13,30 +14,37 @@ import { CompanyFilterPresenter } from '../company-filter-presenter/company-filt
   viewProviders: [CompanyFilterPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyFilterPresentation  {
-  form: FormGroup;
-  @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
-  searchText: string = '';
-  constructor(private fb: FormBuilder,
+export class CompanyFilterPresentation implements OnInit {
+
+  @Output() sendData = new EventEmitter<any>();
+  // search text
+  public searchText: string;
+
+  // form group instance
+  public form: FormGroup;
+  constructor(
+    private companyFilterPresenter: CompanyFilterPresenter,
   ) { }
-  ngOnInit(): void {
+
+  public ngOnInit(): void {
     this.buildForm();
-  }
-  buildForm(): void {
-    this.form = this.fb.group({
-      clientName: new FormControl(''),
-      businessType: new FormControl(''),
-      contactNumber: new FormControl(''),
-      location: new FormControl(''),
-      email: new FormControl(''),
-      contactPersonName: new FormControl(''),
-      designation: new FormControl(''),
-      contactPersonMobile: new FormControl(''),
-    });
+    this.form = this.companyFilterPresenter.form;
   }
 
+  /**
+   * CompanyFilterPresenter call
+   */
+  private buildForm(): void {
+    this.companyFilterPresenter.buildForm();
+  }
+
+  /**
+   * Filter field wise
+   * @param filters filter keyword
+   */
   search(filters: any): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    this.groupFilters.emit(filters);
+    this.sendData.emit(filters);
+    this.searchText = filters;
   }
 }

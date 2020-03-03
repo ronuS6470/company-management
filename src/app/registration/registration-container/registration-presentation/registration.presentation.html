@@ -1,24 +1,36 @@
-<div class="h-100 position-relative form-content ">
-    <div class="row">
-        <!--form-->
-        <form class="form-details bg-white col-md-6 ">
-            <div class="col-md-12 p-5">
-                <h4 class="text-center">Registration</h4>
-                <div class="form-group flex-wrap">
-                    <input type="email" class="form-control my-5" id="InputEmail" placeholder="Email address">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control my-5" id="InputPassword" placeholder="Password" >
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control my-5"  id="InputConfirmPassword" placeholder="ConfirmPassword">
-                </div>
-                <div class="mt-5 mt-sm-0 flex-wrap">
-                    <button type="submit" class="btn btn-md btn-primary py-2">Submit</button>
-                    <button class="btn btn-md btn-danger py-2  ml-3">Cancel</button>
+Registration Works ....<br><br>
+
+<div>
+    <form [formGroup]="userDetails" (ngSubmit)="onSubmit()">
+        <div>
+            Enter UserName:<br><br>
+            <input type="text" formControlName="username"><br><br>
+            <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                <div *ngIf="f.username.errors.minlength" style="color: red;">
+                    <b>Name must be at least 4 characters long.</b>
                 </div>
             </div>
-        </form>
-        <!--end:form-->
-    </div>
+        </div>
+        <div>
+            Enter Password:<br><br>
+            <input type="text" formControlName="password"><br><br>
+            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                <div *ngIf="f.password.errors.minlength" style="color: red;">
+                    <b>Password must be at least 4 characters long.</b>
+                </div>
+            </div>
+        </div>
+        <div>
+            ReEnter Password:<br><br>
+            <input type="text" formControlName="confirmPassword"><br><br>
+            <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                <div *ngIf="f.confirmPassword.errors.minlength" style="color: red;">
+                    <b>Password must be at least 4 characters long.</b>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
 </div>

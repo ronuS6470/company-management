@@ -168,12 +168,8 @@
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="custom-file position-relative">
-                                    <input type="file" formControlName="attachment" class="custom-file-input" id="customFile" [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
+                                    <input type="file" formControlName="attachment" class="custom-file-input" id="customFile">
                                     <label class="custom-file-label" for="customFile"></label>
-
-                                    <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.attachment.errors.required">attachment is required</div>
-                                    </div>
                                 </div>
                                 <label id="closeFile" class="fa fa-times-circle position-absolute text-secondary"></label>
                             </div>

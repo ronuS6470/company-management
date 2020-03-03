@@ -1,11 +1,12 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
-// ---------------------------------- //
-import { Company } from '../../company.model';
-import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
-import { Observable } from 'rxjs'
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
+// ---------------------------------- //
+
+import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
+import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
+import { Observable } from 'rxjs';
+import { OverlayService } from '../../service/overlay.service';
 
 @Component({
   selector: 'cmp-company-list-ui',
@@ -14,8 +15,11 @@ import { CompanyFilterPresentation } from './company-filter-presentation/company
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentation  {
+
   
+export class CompanyListPresentation implements DoCheck {
+
+  // Get Company list
   @Input() public companyList$:Observable<Company[]>;
   @Output() public deleteCompany = new EventEmitter<number>();
   @Output() public sort = new EventEmitter<string>();
@@ -29,15 +33,26 @@ export class CompanyListPresentation  {
    */
  public delete(id:number):void
   { 
-    debugger;
     this.deleteCompany.emit(id);    
+  } 
+  // ComponentPortal Instance
+  public portalRef: ComponentPortal<CompanyFilterPresentation>;
+  // Catch Data
+  private catchData;
+  subscribeData = null;
+  constructor(
+    private companyListPresenter: CompanyListPresenter,
+    private overlayService: OverlayService,
+  ) { 
+    
+    this.sort=new EventEmitter<string>();
   }
 
-  public portelRef: ComponentPortal<CompanyFilterPresentation>;
+  ngDoCheck(): void {
+    console.log(this.catchData);
+  }
 
-  constructor(private overlay: Overlay) {
-      this.sort=new EventEmitter<string>();
-    }
+  
 
   public sortAscending():void
   {
@@ -51,19 +66,17 @@ export class CompanyListPresentation  {
       this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 
-  public openDialog(): void {
-    const config = new OverlayConfig();
-    config.positionStrategy = this.overlay.position()
-      .global()
-      .centerVertically()
-      .centerHorizontally();
-    // this.nextPosition += 30;
-    config.hasBackdrop = true;
-    const overlayRef = this.overlay.create(config);
-    overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
 
-    overlayRef.backdropClick().subscribe(() => {
-      overlayRef.dispose();
+  // filter
+  public filter(): void {
+    this.catchData = this.companyListPresenter.filter();
+  }
+
+  // Open filter form
+  open() {
+    const ref = this.overlayService.open(null);
+    ref.afterClosed$.subscribe(res => {
+      this.subscribeData = res.data;
     });
   }
 

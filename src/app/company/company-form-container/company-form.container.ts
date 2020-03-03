@@ -29,7 +29,6 @@ export class CompanyFormContainer implements OnInit {
     }
   }
 
-
   /**
    * add company data
    * @param company acompany object
@@ -42,6 +41,7 @@ export class CompanyFormContainer implements OnInit {
         alert('Record Inserted...!!!');
       }
       else {
+
         alert('Not Inserted...!!!');
       }
     });

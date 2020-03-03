@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 
 export class CompanyFormPresentation {
   // add event for company data
+
   @Output() add: EventEmitter<Company>;
   // event for update company
   @Output() update: EventEmitter<Company>;
@@ -43,20 +44,18 @@ export class CompanyFormPresentation {
     this.add = new EventEmitter<Company>();
     this.update = new EventEmitter<Company>();
   }
+
   /**
    * getter for form controls
    */
   get controls() { return this.companyForm.controls; }
 
-  ngOnInit() {
-    this.companyForm = this.companyFormPresenter.buildCompanyForm();
-  }
 
   /**
    * add and update company data
    */
   onSubmit() {
-    debugger
+    debugger;
     this.submitted = true;
     if (this.companyForm.invalid) {
       return;
