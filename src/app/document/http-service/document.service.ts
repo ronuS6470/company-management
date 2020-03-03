@@ -22,4 +22,9 @@ export class DocumentService {
     this.id=id;
     return this.httpClient.delete<Document>(`${this.apiUrl}`+`/${id}`);
   }
+  public sortData(sortField:string):Observable<Document[]>
+  {
+    console.log(sortField)
+    return this.httpClient.get<Document[]>(`${this.apiUrl}?${sortField}`)
+  }
 }

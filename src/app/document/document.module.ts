@@ -11,7 +11,8 @@ import {
   DocumentFilterPresentation
 } from './document-list-container/document-list-presentation/document-filter-presentation/document-filter.presentation';
 import { DocumentService } from 'src/app/document/http-service/document.service';
-
+import {ConfirmationModalComponent} from 'src/app/core/components/confirmation-modal/confirmation-modal.component'
+import { CoreModule } from '../core/core.module';
 @NgModule({
   declarations: [
     DocumentFormPresentation,
@@ -21,8 +22,10 @@ import { DocumentService } from 'src/app/document/http-service/document.service'
   ],
   imports: [
     CommonModule,
-    DocumentRoutingModule
+    DocumentRoutingModule,
+    CoreModule
   ],
-  providers: [DocumentService]
+  providers: [DocumentService],
+  entryComponents: [ConfirmationModalComponent]
 })
 export class DocumentModule { }

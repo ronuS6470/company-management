@@ -26,4 +26,9 @@ export class DocumentListContainer implements OnInit {
       this.getDocuments()
     })
   }
+
+  public sortData(sortField:string):void
+  {
+      this.documentData=this.documentService.sortData(sortField);
+  }
 }

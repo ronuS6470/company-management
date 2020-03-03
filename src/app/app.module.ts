@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PortalModule } from '@angular/cdk/portal'
+import {OverlayModule} from '@angular/cdk/overlay'
+import { ConfirmationModalComponent } from './core/components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    PortalModule,
+    OverlayModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationModalComponent]
 })
 export class AppModule { }

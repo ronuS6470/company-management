@@ -8,22 +8,45 @@
     td {
       border: 1px solid black;
       border-collapse: collapse;
+      position: relative;
+    }
+    .short-down{
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: 0;
+      position: absolute;
+    }
+
+    .short-up{
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: 0;
+      position: absolute;
+      left: 88px;
+
     }
   </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
 <button>Filter</button>
 <button>New</button>
+<h1>{{documentData?.length}}</h1>
   <table style="width:100%">
     <tr>
       <th><input type="checkbox"></th>
       <th>NAME</th>
       <th>OWNER</th>
-      <th>CREATED</th>
+      <th>CREATED &nbsp;<button (click)="sortAscending()" class="short-up" id="created"><span
+        class="fa fa-caret-down text-muted "></span></button>&nbsp;&nbsp;&nbsp;
+        <button (click)="sortDescending()" class="short-down"  id="created"><span
+            class="fa fa-caret-up text-muted "></span></button></th>
       <th>MODIFIED</th>
-      <th>ACTIVITY</th>
+      <th>ACTIVITY </th>
       <th>Delete</th>
      
     </tr>
@@ -34,7 +57,7 @@
       <td>{{document.created | date : 'medium'}}</td>
       <td>{{document.modified}}</td>
       <td>{{document.activity}}</td>
-      <td><button (click)="deleteDocument(document.id)"> Delete</button></td>
+      <td><button (click)="openConfirmation(document.id)"> Delete</button></td>
      
 
     </tr>
