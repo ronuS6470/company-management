@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assigment</title>
-
-    <!-- Font Awesome -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
-
-<body>
-    <main class="main-content h-100">
+<main class="main-content h-100">
         <header class="d-flex justify-content-between align-items-center flex-wrap">
             <div>
                 <h1 class="companie-lable">Companies</h1>
@@ -44,7 +32,11 @@
                                 <label class="custom-control-label " for="customCheck"></label>
                             </div>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted">reg</th>
+                        <th scope="col" class="text-uppercase text-muted position-relative">
+                           <span> reg </span>
+                           <a href="" class="position-absolute fa fa-sort-asc short-up"></a>
+                           <a href="" class="position-absolute fa fa-sort-desc short-sown"></a>
+                        </th>
                         <th scope="col" class="text-uppercase text-muted">company</th>
                         <th scope="col" class="text-uppercase text-muted td-mwidth">client name</th>
                         <th scope="col" class="text-uppercase text-muted">location</th>
@@ -488,6 +480,3 @@
             </table>
         </div>
     </main>
-</body>
-
-</html>
