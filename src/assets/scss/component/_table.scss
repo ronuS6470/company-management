@@ -25,10 +25,10 @@
                 font-weight: map-get($font-weights, 'medium')
             }
         }
+
     }
 }
-
-.user-icon {
+  .user-icon {
     height: 2em;
     width: 2em;
 }
@@ -37,9 +37,11 @@
     min-width: 172px;
 }
 
+
 .td-compnymwitg {
     min-width: 195px;
 }
+
 
 .table-responsive {
     height: 85%;
