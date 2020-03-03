@@ -5,12 +5,13 @@ import { CompanyFilterPresentation } from '../company-list-presentation/company-
 
 @Injectable()
 export class CompanyListPresenter {
+  public data;
   constructor(
     private overlay: Overlay,
   ) { }
 
   // Filter overlay open
-  public filter(): void {
+  public filter(): any {
     const config = new OverlayConfig();
     config.positionStrategy = this.overlay.position()
       .global()
@@ -21,7 +22,11 @@ export class CompanyListPresenter {
     const overlayRef = this.overlay.create(config);
     const componentInstance = overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
     overlayRef.backdropClick().subscribe(() => {
+      this.data = componentInstance.instance.searchText;
       overlayRef.dispose();
+      console.log(this.data);
+      return this.data;
     });
+    return;
   }
 }

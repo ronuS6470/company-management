@@ -16,6 +16,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class CompanyFilterPresentation implements OnInit {
 
+  @Output() sendData = new EventEmitter<any>();
   // search text
   public searchText: string;
 
@@ -43,5 +44,7 @@ export class CompanyFilterPresentation implements OnInit {
    */
   search(filters: any): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
+    this.sendData.emit(filters);
+    this.searchText = filters;
   }
 }

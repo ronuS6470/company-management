@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 // ---------------------------------- //
 
@@ -15,20 +15,25 @@ import { OverlayService } from '../../service/overlay.service';
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentation {
+export class CompanyListPresentation implements DoCheck {
 
   // Get Company list
   @Input() public companyList$: Observable<Company[]>;
   @Output() deleteCompany = new EventEmitter<number>();
 
+  // ComponentPortal Instance
   public portalRef: ComponentPortal<CompanyFilterPresentation>;
-  content = 'A simple string content modal overlay';
-  subscribeComponent = CompanyFilterPresentation;
+  // Catch Data
+  private catchData;
   subscribeData = null;
   constructor(
     private companyListPresenter: CompanyListPresenter,
     private overlayService: OverlayService
   ) { }
+
+  ngDoCheck(): void {
+    console.log(this.catchData);
+  }
 
   delete(id: number): void {
     this.deleteCompany.emit(id);
@@ -36,7 +41,7 @@ export class CompanyListPresentation {
 
   // filter
   public filter(): void {
-    this.companyListPresenter.filter();
+    this.catchData = this.companyListPresenter.filter();
   }
 
   // Open filter form
