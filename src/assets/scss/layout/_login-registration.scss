@@ -16,9 +16,7 @@
 }
 .form-content {
   background-color: $form-bg;
-  @media (min-width: 425px) {
-    padding: 0;
-    margin: 0;
+
   }
   .form-details {
     position: absolute;
@@ -26,22 +24,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  .form-control {
-    background: transparent;
-    border: 0px;
-    border-bottom: 1px solid $input-border;
-    border-radius: 0px;
-    outline: none;
-    padding: 0;
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-}
-
-
 
 
 .form-input {
@@ -54,13 +36,13 @@
     font-size: 1.5rem;
     top: 1.2rem;
     
-    & ~ .login-input, & ~ .login-label, & ~ .login-underline {
+    & ~ .input-field, & ~ .input-label, & ~ .login-underline {
       margin-left: $label-icon-spacing;
       width: calc(100% - #{$label-icon-spacing});
     }
   }
   
-  .login-input {
+  .input-field {
     border: none;
     box-shadow: none;
     padding: {
@@ -72,7 +54,7 @@
     outline-style: none;
     width: 100%;
     
-    & ~ .login-label {
+    & ~ .input-label {
       color: $input-underline-color;
       font-size: $label-font-size;
       margin: 0;
@@ -84,7 +66,7 @@
       z-index: 1;
     }
     
-    & ~ .login-underline {
+    & ~ .input-underline {
       background-color: lighten($input-underline-color, 20%);
       height: 1px;
       width: 100%;
@@ -94,34 +76,35 @@
     }
     
     &:hover, &:focus {
-      & ~ .login-underline {
+      & ~ .input-underline {
         background-color: $input-underline-color-focus;
       }
       
-      & ~ .login-label {
+      & ~ .input-label {
         color: $input-underline-color-focus;
       }
     }
     
     &:focus {
-      & ~ .login-underline {
+      & ~ .input-underline {
         height: 2px;
       }
     }
     
     &:focus, &:valid {
-      & ~ .login-label {
+      & ~ .input-label {
         top: 0;
         font-size: $label-font-size-focus;
       }
     }
     
     &:-webkit-autofill {
-      & ~ .login-label {
+      & ~ .input-label {
         top: 0;
         font-size: $label-font-size-focus;
       }
     }
   }
 }
+
 
