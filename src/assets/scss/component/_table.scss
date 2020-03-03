@@ -6,7 +6,16 @@
     thead{
       tr{
         th{
-          font-weight: map-get($font-weights, 'regular' )
+          font-weight: map-get($font-weights, 'regular' );
+          position: relative;
+          .short-up{
+            position: absolute;
+            bottom: 7px;
+          }
+          .short-down{
+            position: absolute;
+            top: 7px;
+          }
         }
       }
     }
