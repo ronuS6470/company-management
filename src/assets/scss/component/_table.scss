@@ -1,48 +1,63 @@
-
 /* Document Table*/
+
 .table {
     border-collapse: separate;
     border-spacing: 0 1em;
-    thead{
-      tr{
-        th{
-          font-weight: map-get($font-weights, 'regular' )
+    thead {
+        tr {
+            th {
+                font-weight: map-get($font-weights, 'regular');
+                position: relative;
+                .short-up {
+                    position: absolute;
+                    bottom: 7px;
+                }
+                .short-down {
+                    position: absolute;
+                    top: 7px;
+                }
+            }
         }
-      }
     }
-    tbody{
-      tr{
-        td{
-            font-weight: map-get($font-weights, 'medium' )
+    tbody {
+        tr {
+            td {
+                font-weight: map-get($font-weights, 'medium')
+            }
         }
-      }
+
     }
-  }
-  
+}
   .user-icon {
     height: 2em;
     width: 2em;
-  }
-  
-.td-mwidth{
+}
+
+.td-mwidth {
     min-width: 172px;
 }
 
 
-.table-responsive{
-  height: 85%;
+.td-compnymwitg {
+    min-width: 195px;
 }
 
+
+.table-responsive {
+    height: 85%;
+}
 
 .company-img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
-.dropdown-menu-position {
-  position: absolute;
-  top: 15px;
-  left: -140px;
+.company-table,
+.document-table {
+    padding: 20px 97px;
+    @media (max-width: 425px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
 }
-/* End : Company List */
-
