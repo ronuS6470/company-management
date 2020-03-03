@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://my-json-server.typicode.com/amitchauhan1/database/',
-  // baseUrl: 'http://localhost:3000/'
-  // baseUrl: 'http://localhost:3000/login'
+   baseUrl: 'http://localhost:3000/'
 };
 
 /*

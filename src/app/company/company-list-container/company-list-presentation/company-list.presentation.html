@@ -3,8 +3,8 @@
         <span>Filter</span>
         <span class="fa fa-filter text-primary ml-2"></span>
 </button>
+<button ></button>
 <table class="table table-bordered ">
-
     <thead>
         <tr>
             <th>Checkbox</th>
@@ -37,7 +37,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let companyData of companyList$">
-            <th> </th>
+            <th><input type="checkbox"> </th>
             <th>{{companyData.id}}</th>
             <th> {{companyData.clientName}} </th>
             <th>{{companyData.location}}</th>
