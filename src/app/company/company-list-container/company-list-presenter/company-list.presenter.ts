@@ -5,22 +5,23 @@ import { CompanyFilterPresentation } from '../company-list-presentation/company-
 
 @Injectable()
 export class CompanyListPresenter {
+  constructor(
+    private overlay: Overlay,
+  ) { }
 
-    constructor(
-        private overlay: Overlay,
-    ) {}
-    public filter(): void {
-        const config = new OverlayConfig();
-        config.positionStrategy = this.overlay.position()
-          .global()
-          .centerVertically()
-          .centerHorizontally();
-        // this.nextPosition += 30;
-        config.hasBackdrop = true;
-        const overlayRef = this.overlay.create(config);
-        overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
-        overlayRef.backdropClick().subscribe(() => {
-          overlayRef.dispose();
-        });
-    }
+  // Filter overlay open
+  public filter(): void {
+    const config = new OverlayConfig();
+    config.positionStrategy = this.overlay.position()
+      .global()
+      .centerVertically()
+      .centerHorizontally();
+    // this.nextPosition += 30;
+    config.hasBackdrop = true;
+    const overlayRef = this.overlay.create(config);
+    const componentInstance = overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
+    overlayRef.backdropClick().subscribe(() => {
+      overlayRef.dispose();
+    });
+  }
 }

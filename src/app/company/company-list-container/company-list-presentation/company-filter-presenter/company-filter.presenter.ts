@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 /**
  * @author amit
@@ -12,13 +12,17 @@ export class CompanyFilterPresenter {
     constructor(
         private fb: FormBuilder,
     ) { }
+
+    /**
+     * Form Builder
+     */
     public buildForm(): void {
         this.form = this.fb.group({
-            companyName: new FormControl(''),
-            clientName: new FormControl(''),
-            contactNumber: new FormControl(''),
-            location: new FormControl(''),
-            email: new FormControl('')
+            companyName: new FormControl('', Validators.required),
+            clientName: new FormControl('', Validators.required),
+            contactNumber: new FormControl('', Validators.required),
+            location: new FormControl('', Validators.required),
+            email: new FormControl('', Validators.required),
         });
     }
 }
