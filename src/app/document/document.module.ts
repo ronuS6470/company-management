@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocumentRoutingModule } from './document-routing.module';
 import {
   DocumentFormPresentation
@@ -11,8 +11,14 @@ import {
   DocumentFilterPresentation
 } from './document-list-container/document-list-presentation/document-filter-presentation/document-filter.presentation';
 import { DocumentService } from 'src/app/document/http-service/document.service';
+
 import {ConfirmationModalComponent} from 'src/app/core/components/confirmation-modal/confirmation-modal.component'
-import { CoreModule } from '../core/core.module';
+
+
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
+
+
 @NgModule({
   declarations: [
     DocumentFormPresentation,
@@ -23,9 +29,15 @@ import { CoreModule } from '../core/core.module';
   imports: [
     CommonModule,
     DocumentRoutingModule,
-    CoreModule
+
+    PortalModule,
+    OverlayModule,
+    FormsModule,
+    ReactiveFormsModule
+   
   ],
   providers: [DocumentService],
-  entryComponents: [ConfirmationModalComponent]
+  entryComponents: [ConfirmationModalComponent,  DocumentFilterPresentation],
+
 })
 export class DocumentModule { }

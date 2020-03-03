@@ -19,7 +19,8 @@ import { ConfirmationModalComponent } from './core/components/confirmation-modal
     CoreModule,
     HttpClientModule,
     PortalModule,
-    OverlayModule
+    OverlayModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
