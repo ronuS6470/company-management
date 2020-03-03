@@ -34,7 +34,6 @@
 <body>
 
   <button (click)="openFilter()">Filter</button>
-  {{subscribeData | async | json}}
   <button (click) = "loadDocumentForm(null)">New</button>
   <table style="width:100%">
     <tr>
@@ -50,7 +49,7 @@
       <th>Delete</th>
 
     </tr>
-    <tr *ngFor="let document of documentData; let i=index">
+    <tr *ngFor="let document of filteredDocument; let i=index">
       <td><input type="checkbox"></td>
       <td>{{document.documentName}}</td>
       <td>{{document.ownerName}}</td>

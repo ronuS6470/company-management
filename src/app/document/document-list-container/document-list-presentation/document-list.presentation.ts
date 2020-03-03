@@ -1,10 +1,10 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 import { Observable } from 'rxjs';
 import { Document } from 'src/app/document/document.model'
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service'
-import { DocumentFilterPresentation } from './document-filter-presentation/document-filter.presentation';
+
 @Component({
   selector: 'cmp-document-list-ui',
   templateUrl: './document-list.presentation.html',
@@ -14,23 +14,33 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
 })
 
 
-export class DocumentListPresentation {
-  public updatedDetails:any;
+export class DocumentListPresentation implements OnInit {
+  public updatedDetails: any;
   private sortBy: string;
-  subscribeData = null;
   document: any[] = [];
   filteredDocument: any[] = [];
-  @Input() public documentData: Document[]
-
+  
+  @Input() set documentData(value: Document[]) {
+    if (value) {
+      this.docData = value;
+      this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
+    }
+  }
+  get documentData() {
+    return this.docData;
+  }
   @Output() public sort: EventEmitter<string>;
-  @Output() public updatedDocument:EventEmitter<any>;
+  @Output() public updatedDocument: EventEmitter<any>;
   // @Output() public delete;
   todayDate: Date = new Date();
-
+  // filter key and value
+  public subscribeData: any;
+  // temporory variable for getter and setter of document data
+  private docData: Document[];
   constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
     this.sort = new EventEmitter<string>();
-    this.updatedDocument=new EventEmitter();
+    this.updatedDocument = new EventEmitter();
     // this.delete=new EventEmitter<number>();
   }
   // public deleteDocument(id:number){
@@ -53,49 +63,44 @@ export class DocumentListPresentation {
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
   ngOnInit() {
-    this.loadDocument();
   }
 
+  /**
+   * open filter overlay and get filter data
+   */
   public openFilter() {
     const ref = this.documentListPresenter.open(null);
-    this.subscribeData = ref.afterClosed$;
+    ref.afterClosed$.subscribe(res => {
+      this.subscribeData = res;
+      this.filterList(this.subscribeData);
+    });
   }
 
-  ngDoCheck(): void {
-    if (this.subscribeData) {
-      this.filterUserList(this.subscribeData, this.document);
-    }
-  }
-  filterUserList(filters: any, document: any): void {
-    this.filteredDocument = this.document;
+  /**
+   * get filter data and filter list
+   * @param filters filter data
+   */
+  filterList(filters: any): void {
+    this.filteredDocument = this.document; //Reset User List
     const keys = Object.keys(filters);
-    const filterUser = doc => {
+    const filterDocument = doc => {
       let result = keys.map(key => {
         if (doc[key]) {
-          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase());
+          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase())
         } else {
           return false;
         }
+
       });
       result = result.filter(it => it !== undefined);
-      return result.reduce((acc, cur: any) => {
-        // tslint:disable-next-line: no-bitwise
-        return acc & cur;
-      }, 1);
-    };
-    this.filteredDocument = this.document.filter(filterUser);
+
+      return result.reduce((acc, cur: any) => { return acc & cur }, 1)
+    }
+    this.filteredDocument = this.document.filter(filterDocument);
   }
 
-  public loadDocument() {
-    // this.documentData.subscribe(document => {
-    //   this.document = document;
-    //   this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : this.document;
-    // });
+  loadDocumentForm(document: any): any {
+    this.updatedDetails = this.documentListPresenter.loadForm(document)
 
-  }
-  loadDocumentForm(document:any):any
-  {
-   this.updatedDetails=this.documentListPresenter.loadForm(document)
- 
   }
 }
