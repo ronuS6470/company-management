@@ -1,4 +1,6 @@
-<p>header works!</p>
+<p *ngIf="isLoggedIn$ | async as isLoggedIn">header works!</p>
+
+
 <button routerLink="notification/list">Notification</button>
 <br>
 <button>Logout</button>
