@@ -9,9 +9,6 @@ $collapse-sidebar-width:70px;
 $font-weights:("light": 300, "regular": 400, "medium": 700, "bold": 900);
 
 
-
-
-
 // login
 
 $form-margin-bottom: 1rem;
@@ -24,3 +21,9 @@ $form-margin-bottom: 1rem;
   $input-padding-left: 0;
   $input-underline-color: #868e96;
   $input-underline-color-focus: color("irenic");
+// border
+$border-radius: 2px;
+// breadcrum
+$breadcrumb-font-size:30px;
+$breadcrumb-divider:quote(">");
+
