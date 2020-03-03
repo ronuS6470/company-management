@@ -12,6 +12,19 @@
       "designation": "marketing",
       "contactPersonMobile": 1111111111,
       "attachment": "attachment"
+    },
+    {
+      "clientName": "jay",
+      "clientType": "client",
+      "businessType": "public",
+      "contactNumber": "345",
+      "location": "valsad",
+      "email": "jay@gmail.com",
+      "contactPersonName": "vinay",
+      "designation": "manager",
+      "contactPersonMobile": "678",
+      "attachment": "er",
+      "id": 2
     }
   ]
 }
