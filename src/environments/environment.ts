@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   // baseUrl:'http://localhost:3000/',
   baseUrl: 'http://localhost:3000/login'
+  // baseUrlDocument:'http://localhost:3000/documents'
+
 };
 
 /*
