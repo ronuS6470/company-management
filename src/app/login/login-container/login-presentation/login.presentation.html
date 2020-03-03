@@ -1,21 +1,25 @@
-Login Works ....<br><br>
+<form name="form" (ngSubmit)="f.form.valid && authenticate(username.value, password.value)" #f="ngForm" novalidate>
+
+    <!-- UserName -->
+    <label>First Name</label><br><br>
+    <input type="text" pattern="[a-zA-Z]*" name="username" class="form-control"
+        [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" #username required><br><br>
+    <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+        <div *ngIf="username.errors.required">First Name is required</div>
+    </div>
 
 
-Enter your Username:<br><br>
-<input type="text" #uname> <br><br>
-Enter your Password:<br><br>
-<input type="password" #pwd><br><br>
+    <!-- Password -->
+    <label>Password</label><br><br>
+    <input type="text" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,10})" name="password" class="form-control"
+        #password required><br><br>
+    <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.pattern">Password must contain atleast 1-upper,1-lower and 8-10 characters only
+        </div>
+    </div>
 
-<button (click)="authenticate(uname.value, pwd.value)">Log In</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="authenticate(username.value, password.value)" class="btn btn-primary mr-1">LogIn</button><br><br>
+</form>
 <button routerLink='/registration'>Registration</button>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Password</th>
-  </tr>
-  <tr *ngFor="let credentials of login$">
-    <th>{{credentials.username}}</th>
-    <th>{{credentials.password}}</th>
-  </tr>
-</table>

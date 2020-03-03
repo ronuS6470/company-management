@@ -41,22 +41,24 @@
       "password": "tapas@123"
     },
     {
-      "username": "aaaa",
-      "password": "aaa",
-      "confirmPassword": "aaaaa",
-      "id": 9
+      "username": "mitulpatel",
+      "password": "mitul@123",
+      "id": 13
     },
     {
-      "username": "",
-      "password": "",
-      "confirmPassword": "",
-      "id": 10
+      "username": "sonikkapadia",
+      "password": "sonik@123",
+      "id": 14
     },
     {
-      "username": "asdad",
-      "password": "adada",
-      "confirmPassword": "dadada",
-      "id": 11
+      "username": "ronakpatel",
+      "password": "ronak@123",
+      "id": 15
+    },
+    {
+      "username": "nehalpatel",
+      "password": "nehal@123",
+      "id": 16
     }
   ]
 }

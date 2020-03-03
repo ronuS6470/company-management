@@ -1,3 +1,6 @@
+/**
+ * @author TapasVashi
+ */
 import { Component } from '@angular/core';
 import { AuthenticateService } from '../authenticate.service';
 import { Observable } from 'rxjs';
@@ -18,6 +21,9 @@ export class LoginContainer implements OnInit {
       this.getAuthDetails();
   }
 
+  /**
+   * Api call to get all data from json-server
+   */
   private getAuthDetails(): void
   {
     this.loginDetails$ = this.authService.getAuthDetails();
