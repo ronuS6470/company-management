@@ -25,8 +25,9 @@ export class CompanyListPresenter {
       this.data = componentInstance.instance.searchText;
       overlayRef.dispose();
       console.log(this.data);
-      return this.data;
+      if (this.data) {
+        // this.data;
+      }
     });
-    return;
   }
 }

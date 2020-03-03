@@ -32,7 +32,7 @@ export class CompanyListPresentation implements DoCheck {
   ) { }
 
   ngDoCheck(): void {
-    console.log(this.catchData);
+    // console.log(this.catchData);
   }
 
   delete(id: number): void {
