@@ -1,34 +1,51 @@
 <button (click)="openDialog()">Open dialog<br>(Overlay)</button>
 
 <template [cdkPortalOutlet]="portelRef"></template>
-
 <table class="table table-bordered ">
     <thead>
         <tr>
             <th>Checkbox</th>
-            <th>Id</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>City</th>
-            <th>Department</th>
+            <th>Id&nbsp;
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" (click)="sortAscending()" id="id"></button>
+                <button class="fa fa-arrow-circle-down" style="font-size:15px" id="id" (click)="sortDescending()"></button>
+            </th>
+            <th>clientName
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" id="clientName" (click)="sortAscending()"></button >
+                <button  class="fa fa-arrow-circle-down" style="font-size:15px" id="clientName" (click)="sortDescending()"></button>
+            </th>
+            <th>location
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" id="location" (click)="sortAscending()"></button>
+                <button class="fa fa-arrow-circle-down" style="font-size:15px" id="location" (click)="sortDescending()"></button>
+            </th>
+            <th>Mobile
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" id="contactNumber" (click)="sortAscending()"></button >
+                <button  class="fa fa-arrow-circle-down" style="font-size:15px" id="contactNumber" (click)="sortDescending()"></button>
+            </th>
+            <th>Email
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" id="email" (click)="sortAscending()"></button>
+                <button class="fa fa-arrow-circle-down" style="font-size:15px" id="email" (click)="sortDescending()"></button>
+            </th>
+            <th>Designation
+                <button class="fa fa-arrow-circle-up" style="font-size:15px" id="designation" (click)="sortAscending()"></button>
+                <button class="fa fa-arrow-circle-down" style="font-size:15px" id="designation" (click)="sortDescending()"></button>
+            </th>
             <th>Operations</th>
         </tr>
     </thead>
-    <tbody><br>
-        <br>
+    <tbody>
         <tr *ngFor="let companyData of companyList$">
-            <th><input type="checkbox" [(ngModel)]="selectedId" value="companyData.id">
-                <th>
-                    <th>{{companyData.id}}</th>
-                    <th> {{companyData.clientName}} </th>
-                    <th>{{companyData.location}}</th>
-                    <th>{{companyData.contactNumber}}</th>
-                    <th>{{companyData.email}}</th>
-                    <th>{{companyData.designation}}</th>
-                    <th> <button (click)="delete(companyData.id)">Delete</button>
-                        <!-- <a routerLink="Edit/{{companyData.id}}">edit</a> -->
-                    </th>
+            <th> </th>
+            <th>{{companyData.id}}</th>
+            <th> {{companyData.clientName}} </th>
+            <th>{{companyData.location}}</th>
+            <th>{{companyData.contactNumber}}</th>
+            <th>{{companyData.email}}</th>
+            <th>{{companyData.designation}}</th>
+            <th> <button (click)="delete(companyData.id)">Delete</button>
+                <!-- <a routerLink="Edit/{{companyData.id}}">edit</a> -->
+            </th>
         </tr>
     </tbody>
 </table>
+
+--------------------------------------------

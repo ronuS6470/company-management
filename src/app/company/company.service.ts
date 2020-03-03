@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Company } from './company.model'  
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -36,5 +37,12 @@ export class CompanyService {
    */
   public addCompanyData(company: Company): Observable<Company> {
     return this.http.post<Company>(`${this.companyUrl}`, company);
+  }
+  
+  public sortData(sortField:string):Observable<Company[]>
+  {
+    return this.http.get<Company[]>(`${this.companyUrl}?${sortField}`).pipe(
+      shareReplay(1)
+    )
   }
 }

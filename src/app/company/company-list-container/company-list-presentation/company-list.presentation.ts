@@ -17,9 +17,11 @@ import { CompanyFilterPresentation } from './company-filter-presentation/company
 export class CompanyListPresentation  {
   
   @Input() public companyList$:Observable<Company[]>;
-  @Output() deleteCompany = new EventEmitter<number>();
+  @Output() public deleteCompany = new EventEmitter<number>();
+  @Output() public sort = new EventEmitter<string>();
 
-  public selectedId: number[];
+  public sortBy:string
+
 
   /**
    * This method will delete the records of a particular record
@@ -28,15 +30,26 @@ export class CompanyListPresentation  {
  public delete(id:number):void
   { 
     debugger;
-    this.selectedId;
     this.deleteCompany.emit(id);    
   }
 
   public portelRef: ComponentPortal<CompanyFilterPresentation>;
 
-  constructor(
-    private overlay: Overlay,
-  ) {}
+  constructor(private overlay: Overlay) {
+      this.sort=new EventEmitter<string>();
+    }
+
+  public sortAscending():void
+  {
+      this.sortBy=document.activeElement.id
+      this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
+  }
+  public sortDescending():void
+  {
+      this.sortBy=document.activeElement.id
+      console.log(this.sortBy)
+      this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
+  }
 
   public openDialog(): void {
     const config = new OverlayConfig();

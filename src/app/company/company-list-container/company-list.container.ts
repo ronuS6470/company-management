@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from '../company.service';
-import { Observable } from 'rxjs';
+import { Observable  } from 'rxjs';
 import { Company } from '../company.model';
 
 @Component({
@@ -16,7 +16,7 @@ export class CompanyListContainer {
   }
 
   getDetails():void {
-    
+
       this.companyList$ = this.companyService.getCompanies()
   }
 
@@ -29,4 +29,8 @@ export class CompanyListContainer {
        } 
       )
   }
+  public sortData(sortField:string):void
+    {
+        this.companyList$=this.companyService.sortData(sortField);
+    }
 }

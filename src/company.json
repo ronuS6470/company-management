@@ -1,30 +1,29 @@
 {
-  "company": [
-    {
-      "id": 2,
-      "clientName": "b",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "abhi@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 1111111111,
-      "attachment": "attachment"
-    },
-    {
-      "id": 4,
-      "clientName": "d",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "abhi@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 1111111111,
-      "attachment": "attachment"
-    }
-  ]
+    "company": [{
+            "id": 2,
+            "clientName": "b",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 4,
+            "clientName": "d",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "India",
+            "email": "b@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "Technical",
+            "contactPersonMobile": 1111111111,
+            "attachment": "attachment"
+        }
+    ]
 }
