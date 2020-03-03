@@ -8,6 +8,7 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
   selector: 'cmp-document-list-container',
   templateUrl: './document-list.container.html'
 })
+
 export class DocumentListContainer implements OnInit {
   documentData: Observable<Document[]>
 
@@ -30,5 +31,22 @@ export class DocumentListContainer implements OnInit {
   public sortData(sortField:string):void
   {
       this.documentData=this.documentService.sortData(sortField);
+  }
+  patchDocument(documentDetails:Document)
+  {
+    if(documentDetails.id)
+    {
+      this.documentService.editData(documentDetails,documentDetails.id).subscribe(()=>
+      {
+        this.documentData=this.documentService.getDocuments()
+      })
+    }
+    else
+    {
+      this.documentService.addData(documentDetails).subscribe(()=>
+      {
+        this.documentData=this.documentService.getDocuments()
+      })
+    }
   }
 }

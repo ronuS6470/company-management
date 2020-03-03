@@ -8,5 +8,6 @@ export class Document {
     created : DatePipe;
     modified : string;
     activity: string;
+    id:number;
 
 }

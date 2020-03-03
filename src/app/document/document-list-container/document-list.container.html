@@ -1,1 +1,1 @@
-<cmp-document-list-ui  [documentData] = "documentData" (delete)="deleteDocument($event)"  (sort)="sortData($event)"></cmp-document-list-ui>
+<cmp-document-list-ui  [documentData] = "documentData | async" (delete)="deleteDocument($event)"  (sort)="sortData($event)" (updatedDocument)="patchDocument($event)"></cmp-document-list-ui>

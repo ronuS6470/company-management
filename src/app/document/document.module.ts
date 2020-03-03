@@ -38,7 +38,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
    
   ],
   providers: [DocumentService],
-  entryComponents: [ DocumentFilterPresentation],
+  entryComponents: [ DocumentFilterPresentation,DocumentFormPresentation],
 
 })
 export class DocumentModule { }

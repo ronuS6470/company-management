@@ -17,6 +17,20 @@ export class DocumentService {
   public getDocuments() : Observable<Document[]>{
     return this.httpClient.get<Document[]>( `${this.apiUrl}`);
   }
+  public addData(document:Document):Observable<Document>
+  {
+    return this.httpClient.post<Document>(`${this.apiUrl}`,document)
+  }
+
+  /**
+   * Updates data of existing Employee in local storage
+   * @param employee 
+   * @param id 
+   */
+  public editData(document:Document,id:number):Observable<Document>
+  {
+    return this.httpClient.put<Document>(`${this.apiUrl}/${id}`,document)
+  }
 
   public deleteDocument(id: number) : Observable<Document>{
     this.id=id;

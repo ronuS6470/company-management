@@ -13,20 +13,24 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
+
 export class DocumentListPresentation {
+  public updatedDetails:any;
   private sortBy: string;
   subscribeData = null;
   document: any[] = [];
   filteredDocument: any[] = [];
-  @Input() public documentData: Observable<Document[]>
+  @Input() public documentData: Document[]
 
   @Output() public sort: EventEmitter<string>;
+  @Output() public updatedDocument:EventEmitter<any>;
   // @Output() public delete;
   todayDate: Date = new Date();
 
-  constructor(private deleteConfirmation: ConfirmationModalService, private listPresenter: DocumentListPresenter) {
+  constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
     this.sort = new EventEmitter<string>();
+    this.updatedDocument=new EventEmitter();
     // this.delete=new EventEmitter<number>();
   }
   // public deleteDocument(id:number){
@@ -53,7 +57,7 @@ export class DocumentListPresentation {
   }
 
   public openFilter() {
-    const ref = this.listPresenter.open(null);
+    const ref = this.documentListPresenter.open(null);
     this.subscribeData = ref.afterClosed$;
   }
 
@@ -83,10 +87,15 @@ export class DocumentListPresentation {
   }
 
   public loadDocument() {
-    this.documentData.subscribe(document => {
-      this.document = document;
-      this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : this.document;
-    });
+    // this.documentData.subscribe(document => {
+    //   this.document = document;
+    //   this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : this.document;
+    // });
 
+  }
+  loadDocumentForm(document:any):any
+  {
+   this.updatedDetails=this.documentListPresenter.loadForm(document)
+ 
   }
 }
