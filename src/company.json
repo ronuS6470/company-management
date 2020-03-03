@@ -1,8 +1,21 @@
 {
   "company": [
     {
-      "id": 1,
-      "clientName": "abhi",
+      "id": 2,
+      "clientName": "b",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "abhi@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 1111111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 4,
+      "clientName": "d",
       "clientType": "supplier",
       "businessType": "private",
       "contactNumber": 1231231231,

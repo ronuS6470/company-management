@@ -5,6 +5,7 @@
 <table class="table table-bordered ">
     <thead>
         <tr>
+            <th>Checkbox</th>
             <th>Id</th>
             <th>Full Name</th>
             <th>Email</th>
@@ -14,17 +15,20 @@
             <th>Operations</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody><br>
+        <br>
         <tr *ngFor="let companyData of companyList$">
-            <th>{{companyData.id}}</th>
-            <th> {{companyData.clientName}} </th>
-            <th>{{companyData.location}}</th>
-            <th>{{companyData.contactNumber}}</th>
-            <th>{{companyData.email}}</th>
-            <th>{{companyData.designation}}</th>
-            <th> <button (click)="delete(companyData.id)">Delete</button>
-                <!-- <a routerLink="Edit/{{companyData.id}}">edit</a> -->
-            </th>
+            <th><input type="checkbox" [(ngModel)]="selectedId" value="companyData.id">
+                <th>
+                    <th>{{companyData.id}}</th>
+                    <th> {{companyData.clientName}} </th>
+                    <th>{{companyData.location}}</th>
+                    <th>{{companyData.contactNumber}}</th>
+                    <th>{{companyData.email}}</th>
+                    <th>{{companyData.designation}}</th>
+                    <th> <button (click)="delete(companyData.id)">Delete</button>
+                        <!-- <a routerLink="Edit/{{companyData.id}}">edit</a> -->
+                    </th>
         </tr>
     </tbody>
 </table>

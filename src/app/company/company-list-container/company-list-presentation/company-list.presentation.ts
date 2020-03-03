@@ -16,13 +16,19 @@ import { CompanyFilterPresentation } from './company-filter-presentation/company
 })
 export class CompanyListPresentation  {
   
-
   @Input() public companyList$:Observable<Company[]>;
   @Output() deleteCompany = new EventEmitter<number>();
 
-  delete(id:number):void
+  public selectedId: number[];
+
+  /**
+   * This method will delete the records of a particular record
+   * @param id This is the id that need to be deleted 
+   */
+ public delete(id:number):void
   { 
     debugger;
+    this.selectedId;
     this.deleteCompany.emit(id);    
   }
 
