@@ -1,4 +1,4 @@
-<!-- <button (click)="openDialog()">Open dialog<br>(Overlay)</button> -->
+<!-- <button (click)="openDialog()">Open dialog<br>(Overlay)</button>
 <button class="btn bg-white mr-2" (click)="filter()">
         <span>Filter</span>
         <span class="fa fa-filter text-primary ml-2"></span>
@@ -49,4 +49,96 @@
             </th>
         </tr>
     </tbody>
-</table>
+</table> -->
+        <main class="main-content h-100">
+        <header class="d-flex justify-content-between align-items-center flex-wrap">
+            <div>
+                <h1 class="companie-lable">Companies</h1>
+            </div>
+            <div>
+                <button class="mr-3 bg-transparent border-0 delete-btn">
+                    <span class="fa fa-trash-o text-danger"></span>
+                </button>
+                <button class="btn bg-white mr-2" (click)="filter()">
+                    <span>Filter</span>
+                    <span class="fa fa-filter text-primary ml-2"></span>
+                </button>
+                <button class="btn btn-primary">
+                    <span class="fa fa-plus mr-1"></span>
+                    <span>Add Companies</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="table-responsive  h-100 overflow-auto">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col" class="checkbox-col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg pointer"
+                                >
+                                <label class="custom-control-label" ></label>
+                            </div>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted">reg &nbsp;
+                            <button class="fa fa-arrow-circle-up" style="font-size:15px" (click)="sortAscending()" id="id"></button>
+                            <button class="fa fa-arrow-circle-down" style="font-size:15px" id="id" (click)="sortDescending()"></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted">company</th>
+                        <th scope="col" class="text-uppercase text-muted td-mwidth">client name&nbsp;
+                            <button class="fa fa-arrow-circle-up" style="font-size:15px" id="clientName" (click)="sortAscending()"></button >
+                            <button  class="fa fa-arrow-circle-down" style="font-size:15px" id="clientName" (click)="sortDescending()"></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted">location&nbsp;
+                            <button class="fa fa-arrow-circle-up" style="font-size:15px" id="location" (click)="sortAscending()"></button>
+                            <button class="fa fa-arrow-circle-down" style="font-size:15px" id="location" (click)="sortDescending()"></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted td-mwidth">contact number&nbsp;
+                            <button class="fa fa-arrow-circle-up" style="font-size:15px" id="contactNumber" (click)="sortAscending()"></button >
+                            <button  class="fa fa-arrow-circle-down" style="font-size:15px" id="contactNumber" (click)="sortDescending()"></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted">email&nbsp;
+                            <button class="fa fa-arrow-circle-up" style="font-size:15px" id="email" (click)="sortAscending()"></button>
+                            <button class="fa fa-arrow-circle-down" style="font-size:15px" id="email" (click)="sortDescending()"></button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="h-100">
+                    <tr class="bg-white" *ngFor="let companyData of companyList$" >
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>{{companyData.id}}</td>
+                        <td>
+                            <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>{{companyData.clientName}}</td>
+                        <td>{{companyData.location}}</td>
+                        <td>{{companyData.contactNumber}}</td>
+                        <td>{{companyData.email}}</td>
+                        <td class="d-flex justify-content-end">
+                            <!-- <div class="dropdown mr-1">
+                                <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset"
+                                    data-toggle="dropdown"></span>
+                                <div class="dropdown-menu-position dropdown-menu dropdown-menu-right dropdown-menu-lg-left"
+                                    aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Add</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div> -->
+                            <button (click)="delete(companyData.id)">Delete</button>
+                                <a routerLink="Edit/{{companyData.id}}">edit</a>
+                           
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>

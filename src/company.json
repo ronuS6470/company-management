@@ -1,19 +1,6 @@
 {
   "company": [
     {
-      "id": 1,
-      "clientName": "a",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "a@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 111111,
-      "attachment": "attachment"
-    },
-    {
       "id": 2,
       "clientName": "b",
       "clientType": "supplier",
@@ -40,43 +27,95 @@
       "attachment": "attachment"
     },
     {
-        "id": 4,
-        "clientName": "d",
-        "clientType": "supplier",
-        "businessType": "private",
-        "contactNumber": 1231231231,
-        "location": "usa",
-        "email": "a@gmail.com",
-        "contactPersonName": "jay",
-        "designation": "marketing",
-        "contactPersonMobile": 111111,
-        "attachment": "attachment"
-      },
-      {
-        "id": 5,
-        "clientName": "e",
-        "clientType": "supplier",
-        "businessType": "private",
-        "contactNumber": 1231231231,
-        "location": "usa",
-        "email": "a@gmail.com",
-        "contactPersonName": "jay",
-        "designation": "marketing",
-        "contactPersonMobile": 111111,
-        "attachment": "attachment"
-      },
-      {
-        "id": 6,
-        "clientName": "f",
-        "clientType": "supplier",
-        "businessType": "private",
-        "contactNumber": 1231231231,
-        "location": "usa",
-        "email": "a@gmail.com",
-        "contactPersonName": "jay",
-        "designation": "marketing",
-        "contactPersonMobile": 111111,
-        "attachment": "attachment"
-      }
+      "id": 4,
+      "clientName": "d",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 5,
+      "clientName": "e",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 6,
+      "clientName": "f",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 7,
+      "clientName": "g",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 8,
+      "clientName": "h",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 9,
+      "clientName": "i",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    },
+    {
+      "id": 12,
+      "clientName": "L",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 1231231231,
+      "location": "usa",
+      "email": "a@gmail.com",
+      "contactPersonName": "jay",
+      "designation": "marketing",
+      "contactPersonMobile": 111111,
+      "attachment": "attachment"
+    }
   ]
 }
