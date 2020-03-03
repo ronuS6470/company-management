@@ -15,7 +15,7 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
 
 
 export class DocumentListPresentation {
-  public updatedDetails:any;
+  public updatedDetails: any;
   private sortBy: string;
   subscribeData = null;
   document: any[] = [];
@@ -23,28 +23,36 @@ export class DocumentListPresentation {
   @Input() public documentData: Document[]
 
   @Output() public sort: EventEmitter<string>;
-  @Output() public updatedDocument:EventEmitter<any>;
-  // @Output() public delete;
+  @Output() public updatedDocument: EventEmitter<any>;
+  @Output() public delete;
   todayDate: Date = new Date();
 
   constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
     this.sort = new EventEmitter<string>();
-    this.updatedDocument=new EventEmitter();
-    // this.delete=new EventEmitter<number>();
+    this.updatedDocument = new EventEmitter();
+    this.delete = new EventEmitter<number>();
   }
-  // public deleteDocument(id:number){
-  //   this.delete.emit(id);
+  public deleteDocument(id: number) {
+    if (confirm('Are you sure to delete this document')) {
+      this.delete.emit(id);
+    }
+
+  }
+  // openConfirmation(id: number) {
+  //   this.deleteConfirmation.showOverlay(id)
   // }
-  openConfirmation(id: number) {
-    this.deleteConfirmation.showOverlay(id)
-  }
 
   public sortAscending(): void {
     this.sortBy = document.activeElement.id
     this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
   }
-
+  consoleData() {
+   console.log(this.documentData.filter(item=>item.checked))
+  //  for (var data in this.documentData){
+  //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
+  //  }
+  }
   /**
    * Emits an sort event with the field for descending order
    */
@@ -93,9 +101,12 @@ export class DocumentListPresentation {
     // });
 
   }
-  loadDocumentForm(document:any):any
-  {
-   this.updatedDetails=this.documentListPresenter.loadForm(document)
- 
+  loadDocumentForm(document: any): any {
+    this.updatedDetails = this.documentListPresenter.loadForm(document)
+
+  }
+
+  multipleDelete(id: number) {
+    console.log(id)
   }
 }

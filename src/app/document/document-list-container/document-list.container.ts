@@ -12,10 +12,13 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
 export class DocumentListContainer implements OnInit {
   documentData: Observable<Document[]>
 
-  constructor(private documentService: DocumentService) {}
+  constructor(private documentService: DocumentService) {
+
+  }
 
   ngOnInit() {
     this.getDocuments()
+
   }
 
   public getDocuments() {

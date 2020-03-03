@@ -6,11 +6,13 @@ import { DocumentFilterPresentation } from '../document-list-presentation/docume
 import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 import {DOCUMENT_DETAILS} from '../../token'
 import { DocumentFormPresentation } from '../document-list-presentation/document-form-presentation/document-form.presentation';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable, from } from 'rxjs';
+import {map} from 'rxjs/operators'
 @Injectable()
 export class DocumentListPresenter {
   public updatedDetails:Document
-    constructor(public viewContainerRef:ViewContainerRef, private overlay: Overlay, private injector: Injector) { }
+    constructor(public viewContainerRef:ViewContainerRef, private overlay: Overlay, private injector: Injector, private http:HttpClient) { }
 
 
     /**
@@ -68,5 +70,10 @@ export class DocumentListPresenter {
         return this.updatedDetails
       })
     }
+//     removeData(id:number):Observable<Document[]>{
+// return this.http.delete<Document[]>(`http://localhost:3000/documents/${id}`)
+
+//     }
+
   }
 

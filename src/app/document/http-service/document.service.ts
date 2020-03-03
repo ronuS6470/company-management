@@ -34,7 +34,7 @@ export class DocumentService {
 
   public deleteDocument(id: number) : Observable<Document>{
     this.id=id;
-    return this.httpClient.delete<Document>(`${this.apiUrl}`+`/${id}`);
+    return this.httpClient.delete<Document>(`${this.apiUrl}/${id}`);
   }
   public sortData(sortField:string):Observable<Document[]>
   {

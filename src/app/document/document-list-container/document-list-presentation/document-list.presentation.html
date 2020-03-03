@@ -41,24 +41,25 @@
       <th><input type="checkbox"></th>
       <th>NAME</th>
       <th>OWNER</th>
-      <th>CREATED &nbsp;<button (click)="sortAscending()" class="short-up" id="created"><span
+      <th ng-repeat>CREATED &nbsp;<button (click)="sortAscending()" class="short-up" id="created"><span
         class="fa fa-caret-down text-muted "></span></button>&nbsp;&nbsp;&nbsp;
         <button (click)="sortDescending()" class="short-down"  id="created"><span
             class="fa fa-caret-up text-muted "></span></button></th>
       <th>MODIFIED</th>
       <th>ACTIVITY </th>
       <th>Delete</th>
+      <th>consoleData</th>
 
     </tr>
-    <tr *ngFor="let document of documentData; let i=index">
-      <td><input type="checkbox"></td>
+    <tr *ngFor="let document of documentData ; let i=index  " >
+      <td><input type="checkbox" [(ngModel)]="document.checked"></td>
       <td>{{document.documentName}}</td>
       <td>{{document.ownerName}}</td>
       <td>{{document.created | date : 'medium'}}</td>
       <td>{{document.modified}}</td>
       <td>{{document.activity}}</td>
-      <td><button (click)="openConfirmation(document.id)"> Delete</button><button (click) = "loadDocumentForm(documentData[i])"> Edit</button></td>
-     
+      <td><button (click)="deleteDocument(document.id)"> Delete</button><button (click) = "loadDocumentForm(documentData[i])"> Edit</button></td>
+     <td><Button (click)=consoleData(document.id)>Console Data</Button></td>
 
     </tr>
 
