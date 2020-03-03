@@ -6,11 +6,13 @@ import { CompanyFormContainer } from './company-form-container/company-form.cont
 const routes: Routes = [
   {
     path: 'list',
-    component: CompanyListContainer
+    component: CompanyListContainer,
+    data: { breadcrumb: 'list'}
   },
   {
     path: 'add',
-    component: CompanyFormContainer
+    component: CompanyFormContainer,
+    data: { breadcrumb: 'add'}
   },
   {
     path: 'edit/:id',

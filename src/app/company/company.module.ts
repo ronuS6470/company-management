@@ -12,6 +12,7 @@ import { CompanyListPresentation } from './company-list-container/company-list-p
 import { CompanyFilterPresentation } from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { CompanyService } from './company.service';
+import {BreadcrumbModule} from 'angular-crumbs';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CompanyService } from './company.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    BreadcrumbModule,
     OverlayModule,
     PortalModule,
   ],

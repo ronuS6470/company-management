@@ -5,10 +5,11 @@ import { Company } from '../company.model';
 
 @Component({
   selector: 'cmp-company-list-container',
-  templateUrl: './company-list.container.html'
+  templateUrl: './company-list.container.html',
+  providers:[CompanyService]
 })
 export class CompanyListContainer {
-  
+
   public companyList$: Observable<Company[]>
 
   constructor(private companyService :CompanyService) {
@@ -16,7 +17,6 @@ export class CompanyListContainer {
   }
 
   getDetails():void {
-
       this.companyList$ = this.companyService.getCompanies()
   }
 
