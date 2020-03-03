@@ -3,9 +3,9 @@ import { Injectable, Injector, ViewContainerRef } from '@angular/core';
 import { OverlayConfig, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
-import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 import { DOCUMENT_DETAILS } from '../../token'
 import { DocumentFormPresentation } from '../document-list-presentation/document-form-presentation/document-form.presentation';
+import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 
 @Injectable()
 export class DocumentListPresenter {
@@ -22,7 +22,7 @@ export class DocumentListPresenter {
 
     configs.positionStrategy = this.overlay.position()
       .global()
-      .centerHorizontally()
+      .right()
       .centerVertically();
     configs.hasBackdrop = true;
 

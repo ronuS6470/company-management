@@ -1,9 +1,10 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Observable } from 'rxjs';
-import { Document } from 'src/app/document/document.model'
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service'
+import { Subject } from 'rxjs';
+import { Document } from 'src/app/document/document.model';
+import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
+import { OverlayRef } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'cmp-document-list-ui',
@@ -13,16 +14,16 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-
 export class DocumentListPresentation implements OnInit {
   public updatedDetails: any;
   private sortBy: string;
   document: any[] = [];
   filteredDocument: any[] = [];
-  
+
   @Input() set documentData(value: Document[]) {
     if (value) {
       this.docData = value;
+      this.document = value;
       this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
     }
   }
@@ -81,7 +82,7 @@ export class DocumentListPresentation implements OnInit {
    * @param filters filter data
    */
   filterList(filters: any): void {
-    this.filteredDocument = this.document; //Reset User List
+    this.filteredDocument = this.document;
     const keys = Object.keys(filters);
     const filterDocument = doc => {
       let result = keys.map(key => {
