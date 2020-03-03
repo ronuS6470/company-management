@@ -7,10 +7,10 @@ import { CompanyFormContainer } from './company-form-container/company-form.cont
 const routes: Routes = [
   {
     path: 'list',
-    component: CompanyFormContainer
+    component: CompanyListContainer
   },
   {
-    path: 'add',
+    path: 'add-form',
     component: CompanyFormContainer
   },
   {
