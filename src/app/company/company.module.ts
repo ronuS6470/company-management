@@ -11,7 +11,7 @@ import {
 } from './company-list-container/company-list-presentation/company-filter-presentation/company-filter.presentation';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {BreadcrumbModule} from 'angular-crumbs';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     CompanyRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BreadcrumbModule
   ]
 })
 export class CompanyModule { }

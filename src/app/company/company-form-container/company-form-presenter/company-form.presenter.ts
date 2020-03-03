@@ -8,6 +8,7 @@ export class CompanyFormPresenter {
 
     companyForm: FormGroup;
     companyObj: Company;
+
     constructor(private formBuilder: FormBuilder) { }
 
     /**
@@ -15,7 +16,7 @@ export class CompanyFormPresenter {
      */
     public buildCompanyForm(): FormGroup {
         return this.companyForm = this.formBuilder.group({
-            clientName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+            clientName: ['', [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
             clientType: ['supplier', Validators.required],
             businessType: ['', Validators.required],
             contactNumber: ['', [Validators.required, Validators.pattern('[0-9]{10,12}')]],
@@ -35,5 +36,15 @@ export class CompanyFormPresenter {
         debugger
         this.companyObj = new Company();
         this.companyObj = this.companyForm.value;
+    }
+
+    /**
+   * update company
+   */
+    public updateCompany(): void {
+        debugger
+        if (this.companyForm.valid) {
+            this.companyObj = this.companyForm.value;
+        }
     }
 }

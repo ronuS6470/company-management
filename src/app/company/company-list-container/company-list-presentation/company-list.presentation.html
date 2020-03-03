@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assigment</title>
 
-    <!-- Font Awesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
@@ -434,4 +433,32 @@
 </body>
 
 </html>
-
+ -->
+ 
+ <!-- 2 -->
+ <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>City</th>
+                <th>Department</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let companyData of companyList$">
+                <th>{{companyData.id}}</th>
+                <th> {{companyData.clientName}} </th>
+                <th>{{companyData.location}}</th>
+                <th>{{companyData.contactNumber}}</th>
+                <th>{{companyData.email}}</th>
+                <th>{{companyData.designation}}</th>
+                <th> <button (click)="delete(companyData.id)">Delete</button>
+                    <a routerLink="/company/edit/{{companyData.id}}">edit</a>
+                </th>
+            </tr>
+        </tbody>
+    </table>
