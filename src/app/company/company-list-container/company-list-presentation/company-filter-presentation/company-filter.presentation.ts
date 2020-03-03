@@ -3,7 +3,6 @@ import { Component, ChangeDetectionStrategy, EventEmitter, Output, OnInit } from
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
 import { FormGroup } from '@angular/forms';
 
-
 /**
  * @author amit
  */
@@ -42,9 +41,10 @@ export class CompanyFilterPresentation implements OnInit {
    * Filter field wise
    * @param filters filter keyword
    */
-  search(filters: any): void {
+  public search(filters: any): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
     this.sendData.emit(filters);
     this.searchText = filters;
   }
+  get companyForm() { return this.form.controls; }
 }

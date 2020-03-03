@@ -14,8 +14,6 @@ import {
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CompanyService } from './company.service';
 import { CompanyFormPresentation } from './company-form-container/company-form-presentation/company-form.presentation';
-import { OverlayService } from './service/overlay.service';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +33,7 @@ import { OverlayService } from './service/overlay.service';
     OverlayModule,
     PortalModule,
   ],
-  providers: [CompanyService, OverlayService],
+  providers: [CompanyService],
   entryComponents: [CompanyFilterPresentation]
 })
 export class CompanyModule { }

@@ -3,21 +3,22 @@
         <span>Filter</span>
         <span class="fa fa-filter text-primary ml-2"></span>
 </button>
+{{comp | json}}
 <table class="table table-bordered ">
-       
+       {{comp | json}}
     <thead>
         <tr>
             <th>Id</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
+            <th>Client Name</th>
             <th>City</th>
+            <th>Mobile</th>
+            <th>Email</th>
             <th>Department</th>
             <th>Operations</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let companyData of companyList$">
+        <tr *ngFor="let companyData of filteredUsers">
             <th>{{companyData.id}}</th>
             <th> {{companyData.clientName}} </th>
             <th>{{companyData.location}}</th>

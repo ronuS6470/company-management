@@ -1,12 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 // ---------------------------------- //
-
-import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
 import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
-import { Observable } from 'rxjs';
-import { OverlayService } from '../../service/overlay.service';
 
 @Component({
   selector: 'cmp-company-list-ui',
@@ -15,40 +11,54 @@ import { OverlayService } from '../../service/overlay.service';
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentation implements DoCheck {
+export class CompanyListPresentation implements OnInit {
 
   // Get Company list
-  @Input() public companyList$: Observable<Company[]>;
+  @Input() set companyList$(value) {
+    this.filteredUsers = value;
+    this.users = value;
+  }
+
   @Output() deleteCompany = new EventEmitter<number>();
 
   // ComponentPortal Instance
   public portalRef: ComponentPortal<CompanyFilterPresentation>;
-  // Catch Data
-  private catchData;
   subscribeData = null;
+
+  // Temp for store data
+  users: any;
+  // store filtered data
+  filteredUsers: any[] = [];
+
   constructor(
     private companyListPresenter: CompanyListPresenter,
-    private overlayService: OverlayService
-  ) { }
+  ) {
 
-  ngDoCheck(): void {
-    // console.log(this.catchData);
+  }
+  public ngOnInit(): void {
+    // console.log(this.groupFilters);
+    this.loadCompany();
   }
 
-  delete(id: number): void {
-    this.deleteCompany.emit(id);
+  public ngDoCheck(): void {
+    if (this.companyListPresenter.data) {
+      this.filteredUsers = this.companyListPresenter.filterUserList(this.companyListPresenter.data, this.users, this.filteredUsers);
+    }
   }
 
-  // filter
+  /**
+   * Load Company List data..
+   */
+  loadCompany(): void {
+    this.users = this.companyList$;
+    console.log(this.users);
+    this.filteredUsers = this.filteredUsers.length > 0 ? this.filteredUsers : this.users;
+  }
+
+  /**
+   * filter
+   */
   public filter(): void {
-    this.catchData = this.companyListPresenter.filter();
-  }
-
-  // Open filter form
-  open() {
-    const ref = this.overlayService.open(null);
-    ref.afterClosed$.subscribe(res => {
-      this.subscribeData = res.data;
-    });
+    this.companyListPresenter.filter();
   }
 }

@@ -18,11 +18,11 @@ export class CompanyFilterPresenter {
      */
     public buildForm(): void {
         this.form = this.fb.group({
-            companyName: new FormControl('', Validators.required),
-            clientName: new FormControl('', Validators.required),
-            contactNumber: new FormControl('', Validators.required),
-            location: new FormControl('', Validators.required),
-            email: new FormControl('', Validators.required),
+            companyName: new FormControl('', Validators.pattern('[a-zA-Z]*')),
+            clientName: new FormControl('', Validators.pattern('[a-zA-Z]*')),
+            contactNumber: new FormControl('', Validators.pattern('[0-9]*')),
+            location: new FormControl(''),
+            email: new FormControl(''),
         });
     }
 }
