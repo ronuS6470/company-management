@@ -37,4 +37,11 @@ export class DocumentFilterPresentation implements OnInit {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
     this.ref.close(filters);
   }
+
+  /**
+   * close overlay
+   */
+  closeOverlay() {
+    this.ref.overlay.dispose();
+  }
 }
