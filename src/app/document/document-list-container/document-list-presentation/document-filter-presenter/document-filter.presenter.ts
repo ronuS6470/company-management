@@ -8,13 +8,15 @@ export class DocumentFilterPresenter {
         private fb: FormBuilder
     ) { }
 
+    /**
+     * build form
+     */
     buildForm(): FormGroup {
         return this.fb.group({
-            name: new FormControl(''),
-            owner: new FormControl(''),
+            documentName: new FormControl(''),
+            ownerName: new FormControl(''),
             activity: new FormControl(''),
-            agefrom: new FormControl(''),
-            ageto: new FormControl('')
+            created: new FormControl('')
         });
     }
 }

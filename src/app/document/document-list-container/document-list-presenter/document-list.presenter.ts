@@ -1,29 +1,42 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { OverlayConfig, Overlay } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
-import { Subject } from 'rxjs';
+import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 
 @Injectable()
 export class DocumentListPresenter {
-    afterClosed$ = new Subject();
-    constructor(private overlay: Overlay) { }
+    constructor(private overlay: Overlay, private injector: Injector) { }
 
-    createOverlay() {
-        const config = new OverlayConfig();
+    /**
+     * Open Overlay
+     */
+    open(data): MyOverlayRef {
+        const configs = new OverlayConfig();
 
-        config.positionStrategy = this.overlay.position()
+        configs.positionStrategy = this.overlay.position()
             .global()
             .centerHorizontally()
             .centerVertically();
-        config.hasBackdrop = true;
+        configs.hasBackdrop = true;
 
-        const overlayRef = this.overlay.create(config);
-        const pipePortal = new ComponentPortal(DocumentFilterPresentation);
-        overlayRef.attach(pipePortal);
+        const overlayRef = this.overlay.create(configs);
 
-        overlayRef.backdropClick().subscribe(() => {
-            overlayRef.dispose();
-        });
+        const myOverlayRef = new MyOverlayRef(overlayRef, data);
+
+        const injector = this.createInjector(myOverlayRef, this.injector);
+        overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
+
+        return myOverlayRef;
+    }
+
+    /**
+     * create injector
+     * @param ref overlay reference
+     * @param inj injector
+     */
+    createInjector(ref: MyOverlayRef, inj: Injector) {
+        const injectorTokens = new WeakMap([[MyOverlayRef, ref]]);
+        return new PortalInjector(inj, injectorTokens);
     }
 }

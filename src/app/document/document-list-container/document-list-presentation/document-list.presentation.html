@@ -14,8 +14,9 @@
 
 <body>
 
-<button (click)="openFilter()">Filter</button>
-<button>New</button>
+  <button (click)="openFilter()">Filter</button>
+  {{subscribeData | async | json}}
+  <button>New</button>
   <table style="width:100%">
     <tr>
       <th><input type="checkbox"></th>
@@ -25,9 +26,9 @@
       <th>MODIFIED</th>
       <th>ACTIVITY</th>
       <th>Delete</th>
-     
+
     </tr>
-    <tr *ngFor="let document of documentData | async">
+    <tr *ngFor="let document of document">
       <td><input type="checkbox"></td>
       <td>{{document.documentName}}</td>
       <td>{{document.ownerName}}</td>
@@ -35,13 +36,13 @@
       <td>{{document.modified}}</td>
       <td>{{document.activity}}</td>
       <td><button (click)="deleteDocument(document.id)"> Delete</button></td>
-     
+
 
     </tr>
 
 
   </table>
-  
+
 
 </body>
 
