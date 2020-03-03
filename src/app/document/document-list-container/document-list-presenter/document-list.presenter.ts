@@ -8,29 +8,31 @@ import { DocumentFormPresentation } from '../document-list-presentation/document
 @Injectable()
 export class DocumentListPresenter {
 
-    constructor(public viewContainerRef:ViewContainerRef,private overlay:Overlay,private _injector:Injector) {}
+  public updatedDetails:Document
+  constructor(public viewContainerRef:ViewContainerRef,private overlay:Overlay,private _injector:Injector) { }
 
-    createInjector(documentDetails:any,overlayRef:OverlayRef): PortalInjector {
-        const injectorTokens = new WeakMap();
-        injectorTokens.set(OverlayRef, overlayRef);
-        injectorTokens.set(DOCUMENT_DETAILS, documentDetails);
-        return new PortalInjector(this._injector, injectorTokens);
-      }
+  createInjector(documentDetails:any,overlayRef:OverlayRef): PortalInjector {
+    const injectorTokens = new WeakMap();
+    injectorTokens.set(OverlayRef, overlayRef);
+    injectorTokens.set(DOCUMENT_DETAILS, documentDetails);
+    return new PortalInjector(this._injector, injectorTokens);
+  }
 
-    loadForm(documentDetails:any):void
+  loadForm(documentDetails:any):void
+  {
+    let config=new OverlayConfig()
+
+    config.positionStrategy=this.overlay.position().global().centerHorizontally().centerVertically()
+    config.hasBackdrop=true
+
+    let overlayRef=this.overlay.create(config);
+
+    let ref=overlayRef.attach(new ComponentPortal(DocumentFormPresentation,this.viewContainerRef,this.createInjector(documentDetails,overlayRef)))
+
+    ref.instance.updatedDocument.subscribe((data:Document)=>
     {
-      let config=new OverlayConfig()
-  
-      config.positionStrategy=this.overlay.position().global().centerHorizontally().centerVertically()
-      config.hasBackdrop=true
-  
-      let overlayRef=this.overlay.create(config);
-  
-      overlayRef.attach(new ComponentPortal(DocumentFormPresentation,this.viewContainerRef,this.createInjector(documentDetails,overlayRef)))
-  
-      overlayRef.backdropClick().subscribe(()=>
-        {
-            overlayRef.dispose()
-        })  
-    }
+      this.updatedDetails=data
+      return this.updatedDetails
+    })
+  }
 }

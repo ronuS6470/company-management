@@ -6,4 +6,21 @@ import { Component } from '@angular/core';
 })
 export class DocumentListContainer {
   constructor() {}
+
+  patchDocument(documentDetails:Document)
+  {
+    if(documentDetails.id)
+    {
+      this.documentService.editData(documentDetails,documentDetails.id).subscribe(()=>
+      {
+        this.documentDetails$=this.documentService.getAllData()
+      })
+    }
+    else
+    {
+      this.documentService.addData(documentDetails).subscribe(()=>
+      {
+        this.documentDetails$=this.documentService.getAllData()
+      })
+    }
 }

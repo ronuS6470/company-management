@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy,Inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy,Inject,EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Document } from '../../service/document.modal';
 import { DOCUMENT_DETAILS } from '../../token';
@@ -16,6 +16,10 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
 })
 export class DocumentFormPresentation  {
   public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
+
+  public formSubmitted:boolean=false;
+
+  @Output() public updatedDocument=new EventEmitter<Document>()
 
   constructor(@Inject(DOCUMENT_DETAILS) public document:Document,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
   {
@@ -35,9 +39,9 @@ export class DocumentFormPresentation  {
     return this.documentFormDetails.controls;
   }
 
-  onSubmit():void
+   public onSubmit():void
   {
-    this.overlayRef.detach()
+    this.overlayRef.dispose()
+    this.updatedDocument.emit(this.documentFormDetails.value)
   }
-
 }
