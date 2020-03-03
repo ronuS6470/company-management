@@ -24,7 +24,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     DocumentFormPresentation,
     DocumentListContainer,
     DocumentListPresentation,
-    DocumentFilterPresentation
+    DocumentFilterPresentation,
+    
   ],
   imports: [
     CommonModule,
@@ -37,7 +38,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
    
   ],
   providers: [DocumentService],
-  entryComponents: [ConfirmationModalComponent,  DocumentFilterPresentation],
+  entryComponents: [ DocumentFilterPresentation],
 
 })
 export class DocumentModule { }

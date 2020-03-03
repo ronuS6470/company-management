@@ -50,7 +50,7 @@
       <th>Delete</th>
 
     </tr>
-    <tr *ngFor="let document of document">
+    <tr *ngFor="let document of documentData | async">
       <td><input type="checkbox"></td>
       <td>{{document.documentName}}</td>
       <td>{{document.ownerName}}</td>

@@ -4,7 +4,6 @@ import { DocumentListPresenter } from '../document-list-presenter/document-list.
 import { Observable } from 'rxjs';
 import { Document } from 'src/app/document/document.model'
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service'
-import { ConfirmationModalComponent } from 'src/app/core/components/confirmation-modal/confirmation-modal.component';
 import { DocumentFilterPresentation } from './document-filter-presentation/document-filter.presentation';
 @Component({
   selector: 'cmp-document-list-ui',

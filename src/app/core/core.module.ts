@@ -14,8 +14,8 @@ import {OverlayModule} from '@angular/cdk/overlay'
     PortalModule,
     OverlayModule
   ],
-  exports: [HeaderComponent, SidebarComponent],
-  entryComponents: [ConfirmationModalComponent]
+  exports: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
+  entryComponents: []
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

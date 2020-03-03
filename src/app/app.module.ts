@@ -7,7 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PortalModule } from '@angular/cdk/portal'
 import {OverlayModule} from '@angular/cdk/overlay'
-import { ConfirmationModalComponent } from './core/components/confirmation-modal/confirmation-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +24,6 @@ import { ConfirmationModalComponent } from './core/components/confirmation-modal
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationModalComponent]
+  entryComponents: []
 })
 export class AppModule { }
