@@ -14,135 +14,10 @@
       tr{
         td{
             font-weight: map-get($font-weights, 'medium' )
-
-/* Start : Company List */
-table {
-
-  th {
-    font-weight: 200;
-    &:nth-child(1) {
-      width: 1px;
-    }
-    &:nth-child(2) {
-      width: 150px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 70px;
-         }
-       }
-    }
-    &:nth-child(3) {
-      width: 180px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 100px;
-         }
-       }
-    }
-    &:nth-child(4) {
-      width: 180px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 240px;
-         }
-       }
-       @media only screen and (max-width: 768px) {
-        & {
-            width: 1101px;
-         }
-       }
-    }
-    &:nth-child(5) {
-      width: 170px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 110px;
-         }
-       }
-    }
-    &:nth-child(6) {
-      width: 230px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 300px;
-         }
-       }
-    }
-    &:nth-child(7) {
-      width: 100px;
-      @media only screen and (max-width: 1024px) {
-        & {
-            width: 300px;
-         }
-       }
-    }
-    &:nth-child(8) {
-      width: 80px;
-    }
-    @media only screen and (max-width: 768px) {
-        & {
-            font-size: 14px;
-         }
-       }
-  }
-  tbody {
-    height: 450px;
-    tr {
-      td {
-        &:nth-child(1) {
-          width: 50px;
-        }
-        &:nth-child(2) {
-          width: 150px;
-          @media only screen and (max-width: 1024px) {
-            & {
-                width:90px
-             }
-           }
-        }
-        &:nth-child(3) {
-          width: 180px;
-          @media only screen and (max-width: 1024px) {
-            & {
-                width:130px
-             }
-           }
-           @media only screen and (max-width: 768px) {
-            & {
-                width: 130px;
-             }
-           }
-        }
-        &:nth-child(4) {
-          width: 180px;
-          @media only screen and (max-width: 1024px) {
-            & {
-                width:200px
-             }
-           }
-        }
-        &:nth-child(5) {
-          width: 170px;
-          @media only screen and (max-width: 1024px) {
-            & {
-                width: 140px;
-             }
-           }
-        }
-        &:nth-child(6) {
-          width: 230px;
-        }
-        &:nth-child(7) {
-            width: 200px;
-        }
-        &:nth-child(8) {
-          width: 80px;
-
         }
       }
     }
   }
-
   
   .user-icon {
     height: 2em;
@@ -158,7 +33,6 @@ table {
   height: 85%;
 }
 
-}
 
 .company-img {
   width: 30px;
