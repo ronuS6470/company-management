@@ -9,14 +9,14 @@ const routes: Routes = [
     path: 'list',
     component: CompanyFormContainer
   },
-  // {
-  //   path: 'add',
-  //   component: CompanyFormContainer
-  // },
-  // {
-  //   path: 'edit/:id',
-  //   component: CompanyFormContainer
-  // },
+  {
+    path: 'add',
+    component: CompanyFormContainer
+  },
+  {
+    path: 'edit/:id',
+    component: CompanyFormContainer
+  },
   {
     path: '',
     redirectTo: 'list',
