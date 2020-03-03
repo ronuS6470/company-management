@@ -16,6 +16,7 @@ export class CompanyFormPresentation  {
   @Output() add: EventEmitter<Company>;
   companyForm: FormGroup;
   submitted: boolean;
+  attachmentFile:string="file name";
 
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;

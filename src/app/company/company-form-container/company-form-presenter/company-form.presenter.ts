@@ -16,7 +16,7 @@ export class CompanyFormPresenter {
     public buildCompanyForm(): FormGroup {
         return this.companyForm = this.formBuilder.group({
             clientName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-            clientType: ['', Validators.required],
+            clientType: ['supplier', Validators.required],
             businessType: ['', Validators.required],
             contactNumber: ['', [Validators.required, Validators.pattern('[0-9]{10,12}')]],
             location: ['', Validators.required],
