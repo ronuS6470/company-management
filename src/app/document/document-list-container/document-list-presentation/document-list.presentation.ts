@@ -28,7 +28,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Output() public updatedDocument: EventEmitter<any>;
   @Output() public filter: EventEmitter<any>;
   @Output() public addDocument: EventEmitter<Document>
-  // @Output() public delete;
+  @Output() public delete;
   todayDate: Date = new Date();
   // filter key and value
   public subscribeData: any;
@@ -45,7 +45,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.updatedDocument = new EventEmitter();
     this.addDocument = new EventEmitter(/* isAsync = */ false);
     this.filter = new EventEmitter<any>();
-    // this.delete=new EventEmitter<number>();
+    this.delete = new EventEmitter<number>();
   }
 
   ngOnInit() {
@@ -55,8 +55,21 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     if (this.groupFilter) {
       this.filterList(this.groupFilter);
     }
+    if (this.docData != null) {
+      this.filteredDocument = this.docData;
+      this.docData = null;
+    }
   }
 
+  /**
+    * Emits a delete event with specified id
+    * @param id 
+    */
+  public deleteDocument(id: number) {
+    if (confirm('Are you sure to delete this document')) {
+      this.delete.emit(id);
+    }
+  }
   // public deleteDocument(id:number){
   //   this.delete.emit(id);
   // }
@@ -117,7 +130,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   loadDocumentForm(document: any): void {
     this.documentListPresenter.loadForm(document).subscribe((data) => {
       this.updatedDetails = data
-      if (document.id) {
+      if (document != null) {
         console.log(document.id);
         this.updatedDetails.id = document.id
         this.updatedDocument.emit(this.updatedDetails)

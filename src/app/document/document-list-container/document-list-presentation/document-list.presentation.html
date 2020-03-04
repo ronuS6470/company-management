@@ -21,7 +21,7 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <h3>Documents</h3>&nbsp;
-                <p class="m-0 text-primary">({{filteredDocument?.length}})</p>
+                <p class="m-0 text-primary" *ngIf="filteredDocument">({{filteredDocument?.length}})</p>
             </div>
             <div class="d-flex align-items-center">
                 <button (click)="loadDocumentForm(filteredDocument[i])"
@@ -29,7 +29,6 @@
                 <button (click)="openFilter()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-dark">Filter</span>&nbsp;&nbsp;<span
                         class="fa fa-filter text-primary"></span></button>
-                {{subscribeData | async | json}}
                 <button class="btn btn-outline-primary mx-2 px-4"><span
                         class="fa fa-upload"></span>&nbsp;<span>Upload</span></button>
                 <button (click)="loadDocumentForm(null)" class="btn btn-primary mx-2 px-4"><span

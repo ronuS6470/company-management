@@ -1,5 +1,5 @@
 
-import { Injectable, Injector, ViewContainerRef } from '@angular/core';
+import { Injectable, Injector, ViewContainerRef, OnDestroy } from '@angular/core';
 import { OverlayConfig, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
@@ -9,7 +9,7 @@ import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable()
-export class DocumentListPresenter {
+export class DocumentListPresenter implements OnDestroy{
   public componentRef;
   public updatedDetails: Document;
   private subject = new Subject<any>();
@@ -58,7 +58,7 @@ export class DocumentListPresenter {
      * Opens an overlay for document form
      * @param documentDetails //Contains the details of document
      */
-  loadForm(documentDetails: Document): Observable<any> {
+  loadForm(documentDetails: any): Observable<any> {
     let config = new OverlayConfig()
 
     config.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically()
@@ -76,6 +76,11 @@ export class DocumentListPresenter {
       this.subject.next(data)
     })
     return this.subject.asObservable()
+  }
+
+  ngOnDestroy()
+  {
+    this.subject.unsubscribe()
   }
 }
 
