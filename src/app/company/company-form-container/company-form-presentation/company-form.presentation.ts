@@ -22,7 +22,7 @@ export class CompanyFormPresentation implements OnInit {
 
   companyForm: FormGroup;
   submitted: boolean;
-  selectedFile: string = '';
+  selectedFile: string = 'file name';
   //company list
   private _companies: Observable<Company[]>;
 

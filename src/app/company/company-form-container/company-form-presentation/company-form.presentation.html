@@ -10,17 +10,6 @@
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </nav>
-        <!-- <breadcrumb #parent aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent px-0">
-                <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
-                    <li *ngIf="!route.terminal" class="breadcrumb-item">
-                        <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
-                    </li>
-                    <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">
-                        {{ route.displayName }}</li>
-                </ng-template>
-            </ol>
-        </breadcrumb> -->
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
             <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0">Cancel</button>
@@ -28,7 +17,6 @@
                 (click)="onSubmit()">Save</button>
         </div>
     </div>
-    <!-- end content header -->
     <!-- content body -->
     <div class="content-body overflow-auto">
         <!-- form container -->
@@ -99,7 +87,8 @@
                                     <label for="businessType" class="label text-secondary mb-0">Type of
                                         Business</label>
                                     <select formControlName="businessType" class="form-control bg-transparent"
-                                        id="businessType" [ngClass]="{ 'is-invalid': submitted && formControls.businessType.errors }">
+                                        id="businessType"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.businessType.errors }">
                                         <option value="">--select business type--</option>
                                         <option value="private">Private</option>
                                         <option value="public">Public</option>
@@ -212,35 +201,21 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Attachment  -->
                             <h6 class="font-medium text-secondary">Attachment</h6>
                             <div class="col-6 ml-auto">
-                                <input type="file" class="custom-file-input d-none" id="customFile">
                                 <label for="customFile" class="text-primary float-right">
                                     <span class="fa fa-plus-square-o fa-lg"></span>
                                 </label>
                             </div>
 
                             <!-- attached files -->
-                            <!-- <div class="custom-file position-relative">
-                                    <input type="file" class="custom-file-input"
-                                        ="customFile" formControlidName="attachment"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
-                                    <label class="custom-file-label" for="customFile">file name</label>
-                                    <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
-                                        <div *ngIf="formControls.attachment.errors.required">attachment is required</div>
-                                    </div>
-                                </div> -->
-
-                            <!-- attached files -->
-                            <div class="col-6 pl-0 pr-0 pr-md-3">
-                                <div class="form-group d-flex flex-column">
-                                    <label for="fileName" class="label text-secondary mb-0">File Name</label>
-                                    <input type="file" (change)="onChange($event)" class="form-control " id="fileName"
-                                        placeholder="filename"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
-                                        <div>
-                                            {{selectedFile}}
-                                        </div>
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
+                                <div class="custom-file position-relative">
+                                    <input type="file" (change)="onChange($event)" class="custom-file-input" id="customFile"
+                                    [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
+                                    <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
                                     <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
                                         <div *ngIf="formControls.attachment.errors.required">attachment is required
                                         </div>
@@ -249,8 +224,6 @@
                                 <label id="closeFile"
                                     class="fa fa-times-circle position-absolute text-secondary"></label>
                             </div>
-                            
-
                         </div>
                     </form>
                 </div>
