@@ -7,7 +7,6 @@ export const environment = {
   // baseUrl:'http://localhost:3000/',
   baseUrl: 'http://localhost:3000/login'
   // baseUrlDocument:'http://localhost:3000/documents'
-
 };
 
 /*

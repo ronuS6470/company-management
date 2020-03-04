@@ -1,7 +1,0 @@
-// font weight classes
-@each $key,
-$weights in $font-weights {
-    .font-#{$key} {
-        font-weight: $weights;
-    }
-}

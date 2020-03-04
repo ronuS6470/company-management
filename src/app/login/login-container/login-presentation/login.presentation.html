@@ -1,21 +1,49 @@
-Login Works ....<br><br>
-
-
-Enter your Username:<br><br>
-<input type="text" #uname> <br><br>
-Enter your Password:<br><br>
-<input type="password" #pwd><br><br>
-
-<button (click)="authenticate(uname.value, pwd.value)">Log In</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button routerLink='/registration'>Registration</button>
-
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Password</th>
-  </tr>
-  <tr *ngFor="let credentials of login$">
-    <th>{{credentials.username}}</th>
-    <th>{{credentials.password}}</th>
-  </tr>
-</table>
+<div class="h-100 position-relative form-content ">
+    <div class="row">
+        <!--form-->
+        <form class="form-details bg-white col-md-6" name="form" #f="ngForm"
+         (ngSubmit)="f.form.valid && authenticate(username.value, password.value)" novalidate>
+            <div class="col-md-12 p-5">
+                <div class="form-group flex-wrap">
+                    <div class="user-avtaar-holder d-flex align-items-center justify-content-center rounded-circle ">
+                        <figure>
+                            <img src="../../../../assets/images/login-avtaar.jpg" class="user-avtaar rounded-circle"
+                                alt="login avtaar">
+                        </figure>
+                    </div>
+                    <h4 class="text-center">Login</h4>
+                    <div class="form-input mt-5">
+                        <input class="input-field" type="text" pattern="[a-zA-Z]*" name="username" autofocus="true" 
+                        [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" #username required />
+                        <span class="input-label">Username</span>
+                        <span class="input-underline"></span>
+                        <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                            <div *ngIf="username.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-input mb-5">
+                        <input class="input-field" type="password" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,10})" 
+                        name="password" #password required />
+                        <span class="input-label">Password</span>
+                        <div class="input-underline"></div>
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors.required">Password is required</div>
+                            <div *ngIf="password.errors.pattern">Password must contain atleast 1-upper,1-lower and 8-10 characters only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 mt-sm-0   ">
+                        <button (click)="authenticate(username.value, password.value)" class="btn btn-md  btn-primary py-2 px-4 mr-2 mr-md-0  mb-2 mb-sm-0">Submit</button>
+                        <button type="reset" class="btn btn-md btn-danger text-white py-2 px-4 ml-md-3  ml-0 mt-md-0 mb-2 mb-sm-0">Cancel</button>
+                    </div>
+                    <div class="mt-5 flex-wrap d-flex justify-content-between">
+                        <div class="signup-area"><span>Create a new account</span>
+                        <button routerLink='/registration'class="btn btn-md btn-success px-5  ml-4">Sign Up</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+        <!--end:form-->
+    </div>
+</div>
