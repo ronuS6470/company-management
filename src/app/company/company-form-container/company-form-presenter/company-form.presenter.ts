@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Company } from '../../company.model';
 
 @Injectable()
+
 export class CompanyFormPresenter {
 
     companyForm: FormGroup;
@@ -16,7 +17,9 @@ export class CompanyFormPresenter {
      */
     public buildCompanyForm(): FormGroup {
         return this.companyForm = this.formBuilder.group({
-            clientName: ['', [Validators.required,Validators.pattern("[a-zA-Z]+(?:(?:\. |[' ])[a-zA-Z]+)*")]],
+            clientName: ['', [Validators.required, Validators.pattern("[a-zA-Z]+(?:(?:\. |[' ])[a-zA-Z]+)*")]],
+            companySite: ['', [Validators.required,
+            Validators.pattern('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$')]],
             clientType: ['supplier', Validators.required],
             businessType: ['', Validators.required],
             contactNumber: ['', [Validators.required, Validators.pattern('[0-9]{10,12}')]],
@@ -25,7 +28,7 @@ export class CompanyFormPresenter {
             contactPersonName: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
             designation: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
             contactPersonMobile: ['', [Validators.required, Validators.pattern('[0-9]{10,12}')]],
-            attachment: ['',]
+            attachment: ['', Validators.required]
         });
     }
 
@@ -33,18 +36,14 @@ export class CompanyFormPresenter {
      * add company data
      */
     public addCompany(): void {
-        debugger
         this.companyObj = new Company();
         this.companyObj = this.companyForm.value;
     }
 
     /**
-   * update company
+   * update company data
    */
     public updateCompany(): void {
-        debugger
-        if (this.companyForm.valid) {
-            this.companyObj = this.companyForm.value;
-        }
+        this.companyObj = this.companyForm.value;
     }
 }

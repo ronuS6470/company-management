@@ -12,16 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: CompanyFormContainer
+    component: CompanyFormContainer,
+    data: { breadcrumb: 'add'}
   },
-  {
-    path: 'edit/:id',
-    component: CompanyFormContainer
-  },
-  {
-    path: 'add',
-    component: CompanyListContainer
-  },  
   {
     path: 'edit/:id',
     component: CompanyFormContainer
