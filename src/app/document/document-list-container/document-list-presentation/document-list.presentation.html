@@ -1,1 +1,464 @@
-DocumentList Works ....
+
+<!-- <cmp-document-form-ui></cmp-document-form-ui> -->
+<div class="bg-body">
+    <!-- Document Section -->
+    <section class="p-5 h-100">
+        <!-- Document Header  -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <div class="d-flex align-items-center">
+                <h3>Documents</h3>&nbsp;
+                <p class="m-0 text-primary">(128)</p>
+            </div>
+        <div class="d-flex align-items-center flex-wrap">
+            <button class="btn btn-white rounded-0 mx-2 mb-sm-0 mb-3 delete-btn "><span
+                    class="text-danger fa fa-trash"></span></button>
+            <button class="btn btn-white bg-white rounded-0 mx-2 mb-sm-0 mb-3"><span
+                    class="text-dark">Filter</span>&nbsp;&nbsp;<span class="fa fa-filter text-primary"></span></button>
+            <button class="btn btn-outline-primary mx-2 px-4 mb-sm-0 mb-3"><span
+                    class="fa fa-upload"></span>&nbsp;<span>Upload</span></button>
+            <button class="btn btn-primary mx-2 px-4 mb-sm-0 mb-3"><span
+                    class="fa fa-plus"></span>&nbsp;<span>New</span></button>
+        </div>
+    </div>
+    <!-- End: Document Header -->
+    <!-- Document Table -->
+    <div class="table-responsive document-table">
+        <table class="table table-borderless">
+            <thead>
+                <tr class="text-muted text-uppercase">
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </th>
+                    <th class="td-mwidth"> <span class="mr-3">Name</span>&nbsp; <a href="#" class="short-up"><span
+                                class="fa fa-caret-down text-muted "></span></a>
+                        <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a></th>
+                    <th> <span class="mr-3">Owner</span>&nbsp; <a href="#" class="short-up"><span
+                                class="fa fa-caret-down text-muted "></span></a>
+                        <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a></th>
+                    <th> <span class="mr-3">Created</span>&nbsp; <a href="#" class="short-up"><span
+                                class="fa fa-caret-down text-muted "></span></a>
+                        <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a> </th>
+                    <th class="td-mwidth"><span class="mr-3">modified</span>&nbsp; <a href="#" class="short-up"><span
+                                class="fa fa-caret-down text-muted "></span></a>
+                        <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a></th>
+                    <th><span class="mr-3">Activity</span>&nbsp; <a href="#" class="short-up"><span
+                                class="fa fa-caret-down text-muted "></span></a>
+                        <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a></th>
+                </tr>
+            </thead>
+
+            <tbody class="h-100">
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td class="td-mwidth">
+                        <div><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                                Report</span>&nbsp;&nbsp;<span class="fa fa-star text-primary"></span></div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="td-mwidth">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu show" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bg-white align-items-center">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
+                            Report</span>&nbsp;&nbsp;</td>
+                    <td class="d-flex align-items-center">
+                        <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td>
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        15 min ago
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
+                                    class="text-muted fa fa-ellipsis-h"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Open</a>
+                                <a class="dropdown-item" href="#">Share</a>
+                                <a class="dropdown-item" href="#">Get Shareable Link</a>
+                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="#">Copy</a>
+                                <a class="dropdown-item" href="#">Rename</a>
+                                <a class="dropdown-item" href="#">View Details</a>
+                                <a class="dropdown-item" href="#">Download</a>
+                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- End: Document Table -->
+</section>
+<!-- End: Document Section -->
+</div>
+

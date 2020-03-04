@@ -1,0 +1,17 @@
+.primary-nav {
+    max-width: $collapse-sidebar-width;
+    flex: 0 0 $collapse-sidebar-width;
+    .navbar {
+        padding: 0;
+        .nav-link {
+            padding: 20px 20px;
+            border-left: 5px solid transparent;
+            transition: all .6s;
+            &:hover {
+                border-left: 5px solid $primary;
+                color: $primary;
+                transition: all .5s;
+            }
+        }
+    }
+}

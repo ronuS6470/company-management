@@ -1,16 +1,15 @@
-/* Company Main Content */
-.main-content {
-    background-color: #f7f8fc;
-    padding: 20px 100px;
-    .companie-lable {
-        font-weight: 400;
+    /* Company Main Content */
+    
+    .company-header,
+    .document-header {
+        padding: 20px 100px;
+        @media (max-width: 425px) {
+            & {
+                padding: 20px 20px;
+            }
+        }
     }
+    
     .delete-btn {
         font-size: 25px;
     }
-    @media only screen and (max-width: 1024px) {
-       & {
-        padding: 20px 80px;
-        }
-      }
-}

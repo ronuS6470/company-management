@@ -1,1 +1,151 @@
-DocumentForm Works ....
+<!-- ADD form content -->
+<div class="content h-100 overflow-hidden d-flex flex-column">
+  <!-- content header -->
+  <div
+    class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
+    <!-- breadcrum -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent px-0">
+        <li class="breadcrumb-item"><a href="#" class="text-secondary">Documents</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New</li>
+      </ol>
+    </nav>
+    <!-- form action buttons -->
+    <div class="d-flex flex-wrap d-md-block">
+      <button class="btn bg-white px-5 py-2 rounded-0 mr-sm-3 flex-grow-1">Cancel</button>
+      <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1">Save</button>
+    </div>
+  </div>
+  <!-- end content header -->
+  <!-- content body -->
+  <div class="content-body px-3 px-md-4 overflow-auto">
+    <!-- form container -->
+    <div class="company-form-container  my-5 py-4">
+      <!-- Document Add form -->
+      <div class="row no-gutters justify-content-center px-3">
+        <div class="shadow-sm col-12 col-md-7 bg-white p-5 add-edit-r">
+
+          <form>
+            <div class="form-row mx-0">
+              <!-- Document Detail  -->
+              <h2 class="font-medium text-primary">Document Details</h2>
+
+              <!-- Document name  -->
+              <div class="col-12 px-0 my-3">
+                <div class="form-group d-flex flex-column">
+                  <label for="clientName" class="label text-secondary mb-0">Document
+                    Name</label>
+                  <input type="text" class="form-control" id="clientName" value="General Proposal Report">
+                </div>
+              </div>
+
+              
+
+              <!-- Owner name  -->
+              <div class="col-12 px-0 mb-3">
+                  <div class="form-group d-flex flex-column">
+                    <label for="ownerName" class="label text-secondary mb-0">Owner
+                      Name</label>
+                    <input type="text" class="form-control" id="ownerName" value="Angelica Ramos">
+                  </div>
+                </div>
+              
+              
+              <!-- Activity -->
+
+              <div class="col-md-12 px-0">
+                <div class="form-group d-flex flex-column">
+                  <label for="location" class="label text-secondary mb-0">Activity</label>
+                  <select class="form-control bg-transparent" id="businessType">
+                    <option>General</option>
+                    <option>Training</option>
+                    <option>Security</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end contnent body -->
+</div>
+
+
+
+
+
+<!-- Start: EDIT form  -->
+
+<!-- EDIT form content -->
+<div class="content h-100 overflow-hidden d-flex flex-column">
+  <!-- content header -->
+  <div
+    class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
+    <!-- breadcrum -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent px-0">
+        <li class="breadcrumb-item"><a href="#" class="text-secondary">Document</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+      </ol>
+    </nav>
+    <!-- form action buttons -->
+    <div class="d-flex flex-wrap d-md-block">
+      <button class="btn bg-white px-5 py-2 rounded-0 mr-sm-3 flex-grow-1">Cancel</button>
+      <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1">Save</button>
+    </div>
+  </div>
+  <!-- end content header -->
+  <!-- content body -->
+  <div class="content-body px-3 px-md-4 overflow-auto">
+    <!-- form container -->
+    <div class="company-form-container  my-5 py-4">
+
+      <!-- EDIT form -->
+      <div class="row no-gutters justify-content-center px-3">
+        <div class="shadow-sm col-12 col-md-7 bg-white p-5 add-edit-r">
+          <form>
+            <div class="form-row mx-0">
+              <!-- Edit Document  -->
+              <h2 class="font-medium text-primary">Edit Document</h2>
+
+              <!-- Document name  -->
+              <div class="col-12 px-0 my-3">
+                <div class="form-group d-flex flex-column">
+                  <label for="documentName" class="label text-secondary mb-0">Document
+                    Name</label>
+                  <input type="text" class="form-control" id="documentName" value="General Propasal Report">
+                </div>
+              </div>
+
+              <!-- Owner name  -->
+              <div class="col-12 px-0 mb-3">
+                <div class="form-group d-flex flex-column">
+                  <label for="OwnerName" class="label text-secondary mb-0">Owner
+                    Name</label>
+                  <input type="text" class="form-control" id="OwnerName" value="Angelica Ramos">
+                </div>
+              </div>
+
+
+
+              <!-- Activity  -->
+              <div class="col-md-12 px-0">
+                <div class="form-group d-flex flex-column">
+                  <label for="activity" class="label text-secondary mb-0">Activity</label>
+                  <select class="form-control bg-transparent" id="activity">
+                    <option>General</option>
+                    <option>Training</option>
+                    <option>Security</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end contnent body -->
+</div>
