@@ -9,7 +9,5 @@ export class Document {
     modified : string;
     activity: string;
     id:number;
-    public checked: boolean;
-
 
 }

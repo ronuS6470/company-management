@@ -19,16 +19,13 @@ export class DocumentFormPresentation  {
 
   @Output() public updatedDocument=new EventEmitter<Document>()
 
-  constructor(@Inject(DOCUMENT_DETAILS) public document:Document,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
+  constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
   {
-    if(document)
+    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
+      
+    if(this.document!=null)
     {
-      this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
       this.documentFormDetails.patchValue(document)
-    }
-    else
-    {
-      this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
     }
   }
 
