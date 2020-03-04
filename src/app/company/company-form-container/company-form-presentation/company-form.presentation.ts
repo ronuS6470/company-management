@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 
 export class CompanyFormPresentation implements OnInit {
-  
+
   // add event for company data
   @Output() add: EventEmitter<Company>;
   // event for update company
@@ -22,7 +22,7 @@ export class CompanyFormPresentation implements OnInit {
 
   companyForm: FormGroup;
   submitted: boolean;
-
+  selectedFile: string = '';
   //company list
   private _companies: Observable<Company[]>;
 
@@ -34,6 +34,7 @@ export class CompanyFormPresentation implements OnInit {
     if (value) {
       this._companies = value;
       this.companyForm.patchValue(value);
+      this.selectedFile = value.attachment;
     }
   }
 
@@ -62,7 +63,7 @@ export class CompanyFormPresentation implements OnInit {
   /**
    * add and update company data
    */
-  public onSubmit() : void {
+  public onSubmit(): void {
     this.submitted = true;
     if (this.companyForm.invalid) {
       return;
@@ -76,6 +77,19 @@ export class CompanyFormPresentation implements OnInit {
         this.companyFormPresenter.updateCompany();
         this.update.emit(this.companyFormPresenter.companyObj);
       }
+    }
+  }
+
+  public onChange($event) : void {
+    debugger
+    if ($event.target.files.length > 0) {
+      debugger
+      
+      this.selectedFile = $event.target.files[0].name;
+      this.companyForm.controls['attachment'].setValue( this.selectedFile);
+      // this.selectedFile=this.formControls.get('attachment').setValue(ftu.name);
+
+      // this.companyForm.content = $event.target.files[0];
     }
   }
 }

@@ -231,9 +231,12 @@
                             <div class="col-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="fileName" class="label text-secondary mb-0">File Name</label>
-                                    <input type="text" formControlName="attachment" class="form-control " id="fileName"
+                                    <input type="file" (change)="onChange($event)" class="form-control " id="fileName"
                                         placeholder="filename"
                                         [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
+                                        <div>
+                                            {{selectedFile}}
+                                        </div>
                                     <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
                                         <div *ngIf="formControls.attachment.errors.required">attachment is required
                                         </div>
@@ -244,7 +247,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
