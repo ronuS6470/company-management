@@ -1,19 +1,6 @@
 {
   "company": [
     {
-      "id": 2,
-      "clientName": "b",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "a@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 111111,
-      "attachment": "attachment"
-    },
-    {
       "id": 3,
       "clientName": "c",
       "clientType": "supplier",
@@ -105,17 +92,43 @@
       "attachment": "attachment"
     },
     {
-      "id": 12,
-      "clientName": "L",
+      "clientName": "jayesh",
+      "clientType": "client",
+      "businessType": "public",
+      "contactNumber": 1234567890,
+      "location": "USA",
+      "email": "bhavin@gmail.com",
+      "contactPersonName": "dhruv",
+      "designation": "manager",
+      "contactPersonMobile": "1212121212",
+      "attachment": "C:\\fakepath\\FileZilla.txt",
+      "id": 6
+    },
+    {
+      "clientName": "viren",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": 1212121212,
+      "location": "USA",
+      "email": "viren@gmail.com",
+      "contactPersonName": "kk",
+      "designation": "manager",
+      "contactPersonMobile": "2342342344",
+      "attachment": "C:\\fakepath\\FileZilla.txt",
+      "id": 7
+    },
+    {
+      "clientName": "jjj",
       "clientType": "supplier",
       "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "a@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 111111,
-      "attachment": "attachment"
+      "contactNumber": 2323237777,
+      "location": "USA",
+      "email": "jjj@gmail.com",
+      "contactPersonName": "jjkk",
+      "designation": "manager",
+      "contactPersonMobile": "6788888888",
+      "attachment": "fileQ",
+      "id": 8
     }
   ]
 }
