@@ -1,7 +1,8 @@
 <!-- company filter -->
 <div class="d-flex justify-content-center m-0 m-md-5 justify-content-md-end rounded-lg">
     <!-- form starts -->
-    <form class="company-filter  bg-white">
+    <form [formGroup]="form" (ngSubmit)="search(form.value)" class="company-filter  bg-white">
+
         <div class="d-flex align-items-center justify-content-between px-3 pt-2">
             <h5 class="modal-title" id="exampleModalLabel">Company <span class="fa fa-filter text-primary"></span></h5>
             <a><span class="fa fa-times-circle fa-lg d-flex text-primary"></span></a>
@@ -10,39 +11,51 @@
         <div class="p-3">
             <div class="form-group">
                 <label for="company-name">Company Name</label>
-                <input type="text" class="form-control" id="company-name" placeholder="Enter company name">
+                <input formControlName="companyName" type="text" class="form-control" id="company-name" placeholder="Enter company name">
+                <div *ngIf="companyForm.companyName.invalid && (companyForm.companyName.dirty || companyForm.companyName.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.companyName.errors.pattern">
+                        Number Not Allow!
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="company-website">Company Website</label>
-                <input type="text" class="form-control" id="company-website" placeholder="Enter company website">
-            </div>
-
             <div class="form-group">
                 <label for="client-name">Client</label>
-                <input type="text" class="form-control" id="client-name" placeholder="Enter client name">
+                <input formControlName="clientName" type="text" class="form-control" id="client-name" placeholder="Enter client name">
+                <div *ngIf="companyForm.clientName.invalid && (companyForm.clientName.dirty || companyForm.clientName.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.clientName.errors.pattern">
+                        Number Not Allow!
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Location</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                            <option>London</option>
-                            <option>Dubai</option>
-                            <option>NewYork</option>
-            
-                        </select>
+                <select formControlName="location" class="form-control" id="exampleFormControlSelect1">
+                    <option>London</option>
+                    <option>Dubai</option>
+                    <option>NewYork</option>
+
+                </select>
             </div>
             <div class="form-group">
                 <label for="ContactNo">Contact</label>
-                <input type="text" class="form-control" id="ContactNo" placeholder="Conatct number">
+                <input formControlName="contactNumber" type="text" class="form-control" id="ContactNo" placeholder="Conatct number">
+                <div *ngIf="companyForm.contactNumber.invalid && (companyForm.contactNumber.dirty || companyForm.contactNumber.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.contactNumber.errors.pattern">
+                        Only Number!
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="Email" class="form-control" id="email" placeholder="Email">
+                <input formControlName="email" type="Email" class="form-control" id="email" placeholder="Email">
             </div>
         </div>
         <div class="my-4 px-3 mt-sm-0 flex-wrap">
             <button type="submit" class="btn btn-md btn-primary py-2">Filter</button>
-            <button class="btn btn-md btn-danger py-2  ml-3">Clear</button>
+            <button type="reset" class="btn btn-md btn-danger py-2  ml-3">Clear</button>
         </div>
     </form>
 </div>
+
+-------------------------------------

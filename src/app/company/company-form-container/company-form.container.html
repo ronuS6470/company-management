@@ -1,1 +1,1 @@
-<cmp-company-form-ui></cmp-company-form-ui>
+<cmp-company-form-ui [company]="company$ | async" (add)="addCompany($event)" (update)="updateCompany($event)"></cmp-company-form-ui>

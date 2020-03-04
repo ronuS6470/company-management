@@ -4,12 +4,11 @@ import { CompanyListContainer } from './company-list-container/company-list.cont
 import { CompanyFormContainer } from './company-form-container/company-form.container';
 import { AuthGuard } from '../core/services/guard/auth.guard';
 
-
 const routes: Routes = [
   {
     path: 'list',
     component: CompanyListContainer,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'add',

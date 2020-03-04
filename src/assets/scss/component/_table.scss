@@ -37,7 +37,6 @@
 }
 
 .user-icon {
-
     height: 2em;
     width: 2em;
 }
@@ -49,14 +48,15 @@
 .td-compnymwitg {
     min-width: 195px;
 }
+
 .table-responsive {
     height: 85%;
 }
+
 .company-img {
     width: 30px;
     height: 30px;
 }
-
 
 .document-table {
     padding: 15px 97px;
@@ -67,7 +67,7 @@
     }
 }
 
-.company-table{
+.company-table {
     padding: 20px 50px;
     @media (max-width: 425px) {
         & {
