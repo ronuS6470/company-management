@@ -67,7 +67,6 @@ export class CompanyListPresentation implements OnChanges {
    */
   public sortDescending(): void {
     this.sortBy = document.activeElement.id;
-    console.log(this.sortBy);
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 

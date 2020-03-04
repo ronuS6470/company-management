@@ -25,7 +25,6 @@ export class CompanyListPresenter {
 
   // Filter overlay open
   public filter(filter): any {
-    console.log(filter);
     let config = new OverlayConfig(); 
     config.positionStrategy = this.overlay.position()
       .global()
