@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      position: relative;
+    }
+    .short-down{
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: 0;
+      position: absolute;
+    }
+
+    .short-up{
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: 0;
+      position: absolute;
+      left: 88px;
+
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <button (click)="openFilter()">Filter</button>
+  {{subscribeData | async | json}}
+  <button (click) = "loadDocumentForm(null)">New</button>
+  <table style="width:100%">
+    <tr>
+      <th><input type="checkbox"></th>
+      <th>NAME</th>
+      <th>OWNER</th>
+      <th>CREATED &nbsp;<button (click)="sortAscending()" class="short-up" id="created"><span
+        class="fa fa-caret-down text-muted "></span></button>&nbsp;&nbsp;&nbsp;
+        <button (click)="sortDescending()" class="short-down"  id="created"><span
+            class="fa fa-caret-up text-muted "></span></button></th>
+      <th>MODIFIED</th>
+      <th>ACTIVITY </th>
+      <th>Delete</th>
+
+    </tr>
+    <tr *ngFor="let document of documentData; let i=index">
+      <td><input type="checkbox"></td>
+      <td>{{document.documentName}}</td>
+      <td>{{document.ownerName}}</td>
+      <td>{{document.created | date : 'medium'}}</td>
+      <td>{{document.modified}}</td>
+      <td>{{document.activity}}</td>
+      <td><button (click)="openConfirmation(document.id)"> Delete</button><button (click) = "loadDocumentForm(documentData[i])"> Edit</button></td>
+     
+
+    </tr>
+
+
+  </table>
+
+
+</body>
+
+</html>

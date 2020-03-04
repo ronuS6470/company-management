@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy,Inject,EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy,Inject,EventEmitter, Output} from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Document } from '../../service/document.modal';
-import { DOCUMENT_DETAILS } from '../../token';
+import { Document } from 'src/app/document/document.model';
+import { DOCUMENT_DETAILS } from '../../../token';
 import { OverlayRef } from '@angular/cdk/overlay';
 // ---------------------------------- //
 import { DocumentFormPresenter } from '../document-form-presenter/document-form.presenter';
@@ -17,20 +17,15 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
 export class DocumentFormPresentation  {
   public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
 
-  public formSubmitted:boolean=false;
-
   @Output() public updatedDocument=new EventEmitter<Document>()
 
-  constructor(@Inject(DOCUMENT_DETAILS) public document:Document,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
+  constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
   {
-    if(document)
+    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
+      
+    if(this.document!=null)
     {
-      this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
       this.documentFormDetails.patchValue(document)
-    }
-    else
-    {
-      this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
     }
   }
 

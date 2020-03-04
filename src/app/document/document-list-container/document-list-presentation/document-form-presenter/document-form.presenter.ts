@@ -15,7 +15,7 @@ export class DocumentFormPresenter {
   {
     return this.documentForm=this.fb.group({
     documentName:['',[Validators.required,Validators.minLength(4)]],
-    documentOwner:['',[Validators.required]],
+    ownerName:['',[Validators.required]],
     activity:['',[Validators.required]],
     })
   }

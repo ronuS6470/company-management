@@ -1,38 +1,89 @@
-import { Injectable, ViewContainerRef, Injector } from '@angular/core';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 
+import { Injectable, Injector, ViewContainerRef } from '@angular/core';
+import { OverlayConfig, Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
+import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 import {DOCUMENT_DETAILS} from '../../token'
 import { DocumentFormPresentation } from '../document-list-presentation/document-form-presentation/document-form.presentation';
-
+import { Document } from 'src/app/document/document.model'
+import { Subject, Observable } from 'rxjs';
 @Injectable()
 export class DocumentListPresenter {
+  private subject = new Subject<any>();
+    constructor(public viewContainerRef:ViewContainerRef, private overlay: Overlay, private injector: Injector) { }
 
-  public updatedDetails:Document
-  constructor(public viewContainerRef:ViewContainerRef,private overlay:Overlay,private _injector:Injector) { }
 
-  createInjector(documentDetails:any,overlayRef:OverlayRef): PortalInjector {
-    const injectorTokens = new WeakMap();
-    injectorTokens.set(OverlayRef, overlayRef);
-    injectorTokens.set(DOCUMENT_DETAILS, documentDetails);
-    return new PortalInjector(this._injector, injectorTokens);
-  }
+    /**
+     * Open Overlay
+     */
+    open(data): MyOverlayRef {
+        const configs = new OverlayConfig();
 
-  loadForm(documentDetails:any):void
-  {
-    let config=new OverlayConfig()
+        configs.positionStrategy = this.overlay.position()
+            .global()
+            .centerHorizontally()
+            .centerVertically();
+        configs.hasBackdrop = true;
 
-    config.positionStrategy=this.overlay.position().global().centerHorizontally().centerVertically()
-    config.hasBackdrop=true
+        const overlayRef = this.overlay.create(configs);
 
-    let overlayRef=this.overlay.create(config);
+        const myOverlayRef = new MyOverlayRef(overlayRef, data);
 
-    let ref=overlayRef.attach(new ComponentPortal(DocumentFormPresentation,this.viewContainerRef,this.createInjector(documentDetails,overlayRef)))
+        const injector = this.createInjecter(myOverlayRef, this.injector);
+        overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
 
-    ref.instance.updatedDocument.subscribe((data:Document)=>
+        return myOverlayRef;
+    }
+
+    /**
+     * create injector
+     * @param ref overlay reference
+     * @param inj injector
+     */
+    createInjecter(ref: MyOverlayRef, inj: Injector) {
+        const injectorTokens = new WeakMap([[MyOverlayRef, ref]]);
+        return new PortalInjector(inj, injectorTokens);
+    }
+
+    /**
+     * Will create a injector which contains data to pass to overlay component
+     * @param documentDetails //Details for the document
+     * @param overlayRef //contains overlayRef variable
+     */
+    createInjector(documentDetails:any,overlayRef:OverlayRef): PortalInjector {
+      const injectorTokens = new WeakMap();
+      injectorTokens.set(OverlayRef, overlayRef);
+      injectorTokens.set(DOCUMENT_DETAILS, documentDetails);
+      return new PortalInjector(this.injector, injectorTokens);
+    }
+    /**
+     * Opens an overlay for document form
+     * @param documentDetails //Contains the details of document
+     */
+    loadForm(documentDetails:Document):Observable<any>
     {
-      this.updatedDetails=data
-      return this.updatedDetails
-    })
+      let config=new OverlayConfig()
+  
+      config.positionStrategy=this.overlay.position().global().centerHorizontally().centerVertically()
+      config.hasBackdrop=true
+  
+      let overlayRef=this.overlay.create(config);
+  
+      let ref=overlayRef.attach(new ComponentPortal(DocumentFormPresentation,this.viewContainerRef,this.createInjector(documentDetails,overlayRef)))
+  
+      overlayRef.backdropClick().subscribe(()=>
+      {
+        overlayRef.dispose()
+      })
+
+      ref.instance.updatedDocument.subscribe((data:Document)=>
+      {
+        this.subject.next(data)
+      })
+      return this.subject.asObservable()
+    }
+
+    
   }
-}
+
