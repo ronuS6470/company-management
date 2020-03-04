@@ -188,14 +188,21 @@
                             </div>
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
-                                <div class="custom-file position-relative">
+                                <!-- <div class="custom-file position-relative">
                                     <input type="file" class="custom-file-input"
-                                        id="customFile"
+                                        ="customFile" formControlidName="attachment"
                                         [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
-                                    <label class="custom-file-label" formControlName="attachment" for="customFile">file name</label>
+                                    <label class="custom-file-label" for="customFile">file name</label>
                                     <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
                                         <div *ngIf="controls.attachment.errors.required">attachment is required</div>
                                     </div>
+                                </div> -->
+                                <div class="custom-file position-relative">
+                                    <input type="text" formControlName="attachment"
+                                    [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
+                                </div>
+                                <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
+                                    <div *ngIf="controls.attachment.errors.required">attachment is required</div>
                                 </div>
                                 <label id="closeFile"
                                     class="fa fa-times-circle position-absolute text-secondary"></label>
