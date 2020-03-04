@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 import { Observable } from 'rxjs';
@@ -14,8 +14,8 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
 })
 
 
-export class DocumentListPresentation {
-  public updatedDetails:Document;
+export class DocumentListPresentation{
+  public updatedDetails:any;
   private sortBy: string;
   subscribeData = null;
   document: any[] = [];
@@ -53,9 +53,6 @@ export class DocumentListPresentation {
   public sortDescending(): void {
     this.sortBy = document.activeElement.id
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
-  }
-  ngOnInit() {
-    this.loadDocument();
   }
 
   public openFilter() {
