@@ -4,13 +4,13 @@
     <div
         class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
         <!-- breadcrum -->
-        <!-- <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
                 <li class="breadcrumb-item"><a href="#" class="text-secondary">Companies</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
-        </nav> -->
-        <breadcrumb #parent aria-label="breadcrumb">
+        </nav>
+        <!-- <breadcrumb #parent aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
                 <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
                     <li *ngIf="!route.terminal" class="breadcrumb-item">
@@ -20,7 +20,7 @@
                         {{ route.displayName }}</li>
                 </ng-template>
             </ol>
-        </breadcrumb>
+        </breadcrumb> -->
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
             <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0">Cancel</button>
@@ -189,11 +189,10 @@
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="custom-file position-relative">
-                                    <input type="text" formControlName="attachment" class="custom-file-input"
+                                    <input type="file" class="custom-file-input"
                                         id="customFile"
                                         [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
-                                    <label class="custom-file-label" for="customFile"></label>
-                                    
+                                    <label class="custom-file-label" formControlName="attachment" for="customFile">file name</label>
                                     <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
                                         <div *ngIf="controls.attachment.errors.required">attachment is required</div>
                                     </div>
