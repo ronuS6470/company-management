@@ -17,7 +17,7 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
 export class DocumentFormPresentation  {
   public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
 
-  @Output() public updatedDocument=new EventEmitter<any>()
+  @Output() public updatedDocument=new EventEmitter<Document>()
 
   constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
   { 

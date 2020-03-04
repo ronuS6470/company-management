@@ -72,7 +72,7 @@ export class DocumentListPresenter implements OnDestroy{
       overlayRef.dispose()
     })
 
-    ref.instance.updatedDocument.subscribe((data: any) => {
+    ref.instance.updatedDocument.subscribe((data: Document) => {
       this.subject.next(data)
     })
     return this.subject.asObservable()

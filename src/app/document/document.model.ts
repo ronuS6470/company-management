@@ -5,7 +5,7 @@ export class Document {
 
     documentName: string;
     ownerName: string;
-    created : DatePipe;
+    created : Date;
     modified : string;
     activity: string;
     id:number;

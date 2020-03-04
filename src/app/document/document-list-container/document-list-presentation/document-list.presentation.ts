@@ -33,7 +33,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   todayDate: Date = new Date();
   // filter key and value
   public subscribeData: any;
-  public updatedDetails: any;
+  public updatedDetails: Document;
   // store filterd data
   public filteredDocument: any[] = [];
   // temporory variable for getter and setter of document data
@@ -128,23 +128,22 @@ export class DocumentListPresentation implements OnInit, OnChanges {
      * Function for loading the document form dynamically
      * @param document //Includes the details of document
      */
-  loadDocumentForm(document: any,id:number): void {
+  updateDocumentForm(document: Document,id:number): void {
     
     this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
       this.updatedDetails = data
-      console.log(data);
-      if (id!=null) {
         console.log('Edit');
-        this.updatedDetails.id = id
+        this.updatedDetails.id=id
         this.updatedDetails.created=this.todayDate
         this.updatedDocument.emit(this.updatedDetails)
-      }
-      else if(id == null)
-      {
-        console.log('Add');
+    })
+  }
+  addDocumentForm(document:any)
+  {
+    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
+        this.updatedDetails = data
         this.updatedDetails.created=this.todayDate
         this.addDocument.emit(this.updatedDetails)
-      }
     })
   }
 } 
