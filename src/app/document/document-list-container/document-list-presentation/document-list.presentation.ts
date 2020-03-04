@@ -127,22 +127,27 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.filteredDocument = this.document.filter(filterDocument);
   }
   /**
-   * Function for loading the document form dynamically
-   * @param document //Includes the details of document
-   */
-  loadDocumentForm(document: any): void {
-    this.documentListPresenter.loadForm(document).subscribe((data) => {
+     * Function for loading the document form dynamically
+     * @param document //Includes the details of document
+     */
+  loadDocumentForm(document: any,id:number): void {
+    
+    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
       this.updatedDetails = data
-      if (document != null) {
-        console.log(document.id);
-        this.updatedDetails.id = document.id
+      console.log(data);
+      if (id!=null) {
+        console.log('Edit');
+        this.updatedDetails.id = id
+        this.updatedDetails.created=this.todayDate
         this.updatedDocument.emit(this.updatedDetails)
       }
-      else if (document === null) {
+      else if(id == null)
+      {
+        console.log('Add');
+        this.updatedDetails.created=this.todayDate
         this.addDocument.emit(this.updatedDetails)
       }
     })
-
   }
  
 /**
