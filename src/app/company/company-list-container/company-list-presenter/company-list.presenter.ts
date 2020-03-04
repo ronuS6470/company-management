@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
 import { CompanyFilterPresentation } from '../company-list-presentation/company-filter-presentation/company-filter.presentation';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class CompanyListPresenter {
-
+  subject = new Subject();
   public data: string;
   private overlayRef: OverlayRef;
   constructor(
@@ -25,8 +26,8 @@ export class CompanyListPresenter {
       const componentInstance = this.overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
       this.overlayRef.backdropClick().subscribe(() => {
         this.data = componentInstance.instance.searchText;
+        this.subject.next(componentInstance.instance.searchText);
         this.overlayRef.detach();
-        // console.log(this.data);
       });
   }
 

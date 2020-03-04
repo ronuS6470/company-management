@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, OnChanges, OnInit } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 // ---------------------------------- //
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
@@ -11,13 +11,18 @@ import { CompanyListPresenter } from '../company-list-presenter/company-list.pre
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentation implements OnInit, DoCheck {
+export class CompanyListPresentation implements OnInit, OnChanges {
 
   // Get Company list
   @Input() set companyList$(value) {
     this.filteredUsers = value;
     this.users = value;
   }
+
+  // Get Filter Data
+  @Input() getFilterData;
+
+  @Output() sendData = new EventEmitter<any>();
 
   @Output() deleteCompany = new EventEmitter<number>();
 
@@ -36,13 +41,12 @@ export class CompanyListPresentation implements OnInit, DoCheck {
 
   }
   public ngOnInit(): void {
-    // console.log(this.groupFilters);
     this.loadCompany();
   }
 
-  public ngDoCheck(): void {
-    if (this.companyListPresenter.data) {
-      this.filteredUsers = this.companyListPresenter.filterUserList(this.companyListPresenter.data, this.users, this.filteredUsers);
+  public ngOnChanges(): void {
+    if (this.getFilterData) {
+      this.filteredUsers = this.companyListPresenter.filterUserList(this.getFilterData, this.users, this.filteredUsers);
     }
   }
 
@@ -60,5 +64,8 @@ export class CompanyListPresentation implements OnInit, DoCheck {
    */
   public filter(): void {
     this.companyListPresenter.filter();
+    this.companyListPresenter.subject.subscribe(data => {
+      this.sendData.emit(data);
+    });
   }
 }

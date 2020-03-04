@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
 import { FormGroup } from '@angular/forms';
@@ -15,7 +15,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class CompanyFilterPresentation implements OnInit {
 
-  @Output() sendData = new EventEmitter<any>();
   // search text
   public searchText: string;
 
@@ -43,8 +42,9 @@ export class CompanyFilterPresentation implements OnInit {
    */
   public search(filters: any): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    this.sendData.emit(filters);
     this.searchText = filters;
   }
+
+  // Instance of company form
   get companyForm() { return this.form.controls; }
 }

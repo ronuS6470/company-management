@@ -1,1 +1,5 @@
-<cmp-company-list-ui [companyList$]="companyList$ | async" (deleteCompany)="deleteCompany($event)"></cmp-company-list-ui>
+<cmp-company-list-ui [companyList$]="companyList$ | async"
+    [getFilterData]="getFilterData"
+    (deleteCompany)="deleteCompany($event)"
+    (sendData)="getCompany($event)" 
+></cmp-company-list-ui>
