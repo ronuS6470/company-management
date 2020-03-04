@@ -17,16 +17,15 @@
                 </tr>
             </thead>
             <tbody class="h-100">
-                <tr class="bg-white align-items-center">
+                <tr class="bg-white align-items-center" *ngFor="let notifi of notification$ |async">
                     <td class="td-mwidth">
-                        <div> <span>General Personal
-                                Report</span></div>
+                        <div> <span>{{notifi.notification}}</span></div>
                     </td>
                     <td class="td-mwidth">
-                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                        <span>{{notifi.date}}</span>
                     </td>
                     <td>
-                        15 min ago
+                        {{notifi.time}}
                     </td>
                 </tr>
             </tbody>
@@ -34,3 +33,4 @@
     </div>
     <!-- End: Document Table -->
 </section>
+
