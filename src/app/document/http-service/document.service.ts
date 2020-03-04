@@ -11,7 +11,7 @@ export class DocumentService {
   private apiUrl;
 
   constructor(private httpClient: HttpClient) {
-    this.apiUrl = `${environment.baseUrlDocument}documents`
+    this.apiUrl = `${environment.baseUrl}/documents`
   }
 
   public getDocuments(): Observable<Document[]> {
