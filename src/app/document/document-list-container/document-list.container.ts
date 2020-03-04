@@ -13,6 +13,7 @@ export class DocumentListContainer implements OnInit {
   documentData: Observable<Document[]>
   // filter data
   public groupFilter: any;
+  public requestedData:any
   constructor(private documentService: DocumentService) {
 
   }
@@ -59,5 +60,10 @@ export class DocumentListContainer implements OnInit {
    */
   filterData(filters): void {
     this.groupFilter = filters;
+  }
+
+  updateRequest(request:any)
+  {
+    this.requestedData=request
   }
 }

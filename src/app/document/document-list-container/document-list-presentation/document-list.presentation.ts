@@ -16,19 +16,20 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
-      this.docData = value;
+      this.filteredDocument = value;
       this.document = value;
       this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
     }
   }
   get documentData() {
-    return this.docData;
+    return this.document;
   }
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
   @Output() public filter: EventEmitter<any>;
   @Output() public addDocument: EventEmitter<Document>
   @Output() public delete;
+
   todayDate: Date = new Date();
   // filter key and value
   public subscribeData: any;
@@ -55,10 +56,10 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     if (this.groupFilter) {
       this.filterList(this.groupFilter);
     }
-    if (this.docData != null) {
-      this.filteredDocument = this.docData;
-      this.docData = null;
-    }
+    // if (this.docData != null) {
+    //   this.filteredDocument = this.docData;
+    //   this.docData = null;
+    // }
   }
 
   /**
@@ -127,18 +128,23 @@ export class DocumentListPresentation implements OnInit, OnChanges {
      * Function for loading the document form dynamically
      * @param document //Includes the details of document
      */
-  loadDocumentForm(document: any): void {
-    this.documentListPresenter.loadForm(document).subscribe((data) => {
+  loadDocumentForm(document: any,id:number): void {
+    
+    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
       this.updatedDetails = data
-      if (document != null) {
-        console.log(document.id);
-        this.updatedDetails.id = document.id
+      console.log(data);
+      if (id!=null) {
+        console.log('Edit');
+        this.updatedDetails.id = id
+        this.updatedDetails.created=this.todayDate
         this.updatedDocument.emit(this.updatedDetails)
       }
-      else {
+      else if(id == null)
+      {
+        console.log('Add');
+        this.updatedDetails.created=this.todayDate
         this.addDocument.emit(this.updatedDetails)
       }
     })
-
   }
-}
+} 

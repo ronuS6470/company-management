@@ -12,7 +12,7 @@ import { Observable, Subject } from 'rxjs';
 export class DocumentListPresenter implements OnDestroy{
   public componentRef;
   public updatedDetails: Document;
-  private subject = new Subject<any>();
+  public subject = new Subject<any>();
   constructor(public viewContainerRef: ViewContainerRef, private overlay: Overlay, private injector: Injector) { }
 
 
@@ -72,7 +72,7 @@ export class DocumentListPresenter implements OnDestroy{
       overlayRef.dispose()
     })
 
-    ref.instance.updatedDocument.subscribe((data: Document) => {
+    ref.instance.updatedDocument.subscribe((data: any) => {
       this.subject.next(data)
     })
     return this.subject.asObservable()

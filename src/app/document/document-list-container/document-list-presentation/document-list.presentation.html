@@ -24,14 +24,13 @@
                 <p class="m-0 text-primary" *ngIf="filteredDocument">({{filteredDocument?.length}})</p>
             </div>
             <div class="d-flex align-items-center">
-                <button (click)="loadDocumentForm(filteredDocument[i])"
-                    class="btn btn-white bg-white rounded-0 mx-2"><span class="text-danger fa fa-trash"></span></button>
+                <button class="btn btn-white bg-white rounded-0 mx-2"><span class="text-danger fa fa-trash"></span></button>
                 <button (click)="openFilter()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-dark">Filter</span>&nbsp;&nbsp;<span
                         class="fa fa-filter text-primary"></span></button>
                 <button class="btn btn-outline-primary mx-2 px-4"><span
                         class="fa fa-upload"></span>&nbsp;<span>Upload</span></button>
-                <button (click)="loadDocumentForm(null)" class="btn btn-primary mx-2 px-4"><span
+                <button (click)="loadDocumentForm(null,null)" class="btn btn-primary mx-2 px-4"><span
                         class="fa fa-plus"></span>&nbsp;<span>New</span></button>
             </div>
         </div>
@@ -89,7 +88,7 @@
                         <td> <button (click)="deleteDocument(document.id)"
                                 class="btn btn-white bg-white rounded-0 mx-2"><span
                                     class="text-danger fa fa-trash"></span></button><button
-                                (click)="loadDocumentForm(filteredDocument[i])"
+                                (click)="loadDocumentForm(filteredDocument[i],filteredDocument[i].id)"
                                 class="btn btn-white bg-white rounded-0 mx-2"><span
                                     class="text-danger fa fa-edit"></span></button></td>
                     </tr>
