@@ -2,7 +2,7 @@
   <form class="document-form bg-white  add-edit-r p-4" [formGroup]="documentFormDetails" (ngSubmit)="onSubmit()">
     
       <h1 class="text-primary">Document Details</h1>
-      <div class="dropdown-divider"></div>
+     
       <div class="p-3">
         <div class="form-group">
           <label for="InputName">Document Name</label>
@@ -29,7 +29,7 @@
       </div>
       <div class="my-4 px-3 mt-sm-0 flex-wrap">
 
-        <button type="reset" class="btn  btn-white py-2 px-5 ml-3">Clear</button>
+        <button type="reset"class="btn py-2 px-5">Clear</button>
         <button type="submit" class="btn  btn-primary py-2 px-5 ml-3" [disabled]="!documentFormDetails.valid">Submit</button>
       </div>
    

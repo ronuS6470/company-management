@@ -1,4 +1,5 @@
-.content-body {
+.content-body,
+.top-bar {
     padding: 20px 97px;
     @media (max-width: 725px) {
         & {
@@ -123,16 +124,13 @@
         box-shadow: none;
     }
     #closeFile {
-        top: 11px;
-        right: 22px;
+        top: 14px;
+        right: 8px;
         z-index: 1;
     }
 }
 
 // Document Add - Edit 
-.add-edit-r{
-    border-radius: 20px;
-}
 
 .document-form{
     display: flex;

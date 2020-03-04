@@ -1,6 +1,10 @@
 .notification-icon {
     .notification-badge {
-        @include position($top: -8px, $right: -8px, $bottom: 0px, $left: -10px);
+        position: absolute;
+        top: -8px;
+        right: 0px;
+        bottom: 0px;
+        left: 8px;
         height: 18px;
         width: 18px;
         border-radius: 50%;
