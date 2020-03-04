@@ -14,7 +14,9 @@ import { ComponentPortal } from '@angular/cdk/portal';
 })
 
 export class CompanyListPresentation implements OnChanges {
-
+  public multipleDeletes : any
+  public companiestoDelete=[]
+ @Output() public deleteCompanies = new EventEmitter<any>();
   // Get Company list
   // Get Company list
   @Input() set companyList$(value) {
@@ -42,7 +44,7 @@ export class CompanyListPresentation implements OnChanges {
   }
 
   ngDoCheck(): void {
-    console.log(this.catchData);
+    
   }
 
   /**
@@ -66,7 +68,6 @@ export class CompanyListPresentation implements OnChanges {
    */
   public sortDescending(): void {
     this.sortBy = document.activeElement.id
-    console.log(this.sortBy)
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 
@@ -92,7 +93,6 @@ export class CompanyListPresentation implements OnChanges {
    */
   loadCompany(): void {
     this.users = this.companyList$;
-    console.log(this.users);
     this.filteredUsers = this.filteredUsers.length > 0 ? this.filteredUsers : this.users;
   }
 
@@ -105,4 +105,15 @@ export class CompanyListPresentation implements OnChanges {
       this.sendData.emit(data);
     });
   }
+  multipleDelete(){
+    
+ this.multipleDeletes = this.filteredUsers.filter(data=>data.checked);
+ for(let i=0; i<this.multipleDeletes.length; i++){
+
+  this.companiestoDelete[i]=this.multipleDeletes[i].id
+ }
+  console.log(this.companiestoDelete);
+ this.deleteCompanies.emit(this.companiestoDelete)
+  
+}
 }

@@ -55,4 +55,14 @@ export class CompanyListContainer {
   public sortData(sortField: string): void {
     this.companyList$ = this.companyService.sortData(sortField);
   }
+  deleteCompanies(deleteCompanies){
+    for( let i=0 ; i<deleteCompanies.length; i++){
+      this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
+        () => {
+          this.getDetails();
+        }
+      )
+    }
+  }
+
 }
