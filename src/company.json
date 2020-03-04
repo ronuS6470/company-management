@@ -79,19 +79,6 @@
       "attachment": "attachment"
     },
     {
-      "id": 9,
-      "clientName": "i",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "a@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 111111,
-      "attachment": "attachment"
-    },
-    {
       "clientName": "jayesh",
       "clientType": "client",
       "businessType": "public",

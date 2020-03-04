@@ -105,11 +105,11 @@
                 </tr>
             </thead>
             <tbody class="h-100">
-                <tr class="bg-white" *ngFor="let companyData of companyList$">
+                <tr class="bg-white" *ngFor="let companyData of filteredUsers">
                     <td>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
-                            <label class="custom-control-label " for="customCheck2"></label>
+                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id={{companyData.id}}>
+                            <label class="custom-control-label " for={{companyData.id}}></label>
                         </div>
                     </td>
                     <td>{{companyData.id}}</td>
