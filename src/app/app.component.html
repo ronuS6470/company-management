@@ -1,4 +1,12 @@
-<cmp-header></cmp-header>
-
-<cmp-sidebar></cmp-sidebar>
-<router-outlet></router-outlet>
+<section class="wrapper d-flex h-100 overflow-hidden">
+    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right bg-white">
+        <cmp-sidebar class="overflow-hidden d-flex flex-column"></cmp-sidebar>
+    </aside>
+    <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden">
+        <cmp-header class="flex-shrink-0"></cmp-header>
+        <div class="flex-grow-1 overflow-hidden">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </section>
+</section>

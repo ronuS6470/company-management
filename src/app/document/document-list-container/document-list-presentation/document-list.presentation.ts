@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Observable } from 'rxjs';
 import { Document } from 'src/app/document/document.model'
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service'
 import { DocumentFilterPresentation } from './document-filter-presentation/document-filter.presentation';
@@ -16,16 +15,19 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
 
 export class DocumentListPresentation {
   public updatedDetails: any;
-  private sortBy: string;
+  private sortByDate: string;
   subscribeData = null;
   document: any[] = [];
   filteredDocument: any[] = [];
-  @Input() public documentData: Document[]
+  @Input() public documentData: Document[] //stores document data
 
   @Output() public sort: EventEmitter<string>;
+
   @Output() public updatedDocument: EventEmitter<any>;
+
   @Output() public delete;
-  todayDate: Date = new Date();
+
+  // todayDate: Date = new Date();
 
   constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
@@ -33,36 +35,38 @@ export class DocumentListPresentation {
     this.updatedDocument = new EventEmitter();
     this.delete = new EventEmitter<number>();
   }
+
+  ngOnInit() {
+    this.loadDocument();
+  }
+   /**
+     * Emits a delete event with specified id
+     * @param id 
+     */
   public deleteDocument(id: number) {
     if (confirm('Are you sure to delete this document')) {
       this.delete.emit(id);
     }
-
   }
-  // openConfirmation(id: number) {
-  //   this.deleteConfirmation.showOverlay(id)
-  // }
+  
+
+  /**
+     * Emits a sort event for date in ascending order
+     */
 
   public sortAscending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
+    this.sortByDate = document.activeElement.id
+    this.sort.emit(`_sort=${this.sortByDate}&_order=asc`)
   }
-  consoleData() {
-   console.log(this.documentData.filter(item=>item.checked))
-  //  for (var data in this.documentData){
-  //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
-  //  }
-  }
+ 
   /**
-   * Emits an sort event with the field for descending order
+   * Emits a sort event for date in descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
+    this.sortByDate = document.activeElement.id
+    this.sort.emit(`_sort=${this.sortByDate}&_order=desc`)
   }
-  ngOnInit() {
-    this.loadDocument();
-  }
+ 
 
   public openFilter() {
     const ref = this.documentListPresenter.open(null);
@@ -105,8 +109,13 @@ export class DocumentListPresentation {
     this.updatedDetails = this.documentListPresenter.loadForm(document)
 
   }
-
-  multipleDelete(id: number) {
-    console.log(id)
-  }
+/**
+ * Tried multiple delete functionality
+ */
+  deleteDocuments() {
+    console.log(this.documentData.filter(item=>item.checked))
+   //  for (var data in this.documentData){
+   //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
+   //  }
+   }
 }
