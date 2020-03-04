@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Injectable()
 export class DocumentFilterPresenter {
@@ -14,8 +14,8 @@ export class DocumentFilterPresenter {
     buildForm(): FormGroup {
         return this.fb.group({
             documentName: new FormControl(''),
-            ownerName: new FormControl(''),
-            activity: new FormControl(''),
+            ownerName: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
+            activity: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
             created: new FormControl('')
         });
     }
