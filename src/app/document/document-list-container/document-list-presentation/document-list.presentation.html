@@ -25,7 +25,7 @@
                 <p class="m-0 text-primary">({{filteredDocument?.length}})</p>
             </div>
             <div class="d-flex align-items-center">
-                <button (click) = "loadDocumentForm(filteredDocument[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
+                <button (click)="deleteDocuments()"  class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-danger fa fa-trash"></span></button>
                 <button (click)="openFilter()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-dark">Filter</span>&nbsp;&nbsp;<span
@@ -58,15 +58,15 @@
                         <th class="td-mwidth"><span>modified</span>&nbsp; </th>
                         <th><span>Activity</span>&nbsp; </th>
                                 <th>Actions</th>
-                                <th>consoleData</th>
+                                
                     </tr>
                 </thead>
                 <tbody class="h-100">
                     <tr *ngFor="let document of filteredDocument ; let i=index  " class="bg-white align-items-center">
                         <td>
                             <div class="custom-control custom-checkbox">
-                                <input [(ngModel)]="document.checked" type="checkbox" class="custom-control-input" id="customCheck2">
-                                <label class="custom-control-label" for="customCheck2"></label>
+                                <input [(ngModel)]="document.checked" type="checkbox" class="custom-control-input" id={{document.id}}>
+                                <label class="custom-control-label" for={{document.id}}></label>
                             </div>
                         </td>
                         <td class="td-mwidth">
@@ -89,7 +89,7 @@
                         <td> <button (click)="deleteDocument(document.id)" class="btn btn-white bg-white rounded-0 mx-2"><span
                             class="text-danger fa fa-trash"></span></button><button (click) = "loadDocumentForm(filteredDocument[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
                                 class="text-danger fa fa-edit"></span></button></td>
-     <td><Button (click)=deleteDocuments(document.id)>Console Data</Button></td>
+    
                     </tr>
                     
                 </tbody>

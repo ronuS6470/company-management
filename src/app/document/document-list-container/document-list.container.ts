@@ -35,6 +35,7 @@ export class DocumentListContainer implements OnInit {
       this.getDocuments()
     })
   }
+
   /**
    * Sorting data at a specified field
    * @param sortField 
@@ -42,24 +43,33 @@ export class DocumentListContainer implements OnInit {
   public sortData(sortField: string): void {
     this.documentData = this.documentService.sortData(sortField);
   }
-  patchDocument(documentDetails: Document) {
-    if (documentDetails.id) {
-      this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
-        this.documentData = this.documentService.getDocuments()
-      })
-    }
-    else {
-      this.documentService.addData(documentDetails).subscribe(() => {
-        this.documentData = this.documentService.getDocuments()
-      })
-    }
+  updateDocument(documentDetails: Document) {
+    this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
+      this.documentData = this.documentService.getDocuments()
+    })
   }
+  addDocument(documentDetails: Document) {
+    this.documentService.addData(documentDetails).subscribe(() => {
+      this.documentData = this.documentService.getDocuments()
 
-  /**
-   * get filter data and pass to presentation
-   * @param filters filter data
-   */
-  filterData(filters): void {
-    this.groupFilter = filters;
+    })}
+
+
+    /**
+     * get filter data and pass to presentation
+     * @param filters filter data
+     */
+    filterData(filters): void {
+      this.groupFilter = filters;
+    }
+
+    deleteMultiple(multipleDataDelete)
+    {
+      for(let i=0;i<multipleDataDelete.length;i++)
+      {
+        this.documentService.deleteDocument(multipleDataDelete[i]).subscribe(()=>{
+          this.getDocuments();
+        })
+      }
+    }
   }
-}

@@ -15,6 +15,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
+ 
   @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
@@ -30,8 +31,11 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Output() public updatedDocument: EventEmitter<any>;
   @Output() public filter: EventEmitter<any>;
   @Output() public delete;
+  @Output() public deleteMultipleDocuments;
   todayDate: Date = new Date();
   // filter key and value
+  public multipleDeletes:any
+  public datatoDelete=[]
   public subscribeData: any;
   public updatedDetails: any;
   // store filterd data
@@ -46,6 +50,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.updatedDocument = new EventEmitter();
     this.filter = new EventEmitter<any>();
     this.delete=new EventEmitter<number>();
+    this.deleteMultipleDocuments=new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -132,7 +137,14 @@ export class DocumentListPresentation implements OnInit, OnChanges {
  * Tried multiple delete functionality
  */
   deleteDocuments() {
-    console.log(this.documentData.filter(item=>item.checked))
+    this.multipleDeletes=this.documentData.filter(item=>item.checked)
+    for(let i=0;i<this.multipleDeletes.length;i++)
+    {
+      this.datatoDelete[i]=this.multipleDeletes[i].id
+    }
+    this.deleteMultipleDocuments.emit(this.datatoDelete)
+    
+    
    //  for (var data in this.documentData){
    //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
    //  }
