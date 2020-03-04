@@ -1,3 +1,12 @@
+.content-body,
+.top-bar {
+    padding: 20px 97px;
+    @media (max-width: 725px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
+}
 
 .company-form-container {
     .nbc-logo {
@@ -26,6 +35,27 @@
     .label {
         padding-left: 10px;
         font-size: 14px;
+    }
+    select {
+        -webkit-appearance: none;
+    }
+     ::placeholder {
+        color: $black;
+    }
+    .custom-select-arrow {
+        &::after {
+            content: '';
+            height: 8px;
+            width: 8px;
+            border: 2px solid $secondary;
+            position: absolute;
+            top: 4px;
+            right: 10px;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            pointer-events: none;
+        }
     }
     // attached files
     #attachedFile {
@@ -94,17 +124,13 @@
         box-shadow: none;
     }
     #closeFile {
-        top: 11px;
-        right: 22px;
+        top: 14px;
+        right: 8px;
         z-index: 1;
     }
 }
 
-
-
 // Document Add - Edit 
-
-.add-edit-r{
+.add-edit-r {
     border-radius: 20px;
 }
-
