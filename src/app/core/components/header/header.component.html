@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 <header  class="border-bottom py-1 bg-white" *ngIf="isLoggedIn$ | async as isLoggedIn">
-=======
-<header class="border-bottom py-1 bg-white">
->>>>>>> 686a6b438d6461f2c45bf728a159a42aa64718eb
-
     <div class="d-flex justify-content-between">
        <div class=" d-flex">
             <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
@@ -15,21 +10,17 @@
             <!-- dropdown -->
 
             <div class="dropdown mr-2">
-<<<<<<< HEAD
-                <a class="btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [routerLink]="[ '/notification/list' ]" routerLinkActive="active">
-                    <span class="fa fa-bell-o notification-icon " >
-                        <span class="badge badge-danger p-1 notification-badge">1</span>
-=======
-                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                     <span class="fa fa-bell-o notification-icon position-relative">
                         <span class="badge badge-danger p-1 notification-badge uk-position-absolute">1</span>
->>>>>>> 686a6b438d6461f2c45bf728a159a42aa64718eb
+
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">notification 1</a>
-                    <a class="dropdown-item my-2" href="#">notification 2</a>
-                    <a class="dropdown-item border-top  text-primary" href="#">View more</a>
+                    <a class="dropdown-item" >notification 1</a>
+                    <a class="dropdown-item my-2" >notification 2</a>
+                    <a class="dropdown-item border-top  text-primary"  [routerLink]="[ '/notification/list' ]" routerLinkActive="active">View more</a>
                 </div>
             </div>
 
