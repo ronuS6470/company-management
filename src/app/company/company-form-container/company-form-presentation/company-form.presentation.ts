@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
 import { FormGroup } from '@angular/forms';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyFormPresentation {
+export class CompanyFormPresentation implements OnInit {
   // add event for company data
 
   @Output() add: EventEmitter<Company>;
@@ -27,11 +27,9 @@ export class CompanyFormPresentation {
   //company list
   private _companies: Observable<Company[]>;
 
-  get company(): any {
-    debugger
-    return this._companies;
-  }
-
+  /**
+   * set company data
+   */
   @Input()
   set company(value: any) {
     if (value) {
@@ -39,6 +37,14 @@ export class CompanyFormPresentation {
       this.companyForm.patchValue(value);
     }
   }
+
+  get company(): any {
+    return this._companies;
+  }
+
+  
+
+  
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;
     this.add = new EventEmitter<Company>();
@@ -46,15 +52,22 @@ export class CompanyFormPresentation {
   }
 
   /**
+   * build company form
+   */
+  ngOnInit() {
+    this.companyForm = this.companyFormPresenter.buildCompanyForm();
+  }
+
+  /**
    * getter for form controls
    */
-  get controls() { return this.companyForm.controls; }
+  get formControls() { return this.companyForm.controls; }
 
 
   /**
    * add and update company data
    */
-  onSubmit() {
+  public onSubmit() : void {
     debugger;
     this.submitted = true;
     if (this.companyForm.invalid) {

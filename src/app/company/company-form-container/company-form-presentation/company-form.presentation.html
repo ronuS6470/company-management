@@ -1,7 +1,8 @@
 <!-- company form content -->
 <div class="content h-100 overflow-hidden d-flex flex-column">
     <!-- content header -->
-    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
+    <div
+        class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
         <!-- breadcrum -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
@@ -23,7 +24,8 @@
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
             <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0">Cancel</button>
-            <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1 my-2 my-sm-0" (click)="onSubmit()">Save</button>
+            <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1 my-2 my-sm-0"
+                (click)="onSubmit()">Save</button>
         </div>
     </div>
     <!-- end content header -->
@@ -46,10 +48,29 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="clientName" class="label text-secondary mb-0">Client
                                         Name</label>
-                                    <input type="text" class="form-control" id="clientName" formControlName="clientName" [ngClass]="{ 'is-invalid': submitted && controls.clientName.errors }">
-                                    <div *ngIf="submitted && controls.clientName.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.clientName.errors.required">client name is required</div>
-                                        <div *ngIf="controls.clientName.errors.pattern">only characters allowed</div>
+                                    <input type="text" class="form-control" id="clientName" formControlName="clientName"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.clientName.errors }">
+                                    <div *ngIf="submitted && formControls.clientName.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.clientName.errors.required">client name is required
+                                        </div>
+                                        <div *ngIf="formControls.clientName.errors.pattern">only characters allowed
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- company url -->
+                            <div class="col-12 px-0">
+                                <div class="form-group d-flex flex-column">
+                                    <label for="companyWebsite" class="label text-secondary mb-0">Company
+                                        Website</label>
+                                    <input type="text" class="form-control" id="companyWebsite"
+                                        formControlName="companySite" placeholder="company site"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.companySite.errors }">
+                                    <div *ngIf="submitted && formControls.companySite.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.companySite.errors.required">company site is required
+                                        </div>
+                                        <div *ngIf="formControls.companySite.errors.pattern">invalid company site
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -57,15 +78,18 @@
                             <!-- radio buttons  -->
                             <div class="col-12 mb-3 px-0">
                                 <div class="custom-control-inline">
-                                    <input type="radio" value="client" formControlName="clientType" class="custom-input-radio pt-4" id="customRadio">
+                                    <input type="radio" value="client" formControlName="clientType"
+                                        class="custom-input-radio pt-4" id="customRadio">
                                     <label class="custom-control-label" for="customRadio">Client</label>
                                 </div>
                                 <div class="custom-control-inline">
-                                    <input type="radio" value="supplier" formControlName="clientType" class="custom-input-radio pt-4" id="customRadio2" checked>
+                                    <input type="radio" value="supplier" formControlName="clientType"
+                                        class="custom-input-radio pt-4" id="customRadio2" checked>
                                     <label class="custom-control-label" for="customRadio2">Supplier</label>
                                 </div>
                                 <div class="custom-control-inline">
-                                    <input type="radio" value="both" formControlName="clientType" class="custom-input-radio pt-4" id="customRadio3">
+                                    <input type="radio" value="both" formControlName="clientType"
+                                        class="custom-input-radio pt-4" id="customRadio3">
                                     <label class="custom-control-label" for="customRadio3">Both</label>
                                 </div>
                             </div>
@@ -75,7 +99,8 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="businessType" class="label text-secondary mb-0">Type of
                                         Business</label>
-                                    <select formControlName="businessType" class="form-control bg-transparent" id="businessType">
+                                    <select formControlName="businessType" class="form-control bg-transparent"
+                                        id="businessType">
                                         <option value="">--select business type--</option>
                                         <option value="private">Private</option>
                                         <option value="public">Public</option>
@@ -86,14 +111,16 @@
                             <div class="col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="location" class="label text-secondary mb-0">Location</label>
-                                    <select formControlName="location" class="form-control bg-transparent" id="businessType" [ngClass]="{ 'is-invalid': submitted && controls.location.errors }">
+                                    <select formControlName="location" class="form-control bg-transparent"
+                                        id="businessType"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.location.errors }">
                                         <option value="">--select location--</option>
                                         <option value="London">London</option>
                                         <option value="USA">USA</option>
                                         <option value="LA">LA</option>
                                     </select>
-                                    <div *ngIf="submitted && controls.location.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.location.errors.required">location is required
+                                    <div *ngIf="submitted && formControls.location.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.location.errors.required">location is required
                                         </div>
                                     </div>
                                 </div>
@@ -102,9 +129,14 @@
                             <div class="col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactNo" class="label text-secondary mb-0">Contact Number</label>
-                                    <input type="number" formControlName="contactNumber" class="form-control " id="contactNo" [ngClass]="{ 'is-invalid': submitted && controls.contactNumber.errors }">
-                                    <div *ngIf="submitted && controls.contactNumber.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.contactNumber.errors.required">contact no. is required
+                                    <input type="number" formControlName="contactNumber" class="form-control "
+                                        id="contactNo"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactNumber.errors }">
+                                    <div *ngIf="submitted && formControls.contactNumber.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="formControls.contactNumber.errors.required">contact no. is required
+                                        </div>
+                                        <div *ngIf="formControls.contactNumber.errors.pattern">invalid contact no.
                                         </div>
                                     </div>
                                 </div>
@@ -114,9 +146,11 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="emailAddress" class="label text-secondary mb-0">Email
                                         Adress</label>
-                                    <input type="email" formControlName="email" class="form-control " id="emailAddress" [ngClass]="{ 'is-invalid': submitted && controls.email.errors }">
-                                    <div *ngIf="submitted && controls.email.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.email.errors.required">email is required</div>
+                                    <input type="email" formControlName="email" class="form-control " id="emailAddress"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.email.errors }">
+                                    <div *ngIf="submitted && formControls.email.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.email.errors.required">email is required</div>
+                                        <div *ngIf="formControls.email.errors.pattern">invalid email</div>
                                     </div>
                                 </div>
                             </div>
@@ -128,9 +162,15 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactPerson" class="label text-secondary mb-0">Contact
                                         Person</label>
-                                    <input type="text" formControlName="contactPersonName" class="form-control" id="contactPerson" [ngClass]="{ 'is-invalid': submitted && controls.contactPersonName.errors }">
-                                    <div *ngIf="submitted && controls.contactPersonName.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.contactPersonName.errors.required"> contact person name is required
+                                    <input type="text" formControlName="contactPersonName" class="form-control"
+                                        id="contactPerson"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactPersonName.errors }">
+                                    <div *ngIf="submitted && formControls.contactPersonName.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="formControls.contactPersonName.errors.required"> contact person name
+                                            is required
+                                        </div>
+                                        <div *ngIf="formControls.contactPersonName.errors.required"> only character
                                         </div>
                                     </div>
                                 </div>
@@ -140,9 +180,14 @@
                             <div class="col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="designation" class="label text-secondary mb-0">Designation</label>
-                                    <input type="text" formControlName="designation" class="form-control" id="designation" [ngClass]="{ 'is-invalid': submitted && controls.designation.errors }">
-                                    <div *ngIf="submitted && controls.designation.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.designation.errors.required">designation is required</div>
+                                    <input type="text" formControlName="designation" class="form-control"
+                                        id="designation"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.designation.errors }">
+                                    <div *ngIf="submitted && formControls.designation.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.designation.errors.required">designation is required
+                                        </div>
+                                        <div *ngIf="formControls.designation.errors.pattern">only character
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -152,9 +197,15 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="otherContactNo" class="label text-secondary mb-0">Contact
                                         Number</label>
-                                    <input type="text" formControlName="contactPersonMobile" class="form-control" id="clientName" [ngClass]="{ 'is-invalid': submitted && controls.contactPersonMobile.errors }">
-                                    <div *ngIf="submitted && controls.contactPersonMobile.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.contactPersonMobile.errors.required">contact person mobile no. is required</div>
+                                    <input type="text" formControlName="contactPersonMobile" class="form-control"
+                                        id="clientName"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactPersonMobile.errors }">
+                                    <div *ngIf="submitted && formControls.contactPersonMobile.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="formControls.contactPersonMobile.errors.required">contact person
+                                            mobile no. is required</div>
+                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern">invalid mobile no.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -166,27 +217,35 @@
                                 </label>
                             </div>
                             <!-- attached files -->
-                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
 
-                                <!-- <div class="custom-file position-relative">
+
+                            <!-- <div class="custom-file position-relative">
                                     <input type="file" class="custom-file-input"
                                         ="customFile" formControlidName="attachment"
-                                        [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
                                     <label class="custom-file-label" for="customFile">file name</label>
-                                    <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.attachment.errors.required">attachment is required</div>
+                                    <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.attachment.errors.required">attachment is required</div>
                                     </div>
                                 </div> -->
-                                <div class="custom-file position-relative">
-                                    <input type="text" formControlName="attachment" [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
+                            <!-- attached files -->
+                            <div class="col-6 pl-0 pr-0 pr-md-3">
+                                <div class="form-group d-flex flex-column">
+                                    <label for="fileName" class="label text-secondary mb-0">File Name</label>
+                                    <input type="text" formControlName="attachment" class="form-control " id="fileName"
+                                        placeholder="filename"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
+                                    <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.attachment.errors.required">attachment is required
+                                        </div>
+                                    </div>
                                 </div>
-                                <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
-                                    <div *ngIf="controls.attachment.errors.required">attachment is required</div>
-                                </div>
-                                <label id="closeFile" class="fa fa-times-circle position-absolute text-secondary"></label>
+                                <label id="closeFile"
+                                    class="fa fa-times-circle position-absolute text-secondary"></label>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
