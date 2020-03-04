@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationContainer } from './registration-container/registration.container';
 import { RegistrationPresentation } from './registration-container/registration-presentation/registration.presentation';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule }  from '@angular/common/http';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrationService } from './registration.service';
 
@@ -17,8 +18,8 @@ import { RegistrationService } from './registration.service';
   imports: [
     CommonModule,
     RegistrationRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule    
   ],
   providers: [RegistrationService]
 })

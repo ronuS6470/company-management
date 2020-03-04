@@ -1,3 +1,12 @@
+.content-body,
+.top-bar {
+    padding: 20px 97px;
+    @media (max-width: 725px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
+}
 
 .company-form-container {
     .nbc-logo {
@@ -27,70 +36,101 @@
         padding-left: 10px;
         font-size: 14px;
     }
+    select {
+        -webkit-appearance: none;
+    }
+     ::placeholder {
+        color: $black;
+    }
+    .custom-select-arrow {
+        &::after {
+            content: '';
+            height: 8px;
+            width: 8px;
+            border: 2px solid $secondary;
+            position: absolute;
+            top: 4px;
+            right: 10px;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            pointer-events: none;
+        }
+    }
     // attached files
     #attachedFile {
         height: calc(21px + 24px);
     }
     // custom radio button
-    [type="radio"]:checked,
-    [type="radio"]:not(:checked) {
-        position: absolute;
-        left: -9999px;
-    }
-    [type="radio"]:checked+label,
-    [type="radio"]:not(:checked)+label {
-        position: relative;
-        padding-left: 28px;
-        cursor: pointer;
-        line-height: 20px;
-        display: inline-block;
-    }
-    [type="radio"]:checked+label:before,
-    [type="radio"]:not(:checked)+label:before {
-        content: '';
-        position: absolute;
-        @include position();
-        width: 18px;
-        height: 18px;
-        border: 1px solid $gray-400;
-        border-radius: 100%;
-        background: $white;
-    }
-    [type="radio"]:checked+label:after,
-    [type="radio"]:not(:checked)+label:after {
-        content: '';
-        width: 10px;
-        height: 10px;
-        background: $primary;
-        position: absolute;
-        @include position($top: 4px, $left: 4px);
-        border-radius: 100%;
-        transition: all 0.2s ease;
-    }
-    [type="radio"]:not(:checked)+label:after {
-        opacity: 0;
-        transform: scale(0);
-    }
-    [type="radio"]:checked+label:after {
-        opacity: 1;
-        transform: scale(1);
+    .custom-input-radio {
+        &:checked,
+        &:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+        &:checked,
+        &:not(:checked) {
+            &+label {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    @include position();
+                    width: 18px;
+                    height: 18px;
+                    border: 1px solid $gray-400;
+                    border-radius: 100%;
+                    background: $white;
+                }
+                &:after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    background: $primary;
+                    position: absolute;
+                    @include position($top: 4px, $left: 4px);
+                    border-radius: 100%;
+                    transition: all 0.2s ease;
+                }
+            }
+        }
+        &:not(:checked) {
+            &+label {
+                &:after {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+        }
+        &:checked {
+            &+label {
+                &:after {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
     }
     // custom file control
     .custom-file-label::after {
         display: none;
     }
+    .custom-file-input {
+        outline: none;
+        box-shadow: none;
+    }
     #closeFile {
-        top: 11px;
-        right: 22px;
+        top: 14px;
+        right: 8px;
         z-index: 1;
     }
 }
 
-
-
 // Document Add - Edit 
-
-.add-edit-r{
+.add-edit-r {
     border-radius: 20px;
 }
-

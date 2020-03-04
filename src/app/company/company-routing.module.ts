@@ -20,6 +20,14 @@ const routes: Routes = [
     component: CompanyFormContainer
   },
   {
+    path: 'add',
+    component: CompanyListContainer
+  },  
+  {
+    path: 'edit/:id',
+    component: CompanyFormContainer
+  },
+  {
     path: '',
     redirectTo: 'list',
     pathMatch: 'full'
