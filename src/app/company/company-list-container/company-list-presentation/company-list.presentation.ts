@@ -34,8 +34,7 @@ export class CompanyListPresentation implements OnChanges {
   filteredUsers: any[] = [];
 
   public sortBy: string;
-  public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
-
+  
   constructor(
     private companyListPresenter: CompanyListPresenter,
   ) {
@@ -82,7 +81,7 @@ export class CompanyListPresentation implements OnChanges {
    * filter
    */
   public filter(): void {
-    this.companyListPresenter.filter();
+    this.companyListPresenter.filter(this.users);
     this.companyListPresenter.subject.subscribe(data => {
       this.sendData.emit(data);
     });

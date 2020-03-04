@@ -1,41 +1,47 @@
-import { ComponentPortal } from '@angular/cdk/portal';
-import { Injectable } from '@angular/core';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { Injectable, Injector, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
 import { CompanyFilterPresentation } from '../company-list-presentation/company-filter-presentation/company-filter.presentation';
 import { Subject } from 'rxjs';
+import { CompanyToken } from '../../token';
 
 @Injectable()
 export class CompanyListPresenter {
   subject = new Subject();
   public data: string;
-  private overlayRef: OverlayRef;
   constructor(
     private overlay: Overlay,
+    public injector: Injector,
+    public viewContainerRef: ViewContainerRef,
   ) { }
 
-  // Filter overlay open
-  public filter(): any {
-      const config = new OverlayConfig();
-      config.positionStrategy = this.overlay.position()
-        .global()
-        .centerVertically()
-        .right();
-      config.hasBackdrop = true;
-      this.overlayRef = this.overlay.create(config);
-      const componentInstance = this.overlayRef.attach(new ComponentPortal(CompanyFilterPresentation));
-      this.overlayRef.backdropClick().subscribe(() => {
-        this.data = componentInstance.instance.searchText;
-        this.subject.next(componentInstance.instance.searchText);
-        this.overlayRef.detach();
-      });
+  createInjector(data: any, overlayRef: OverlayRef): PortalInjector {
+    const injectorTokens = new WeakMap();
+    injectorTokens.set(OverlayRef, overlayRef);
+    injectorTokens.set(CompanyToken, data);
+    return new PortalInjector(this.injector, injectorTokens);
   }
 
-  /**
-   * Close Overlay
-   */
-  close() {
-    this.overlayRef.detach();
+  // Filter overlay open
+  public filter(filter): any {
+    console.log(filter);
+    let config = new OverlayConfig(); 
+    config.positionStrategy = this.overlay.position()
+      .global()
+      .centerVertically()
+      .right();
+    config.hasBackdrop = true;
+    let overlayRef = this.overlay.create(config);
+    let componentInstance = overlayRef.attach(new ComponentPortal(
+      CompanyFilterPresentation, this.viewContainerRef, this.createInjector(filter, overlayRef)));
+    overlayRef.backdropClick().subscribe(() => {
+      this.data = componentInstance.instance.searchText;
+      overlayRef.detach();
+    });
+    componentInstance.instance.filterData.subscribe(data => {
+      this.subject.next(data);
+    });
   }
 
   /**
