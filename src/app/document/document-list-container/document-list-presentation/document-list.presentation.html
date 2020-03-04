@@ -22,10 +22,10 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <h3>Documents</h3>&nbsp;
-                <p class="m-0 text-primary">({{documentData?.length}})</p>
+                <p class="m-0 text-primary">({{filteredDocument?.length}})</p>
             </div>
             <div class="d-flex align-items-center">
-                <button (click) = "loadDocumentForm(documentData[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
+                <button (click) = "loadDocumentForm(filteredDocument[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-danger fa fa-trash"></span></button>
                 <button (click)="openFilter()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-dark">Filter</span>&nbsp;&nbsp;<span
@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody class="h-100">
-                    <tr *ngFor="let document of documentData ; let i=index  " class="bg-white align-items-center">
+                    <tr *ngFor="let document of filteredDocument ; let i=index  " class="bg-white align-items-center">
                         <td>
                             <div class="custom-control custom-checkbox">
                                 <input [(ngModel)]="document.checked" type="checkbox" class="custom-control-input" id="customCheck2">
@@ -87,7 +87,7 @@
                             <span class="text-primary">{{document.activity}}</span>
                         </td>
                         <td> <button (click)="deleteDocument(document.id)" class="btn btn-white bg-white rounded-0 mx-2"><span
-                            class="text-danger fa fa-trash"></span></button><button (click) = "loadDocumentForm(documentData[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
+                            class="text-danger fa fa-trash"></span></button><button (click) = "loadDocumentForm(filteredDocument[i])"  class="btn btn-white bg-white rounded-0 mx-2"><span
                                 class="text-danger fa fa-edit"></span></button></td>
      <td><Button (click)=deleteDocuments(document.id)>Console Data</Button></td>
                     </tr>

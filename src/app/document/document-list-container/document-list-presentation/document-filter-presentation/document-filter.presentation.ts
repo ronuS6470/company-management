@@ -2,7 +2,7 @@
  * @author Dhruvit Makadia
  */
 
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Output, EventEmitter } from '@angular/core';
 // ---------------------------------- //
 import { DocumentFilterPresenter } from '../document-filter-presenter/document-filter.presenter';
 import { FormGroup } from '@angular/forms';
@@ -17,8 +17,9 @@ import { MyOverlayRef } from 'src/app/document/overlay/myoverlay-ref';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentFilterPresentation implements OnInit {
+  // filter form group
   public filterForm: FormGroup;
-  public filterData: any;
+
   constructor(
     private filterPresenter: DocumentFilterPresenter,
     private ref: MyOverlayRef
@@ -34,7 +35,13 @@ export class DocumentFilterPresentation implements OnInit {
    */
   search(filters: any): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    // this.groupFilters.emit(filters);
     this.ref.close(filters);
+  }
+
+  /**
+   * close overlay
+   */
+  closeOverlay() {
+    this.ref.overlay.dispose();
   }
 }

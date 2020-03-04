@@ -1,27 +1,34 @@
+/**
+ * @author Dhruvit Makadia
+ */
 import { Subject } from 'rxjs';
-
 import { OverlayRef } from '@angular/cdk/overlay';
 
-import { TemplateRef, Type } from '@angular/core';
-
 export class MyOverlayRef {
-  afterClosed$ = new Subject();
+    afterClosed$ = new Subject();
 
-  constructor(
-    public overlay: OverlayRef,
-    public data // pass data to modal i.e. FormData
-  ) {
-    overlay.backdropClick().subscribe(() => this._close(null));
-  }
+    constructor(
+        // overlay reference
+        public overlay: OverlayRef,
+        // pass data to presentation
+        public data
+    ) { }
 
-  close(data?) {
-    this._close(data);
-  }
+    /**
+     * call another mathod
+     * @param data filter data
+     */
+    public close(data?): void {
+        this._close(data);
+    }
 
-  private _close(data) {
-    this.overlay.dispose();
-    this.afterClosed$.next(data);
+    /**
+     * close overlay and store data in subject
+     */
+    private _close(data): void {
+        this.overlay.dispose();
+        this.afterClosed$.next(data);
 
-    this.afterClosed$.complete();
-  }
+        this.afterClosed$.complete();
+    }
 }

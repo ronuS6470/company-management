@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 
 export class DocumentListContainer implements OnInit {
   documentData: Observable<Document[]>
-
+  // filter data
+  public groupFilter: any;
   constructor(private documentService: DocumentService) {
 
   }
@@ -52,5 +53,13 @@ export class DocumentListContainer implements OnInit {
         this.documentData = this.documentService.getDocuments()
       })
     }
+  }
+
+  /**
+   * get filter data and pass to presentation
+   * @param filters filter data
+   */
+  filterData(filters): void {
+    this.groupFilter = filters;
   }
 }

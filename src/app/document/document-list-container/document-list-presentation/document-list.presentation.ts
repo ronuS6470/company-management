@@ -1,9 +1,11 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Document } from 'src/app/document/document.model'
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service'
-import { DocumentFilterPresentation } from './document-filter-presentation/document-filter.presentation';
+import { Subject } from 'rxjs';
+import { Document } from 'src/app/document/document.model';
+import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
+import { OverlayRef } from '@angular/cdk/overlay';
+
 @Component({
   selector: 'cmp-document-list-ui',
   templateUrl: './document-list.presentation.html',
@@ -12,42 +14,61 @@ import { DocumentFilterPresentation } from './document-filter-presentation/docum
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-
-export class DocumentListPresentation {
-  public updatedDetails: any;
-  private sortByDate: string;
-  subscribeData = null;
-  document: any[] = [];
-  filteredDocument: any[] = [];
-  @Input() public documentData: Document[] //stores document data
-
+export class DocumentListPresentation implements OnInit, OnChanges {
+  @Input() public groupFilter: any;
+  @Input() set documentData(value: Document[]) {
+    if (value) {
+      this.docData = value;
+      this.document = value;
+      this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
+    }
+  }
+  get documentData() {
+    return this.docData;
+  }
   @Output() public sort: EventEmitter<string>;
-
   @Output() public updatedDocument: EventEmitter<any>;
-
+  @Output() public filter: EventEmitter<any>;
   @Output() public delete;
-
-  // todayDate: Date = new Date();
-
+  todayDate: Date = new Date();
+  // filter key and value
+  public subscribeData: any;
+  public updatedDetails: any;
+  // store filterd data
+  public filteredDocument: any[] = [];
+   // temporory variable for getter and setter of document data
+   private docData: Document[];
+   private sortByDate: string;
+   private document: any[] = [];
   constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
     this.sort = new EventEmitter<string>();
     this.updatedDocument = new EventEmitter();
-    this.delete = new EventEmitter<number>();
+    this.filter = new EventEmitter<any>();
+    this.delete=new EventEmitter<number>();
   }
 
   ngOnInit() {
-    this.loadDocument();
   }
+
+  ngOnChanges() {
+    if (this.groupFilter) {
+      this.filterList(this.groupFilter);
+    }
+  }
+
    /**
      * Emits a delete event with specified id
      * @param id 
      */
-  public deleteDocument(id: number) {
-    if (confirm('Are you sure to delete this document')) {
-      this.delete.emit(id);
+    public deleteDocument(id: number) {
+      if (confirm('Are you sure to delete this document')) {
+        this.delete.emit(id);
+      }
     }
-  }
+  // openConfirmation(id: number) {
+  //   this.deleteConfirmation.showOverlay(id)
+  // }
   
 
   /**
@@ -68,47 +89,45 @@ export class DocumentListPresentation {
   }
  
 
+  /**
+   * open filter overlay and get filter data
+   */
   public openFilter() {
     const ref = this.documentListPresenter.open(null);
-    this.subscribeData = ref.afterClosed$;
+    ref.afterClosed$.subscribe(res => {
+      this.subscribeData = res;
+      this.filter.emit(this.subscribeData);
+    });
   }
 
-  ngDoCheck(): void {
-    if (this.subscribeData) {
-      this.filterUserList(this.subscribeData, this.document);
-    }
-  }
-  filterUserList(filters: any, document: any): void {
+  /**
+   * get filter data and filter list
+   * @param filters filter data
+   */
+  filterList(filters: any): void {
     this.filteredDocument = this.document;
     const keys = Object.keys(filters);
-    const filterUser = doc => {
+    const filterDocument = doc => {
       let result = keys.map(key => {
         if (doc[key]) {
-          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase());
+          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase())
         } else {
           return false;
         }
+
       });
       result = result.filter(it => it !== undefined);
-      return result.reduce((acc, cur: any) => {
-        // tslint:disable-next-line: no-bitwise
-        return acc & cur;
-      }, 1);
-    };
-    this.filteredDocument = this.document.filter(filterUser);
+
+      return result.reduce((acc, cur: any) => { return acc & cur }, 1)
+    }
+    this.filteredDocument = this.document.filter(filterDocument);
   }
 
-  public loadDocument() {
-    // this.documentData.subscribe(document => {
-    //   this.document = document;
-    //   this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : this.document;
-    // });
-
-  }
   loadDocumentForm(document: any): any {
     this.updatedDetails = this.documentListPresenter.loadForm(document)
 
   }
+ 
 /**
  * Tried multiple delete functionality
  */
