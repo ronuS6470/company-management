@@ -1,5 +1,4 @@
 .login-form {
-
     position: relative;
     max-width: 500px;
 }
@@ -15,12 +14,9 @@
     }
 }
 
-.form-content {
-    background-color: $form-bg;
-}
+
 
 .form-details {
-
   position: relative;
   max-width: 500px;
 }
@@ -45,8 +41,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
 .form-input {
     display: block;
     position: relative;
@@ -123,7 +117,7 @@
     }
 }
 
-  }
+}
 
 
 .form-input {
@@ -206,6 +200,4 @@
     }
   }
 }
-
-
 

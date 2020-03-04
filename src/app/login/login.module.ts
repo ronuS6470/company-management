@@ -23,5 +23,6 @@ import { FormsModule } from '@angular/forms';
   providers: [
     AuthenticateService
   ]
+  
 })
 export class LoginModule { }

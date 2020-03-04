@@ -75,3 +75,13 @@
         }
     }
 }
+
+.company-table,
+.document-table {
+    padding: 20px 97px;
+    @media (max-width: 425px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
+}

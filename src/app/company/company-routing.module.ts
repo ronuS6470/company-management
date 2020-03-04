@@ -12,8 +12,16 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: CompanyFormContainer,
+    component: CompanyFormContainer
   },
+  {
+    path: 'edit/:id',
+    component: CompanyFormContainer
+  },
+  {
+    path: 'add',
+    component: CompanyListContainer
+  },  
   {
     path: 'edit/:id',
     component: CompanyFormContainer

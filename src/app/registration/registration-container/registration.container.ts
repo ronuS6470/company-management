@@ -10,9 +10,14 @@ import { Registration } from '../registration.model';
 export class RegistrationContainer {
   constructor(private registrationService: RegistrationService, private route: Router) { }
 
+  /**
+   * 
+   * @param userDetailForm of type Registration model
+   * API call to register in json-server
+   */
   addDetail(userDetailForm: Registration): void {
     this.registrationService.addUser(userDetailForm).subscribe(() => {
-      this.route.navigate(['/login']);
+      this.route.navigate(['/login']);                                 // Navigate back to login page.
     })
   }
 }

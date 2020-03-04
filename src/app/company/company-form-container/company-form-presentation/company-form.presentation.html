@@ -1,7 +1,7 @@
 <!-- company form content -->
 <div class="content h-100 overflow-hidden d-flex flex-column">
     <!-- content header -->
-    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
+    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center flex-shrink-0 mb-3 mb-md-0">
         <!-- breadcrum -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
@@ -157,33 +157,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Attachment  -->
                             <h6 class="font-medium text-secondary">Attachment</h6>
                             <div class="col-6 ml-auto">
-                                <label for="customFile" class="text-primary float-right pointer">
+                                <input type="file" class="custom-file-input d-none" id="customFile">
+                                <label for="customFile" class="text-primary float-right">
                                     <span class="fa fa-plus-square-o fa-lg"></span>
                                 </label>
                             </div>
+
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
-
-                                <!-- <div class="custom-file position-relative">
-                                    <input type="file" class="custom-file-input"
-                                        ="customFile" formControlidName="attachment"
-                                        [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
-                                    <label class="custom-file-label" for="customFile">file name</label>
-                                    <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
-                                        <div *ngIf="controls.attachment.errors.required">attachment is required</div>
-                                    </div>
-                                </div> -->
-                                <div class="custom-file position-relative">
-                                    <input type="text" formControlName="attachment" [ngClass]="{ 'is-invalid': submitted && controls.attachment.errors }">
+                                <div class="form-group d-flex flex-column position-relative">
+                                    <label for="filename" class="label text-secondary mb-0">File Name</label>
+                                    <input type="text" class="form-control" id="filename" placeholder="No files attached">
+                                    <label id="closeFile" class="fa fa-times-circle position-absolute text-secondary fa-lg"></label>
                                 </div>
-                                <div *ngIf="submitted && controls.attachment.errors" class="invalid-feedback">
-                                    <div *ngIf="controls.attachment.errors.required">attachment is required</div>
-                                </div>
-                                <label id="closeFile" class="fa fa-times-circle position-absolute text-secondary"></label>
                             </div>
+
                         </div>
                     </form>
                 </div>
