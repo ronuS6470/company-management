@@ -117,8 +117,9 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   loadDocumentForm(document: any): void {
     this.documentListPresenter.loadForm(document).subscribe((data) => {
       this.updatedDetails = data
-      if (document.id) {
-        console.log(document.id);
+      if (document!=null) 
+      {
+        console.log(document);
         this.updatedDetails.id = document.id
         this.updatedDocument.emit(this.updatedDetails)
       }
