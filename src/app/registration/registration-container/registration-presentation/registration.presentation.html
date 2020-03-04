@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-Registration Works ....<br><br>
 
 <div>
     <form [formGroup]="userDetails" (ngSubmit)="onSubmit()">
@@ -35,6 +33,14 @@ Registration Works ....<br><br>
         </div>
     </form>
 </div>
-=======
-<p>Registration works..</p>
->>>>>>> 192265dfc5c3c1cf2aefca4d5e16a1b45eaeafb5
+
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!userDetails.valid">Register</button>
+    </div>
+  </form>
+
+</div>
+
