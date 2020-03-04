@@ -51,7 +51,6 @@ export class CompanyListPresenter {
       let result = keys.map(key => {
         if (!~key.indexOf('age')) {
           if (user[key]) {
-            console.log(user[key]);
             return String(user[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase())
           } else { return false; }
         }

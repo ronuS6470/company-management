@@ -8,14 +8,13 @@ const routes: Routes = [
   {
     path: 'list',
     component: CompanyListContainer,
-    // canActivate: [AuthGuard]
+    // canActivate: [AuthGuard],
     data: { breadcrumb: 'list'}
   },
   {
     path: 'add',
     component: CompanyFormContainer,
     data: { breadcrumb: 'add'}
-    
   },
   {
     path: 'edit/:id',

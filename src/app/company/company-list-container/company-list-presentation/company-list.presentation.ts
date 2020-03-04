@@ -16,7 +16,6 @@ import { ComponentPortal } from '@angular/cdk/portal';
 export class CompanyListPresentation implements OnChanges {
 
   // Get Company list
-  // Get Company list
   @Input() set companyList$(value) {
     this.filteredUsers = value;
     this.users = value;
@@ -27,12 +26,15 @@ export class CompanyListPresentation implements OnChanges {
   @Output() public deleteCompany = new EventEmitter<number>();
   @Output() public sort = new EventEmitter<string>();
 
-
   @Output() sendData = new EventEmitter<any>();
+
+  // Temp for store data
+  users: any;
+  // store filtered data
+  filteredUsers: any[] = [];
+
   public sortBy: string;
   public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
-  private catchData; // Catch Data
-  subscribeData = null;
 
   constructor(
     private companyListPresenter: CompanyListPresenter,
@@ -41,8 +43,8 @@ export class CompanyListPresentation implements OnChanges {
     this.sort = new EventEmitter<string>();
   }
 
-  ngDoCheck(): void {
-    console.log(this.catchData);
+  public ngOnInit(): void {
+    
   }
 
   /**
@@ -65,35 +67,15 @@ export class CompanyListPresentation implements OnChanges {
    * This method will sort data in descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id
-    console.log(this.sortBy)
+    this.sortBy = document.activeElement.id;
+    console.log(this.sortBy);
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
-  }
-
-
-  // Temp for store data
-  users: any;
-  // store filtered data
-  filteredUsers: any[] = [];
-
-
-  public ngOnInit(): void {
-    this.loadCompany();
   }
 
   public ngOnChanges(): void {
     if (this.getFilterData) {
       this.filteredUsers = this.companyListPresenter.filterUserList(this.getFilterData, this.users, this.filteredUsers);
     }
-  }
-
-  /**
-   * Load Company List data..
-   */
-  loadCompany(): void {
-    this.users = this.companyList$;
-    console.log(this.users);
-    this.filteredUsers = this.filteredUsers.length > 0 ? this.filteredUsers : this.users;
   }
 
   /**
