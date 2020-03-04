@@ -1,71 +1,59 @@
-
-<div class="h-100 position-relative">
+<div class="h-100 position-relative form-content ">
     <div class="row">
         <!--form-->
-        <form class="form-details bg-white col-md-6 shadow-lg">
+        <form [formGroup]="userDetails" (ngSubmit)="onSubmit()" class="form-details bg-white col-md-6 ">
             <div class="col-md-12 p-5">
                 <div class="form-group flex-wrap">
                     <h4 class="text-center">Registration</h4>
+                    
                     <div class="form-input mt-5">
-                        <input class="input-field" id="inputUsername" type="text" autofocus="true" required />
-
+                        <input class="input-field" type="text" formControlName="username" autofocus="true" required />
                         <span class="input-label">Username</span>
                         <span class="input-underline"></span>
+                        <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                          <div *ngIf="f.username.errors.minlength" style="color: red;">
+                            <b>Name must be at least 4 characters long.</b>
+                          </div>
+                        </div>
                     </div>
+                    
                     <div class="form-input ">
-                        <input id="Password" class="input-field" type="password" required />
+                        <input class="input-field" type="password" formControlName="password" required />
                         <span class="input-label">Password</span>
                         <div class="input-underline"></div>
+                        <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                          <div *ngIf="f.password.errors.minlength" style="color: red;">
+                            <b>Password must be at least 4 characters long.</b>
+                          </div>
+                          <div *ngIf="f.password.errors.maxlength" style="color: red;">
+                            <b>Password must not be more than 10 characters long.</b>
+                          </div>
+                        </div>
                     </div>
+                    
                     <div class="form-input mb-5">
-                        <input id="ConfirmPassword" class="input-field" type="password" required />
+                        <input class="input-field" type="password" formControlName="confirmPassword" required />
                         <span class="input-label">Confirm Password</span>
                         <div class="input-underline"></div>
+                        <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                          <div *ngIf="f.confirmPassword.errors.minlength" style="color: red;">
+                            <b>Password must be at least 4 characters long.</b>
+                          </div>
+                          <div *ngIf="f.confirmPassword.errors.maxlength" style="color: red;">
+                            <b>Password must not be more than 10 characters long.</b>
+                          </div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch" style="color: red;">
+                            Passwords must match
+                          </div>
+                        </div>
                     </div>
-                    <div class="mt-5 mt-sm-0   flex-wrap">
-                        <button type="submit" class="btn btn-md btn-primary py-2 px-4 mr-2 mr-md-0 mb-sm-0  ">Submit</button>
-                        <button class="btn btn-md btn-danger text-white py-2 px-4 ml-md-3 ml-0 mt-2 mt-md-0 mb-2 mb-sm-0">Cancel</button>
+                    <div class="mt-5 mt-sm-0 ">
+                        <button type="submit" [disabled]="!userDetails.valid" class="btn btn-md btn-primary py-2 px-4 mr-2 mr-md-0  mb-2 mb-sm-0">Submit</button>
+                        <button type="reset" class="btn btn-md btn-danger text-white py-2 px-4 ml-md-3  ml-0 mt-md-0 mb-2 mb-sm-0">Cancel</button>
                     </div>
                 </div>
             </div>
         </form> -->
         <!--end:form-->
-
-
-
-    <!-- </div>
-    <div>
-      Enter Password:<br><br>
-      <input type="text" formControlName="password"><br><br>
-      <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
-        <div *ngIf="f.password.errors.minlength" style="color: red;">
-          <b>Password must be at least 4 characters long.</b>
-        </div>
-        <div *ngIf="f.password.errors.maxlength" style="color: red;">
-          <b>Password must not be more than 10 characters long.</b>
-        </div>
-      </div>
     </div>
-    <div>
-      ReEnter Password:<br><br>
-      <input type="text" formControlName="confirmPassword"><br><br>
-      <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
-        <div *ngIf="f.confirmPassword.errors.minlength" style="color: red;">
-          <b>Password must be at least 4 characters long.</b>
-        </div>
-        <div *ngIf="f.confirmPassword.errors.maxlength" style="color: red;">
-          <b>Password must not be more than 10 characters long.</b>
-        </div>
-        <div *ngIf="f.confirmPassword.errors.mustMatch" style="color: red;">
-          Passwords must match
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <button type="submit" [disabled]="!userDetails.valid">Register</button>
-    </div>
-  </form>
 </div>
-</div>
-  -->
