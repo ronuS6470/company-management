@@ -14,7 +14,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 })
 
 export class CompanyListPresentation implements OnChanges {
-  
+
   public multipleDeletes : any
   public companiestoDelete=[]
  @Output() public deleteCompanies = new EventEmitter<any>();
@@ -89,6 +89,24 @@ export class CompanyListPresentation implements OnChanges {
       this.filteredUsers = this.companyListPresenter.filterUserList(this.getFilterData, this.users, this.filteredUsers);
     }
   }
+
+  public selectAll(event){
+   debugger;
+   console.log(event.target.value);
+   if(event.target.checked)  
+   { this.filteredUsers.map(user=>{
+      user.checked=true;
+      return user;
+    })
+  }
+  else
+  {
+    this.filteredUsers.map(user=>{
+      user.checked=false;
+      return user;
+    })
+  }
+}
 
   /**
    * Load Company List data..
