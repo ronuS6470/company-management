@@ -1,6 +1,22 @@
 {
   "documents": [
     {
+      "documentName": "Design review report",
+      "ownerName": "Shiv Desai",
+      "created": "2020-01-15 23:59:20",
+      "modified": "2 days ago",
+      "activity": "Compliance",
+      "id": 3
+    },
+    {
+      "documentName": "Contacts information",
+      "ownerName": "Kiran Tandel",
+      "created": "2020-05-15 23:59:20",
+      "modified": "3 days ago",
+      "activity": "General",
+      "id": 4
+    },
+    {
       "documentName": "Contacts information",
       "ownerName": "Bhargav Baleja",
       "created": "2020-04-15 23:59:20",
@@ -14,6 +30,7 @@
       "created": "2020-02-02 23:59:20",
       "modified": "4 days ago",
       "activity": "General",
+<<<<<<< HEAD:src/document-data.json
       "id": 6
     },
     {
@@ -22,6 +39,8 @@
       "created": "2020-02-25 23:59:20",
       "modified": "3 days ago",
       "activity": "General",
+=======
+>>>>>>> 081d7b252aff2d54ffede041657b0e522d3e390c:document-data.json
       "id": 7
     }
   ]
