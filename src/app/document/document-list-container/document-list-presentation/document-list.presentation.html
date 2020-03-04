@@ -1,4 +1,3 @@
-
 <!-- 
 <cmp-document-form-ui></cmp-document-form-ui> -->
 
@@ -22,18 +21,17 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <h3>Documents</h3>&nbsp;
-                <p class="m-0 text-primary">({{filteredDocument?.length}})</p>
+                <p class="m-0 text-primary" *ngIf="filteredDocument">({{filteredDocument?.length}})</p>
             </div>
             <div class="d-flex align-items-center">
-                <button (click)="deleteDocuments()"  class="btn btn-white bg-white rounded-0 mx-2"><span
+                <button (click)="deleteDocuments()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-danger fa fa-trash"></span></button>
                 <button (click)="openFilter()" class="btn btn-white bg-white rounded-0 mx-2"><span
                         class="text-dark">Filter</span>&nbsp;&nbsp;<span
                         class="fa fa-filter text-primary"></span></button>
-                        {{subscribeData | async | json}}
                 <button class="btn btn-outline-primary mx-2 px-4"><span
                         class="fa fa-upload"></span>&nbsp;<span>Upload</span></button>
-                <button (click) = "loadDocumentForm(null)" class="btn btn-primary mx-2 px-4"><span
+                <button (click)="loadDocumentForm(null)" class="btn btn-primary mx-2 px-4"><span
                         class="fa fa-plus"></span>&nbsp;<span>New</span></button>
             </div>
         </div>
@@ -42,19 +40,18 @@
         <div class="table-responsive my-3">
             <table class="table table-borderless">
                 <thead>
-                    <tr  class="text-muted text-uppercase">
+                    <tr class="text-muted text-uppercase">
                         <th>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1"></label>
                             </div>
                         </th>
-                        <th class="td-mwidth"> <span>Name</span>&nbsp; 
+                        <th class="td-mwidth"> <span>Name</span>&nbsp;
                         <th> <span>Owner</span>&nbsp; </th>
                         <th> <span>Created</span>&nbsp; <a href="#" class="short-up"><span
-                            class="fa fa-caret-down text-muted "></span></a>
-                            <a href="#" class="short-down"><span
-                                class="fa fa-caret-up text-muted "></span></a>  </th>
+                                    class="fa fa-caret-down text-muted "></span></a>
+                            <a href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></a> </th>
                         <th class="td-mwidth"><span>modified</span>&nbsp; </th>
                         <th><span>Activity</span>&nbsp; </th>
                                 <th>Actions</th>
@@ -70,7 +67,9 @@
                             </div>
                         </td>
                         <td class="td-mwidth">
-                            <div><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>{{document.documentName}}</span>&nbsp;&nbsp;<span class="fa fa-star text-primary"></span></div>
+                            <div><span
+                                    class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>{{document.documentName}}</span>&nbsp;&nbsp;<span
+                                    class="fa fa-star text-primary"></span></div>
                         </td>
                         <td class="d-flex align-items-center">
                             <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon"
@@ -78,7 +77,8 @@
                             <span class="mx-2">{{document.ownerName}}</span>
                         </td>
                         <td class="td-mwidth">
-                            <span>{{document.created | date : 'longDate'}}</span><span class="ml-2 text-muted">{{document.created | date : 'mediumTime'}}</span>
+                            <span>{{document.created | date : 'longDate'}}</span><span
+                                class="ml-2 text-muted">{{document.created | date : 'mediumTime'}}</span>
                         </td>
                         <td>
                             {{document.modified}}
@@ -91,7 +91,7 @@
                                 class="text-danger fa fa-edit"></span></button></td>
     
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
@@ -101,8 +101,3 @@
 </body>
 
 </html>
-
-
-
-
-

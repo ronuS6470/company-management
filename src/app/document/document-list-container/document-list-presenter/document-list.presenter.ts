@@ -1,16 +1,18 @@
 
-import { Injectable, Injector, ViewContainerRef } from '@angular/core';
+import { Injectable, Injector, ViewContainerRef, OnDestroy } from '@angular/core';
 import { OverlayConfig, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
 import { DOCUMENT_DETAILS } from '../../token'
 import { DocumentFormPresentation } from '../document-list-presentation/document-form-presentation/document-form.presentation';
 import { MyOverlayRef } from '../../overlay/myoverlay-ref';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
-export class DocumentListPresenter {
+export class DocumentListPresenter implements OnDestroy{
   public componentRef;
-  public updatedDetails: Document
+  public updatedDetails: Document;
+  private subject = new Subject<any>();
   constructor(public viewContainerRef: ViewContainerRef, private overlay: Overlay, private injector: Injector) { }
 
 
@@ -52,7 +54,11 @@ export class DocumentListPresenter {
     return new PortalInjector(this.injector, injectorTokens);
   }
 
-  loadForm(documentDetails: any): void {
+  /**
+     * Opens an overlay for document form
+     * @param documentDetails //Contains the details of document
+     */
+  loadForm(documentDetails: any): Observable<any> {
     let config = new OverlayConfig()
 
     config.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically()
@@ -62,10 +68,19 @@ export class DocumentListPresenter {
 
     let ref = overlayRef.attach(new ComponentPortal(DocumentFormPresentation, this.viewContainerRef, this.createInjector(documentDetails, overlayRef)))
 
-    ref.instance.updatedDocument.subscribe((data: Document) => {
-      this.updatedDetails = data
-      return this.updatedDetails
+    overlayRef.backdropClick().subscribe(() => {
+      overlayRef.dispose()
     })
+
+    ref.instance.updatedDocument.subscribe((data: Document) => {
+      this.subject.next(data)
+    })
+    return this.subject.asObservable()
+  }
+
+  ngOnDestroy()
+  {
+    this.subject.unsubscribe()
   }
 }
 

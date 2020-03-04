@@ -45,14 +45,15 @@ export class DocumentListContainer implements OnInit {
   }
   updateDocument(documentDetails: Document) {
     this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
-      this.documentData = this.documentService.getDocuments()
+      this.getDocuments()
     })
   }
   addDocument(documentDetails: Document) {
     this.documentService.addData(documentDetails).subscribe(() => {
-      this.documentData = this.documentService.getDocuments()
-
-    })}
+      this.getDocuments()
+    })
+  }
+  
 
 
     /**
