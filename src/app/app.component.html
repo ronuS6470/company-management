@@ -1,12 +1,16 @@
 <section class="wrapper d-flex h-100 overflow-hidden">
+<<<<<<< HEAD
     <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right" *ngIf="isLoggedIn$ | async as isLoggedIn">
+=======
+    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right bg-white">
+>>>>>>> 4d153dc4e57ce077b3757781323ef8b997a57af9
         <cmp-sidebar class="overflow-hidden d-flex flex-column"></cmp-sidebar>
     </aside>
     <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden">
-    <cmp-header class="flex-shrink-0"></cmp-header>
-    <div class="flex-grow-1 overflow-hidden">
-        <router-outlet>
-        </router-outlet>
-    </div>
+        <cmp-header class="flex-shrink-0"></cmp-header>
+        <div class="flex-grow-1 overflow-hidden">
+            <router-outlet>
+            </router-outlet>
+        </div>
     </section>
 </section>
