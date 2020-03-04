@@ -21,13 +21,13 @@ export class AuthenticationService {
   login(user: Login) {
     if (user.username !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     }
   }
 
   logout() {
     this.loggedIn.next(false);
     localStorage.removeItem('username');
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 }
