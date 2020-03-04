@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges, OnInit } from '@angular/core';
 
 import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
@@ -13,8 +13,11 @@ import { ComponentPortal } from '@angular/cdk/portal';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyListPresentation implements OnChanges {
+export class CompanyListPresentation implements OnInit, OnChanges {
 
+  public multipleDeletes: any
+  public companiestoDelete = []
+  @Output() public deleteCompanies = new EventEmitter<any>();
   // Get Company list
   @Input() set companyList$(value) {
     this.filteredUsers = value;
@@ -34,7 +37,7 @@ export class CompanyListPresentation implements OnChanges {
   filteredUsers: any[] = [];
 
   public sortBy: string;
-  
+
   constructor(
     private companyListPresenter: CompanyListPresenter,
   ) {
@@ -43,7 +46,7 @@ export class CompanyListPresentation implements OnChanges {
   }
 
   public ngOnInit(): void {
-    
+
   }
 
   /**
@@ -51,6 +54,7 @@ export class CompanyListPresentation implements OnChanges {
    * @param id This is the id that need to be deleted 
    */
   public delete(id: number): void {
+    // console.log(id);
     this.deleteCompany.emit(id);
   }
 
@@ -66,7 +70,7 @@ export class CompanyListPresentation implements OnChanges {
    * This method will sort data in descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id;
+    this.sortBy = document.activeElement.id
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 
@@ -84,5 +88,14 @@ export class CompanyListPresentation implements OnChanges {
     this.companyListPresenter.subject.subscribe(data => {
       this.sendData.emit(data);
     });
+  }
+  multipleDelete() {
+
+    this.multipleDeletes = this.filteredUsers.filter(data => data.checked);
+    for (let i = 0; i < this.multipleDeletes.length; i++) {
+      this.companiestoDelete[i] = this.multipleDeletes[i].id
+    }
+    // console.log(this.companiestoDelete);
+    this.deleteCompanies.emit(this.companiestoDelete)
   }
 }

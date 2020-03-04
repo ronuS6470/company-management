@@ -1,21 +1,87 @@
-table {
-  border-collapse: separate;
-  border-spacing: 0 1rem;
-  th {
-      font-weight: 200;
-  }
+/* Document Table*/
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    thead {
+        tr {
+            th {
+                font-weight: map-get($font-weights, 'regular');
+                position: relative;
+                .short-up {
+                    position: absolute;
+                    bottom: 7px;
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .short-down {
+                    position: absolute;
+                    top: 7px;
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                font-weight: map-get($font-weights, 'medium')
+            }
+        }
+    }
 }
+
+.user-icon {
+    height: 2em;
+    width: 2em;
+}
+
+.td-mwidth {
+    min-width: 172px;
+}
+
+.td-compnymwitg {
+    min-width: 195px;
+}
+
+.table-responsive {
+    height: 85%;
+}
+
 .company-img {
     width: 30px;
     height: 30px;
 }
 
-.dropdown-menu-position {
-  position: absolute;
-  top: 15px;
-  left: -140px;
+.document-table {
+    padding: 15px 97px;
+    @media (max-width: 425px) {
+        & {
+            padding: 15px 20px;
+        }
+    }
 }
 
-.td-mwidth{
-  min-width: 172px;
+.company-table {
+    padding: 20px 50px;
+    @media (max-width: 425px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
+}
+
+.company-table,
+.document-table {
+    padding: 20px 97px;
+    @media (max-width: 425px) {
+        & {
+            padding: 20px 20px;
+        }
+    }
 }

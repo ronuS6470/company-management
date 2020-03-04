@@ -36,11 +36,14 @@ input[type="checkbox"] {
 
 a,
 button,
-.btn,
-.custom-dropdown {
+.btn {
     cursor: pointer;
 }
 
 figure {
     margin-bottom: 0;
+}
+
+.pointer {
+    cursor: pointer;
 }
