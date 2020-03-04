@@ -36,18 +36,14 @@ export class CompanyFormPresenter {
      * add company data
      */
     public addCompany(): void {
-        debugger
         this.companyObj = new Company();
         this.companyObj = this.companyForm.value;
     }
 
     /**
-   * update company
+   * update company data
    */
     public updateCompany(): void {
-        debugger
-        if (this.companyForm.valid) {
-            this.companyObj = this.companyForm.value;
-        }
+        this.companyObj = this.companyForm.value;
     }
 }

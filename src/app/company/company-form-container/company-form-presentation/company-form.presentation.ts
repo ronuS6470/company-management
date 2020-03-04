@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
+import { Company } from '../../company.model';
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
 import { FormGroup } from '@angular/forms';
-import { Company } from '../../company.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,15 +14,14 @@ import { Observable } from 'rxjs';
 })
 
 export class CompanyFormPresentation implements OnInit {
+  
   // add event for company data
-
   @Output() add: EventEmitter<Company>;
   // event for update company
   @Output() update: EventEmitter<Company>;
 
   companyForm: FormGroup;
   submitted: boolean;
-  attachmentFile: string = "file name";
 
   //company list
   private _companies: Observable<Company[]>;
@@ -42,9 +41,6 @@ export class CompanyFormPresentation implements OnInit {
     return this._companies;
   }
 
-  
-
-  
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;
     this.add = new EventEmitter<Company>();
@@ -63,12 +59,10 @@ export class CompanyFormPresentation implements OnInit {
    */
   get formControls() { return this.companyForm.controls; }
 
-
   /**
    * add and update company data
    */
   public onSubmit() : void {
-    debugger;
     this.submitted = true;
     if (this.companyForm.invalid) {
       return;
