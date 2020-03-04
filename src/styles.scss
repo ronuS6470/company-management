@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
 // google font
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+//Font Awesome 
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 // Project base and component style import
 @import 'assets/scss/base/index';
 // Vendor base and component style import
@@ -11,7 +14,7 @@
 // Now other style import
 @import 'assets/scss/layout/index';
 @import 'assets/scss/utilities/index';
-//font awsome
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
 
 
