@@ -11,7 +11,7 @@ import { CompanyListPresenter } from '../company-list-presenter/company-list.pre
   viewProviders: [CompanyListPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CompanyListPresentation implements OnInit {
+export class CompanyListPresentation implements OnInit, DoCheck {
 
   // Get Company list
   @Input() set companyList$(value) {
