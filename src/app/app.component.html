@@ -1,5 +1,5 @@
 <section class="wrapper d-flex h-100 overflow-hidden">
-    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right bg-white">
+    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right  bg-white" *ngIf="isLoggedIn$ | async as isLoggedIn">
         <cmp-sidebar class="overflow-hidden d-flex flex-column"></cmp-sidebar>
     </aside>
     <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden">
