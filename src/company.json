@@ -223,6 +223,20 @@
       "contactPersonMobile": "5666665656",
       "attachment": "FileZilla.txt",
       "id": 15
+    },
+    {
+      "clientName": "manoj",
+      "companySite": "http://www.cty.com",
+      "clientType": "both",
+      "businessType": "private",
+      "contactNumber": 9090909090,
+      "location": "London",
+      "email": "manoj@gmail.com",
+      "contactPersonName": "mahi",
+      "designation": "employee",
+      "contactPersonMobile": "6786786666",
+      "attachment": "PRGs.txt",
+      "id": 16
     }
   ]
 }
