@@ -1,4 +1,4 @@
-<header class="border-bottom py-1"> 
+<header class="border-bottom py-1" *ngIf="isLoggedIn$ | async as isLoggedIn"> 
     <div class="d-flex justify-content-between" >
         <div class=" d-flex">
             <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
@@ -33,8 +33,7 @@
                          
                     </button>
                     <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuReference">
-                        <a class="dropdown-item">View Profile</a>
-                        <a class="dropdown-item text-danger" (click)="onLogout()" *ngIf="isLoggedIn">Logout</a>
+                       <button class="dropdown-item text-danger" (click)="onLogout()" *ngIf="isLoggedIn">Logout</button>
                     </div>
                 </div>
                 <!--  -->
