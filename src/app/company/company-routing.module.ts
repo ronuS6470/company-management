@@ -7,6 +7,7 @@ import { AuthGuard } from '../core/services/guard/auth.guard';
 const routes: Routes = [
   {
     path: 'list',
+<<<<<<< HEAD
     component: CompanyListContainer,
     canActivate: [AuthGuard]
     data: { breadcrumb: 'list'}
@@ -16,6 +17,13 @@ const routes: Routes = [
     component: CompanyFormContainer,
     data: { breadcrumb: 'add'}
     
+=======
+    component: CompanyListContainer
+  },
+  {
+    path: 'add-form',
+    component: CompanyFormContainer
+>>>>>>> 192265dfc5c3c1cf2aefca4d5e16a1b45eaeafb5
   },
   {
     path: 'edit/:id',

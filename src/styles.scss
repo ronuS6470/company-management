@@ -2,6 +2,8 @@
 
 // google font
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+//Font Awesome 
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 // Project base and component style import
 @import 'assets/scss/base/index';
 // Vendor base and component style import
@@ -13,6 +15,7 @@
 @import 'assets/scss/layout/index';
 @import 'assets/scss/utilities/index';
 <<<<<<< HEAD
+<<<<<<< HEAD
 //CDK Overlay
 @import '~@angular/cdk/overlay-prebuilt.css';
 =======
@@ -20,3 +23,7 @@
 //font awsome
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 >>>>>>> ecc4ab9d4d6e1d146c398712af6b61d788ecd295
+=======
+//CDK Overlay
+@import '~@angular/cdk/overlay-prebuilt.css';
+>>>>>>> 192265dfc5c3c1cf2aefca4d5e16a1b45eaeafb5

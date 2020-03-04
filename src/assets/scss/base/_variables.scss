@@ -5,11 +5,26 @@ $font-size-base: 1rem;
 $font-weight-base:400;
 // sidebsar width
 $expanded-sidebar-width:250px;
-$collapse-sidebar-width:70px;
+$collapse-sidebar-width:65px;
 $font-weights:("light": 300, "regular": 400, "medium": 700, "bold": 900);
 
 
+<<<<<<< HEAD
 // login
+=======
+//login registration
+$form-margin-bottom: 1rem;
+  $label-font-size: 1rem;
+  $label-font-size-focus: .85rem;
+  $label-icon-spacing: 2.25rem;
+  $input-padding-top: 1.5rem;
+  $input-padding-right: 0;
+  $input-padding-bottom: .5rem;
+  $input-padding-left: 0;
+  $input-underline-color: #868e96;
+  $input-underline-color-focus: color("irenic");
+
+>>>>>>> 192265dfc5c3c1cf2aefca4d5e16a1b45eaeafb5
 
 $form-margin-bottom: 1rem;
   $label-font-size: 1rem;
@@ -24,6 +39,5 @@ $form-margin-bottom: 1rem;
 // border
 $border-radius: 2px;
 // breadcrum
-$breadcrumb-font-size:30px;
+$breadcrumb-font-size:1.75rem;
 $breadcrumb-divider:quote(">");
-

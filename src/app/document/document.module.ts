@@ -12,14 +12,13 @@ import {
 } from './document-list-container/document-list-presentation/document-filter-presentation/document-filter.presentation';
 import { DocumentService } from 'src/app/document/http-service/document.service';
 
-import {ConfirmationModalComponent} from 'src/app/core/components/confirmation-modal/confirmation-modal.component'
+import { ConfirmationModalComponent } from 'src/app/core/components/confirmation-modal/confirmation-modal.component'
 
 
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
-
-
-
+import { SharedModule } from 'src/app/shared/shared.module'
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     DocumentFormPresentation,
@@ -31,15 +30,16 @@ import { OverlayModule } from '@angular/cdk/overlay';
   imports: [
     CommonModule,
     DocumentRoutingModule,
-
+    SharedModule,
     PortalModule,
     OverlayModule,
     FormsModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [DocumentService],
-  entryComponents: [ DocumentFilterPresentation,DocumentFormPresentation],
+  entryComponents: [DocumentFilterPresentation, DocumentFormPresentation],
 
 })
 export class DocumentModule { }

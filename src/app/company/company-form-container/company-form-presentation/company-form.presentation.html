@@ -28,7 +28,7 @@
     </div>
     <!-- end content header -->
     <!-- content body -->
-    <div class="content-body px-3 px-md-4 overflow-auto">
+    <div class="content-body overflow-auto">
         <!-- form container -->
         <div class="company-form-container bg-white mt-2 mb-5 py-4">
             <figure class="text-center pt-4 pb-4">
@@ -46,14 +46,25 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="clientName" class="label text-secondary mb-0">Client
                                         Name</label>
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="clientName" formControlName="clientName" [ngClass]="{ 'is-invalid': submitted && controls.clientName.errors }">
                                     <div *ngIf="submitted && controls.clientName.errors" class="invalid-feedback">
                                         <div *ngIf="controls.clientName.errors.required">client name is required</div>
                                         <div *ngIf="controls.clientName.errors.pattern">only characters allowed</div>
                                     </div>
+=======
+                                    <input type="text" class="form-control" id="clientName" placeholder="Angelica Ramos">
                                 </div>
                             </div>
-
+                            <!-- company url -->
+                            <div class="col-12 px-0">
+                                <div class="form-group d-flex flex-column">
+                                    <label for="companyWebsite" class="label text-secondary mb-0">Company
+                                        Website</label>
+                                    <input type="text" class="form-control" id="companyWebsite" placeholder="www.nbc.com">
+>>>>>>> 192265dfc5c3c1cf2aefca4d5e16a1b45eaeafb5
+                                </div>
+                            </div>
                             <!-- radio buttons  -->
                             <div class="col-12 mb-3 px-0">
                                 <div class="custom-control-inline">
@@ -161,7 +172,7 @@
                             <!-- Attachment  -->
                             <h6 class="font-medium text-secondary">Attachment</h6>
                             <div class="col-6 ml-auto">
-                                <label for="customFile" class="text-primary float-right">
+                                <label for="customFile" class="text-primary float-right pointer">
                                     <span class="fa fa-plus-square-o fa-lg"></span>
                                 </label>
                             </div>
@@ -192,8 +203,4 @@
         </div>
     </div>
     <!-- end contnent body -->
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> ecc4ab9d4d6e1d146c398712af6b61d788ecd295
