@@ -99,11 +99,15 @@
                                     <label for="businessType" class="label text-secondary mb-0">Type of
                                         Business</label>
                                     <select formControlName="businessType" class="form-control bg-transparent"
-                                        id="businessType">
+                                        id="businessType" [ngClass]="{ 'is-invalid': submitted && formControls.businessType.errors }">
                                         <option value="">--select business type--</option>
                                         <option value="private">Private</option>
                                         <option value="public">Public</option>
                                     </select>
+                                    <div *ngIf="submitted && formControls.businessType.errors" class="invalid-feedback">
+                                        <div *ngIf="formControls.businessType.errors.required">business type is required
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Location  -->
