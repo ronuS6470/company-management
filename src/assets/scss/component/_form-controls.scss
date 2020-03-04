@@ -1,4 +1,5 @@
-.content-body {
+.content-body,
+.top-bar {
     padding: 20px 97px;
     @media (max-width: 725px) {
         & {
@@ -123,8 +124,8 @@
         box-shadow: none;
     }
     #closeFile {
-        top: 11px;
-        right: 22px;
+        top: 14px;
+        right: 8px;
         z-index: 1;
     }
 }
