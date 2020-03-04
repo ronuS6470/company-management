@@ -16,13 +16,13 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
-      this.docData = value;
       this.document = value;
+      this.filteredDocument = value;
       this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
     }
   }
   get documentData() {
-    return this.docData;
+    return this.document;
   }
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
@@ -36,10 +36,12 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   // store filterd data
   public filteredDocument: any[] = [];
   // temporory variable for getter and setter of document data
-  private docData: Document[];
   private sortBy: string;
   private document: any[] = [];
-  constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
+  constructor(
+    private deleteConfirmation: ConfirmationModalService,
+    private documentListPresenter: DocumentListPresenter
+  ) {
 
     this.sort = new EventEmitter<string>();
     this.updatedDocument = new EventEmitter();
@@ -54,10 +56,6 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.groupFilter) {
       this.filterList(this.groupFilter);
-    }
-    if (this.docData != null) {
-      this.filteredDocument = this.docData;
-      this.docData = null;
     }
   }
 
@@ -124,9 +122,9 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.filteredDocument = this.document.filter(filterDocument);
   }
   /**
-     * Function for loading the document form dynamically
-     * @param document //Includes the details of document
-     */
+   * Function for loading the document form dynamically
+   * @param document //Includes the details of document
+   */
   loadDocumentForm(document: any): void {
     this.documentListPresenter.loadForm(document).subscribe((data) => {
       this.updatedDetails = data
@@ -135,7 +133,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
         this.updatedDetails.id = document.id
         this.updatedDocument.emit(this.updatedDetails)
       }
-      else {
+      else if (document === null) {
         this.addDocument.emit(this.updatedDetails)
       }
     })
