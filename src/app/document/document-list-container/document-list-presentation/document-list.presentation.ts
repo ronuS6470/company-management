@@ -14,12 +14,8 @@ import { OverlayRef } from '@angular/cdk/overlay';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DocumentListPresentation implements OnInit {
-  public updatedDetails: any;
-  private sortBy: string;
-  document: any[] = [];
-  filteredDocument: any[] = [];
-
+export class DocumentListPresentation implements OnInit, OnChanges {
+  @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
       this.docData = value;
@@ -32,18 +28,35 @@ export class DocumentListPresentation implements OnInit {
   }
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
+  @Output() public filter: EventEmitter<any>;
   // @Output() public delete;
   todayDate: Date = new Date();
   // filter key and value
   public subscribeData: any;
-  // temporory variable for getter and setter of document data
-  private docData: Document[];
+  public updatedDetails: any;
+  // store filterd data
+  public filteredDocument: any[] = [];
+   // temporory variable for getter and setter of document data
+   private docData: Document[];
+   private sortBy: string;
+   private document: any[] = [];
   constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
 
     this.sort = new EventEmitter<string>();
     this.updatedDocument = new EventEmitter();
+    this.filter = new EventEmitter<any>();
     // this.delete=new EventEmitter<number>();
   }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.groupFilter) {
+      this.filterList(this.groupFilter);
+    }
+  }
+
   // public deleteDocument(id:number){
   //   this.delete.emit(id);
   // }
@@ -63,8 +76,6 @@ export class DocumentListPresentation implements OnInit {
     this.sortBy = document.activeElement.id
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
-  ngOnInit() {
-  }
 
   /**
    * open filter overlay and get filter data
@@ -73,7 +84,7 @@ export class DocumentListPresentation implements OnInit {
     const ref = this.documentListPresenter.open(null);
     ref.afterClosed$.subscribe(res => {
       this.subscribeData = res;
-      this.filterList(this.subscribeData);
+      this.filter.emit(this.subscribeData);
     });
   }
 
