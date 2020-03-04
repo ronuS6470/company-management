@@ -2,7 +2,7 @@
     <div class="row">
         <!--form-->
         <form class="form-details bg-white col-md-6" name="form" #f="ngForm"
-        (ngSubmit)="f.form.valid && authenticate(username.value, password.value)" novalidate>
+            (ngSubmit)="f.form.valid && authenticate(username.value, password.value)" novalidate>
             <div class="col-md-12 p-5">
                 <div class="form-group flex-wrap">
                     <div class="user-avtaar-holder d-flex align-items-center justify-content-center rounded-circle ">
@@ -23,14 +23,13 @@
                         </div>
                     </div>
                     <div class="form-input mb-5">
-                        <input class="input-field" type="password" name="password"
-                        [(ngModel)]="model.password" #password="ngModel"
-                        [ngClass]="{'is-invalid':f.submitted && password.invalid}" required />
+                        <input class="input-field" type="password" name="password" [(ngModel)]="model.password"
+                            #password="ngModel" [ngClass]="{'is-invalid':f.submitted && password.invalid}" required />
                         <span class="input-label">Password</span>
                         <div class="input-underline"></div>
                         <div class="invalid-feedback">
-                                <div>Password is required</div>
-                            </div>
+                            <div>Password is required</div>
+                        </div>
                     </div>
                     <div class="mt-5 mt-sm-0   ">
                         <button (click)="authenticate(username.value, password.value)"
@@ -40,8 +39,7 @@
                     </div>
                     <div class="mt-5 flex-wrap d-flex justify-content-between">
                         <div class="signup-area"><span>Create a new account</span>
-                            <button routerLink='/registration' class="btn btn-md btn-success px-5  ml-4">Sign
-                                Up</button>
+                            <button routerLink='/registration' class="btn btn-md btn-success px-5  ml-4">Sign Up</button>
                         </div>
                     </div>
                 </div>
