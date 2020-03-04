@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges, OnInit } from '@angular/core';
 
 import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
@@ -13,12 +13,11 @@ import { ComponentPortal } from '@angular/cdk/portal';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyListPresentation implements OnChanges {
-  
-  public multipleDeletes : any
-  public companiestoDelete=[]
- @Output() public deleteCompanies = new EventEmitter<any>();
-  // Get Company list
+export class CompanyListPresentation implements OnInit, OnChanges {
+
+  public multipleDeletes: any
+  public companiestoDelete = []
+  @Output() public deleteCompanies = new EventEmitter<any>();
   // Get Company list
   @Input() set companyList$(value) {
     this.filteredUsers = value;
@@ -30,12 +29,14 @@ export class CompanyListPresentation implements OnChanges {
   @Output() public deleteCompany = new EventEmitter<number>();
   @Output() public sort = new EventEmitter<string>();
 
-
   @Output() sendData = new EventEmitter<any>();
+
+  // Temp for store data
+  users: any;
+  // store filtered data
+  filteredUsers: any[] = [];
+
   public sortBy: string;
-  public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
-  private catchData; // Catch Data
-  subscribeData = null;
 
   constructor(
     private companyListPresenter: CompanyListPresenter,
@@ -44,7 +45,7 @@ export class CompanyListPresentation implements OnChanges {
     this.sort = new EventEmitter<string>();
   }
 
-  ngDoCheck(): void {
+  public ngOnInit(): void {
 
   }
 
@@ -73,17 +74,6 @@ export class CompanyListPresentation implements OnChanges {
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 
-
-  // Temp for store data
-  users: any;
-  // store filtered data
-  filteredUsers: any[] = [];
-
-
-  public ngOnInit(): void {
-    this.loadCompany();
-  }
-
   public ngOnChanges(): void {
     if (this.getFilterData) {
       this.filteredUsers = this.companyListPresenter.filterUserList(this.getFilterData, this.users, this.filteredUsers);
@@ -91,29 +81,21 @@ export class CompanyListPresentation implements OnChanges {
   }
 
   /**
-   * Load Company List data..
-   */
-  loadCompany(): void {
-    this.users = this.companyList$;
-    this.filteredUsers = this.filteredUsers.length > 0 ? this.filteredUsers : this.users;
-  }
-
-  /**
    * filter
    */
   public filter(): void {
-    this.companyListPresenter.filter();
+    this.companyListPresenter.filter(this.users);
     this.companyListPresenter.subject.subscribe(data => {
       this.sendData.emit(data);
     });
   }
-    multipleDelete(){
-    
-      this.multipleDeletes = this.filteredUsers.filter(data=>data.checked);
-      for(let i=0; i<this.multipleDeletes.length; i++){
-      this.companiestoDelete[i]=this.multipleDeletes[i].id
-      }
-         // console.log(this.companiestoDelete);
-        this.deleteCompanies.emit(this.companiestoDelete)
-      }
+  multipleDelete() {
+
+    this.multipleDeletes = this.filteredUsers.filter(data => data.checked);
+    for (let i = 0; i < this.multipleDeletes.length; i++) {
+      this.companiestoDelete[i] = this.multipleDeletes[i].id
+    }
+    // console.log(this.companiestoDelete);
+    this.deleteCompanies.emit(this.companiestoDelete)
+  }
 }
