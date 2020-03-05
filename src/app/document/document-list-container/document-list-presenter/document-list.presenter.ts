@@ -1,7 +1,6 @@
-
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Injectable, Injector, OnDestroy, ViewContainerRef } from '@angular/core';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
 import { DOCUMENT_DETAILS } from '../../token';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';

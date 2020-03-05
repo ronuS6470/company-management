@@ -1,11 +1,12 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
+import { RouterModule } from '@angular/router';
+
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
-import { PortalModule } from '@angular/cdk/portal';
-import {OverlayModule} from '@angular/cdk/overlay';
-import { RouterModule } from '@angular/router';
 
 
 

@@ -1,8 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
-// ---------------------------------- //
-import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Document } from 'src/app/document/document.model';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
+import { Document } from 'src/app/document/document.model';
+import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 
 @Component({
   selector: 'cmp-document-list-ui',

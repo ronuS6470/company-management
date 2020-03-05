@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Document } from 'src/app/document/document.model'
-import { DocumentService } from 'src/app/document/http-service/document.service'
+import { Document } from 'src/app/document/document.model';
+import { DocumentService } from 'src/app/document/http-service/document.service';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'cmp-document-list-container',
