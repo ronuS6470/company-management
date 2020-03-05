@@ -1,3 +1,6 @@
+/**
+ * @author Kiran Tandel
+ */
 import { Component, OnInit } from '@angular/core';
 
 import { CompanyService } from '../company.service';

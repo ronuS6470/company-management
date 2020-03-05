@@ -1,3 +1,6 @@
+/**
+ * @author Kiran Tandel
+ */
 import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { Company } from '../../company.model';
@@ -20,11 +23,10 @@ export class CompanyFormPresentation implements OnInit {
   // event for update company
   @Output() update: EventEmitter<Company>;
 
-  companyForm: FormGroup;
-  submitted: boolean;
-  selectedFile: string = 'file name';
-  //company list
-  private _companies: Observable<Company[]>;
+  companyForm: FormGroup; //company form
+  submitted: boolean; // to check form valid/invalid
+  selectedFile: string = 'file name'; // set file name
+  private _companies: Observable<Company[]>; //company list
 
   /**
    * set company data
