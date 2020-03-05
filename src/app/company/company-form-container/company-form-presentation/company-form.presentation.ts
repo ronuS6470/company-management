@@ -1,9 +1,13 @@
+
 import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { Company } from '../../company.model';
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+
+/**
+ * @author Kiran Tandel
+ */
 
 @Component({
   selector: 'cmp-company-form-ui',
@@ -15,35 +19,38 @@ import { Observable } from 'rxjs';
 
 export class CompanyFormPresentation implements OnInit {
 
-  // add event for company data
-  @Output() add: EventEmitter<Company>;
-  // event for update company
-  @Output() update: EventEmitter<Company>;
-
-  companyForm: FormGroup;
-  submitted: boolean;
-  selectedFile: string = 'file name';
-  //company list
-  private _companies: Observable<Company[]>;
-
   /**
    * set company data
    */
   @Input()
-  set company(value: any) {
+  set company(value:Company) {
     if (value) {
-      this._companies = value;
+      this._company = value;
       this.companyForm.patchValue(value);
       this.selectedFile = value.attachment;
     }
   }
 
-  get company(): any {
-    return this._companies;
+  // add event for add company data
+  @Output() public add: EventEmitter<Company>;
+  // event for update company
+  @Output() public update: EventEmitter<Company>;
+  //company form
+  public companyForm: FormGroup; 
+  // to check form valid/invalid
+  public submitted: boolean;
+  // set file name 
+  public selectedFile: string; 
+  //company list
+  private _company: Company; 
+
+  get company() {
+    return this._company;
   }
 
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;
+    this.selectedFile='file name';
     this.add = new EventEmitter<Company>();
     this.update = new EventEmitter<Company>();
   }
@@ -69,21 +76,25 @@ export class CompanyFormPresentation implements OnInit {
       return;
     }
     if (this.companyForm.valid) {
-      if (!this._companies) {
+      if (!this._company) {
         this.companyFormPresenter.addCompany();
-        this.add.emit(this.companyFormPresenter.companyObj);
+        this.add.emit(this.companyFormPresenter.companyDetail);
       }
       else {
         this.companyFormPresenter.updateCompany();
-        this.update.emit(this.companyFormPresenter.companyObj);
+        this.update.emit(this.companyFormPresenter.companyDetail);
       }
     }
   }
 
-  public onChange($event) : void {
-    if ($event.target.files.length > 0) {
-      this.selectedFile = $event.target.files[0].name;
-      this.companyForm.controls['attachment'].setValue( this.selectedFile);
+  /**
+   * get and set name of file to 'selectedFile' 
+   * @param event get the input file
+   */
+  public onChange(event): void {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0].name;
+      this.companyForm.controls['attachment'].setValue(this.selectedFile);
     }
   }
 }

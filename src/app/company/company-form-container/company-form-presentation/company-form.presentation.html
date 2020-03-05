@@ -6,13 +6,13 @@
         <!-- breadcrum -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
-                <li class="breadcrumb-item"><a href="#" class="text-secondary">Companies</a></li>
+                <li class="breadcrumb-item"><a routerLink="/company" class="text-secondary">Companies</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </nav>
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
-            <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0">Cancel</button>
+            <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0" routerLink="/company">Cancel</button>
             <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1 my-2 my-sm-0"
                 (click)="onSubmit()">Save</button>
         </div>
@@ -121,14 +121,15 @@
                             <div class="col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactNo" class="label text-secondary mb-0">Contact Number</label>
-                                    <input type="number" formControlName="contactNumber" class="form-control "
+                                    <input type="text" formControlName="contactNumber" class="form-control "
                                         id="contactNo"
                                         [ngClass]="{ 'is-invalid': submitted && formControls.contactNumber.errors }">
                                     <div *ngIf="submitted && formControls.contactNumber.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactNumber.errors.required">contact no. is required
                                         </div>
-                                        <div *ngIf="formControls.contactNumber.errors.pattern">invalid contact no.
+                                        <div *ngIf="formControls.contactNumber.errors.pattern">contact no. should be 10
+                                            to 12 digit
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +163,8 @@
                                         <div *ngIf="formControls.contactPersonName.errors.required"> contact person name
                                             is required
                                         </div>
-                                        <div *ngIf="formControls.contactPersonName.errors.required"> only character
+                                        <div *ngIf="formControls.contactPersonName.errors.pattern"> only character
+                                            allowed
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +180,7 @@
                                     <div *ngIf="submitted && formControls.designation.errors" class="invalid-feedback">
                                         <div *ngIf="formControls.designation.errors.required">designation is required
                                         </div>
-                                        <div *ngIf="formControls.designation.errors.pattern">only character
+                                        <div *ngIf="formControls.designation.errors.pattern">only character allowed
                                         </div>
                                     </div>
                                 </div>
@@ -194,9 +196,10 @@
                                         [ngClass]="{ 'is-invalid': submitted && formControls.contactPersonMobile.errors }">
                                     <div *ngIf="submitted && formControls.contactPersonMobile.errors"
                                         class="invalid-feedback">
-                                        <div *ngIf="formControls.contactPersonMobile.errors.required">contact person
-                                            mobile no. is required</div>
-                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern">invalid mobile no.
+                                        <div *ngIf="formControls.contactPersonMobile.errors.required">mobile no. is
+                                            required</div>
+                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern"> mobile should be
+                                            10 to 12 digit
                                         </div>
                                     </div>
                                 </div>
@@ -213,8 +216,9 @@
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="custom-file position-relative">
-                                    <input type="file" (change)="onChange($event)" class="custom-file-input" id="customFile"
-                                    [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
+                                    <input type="file" (change)="onChange($event)" class="custom-file-input"
+                                        id="customFile"
+                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
                                     <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
                                     <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
                                         <div *ngIf="formControls.attachment.errors.required">attachment is required
