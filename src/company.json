@@ -1,17 +1,81 @@
 {
-  "company": [
-    {
-      "id": 3,
-      "clientName": "c",
-      "clientType": "supplier",
-      "businessType": "private",
-      "contactNumber": 1231231231,
-      "location": "usa",
-      "email": "a@gmail.com",
-      "contactPersonName": "jay",
-      "designation": "marketing",
-      "contactPersonMobile": 111111,
-      "attachment": "attachment"
-    }
-  ]
+    "company": [{
+            "id": 1,
+            "clientName": "a",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 2,
+            "clientName": "b",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 3,
+            "clientName": "c",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 4,
+            "clientName": "d",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 5,
+            "clientName": "e",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        },
+        {
+            "id": 6,
+            "clientName": "f",
+            "clientType": "supplier",
+            "businessType": "private",
+            "contactNumber": 1231231231,
+            "location": "usa",
+            "email": "a@gmail.com",
+            "contactPersonName": "jay",
+            "designation": "marketing",
+            "contactPersonMobile": 111111,
+            "attachment": "attachment"
+        }
+    ]
 }
