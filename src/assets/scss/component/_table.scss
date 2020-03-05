@@ -1,54 +1,50 @@
-/* Document Table*/
-
+/*Table*/
 .table {
   border-collapse: separate;
   border-spacing: 0 1em;
   thead {
-      tr {
-          th {
-              font-weight: map-get($font-weights, 'regular');
-              position: relative;
-              .short-up {
-                  position: absolute;
-                  bottom: 7px;
-                  border:none;
-                  background: none;
-              }
-              .short-down {
-                  position: absolute;
-                  top: 7px;
-                  border:none;
-                  background: none;
-              }
-          }
+    tr {
+      th {
+        font-weight: map-get($font-weights, "regular");
+        position: relative;
+        font-size: 14px;
+        vertical-align: middle;
+        .sort-asc {
+          position: absolute;
+          bottom: 9px;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+        }
+        .sort-desc {
+          position: absolute;
+          top: 10px;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+        }
       }
+    }
   }
   tbody {
-      tr {
-          td {
-              font-weight: map-get($font-weights, 'medium')
-          }
+    tr {
+      td {
+        font-weight: map-get($font-weights, "medium");
+        vertical-align: middle;
       }
-
+    }
   }
 }
+
+.table-responsive {
+  height: 90%;
+}
+
 .user-icon {
   height: 2em;
   width: 2em;
-}
-
-.td-mwidth {
-  min-width: 172px;
-}
-
-
-.td-compnymwitg {
-  min-width: 195px;
-}
-
-
-.table-responsive {
-  height: 85%;
 }
 
 .company-img {
@@ -56,12 +52,18 @@
   height: 30px;
 }
 
-.company-table,
-.document-table {
-  padding: 20px 97px;
-  @media (max-width: 425px) {
-      & {
-          padding: 20px 20px;
-      }
-  }
+.td-mwidth {
+  min-width: 172px;
 }
+
+.th-largewidth {
+  min-width: 195px;
+}
+
+.th-smallwidth{
+  min-width: 140px;
+}
+
+
+
+

@@ -1,1 +1,33 @@
 // Button styles goes here
+
+.btn-delete {
+  font-size: 25px;
+}
+
+.btn-filter {
+  background-color: $white;
+  @media (max-width: 768px) {
+    background-color: transparent;
+  }
+  span {
+    &:nth-child(1) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-add {
+  background-color: $primary;
+  @media (max-width: 768px) {
+    background-color: transparent;
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
