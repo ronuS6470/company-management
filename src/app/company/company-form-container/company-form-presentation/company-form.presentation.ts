@@ -1,12 +1,13 @@
-/**
- * @author Kiran Tandel
- */
+
 import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
 import { Company } from '../../company.model';
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+
+/**
+ * @author Kiran Tandel
+ */
 
 @Component({
   selector: 'cmp-company-form-ui',
@@ -18,21 +19,11 @@ import { Observable } from 'rxjs';
 
 export class CompanyFormPresentation implements OnInit {
 
-  // add event for add company data
-  @Output() add: EventEmitter<Company>;
-  // event for update company
-  @Output() update: EventEmitter<Company>;
-
-  public companyForm: FormGroup; //company form
-  public submitted: boolean; // to check form valid/invalid
-  public selectedFile: string = 'file name'; // set file name
-  private _company: Observable<Company>; //company list
-
   /**
    * set company data
    */
   @Input()
-  set company(value: any) {
+  set company(value:Company) {
     if (value) {
       this._company = value;
       this.companyForm.patchValue(value);
@@ -40,12 +31,23 @@ export class CompanyFormPresentation implements OnInit {
     }
   }
 
+  // add event for add company data
+  @Output() add: EventEmitter<Company>;
+  // event for update company
+  @Output() update: EventEmitter<Company>;
+
+  public companyForm: FormGroup; //company form
+  public submitted: boolean; // to check form valid/invalid
+  public selectedFile: string; // set file name
+  private _company: Company; //company list
+
   get company() {
     return this._company;
   }
 
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;
+    this.selectedFile='file name';
     this.add = new EventEmitter<Company>();
     this.update = new EventEmitter<Company>();
   }

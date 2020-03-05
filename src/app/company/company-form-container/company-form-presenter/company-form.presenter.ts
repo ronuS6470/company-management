@@ -1,17 +1,19 @@
-/**
- * @author Kiran Tandel
- */
+
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Company } from '../../company.model';
 
+/**
+ * @author Kiran Tandel
+ */
+
 @Injectable()
 
 export class CompanyFormPresenter {
 
-    public companyForm: FormGroup;
-    public companyDetail: Company;
+    public companyForm: FormGroup; //company form
+    public companyDetail: Company; // company detail to add|update
 
     constructor(private formBuilder: FormBuilder) { }
 

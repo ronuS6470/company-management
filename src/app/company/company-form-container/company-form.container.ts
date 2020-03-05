@@ -1,12 +1,14 @@
-/**
- * @author Kiran Tandel
- */
+
 import { Component, OnInit } from '@angular/core';
 
 import { CompanyService } from '../company.service';
 import { Company } from '../company.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
+/**
+ * @author Kiran Tandel
+ */
 
 @Component({
   selector: 'cmp-company-form-container',
@@ -18,12 +20,16 @@ import { Observable } from 'rxjs';
 })
 export class CompanyFormContainer implements OnInit {
 
-  // observable of Company
+  // observable of company
   company$: Observable<Company>;
   //employee id for update
   public companyId: number;
 
-  constructor(private companyService: CompanyService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private companyService: CompanyService, 
+    private route: ActivatedRoute, 
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.companyId = Number(this.route.snapshot.paramMap.get('id'));
