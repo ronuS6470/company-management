@@ -9,7 +9,7 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'company-management';
 
-  showHeaderSidebar: boolean = false;
+  showHeaderSidebar: boolean = false; //showHeaderSidebar to hide and show header and sidebar wherever needed.
 
   ngOnInit() {
   }
@@ -18,7 +18,7 @@ export class AppComponent {
     // on route change to '/login' and '/registration', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
-          if (event['url'] == '/login' || event['url'] == '/registration') {
+          if (event['url'] == '/login' || event['url'] == '/registration') { //if url is /login or /registration then showHeaderSidebar will be false
             this.showHeaderSidebar = false;
           } else {
               this.showHeaderSidebar = true;

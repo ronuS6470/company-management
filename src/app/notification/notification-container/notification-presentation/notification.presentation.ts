@@ -15,7 +15,7 @@ import { Notification } from '../../notification.model';
 })
 export class NotificationPresentation  {
 
-  @Input() notification$: Observable<Notification[]>
+  @Input() notification$: Observable<Notification[]> //Input property for notification observable
   constructor() {}
 
   
