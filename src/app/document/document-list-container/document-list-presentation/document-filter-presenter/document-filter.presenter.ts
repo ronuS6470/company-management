@@ -2,7 +2,7 @@
  * @author Dhruvit Makadia
  */
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable()
 export class DocumentFilterPresenter {

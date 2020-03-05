@@ -13,8 +13,8 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
- 
-  @Input() public groupFilter: any;
+
+  @Input() public groupFilter: object;
   @Input() set documentData(value: Document[]) {
     if (value) {
       this.document = value;
@@ -28,20 +28,19 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
   @Output() public filter: EventEmitter<any>;
-  @Output() public addDocument: EventEmitter<Document>
+  @Output() public addDocument: EventEmitter<Document>;
   @Output() public delete;
   @Output() public deleteMultipleDocuments;
   todayDate: Date = new Date();
   // filter key and value
-  public multipleDeletes:any
-  public datatoDelete=[]
-  public subscribeData: any;
+  public multipleDeletes: any;
+  public datatoDelete = [];
   public updatedDetails: any;
   // store filterd data
-  public filteredDocument: any[] = [];
+  public filteredDocument: Document[];
   // temporory variable for getter and setter of document data
   private sortBy: string;
-  private document: any[] = [];
+  private document: Document[];
   constructor(
     private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
@@ -51,8 +50,8 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.updatedDocument = new EventEmitter();
     this.addDocument = new EventEmitter(/* isAsync = */ false);
     this.filter = new EventEmitter<any>();
-    this.delete=new EventEmitter<number>();
-    this.deleteMultipleDocuments=new EventEmitter<any>();
+    this.delete = new EventEmitter<number>();
+    this.deleteMultipleDocuments = new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -65,9 +64,9 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
 
   /**
-    * Emits a delete event with specified id
-    * @param id 
-    */
+   * Emits a delete event with specified id
+   * @param id 
+   */
   public deleteDocument(id: number) {
     if (confirm('Are you sure to delete this document')) {
       this.delete.emit(id);
@@ -99,8 +98,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   public openFilter() {
     const ref = this.documentListPresenter.open(null);
     ref.afterClosed$.subscribe(res => {
-      this.subscribeData = res;
-      this.filter.emit(this.subscribeData);
+      this.filter.emit(res);
     });
   }
 
@@ -108,7 +106,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
    * get filter data and filter list
    * @param filters filter data
    */
-  filterList(filters: any): void {
+  filterList(filters: object): void {
     this.filteredDocument = this.document;
     const keys = Object.keys(filters);
     const filterDocument = doc => {
@@ -122,45 +120,46 @@ export class DocumentListPresentation implements OnInit, OnChanges {
       });
       result = result.filter(it => it !== undefined);
 
-      return result.reduce((acc, cur: any) => { return acc & cur }, 1)
-    }
+      return result.reduce((acc: number, cur: any) => {
+        // tslint:disable-next-line: no-bitwise
+        return acc & cur;
+      }, 1);
+    };
     this.filteredDocument = this.document.filter(filterDocument);
   }
   /**
-     * Function for loading the document form dynamically
-     * @param document //Includes the details of document
-     */
-  loadDocumentForm(document: any,id:number): void {
-    
-    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
+   * Function for loading the document form dynamically
+   * @param document //Includes the details of document
+   */
+  loadDocumentForm(document: any, id: number): void {
+
+    this.documentListPresenter.loadForm(document).subscribe((data: Document) => {
       this.updatedDetails = data
-      if (id!=null) {
+      if (id != null) {
         this.updatedDetails.id = id
-        this.updatedDetails.created=this.todayDate
+        this.updatedDetails.created = this.todayDate
         this.updatedDocument.emit(this.updatedDetails)
       }
-      else if(id == null)
-      {
-        this.updatedDetails.created=this.todayDate
+      else if (id == null) {
+        this.updatedDetails.created = this.todayDate
         this.addDocument.emit(this.updatedDetails)
       }
     })
   }
- 
-/**
- * Tried multiple delete functionality
- */
-deleteDocuments() {
-   this.multipleDeletes= this.documentData.filter(item=>item.checked)
-    for(let i=0;i<this.multipleDeletes.length;i++)
-    {
-      this.datatoDelete[i]=this.multipleDeletes[i].id
+
+  /**
+   * Tried multiple delete functionality
+   */
+  deleteDocuments() {
+    this.multipleDeletes = this.documentData.filter(item => item.checked)
+    for (let i = 0; i < this.multipleDeletes.length; i++) {
+      this.datatoDelete[i] = this.multipleDeletes[i].id
     }
     this.deleteMultipleDocuments.emit(this.datatoDelete)
-    
-    
-   //  for (var data in this.documentData){
-   //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
-   //  }
-   }
+
+
+    //  for (var data in this.documentData){
+    //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
+    //  }
+  }
 }
