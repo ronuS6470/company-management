@@ -16,10 +16,10 @@ export class AppComponent {
   /**
    * Function which runs on every route change
    */
-  changeOfRoutes() {
+  public changeOfRoutes() {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (localStorage.getItem('username') != null && event['url'] == '/login') {
+        if (localStorage.getItem('username') != null && ( event.url === '/login' || event.url === '/')) {
           this.router.navigate(['/company']);
         }
       }

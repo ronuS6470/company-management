@@ -16,7 +16,7 @@ export class RegistrationPresenter {
     /**
      * Form group userDetailForm to return.
      */
-    addUserDetail(): FormGroup {
+    public addUserDetail(): FormGroup {
         return this.userDetailForm = this.fb.group({
             username: ['', [Validators.required, Validators.minLength(4)]],
             password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],

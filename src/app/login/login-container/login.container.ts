@@ -12,22 +12,19 @@ import { OnInit } from '@angular/core';
   templateUrl: './login.container.html'
 })
 export class LoginContainer implements OnInit {
-  
-  // loginDetails of type observable 
-  public loginDetails$: Observable<Login[]>; 
+  // loginDetails of type observable
+  public loginDetails$: Observable<Login[]>;
 
-  constructor(private authService: AuthenticateService) {}
+  constructor(private authService: AuthenticateService) { }
 
-  ngOnInit()
-  {
-      this.getAuthDetails();
+  ngOnInit() {
+    this.getAuthDetails();
   }
 
   /**
    * Api call to get all data from json-server
    */
-  private getAuthDetails(): void
-  {
+  private getAuthDetails(): void {
     this.loginDetails$ = this.authService.getAuthDetails();
   }
 }

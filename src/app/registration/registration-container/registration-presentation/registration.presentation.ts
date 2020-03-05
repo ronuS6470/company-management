@@ -23,9 +23,10 @@ export class RegistrationPresentation {
   public Details: object; // Object to restrict all data entry into json
 
   // Emit event for post operation on json-server
-  @Output() add = new EventEmitter<object>();
+  @Output() add: EventEmitter<object>;
 
   constructor(private registrationService: RegistrationPresenter) {
+    this.add = new EventEmitter<object>();
     this.add = new EventEmitter<Registration>(); // Initialised add event
     this.userDetails = this.registrationService.addUserDetail();
   }
@@ -40,7 +41,7 @@ export class RegistrationPresentation {
   /**
    * Registering uname and password into json server
    */
-  onSubmit(): void {
+  public onSubmit(): void {
     this.Details = { username: this.userDetails.get('username').value, password: this.userDetails.get('password').value };
     this.add.emit(this.Details);
   }
