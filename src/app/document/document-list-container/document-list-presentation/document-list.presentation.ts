@@ -35,8 +35,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Output() public addDocument: EventEmitter<Document>;
   @Output() public delete;
   @Output() public deleteMultipleDocuments;
-  //Creates a new Date
-  private todayDate: Date = new Date();
+  
   //Stores the Date when document is modified
   public modifiedDate: Date;
 
@@ -50,6 +49,8 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   // variable for getter and setter of document data
   private document: Document[];
   private sortBy: string;
+  //Creates a new Date
+  private todayDate: Date = new Date();
   constructor(
     private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter

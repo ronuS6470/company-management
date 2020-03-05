@@ -10,6 +10,8 @@ import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class DocumentListPresenter implements OnDestroy {
+
+  //Details of updated Document
   public updatedDetails: Document;
   //Subject for getting details of form
   public formDetails:Subject<Document>;
@@ -90,7 +92,7 @@ export class DocumentListPresenter implements OnDestroy {
     return this.formDetails.asObservable();
   }
 
-  public ngOnDestroy()
+  public ngOnDestroy():void
   {
     this.formDetails.unsubscribe();
   }

@@ -1,13 +1,13 @@
-/**
- * @Author : Bhargav Baleja
- */
-
 import { Component, ChangeDetectionStrategy, Inject, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { OverlayRef } from '@angular/cdk/overlay';
 
 import { DOCUMENT_DETAILS } from '../../../token';
 import { DocumentFormPresenter } from '../document-form-presenter/document-form.presenter';
+
+/**
+ * @Author : Bhargav Baleja
+ */
 
 
 @Component({
@@ -19,18 +19,16 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
 })
 export class DocumentFormPresentation {
 
-  //Variable of type FormGroup for storing FormGroup
-  public documentFormDetails: FormGroup;
-
   //Emits an event containing new or updated document
   @Output() public updatedDocument: EventEmitter<Document>;
+
+  //Variable of type FormGroup for storing FormGroup
+  public documentFormDetails: FormGroup;
 
   constructor(
     @Inject(DOCUMENT_DETAILS) public document: any,
     public overlayRef: OverlayRef,
     private documentFormPresenter: DocumentFormPresenter
-  
-  
     ) {
     this.updatedDocument = new EventEmitter<Document>();
     this.documentFormDetails = this.documentFormPresenter.createEmployeeForm();

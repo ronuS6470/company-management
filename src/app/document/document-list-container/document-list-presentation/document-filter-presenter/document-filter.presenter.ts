@@ -1,8 +1,9 @@
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 /**
  * @author Dhruvit Makadia
  */
-import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable()
 export class DocumentFilterPresenter {
