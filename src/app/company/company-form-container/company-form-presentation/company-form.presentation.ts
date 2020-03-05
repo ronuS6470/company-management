@@ -92,12 +92,4 @@ export class CompanyFormPresentation implements OnInit {
       this.companyForm.controls['attachment'].setValue(this.selectedFile);
     }
   }
-
-  /**
-   * resets the company form
-   */
-  public resetCompanyForm(): void {
-    this.submitted = false;
-    this.companyForm.reset();
-  }
 }
