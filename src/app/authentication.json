@@ -1,0 +1,99 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "username": "tapasvashi",
+      "password": "tapas@123"
+    },
+    {
+      "id": 2,
+      "username": "shivdesai",
+      "password": "tapas@123"
+    },
+    {
+      "id": 3,
+      "username": "samipkarbhari",
+      "password": "tapas@123"
+    },
+    {
+      "id": 4,
+      "username": "bhargavbaleja",
+      "password": "bhargav@123"
+    },
+    {
+      "id": 5,
+      "username": "kirantandel",
+      "password": "tapas@123"
+    },
+    {
+      "id": 6,
+      "username": "dhruvitmakadia",
+      "password": "tapas@123"
+    },
+    {
+      "id": 7,
+      "username": "aasthayadav",
+      "password": "tapas@123"
+    },
+    {
+      "id": 8,
+      "username": "amitAC81",
+      "password": "tapas@123"
+    },
+    {
+      "username": "mitulpatel",
+      "password": "mitul@123",
+      "id": 13
+    },
+    {
+      "username": "sonikkapadia",
+      "password": "sonik@123",
+      "id": 14
+    },
+    {
+      "username": "ronakpatel",
+      "password": "ronak@123",
+      "id": 15
+    },
+    {
+      "username": "nehalpatel",
+      "password": "nehal@123",
+      "id": 16
+    },
+    {
+      "username": "onishmistry",
+      "password": "onisj@123",
+      "id": 17
+    },
+    {
+      "username": "vishalpatel",
+      "password": "vishal@123",
+      "id": 18
+    },
+    {
+      "username": "rachityagnik",
+      "password": "rachit@123",
+      "id": 19
+    },
+    {
+      "username": "dhruvit",
+      "password": "dhruvit@12",
+      "id": 20
+    },
+    {
+      "username": "niteshsir",
+      "password": "nitesh@123",
+      "id": 21
+    },
+    {
+      "username": "aaaa",
+      "password": "aaaaaa",
+      "id": 22
+    },
+    {
+      "username": "aaaaa",
+      "password": "aaaaa",
+      "id": 23
+    }
+  ]
+}

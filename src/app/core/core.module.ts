@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-
+import { AuthGuard } from './services/guard/auth.guard';
 
 
 
@@ -19,9 +19,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     OverlayModule,
     RouterModule
   ],
-  exports: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
-  entryComponents: []
- })
+  exports: [HeaderComponent, SidebarComponent],
+  providers: [AuthGuard]
+})
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
