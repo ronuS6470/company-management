@@ -3,9 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/login/login.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService {
 
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false); //loggedIn to check whether user is logged in or not
