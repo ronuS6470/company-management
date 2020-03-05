@@ -8,12 +8,15 @@ import { Notification } from './notification.model';
 @Injectable()
 export class NotificationHttpService {
 
-  apiUrl: string;
+  public apiUrl: string; //apiUrl of type string assigned to baseUrl of environment
   constructor(private http: HttpClient, private route: Router)
   {
     this.apiUrl=environment.baseUrl;
   }
 
+  /**
+   * getNotifications() method to get Notification's data from json-server
+   */
   public getNotifications() : Observable<Notification[]>
   {
     return this.http.get<Notification[]>(`${this.apiUrl}/notifications`);
