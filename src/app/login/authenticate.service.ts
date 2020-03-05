@@ -1,24 +1,25 @@
 /**
  * @author TapasVashi
  */
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Login } from './login.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticateService {
 
   private apiUrl: string;
 
-  constructor(private routes: Router, private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.baseUrl;
   }
 
-  public getAuthDetails(): Observable<Login[]>
-  {
+  /**
+   * http service to check user exists or not
+   */
+  public getAuthDetails(): Observable<Login[]> {
     return this.httpClient.get<Login[]>(`${this.apiUrl}/login`);
   }
 }

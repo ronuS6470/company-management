@@ -1,9 +1,8 @@
-import { Component, ChangeDetectionStrategy,Inject,EventEmitter, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Document } from 'src/app/document/document.model';
-import { DOCUMENT_DETAILS } from '../../../token';
 import { OverlayRef } from '@angular/cdk/overlay';
-// ---------------------------------- //
+
+import { DOCUMENT_DETAILS } from '../../../token';
 import { DocumentFormPresenter } from '../document-form-presenter/document-form.presenter';
 
 
@@ -14,28 +13,24 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
   viewProviders: [DocumentFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentFormPresentation  {
-  public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
+export class DocumentFormPresentation {
+  public documentFormDetails: FormGroup;       //Variable of type FormGroup for storing FormGroup
 
-  @Output() public updatedDocument=new EventEmitter<any>()
+  @Output() public updatedDocument = new EventEmitter<any>()
 
-  constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
-  { 
-    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
-      
-    if(this.document!=null)
-    {
+  constructor(@Inject(DOCUMENT_DETAILS) public document: any, public overlayRef: OverlayRef, private documentFormPresenter: DocumentFormPresenter) {
+    this.documentFormDetails = this.documentFormPresenter.createEmployeeForm()
+
+    if (this.document != null) {
       this.documentFormDetails.patchValue(document)
     }
   }
 
-  get controls()
-  {
+  get controls() {
     return this.documentFormDetails.controls;
   }
 
-   public onSubmit():void
-  {
+  public onSubmit(): void {
     this.overlayRef.dispose()
     this.updatedDocument.emit(this.documentFormDetails.value)
   }

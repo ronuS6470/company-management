@@ -1,9 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Document } from 'src/app/document/document.model'
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http'
+import { Document } from 'src/app/document/document.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable()
 export class DocumentService {
@@ -11,7 +12,7 @@ export class DocumentService {
   private apiUrl;
 
   constructor(private httpClient: HttpClient) {
-    this.apiUrl = `${environment.baseUrl}/documents`
+    this.apiUrl = `${environment.baseUrl}/documents`;
   }
 
   public getDocuments(): Observable<Document[]> {
