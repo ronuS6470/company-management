@@ -8,6 +8,7 @@
   top: -50px;
   right: 50%;
   left: 50%;
+  // @include position($top:-50px,$right:50%,$left:50%);
 
   .user-avtaar {
     width: 80px;
@@ -19,9 +20,7 @@
 
   }
   .form-details {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include position($top:50%,$left:50%);
     transform: translate(-50%, -50%);
   }
 

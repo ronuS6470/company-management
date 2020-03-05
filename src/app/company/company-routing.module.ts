@@ -10,7 +10,7 @@ const routes: Routes = [
     component: CompanyListContainer
   },
   {
-    path: 'add-form',
+    path: 'add',
     component: CompanyFormContainer
   },
   {
