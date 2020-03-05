@@ -3,16 +3,16 @@
   max-width: 500px;
 }
 
-.user-avtaar-holder {
+.user-avatar-holder {
   position: absolute;
   top: -50px;
   right: 50%;
   left: 50%;
-  // @include position($top:-50px,$right:50%,$left:50%);
 
-  .user-avtaar {
+  .user-avatar {
     width: 80px;
     height: 80px;
+ 
   }
 }
 .form-content {
