@@ -312,6 +312,34 @@
       "contactPersonMobile": "4567456747",
       "attachment": "PRGs.txt",
       "id": 12
+    },
+    {
+      "clientName": "nilesh",
+      "companySite": "http://www.abb.com",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": "1231231231",
+      "location": "USA",
+      "email": "nilesh@gmail.com",
+      "contactPersonName": "amit",
+      "designation": "employee",
+      "contactPersonMobile": "4545454545",
+      "attachment": "PRGs.txt",
+      "id": 13
+    },
+    {
+      "clientName": "sunil",
+      "companySite": "http://www.sunil.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": "1234123412",
+      "location": "London",
+      "email": "sunil@gmail.com",
+      "contactPersonName": "tapas",
+      "designation": "manager",
+      "contactPersonMobile": "4567878787",
+      "attachment": "PRGs.txt",
+      "id": 14
     }
   ],
   "profile": {
