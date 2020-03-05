@@ -5,10 +5,10 @@ export class Document {
 
     documentName: string;
     ownerName: string;
-    created : DatePipe;
-    modified : string;
+    created: DatePipe;
+    modified: string;
     activity: string;
-    id:number;
-   checked: boolean;
+    id: number;
+    checked: boolean;
 
 }
