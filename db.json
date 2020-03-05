@@ -286,6 +286,14 @@
       "id": 10
     }
   ],
+  "notifications": [
+    {
+      "id": 1,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

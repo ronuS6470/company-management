@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
   imports: [
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
   entryComponents: []
-})
+ })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
