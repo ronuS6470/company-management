@@ -30,7 +30,9 @@ export class DocumentFormPresentation {
     @Inject(DOCUMENT_DETAILS) public document: any,
     public overlayRef: OverlayRef,
     private documentFormPresenter: DocumentFormPresenter
-  ) {
+  
+  
+    ) {
     this.updatedDocument = new EventEmitter<Document>();
     this.documentFormDetails = this.documentFormPresenter.createEmployeeForm();
 
