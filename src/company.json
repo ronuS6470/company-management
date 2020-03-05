@@ -237,6 +237,20 @@
       "contactPersonMobile": "6786786666",
       "attachment": "PRGs.txt",
       "id": 16
+    },
+    {
+      "clientName": "ghj",
+      "companySite": "http://www.kiran.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": 2323232323,
+      "location": "London",
+      "email": "kiran@gmail.com",
+      "contactPersonName": "ravi",
+      "designation": "manager",
+      "contactPersonMobile": "3453453453",
+      "attachment": "FileZilla.txt",
+      "id": 17
     }
   ]
 }

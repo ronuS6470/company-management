@@ -34,9 +34,7 @@ export class CompanyFormContainer implements OnInit {
    * @param company acompany object
    */
   public addCompany(company: Company): void {
-    debugger
     this.companyService.addCompanyData(company).subscribe(data => {
-      debugger
       if (data) {
         alert('Record Inserted...!!!');
         this.router.navigate(['company/list']);
