@@ -13,7 +13,7 @@ export class CompanyService {
   public companyUrl: string;
 
   constructor(private http: HttpClient) {
-    this.companyUrl = environment.baseUrl + 'company';
+    this.companyUrl = environment.baseUrl + '/company';
   }
 
   /**

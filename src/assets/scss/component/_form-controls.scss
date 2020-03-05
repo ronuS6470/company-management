@@ -131,6 +131,18 @@
 }
 
 // Document Add - Edit 
-.add-edit-r {
+.add-edit-r{
     border-radius: 20px;
+}
+
+.document-form{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 600px;
+    max-width: 600px;
+    @media only screen and (max-width: 750px) {
+       flex: 0 0 320px;
+       max-width: 320px;
+      }
+
 }
