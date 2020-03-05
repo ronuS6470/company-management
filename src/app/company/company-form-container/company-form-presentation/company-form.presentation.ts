@@ -32,14 +32,17 @@ export class CompanyFormPresentation implements OnInit {
   }
 
   // add event for add company data
-  @Output() add: EventEmitter<Company>;
+  @Output() public add: EventEmitter<Company>;
   // event for update company
-  @Output() update: EventEmitter<Company>;
-
-  public companyForm: FormGroup; //company form
-  public submitted: boolean; // to check form valid/invalid
-  public selectedFile: string; // set file name
-  private _company: Company; //company list
+  @Output() public update: EventEmitter<Company>;
+  //company form
+  public companyForm: FormGroup; 
+  // to check form valid/invalid
+  public submitted: boolean;
+  // set file name 
+  public selectedFile: string; 
+  //company list
+  private _company: Company; 
 
   get company() {
     return this._company;

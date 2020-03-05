@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class CompanyFormContainer implements OnInit {
 
   // observable of company
-  company$: Observable<Company>;
+  public company$: Observable<Company>;
   //employee id for update
   public companyId: number;
 
