@@ -1,46 +1,70 @@
-
-/* Document Table*/
+/*Table*/
 .table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    thead{
-      tr{
-        th{
-          font-weight: map-get($font-weights, 'regular' )
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  thead {
+    tr {
+      th {
+        font-weight: map-get($font-weights, "regular");
+        position: relative;
+        font-size: 14px;
+        vertical-align: middle;
+        padding: 0 0 0 0.75rem;
+        .sort-asc {
+          position: absolute;
+          bottom: 7px;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+        }
+        .sort-desc {
+          position: absolute;
+          top: 5px;
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
         }
       }
     }
-    tbody{
-      tr{
-        td{
-            font-weight: map-get($font-weights, 'medium' )
-        }}}}
-/* Start : Company List */
-  
-  .user-icon {
-    height: 2em;
-    width: 2em;
   }
-  
-.td-mwidth{
-    min-width: 172px;
+  tbody {
+    tr {
+      td {
+        font-weight: map-get($font-weights, "medium");
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
-
-.table-responsive{
-  height: 85%;
+.table-responsive {
+  height: 90%;
 }
 
+.user-icon {
+  height: 2em;
+  width: 2em;
+}
 
 .company-img {
   width: 30px;
   height: 30px;
 }
 
-.dropdown-menu-position {
-  position: absolute;
-  top: 15px;
-  left: -140px;
+.fix-min-width {
+  min-width: 172px;
 }
-/* End : Company List */
+
+.th-largewidth {
+  min-width: 195px;
+}
+
+.th-smallwidth{
+  min-width: 140px;
+}
+
+
+
 

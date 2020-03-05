@@ -7,16 +7,16 @@ import { CompanyFormContainer } from './company-form-container/company-form.cont
 const routes: Routes = [
   {
     path: 'list',
+    component: CompanyListContainer
+  },
+  {
+    path: 'add',
     component: CompanyFormContainer
   },
-  // {
-  //   path: 'add',
-  //   component: CompanyFormContainer
-  // },
-  // {
-  //   path: 'edit/:id',
-  //   component: CompanyFormContainer
-  // },
+  {
+    path: 'edit/:id',
+    component: CompanyFormContainer
+  },
   {
     path: '',
     redirectTo: 'list',

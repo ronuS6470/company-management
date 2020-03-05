@@ -1,51 +1,70 @@
-
-
-<header  class="border-bottom py-1 bg-white">
-
+<header class="border-bottom py-1 bg-white">
+  
     <div class="d-flex justify-content-between">
         <div class=" d-flex">
-            <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
-                <label class="fa fa-search search-icon-absolute m-0 py-2" for="searchLink"></label>
-                <input class="form-control mr-sm-2 pr-5 border-0 rounded-0 " type="search" placeholder="Search..." aria-label="Search" id="searchLink">
+            <form class="form-inline my-2 my-lg-0 navbar-search ml-3">
+                <label class="fa fa-search navbar-search-icon m-0 py-2 text-muted toggle-sidebar" for="searchLink"></label>
+                <input class="form-control mr-sm-2 pr-5 border-0 rounded-0 " type="search" placeholder="Search..."
+                    aria-label="Search" id="searchLink">
             </form>
         </div>
         <div class="d-flex align-items-center">
             <!-- dropdown -->
-
             <div class="dropdown mr-2">
-                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="fa fa-bell-o notification-icon ">
-                        <span class="badge badge-danger p-1 notification-badge">1</span>
-                    </span>
+                <a class="btn notification-icon fa fa-bell-o fa-4x" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="badge badge-danger notification-badge d-block"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">notification 1</a>
-                    <a class="dropdown-item my-2" href="#">notification 2</a>
-                    <a class="dropdown-item border-top  text-primary" href="#">View more</a>
+                    <a class="dropdown-item px-2" href="#">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <figure class="m-0">
+                                    <img src="assets/images/lady-3.jpg" alt="user-avatar" class="img-fluid rounded-circle header-img">
+                                </figure>
+                            </div>
+                            <div class="ml-3">
+                                <h6 class="m-0">Lucy lee</h6>
+                                <small>12 min ago</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item px-2" href="#">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <figure class="m-0">
+                                    <img src="assets/images/lady-3.jpg" alt=""
+                                        class="img-fluid rounded-circle header-img">
+                                </figure>
+                            </div>
+                            <div class="ml-3">
+                                <h6 class="m-0">Marcus Kent</h6>
+                                <small>19 min ago</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-primary text-center py-2" href="#">View more</a>
                 </div>
             </div>
-
             <!-- end dropdown -->
-            <div class="mr-1 pt-1">
-                <!--  -->
-                <div class="btn-group ">
-                    <figure class="m-0">
-                        <img src="assets/images/lady-3.jpg" alt="" class="header-img-size rounded-circle">
-                    </figure>
-                    <button type="button" class="btn p-1 dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                         
+
+                <!-- profile dropdown -->
+            <div class="mr-3 pt-1">
+                <div class="btn-group">
+                    <button type="button" class="btn p-1 dropdown-toggle dropdown-toggle-split"
+                        id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        data-reference="parent">
+                        <img src="assets/images/lady-3.jpg" alt="" class="header-img rounded-circle mr-2">
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuReference">
-                        <a class="dropdown-item" href="#">View Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#">Logout </a>
+                    <div class="dropdown-menu dropdown-menu-right mt-1  text-center"
+                        aria-labelledby="dropdownMenuReference">
+                        <a class="dropdown-item" href="#"> View Profile</a>
+                        <a class="dropdown-item text-danger" href="#"><span>Logout</span>
+                            <span class="fa fa-sign-out pl-2" aria-hidden="true"></span></a>
                     </div>
                 </div>
-                <!--  -->
             </div>
+            <!-- end profile dropdown -->
         </div>
-
     </div>
 </header>
-
-

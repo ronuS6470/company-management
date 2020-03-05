@@ -1,25 +1,25 @@
 <!-- company form content -->
 <div class="content h-100 overflow-hidden d-flex flex-column">
     <!-- content header -->
-    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
-        <!-- breadcrum -->
+    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center flex-shrink-0 mb-3 mb-md-0">
+        <!-- breadcrumb -->
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent px-0">
+            <ol class="breadcrumb bg-transparent p-0 mb-0">
                 <li class="breadcrumb-item"><a href="#" class="text-secondary">Companies</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </nav>
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
-            <button class="btn bg-white px-5 py-2 rounded-0 mr-sm-3 flex-grow-1">Cancel</button>
-            <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1">Save</button>
+            <button class="btn bg-white px-5 py-2 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0">Cancel</button>
+            <button class="btn btn-primary px-5 py-2 flex-grow-1 my-2 my-sm-0">Save</button>
         </div>
     </div>
     <!-- end content header -->
     <!-- content body -->
-    <div class="content-body px-3 px-md-4 overflow-auto">
+    <div class="content-body overflow-auto pt-0">
         <!-- form container -->
-        <div class="company-form-container bg-white mt-2 mb-5 py-4">
+        <div class="company-form-container bg-white mt-2 mb-3 py-4">
             <figure class="text-center pt-4 pb-4">
                 <img src="../../../../assets/images/nbc-logo.png" class="nbc-logo rounded-circle" alt="Company Logo">
             </figure>
@@ -29,114 +29,130 @@
                     <form>
                         <div class="form-row mx-0">
                             <!-- Personal Information  -->
-                            <h6 class="font-medium text-secondary">Personal Information</h6>
+                            <h6 class="font-medium text-secondary text-uppercase mb-3 form-title">Personal Information
+                            </h6>
                             <!-- client name  -->
                             <div class="col-12 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="clientName" class="label text-secondary mb-0">Client
                                         Name</label>
-                                    <input type="text" class="form-control" id="clientName" value="Angelica Ramos">
+                                    <input type="text" class="form-control" id="clientName">
                                 </div>
                             </div>
-
+                            <!-- company url -->
+                            <div class="col-12 px-0">
+                                <div class="form-group d-flex flex-column">
+                                    <label for="companyWebsite" class="label text-secondary mb-0">Company
+                                        Website</label>
+                                    <input type="text" class="form-control" id="companyWebsite">
+                                </div>
+                            </div>
                             <!-- radio buttons  -->
                             <div class="col-12 mb-3 px-0">
                                 <div class="custom-control-inline">
-                                    <input type="radio" class="pt-4" id="customRadio" name="selectCategory">
+                                    <input type="radio" class="custom-input-radio pt-4" id="customRadio" name="selectCategory">
                                     <label class="custom-control-label" for="customRadio">Client</label>
                                 </div>
                                 <div class="custom-control-inline">
-                                    <input type="radio" class="pt-4" id="customRadio2" name="selectCategory" checked>
+                                    <input type="radio" class="custom-input-radio pt-4" id="customRadio2" name="selectCategory" checked>
                                     <label class="custom-control-label" for="customRadio2">Supplier</label>
                                 </div>
                                 <div class="custom-control-inline">
-                                    <input type="radio" class="pt-4" id="customRadio3" name="selectCategory">
+                                    <input type="radio" class="custom-input-radio pt-4" id="customRadio3" name="selectCategory">
                                     <label class="custom-control-label" for="customRadio3">Both</label>
                                 </div>
                             </div>
 
                             <!-- type of business  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="businessType" class="label text-secondary mb-0">Type of
                                         Business</label>
-                                    <select class="form-control bg-transparent" id="businessType">
-                                        <option>Private</option>
-                                        <option>Public</option>
-                                    </select>
+                                    <div class="custom-select-arrow position-relative cursor-pointer">
+                                        <select class="form-control bg-transparent cursor-pointer" id="businessType">
+                                            <option>Private</option>
+                                            <option>Public</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Location  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="location" class="label text-secondary mb-0">Location</label>
-                                    <select class="form-control bg-transparent" id="businessType">
-                                        <option>London</option>
-                                        <option>Sweden</option>
-                                    </select>
+                                    <div class="custom-select-arrow position-relative cursor-pointer">
+                                        <select class="form-control bg-transparent cursor-pointer" id="businessType">
+                                            <option>London</option>
+                                            <option>Sweden</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <!-- contact no  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactNo" class="label text-secondary mb-0">Contact Number</label>
-                                    <input type="number" class="form-control " id="contactNo" value="5-(450)630-7997">
+                                    <input type="text" class="form-control " id="contactNo">
                                 </div>
                             </div>
                             <!-- email  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="emailAddress" class="label text-secondary mb-0">Email
                                         Adress</label>
-                                    <input type="email" class="form-control " id="emailAddress" value="dhall@zoombox.com">
+                                    <input type="email" class="form-control " id="emailAddress">
                                 </div>
                             </div>
 
                             <!-- Other Information  -->
-                            <h6 class="font-medium text-secondary">Other Information</h6>
+                            <h6 class="font-medium text-secondary text-uppercase mt-3 mb-3 form-title">Other Information
+                            </h6>
                             <!-- Contact Person  -->
                             <div class="col-12 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactPerson" class="label text-secondary mb-0">Contact
                                         Person</label>
-                                    <input type="text" class="form-control" id="contactPerson" value="Brenda Carpenter">
+                                    <input type="text" class="form-control" id="contactPerson">
                                 </div>
                             </div>
 
                             <!-- Designation  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="designation" class="label text-secondary mb-0">Designation</label>
-                                    <input type="text" class="form-control" id="designation" value="Marketing">
+                                    <input type="text" class="form-control" id="designation">
                                 </div>
                             </div>
 
                             <!-- contact no  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="otherContactNo" class="label text-secondary mb-0">Contact
                                         Number</label>
-                                    <input type="text" class="form-control" id="clientName" value="2-(105)124-7026">
+                                    <input type="number" class="form-control" id="clientName">
                                 </div>
                             </div>
                             <!-- Attachment  -->
-                            <h6 class="font-medium text-secondary">Attachment</h6>
-                            <div class="col-6 ml-auto">
-                                <label for="customFile" class="text-primary float-right">
-                                    <span class="fa fa-plus-square-o fa-lg"></span>
-                                </label>
+                            <div class="col-12 pl-0 pr-0 d-flex">
+                                <h6 class="font-medium text-secondary text-uppercase mt-3 mb-3 form-title">Attachment
+                                </h6>
+                                <div class="col-6 ml-auto mt-3 pr-0">
+                                    <label for="customFile" class="text-primary float-right cursor-pointer">
+                                        <span class="fa fa-plus-square-o fa-lg"></span>
+                                    </label>
+                                </div>
                             </div>
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
-                                <div class="custom-file position-relative">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">file Name</label>
-                                </div>
-                                <label id="closeFile" class="fa fa-times-circle position-absolute text-secondary"></label>
-                                <!-- <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <!-- <div class="custom-file position-relative">
+                                    <input type="file" class="attachedfile custom-file-input cursor-pointer" id="customFile" placeholder="file name">
+                                    <label class="attachedFile custom-file-label text-secondary pt-0 pr-0 pb-0" for="customFile">file name</label>
                                 </div> -->
+                                <div class="custom-file position-relative mb-3">
+                                    <input type="file" class="attachedfile custom-file-input cursor-pointer" id="customFile" name="filename">
+                                    <label class="attachedFile custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <label id="closeFile" class="fa fa-times-circle fa-lg position-absolute"></label>
                             </div>
                         </div>
                     </form>

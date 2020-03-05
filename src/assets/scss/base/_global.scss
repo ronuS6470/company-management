@@ -6,10 +6,9 @@
 
 html,
 body {
-
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -22,27 +21,32 @@ body {
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 input[type="checkbox"] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 a,
 button,
-.btn,
-.custom-dropdown {
-  cursor: pointer;
+.btn {
+    cursor: pointer;
 }
 
 figure {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
+.pointer {
+    cursor: pointer;
+}
 
+.word-space{
+    word-spacing: 5px;
+}

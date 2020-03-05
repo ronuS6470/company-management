@@ -2,4 +2,7 @@
 .document-filter{
     flex: 0 0 280px;
     max-width: 280px;
+    .close-icon{
+        color:$secondary;
+    }
 }
