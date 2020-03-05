@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Document } from 'src/app/document/document.model'
-import { DocumentService } from 'src/app/document/http-service/document.service'
+import { Document } from 'src/app/document/document.model';
+import { DocumentService } from 'src/app/document/http-service/document.service';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'cmp-document-list-container',
@@ -9,11 +9,10 @@ import { Observable } from 'rxjs';
 })
 
 export class DocumentListContainer implements OnInit {
-  // documents data 
-  public documentData: Observable<Document[]>
+  //store documents data
+  documentData: Observable<Document[]>;
   // filter data
-  public groupFilter: any;
-  public requestedData: any
+  public groupFilter: object;
   constructor(private documentService: DocumentService) {
 
   }
@@ -37,14 +36,25 @@ export class DocumentListContainer implements OnInit {
   public sortData(sortField: string): void {
     this.documentData = this.documentService.sortData(sortField);
   }
-  updateDocument(documentDetails: Document) {
+
+  /**
+   * For updating existing document
+   * @param documentDetails Updated Document details
+   */
+  public updateDocument(documentDetails: Document):void
+   {
     this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
-      this.getDocuments()
+      this.getDocuments();
     })
   }
-  addDocument(documentDetails: Document) {
+
+  /**
+   * For creating new document
+   * @param documentDetails Created Document details
+   */
+  public addDocument(documentDetails: Document) :void {
     this.documentService.addData(documentDetails).subscribe(() => {
-      this.getDocuments()
+      this.getDocuments();
     })
   }
 
@@ -53,28 +63,29 @@ export class DocumentListContainer implements OnInit {
    * get filter data and pass to presentation
    * @param filters filter data
    */
-  filterData(filters): void {
+  public filterData(filters: object): void {
     this.groupFilter = filters;
   }
-
+  
   /**
 * Delete a document with specified id
 * @param id 
 */
-  public deleteDocument(id: number): void {
-    this.documentService.deleteDocument(id).subscribe(() => {
-      this.getDocuments();
-    });
-  }
-  /**
-   * service call to delete multiple documents
-   * @param multipleDataDelete stores data of multiple documents to delete
-   */
-  public deleteMultiple(multipleDataDelete: number[]): void {
+public deleteDocument(id: number): void {
+  this.documentService.deleteDocument(id).subscribe(() => {
+    this.getDocuments();
+  });
+}
+
+/**
+ * service call to delete multiple documents
+ * @param multipleDataDelete stores data of multiple documents to delete
+ */
+  deleteMultiple(multipleDataDelete) {
     for (let i = 0; i < multipleDataDelete.length; i++) {
       this.documentService.deleteDocument(multipleDataDelete[i]).subscribe(() => {
         this.getDocuments();
-      });
+      })
     }
   }
 }

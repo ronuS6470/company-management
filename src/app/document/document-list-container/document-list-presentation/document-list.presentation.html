@@ -35,9 +35,9 @@
                     </th>
                     <th class="td-mwidth"> <span class="mr-3">Name</span>&nbsp;</th>
                     <th> <span class="mr-3">Owner</span>&nbsp;</th>
-                    <th> <span class="mr-3">Created</span>&nbsp; <button id="created" (click)="sortAscending()" href="#"
+                    <th> <span class="mr-3">Created</span>&nbsp; <button id="createdDate" (click)="sortAscending()" href="#"
                             class="short-up"><span class="fa fa-caret-down text-muted "></span></button>
-                        <button (click)="sortDescending()" id="created" href="#" class="short-down"><span
+                        <button (click)="sortDescending()" id="createdDate" href="#" class="short-down"><span
                                 class="fa fa-caret-up text-muted "></span></button> </th>
                     <th class="td-mwidth"><span class="mr-3">modified</span>&nbsp;</th>
                     <th><span class="mr-3">Activity</span>&nbsp;</th>
@@ -63,11 +63,11 @@
                         <span class="mx-2">{{document.ownerName}}</span>
                     </td>
                     <td class="td-mwidth">
-                        <span>{{document.created | date : 'longDate'}}</span><span
-                            class="ml-2 text-muted">{{document.created | date : 'mediumTime'}}</span>
+                        <span>{{document.createdDate | date : 'longDate'}}</span><span
+                            class="ml-2 text-muted">{{document.createdDate | date : 'mediumTime'}}</span>
                     </td>
                     <td>
-                        {{document.modified}}
+                        {{document.createdDate | modified : 'modifiedDate'}}
                     </td>
                     <td>
                         <span class="text-primary">{{document.activity}}</span>

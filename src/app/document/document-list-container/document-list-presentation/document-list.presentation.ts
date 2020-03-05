@@ -1,8 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-// ---------------------------------- //
-import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Document } from 'src/app/document/document.model';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
+import { Document } from 'src/app/document/document.model';
+import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 
 @Component({
   selector: 'cmp-document-list-ui',
@@ -13,8 +13,9 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
-
-  @Input() public groupFilter: any;
+  // filter data
+  @Input() public groupFilter: object;
+  // get document details
   @Input() set documentData(value: Document[]) {
     if (value) {
       this.document = value;
@@ -27,29 +28,34 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
   // for sorting on created field
   @Output() public sort: EventEmitter<string>;
+  //Emits an update event  
   @Output() public updatedDocument: EventEmitter<any>;
+  // send filter data
   @Output() public filter: EventEmitter<any>;
+  //Emits an create event
   @Output() public addDocument: EventEmitter<Document>;
-  //event to delete a single document
-  @Output() public delete;
+  // event to delete 
+  @Output() public delete: EventEmitter<number>;
   //event to delete multiple documents
-  @Output() public deleteMultipleDocuments;
+  @Output() public deleteMultipleDocuments: EventEmitter<any>;
 
-  // filter key and value
 
-  public subscribeData: any;
-  public updatedDetails: any;
   // store filterd data
-  public filteredDocument: any[] = [];
-  // temporory variable for getter and setter of document data
-  private document: any[] = [];
+  public filteredDocument: Document[];
+  //stores the modified date
+  public modifiedDate: Date;
+  // variable for getter and setter of document data
+  private document: Document[];
   // for sorting on created field
   private sortBy: string;
   //stores multiple documents to delete them
   private multipleDeletes: Array<Document>;
   // refrence to stored documents to delete
-  private datatoDelete = [];
-  private todayDate: Date = new Date();
+  private dataToDelete = [];
+  //Creates a new Date
+  private todayDate: Date;
+  //Stored details from the form 
+  private updatedDetails: Document;
 
   constructor(
     private deleteConfirmation: ConfirmationModalService,
@@ -58,10 +64,11 @@ export class DocumentListPresentation implements OnInit, OnChanges {
 
     this.sort = new EventEmitter<string>();
     this.updatedDocument = new EventEmitter();
-    this.addDocument = new EventEmitter(/* isAsync = */ false);
+    this.addDocument = new EventEmitter();
     this.filter = new EventEmitter<any>();
     this.delete = new EventEmitter<number>();
     this.deleteMultipleDocuments = new EventEmitter<any>();
+    this.todayDate = new Date();
   }
 
   ngOnInit() {
@@ -73,9 +80,6 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     }
   }
 
-  // openConfirmation(id: number) {
-  //   this.deleteConfirmation.showOverlay(id)
-  // }
   /**
    * Emit sort event for ascending order
    */
@@ -98,8 +102,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   public openFilter(): void {
     const ref = this.documentListPresenter.open(null);
     ref.afterClosed$.subscribe(res => {
-      this.subscribeData = res;
-      this.filter.emit(this.subscribeData);
+      this.filter.emit(res);
     });
   }
 
@@ -107,13 +110,13 @@ export class DocumentListPresentation implements OnInit, OnChanges {
    * get filter data and filter list
    * @param filters filter data
    */
-  filterList(filters: any): void {
+  public filterList(filters: object): void {
     this.filteredDocument = this.document;
     const keys = Object.keys(filters);
     const filterDocument = doc => {
       let result = keys.map(key => {
         if (doc[key]) {
-          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase())
+          return String(doc[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase());
         } else {
           return false;
         }
@@ -121,27 +124,36 @@ export class DocumentListPresentation implements OnInit, OnChanges {
       });
       result = result.filter(it => it !== undefined);
 
-      return result.reduce((acc, cur: any) => { return acc & cur }, 1)
-    }
+      return result.reduce((acc: number, cur: any) => {
+        // tslint:disable-next-line: no-bitwise
+        return acc & cur;
+      }, 1);
+    };
     this.filteredDocument = this.document.filter(filterDocument);
   }
 
   /**
      * Function for loading the document form dynamically
-     * @param document //Includes the details of document
-     */
-  loadDocumentForm(document: any, id: number): void {
+     * @param document Includes the details of document
+  */
+  public loadDocumentForm(document: Document, id: any): void {
 
-    this.documentListPresenter.loadForm(document).subscribe((data: Document) => {
-      this.updatedDetails = data
-      if (id != null) {
-        this.updatedDetails.id = id
-        this.updatedDetails.created = this.todayDate
-        this.updatedDocument.emit(this.updatedDetails)
+    this.documentListPresenter.loadForm(document).subscribe((updatedDocument: any) => {
+      this.updatedDetails = updatedDocument;
+      for (let i = 0; i < this.documentData.length; i++) {
+        if (id == this.documentData[i].id) {
+          this.updatedDetails.id = id;
+          this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
+          this.modifiedDate = new Date();
+          this.updatedDocument.emit(this.updatedDetails);
+          break;
+        }
       }
-      else if (id == null) {
-        this.updatedDetails.created = this.todayDate
-        this.addDocument.emit(this.updatedDetails)
+      if (id == null) {
+        this.updatedDetails.createdDate = this.todayDate;
+        this.updatedDetails.updatedDate = this.todayDate;
+        this.modifiedDate = new Date();
+        this.addDocument.emit(this.updatedDetails);
       }
     })
   }
@@ -160,8 +172,8 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   * method to select all documents
   * @param event // checked event
   */
-  public selectAllDocuments(checkeEvent): void {
-    if (checkeEvent.target.checked) {
+  public selectAllDocuments(checkEvent): void {
+    if (checkEvent.target.checked) {
       this.documentData.map(user => {
         user.checked = true;
         return user;
@@ -180,10 +192,10 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   public deleteDocuments(): void {
     this.multipleDeletes = this.documentData.filter(item => item.checked);
     for (let i = 0; i < this.multipleDeletes.length; i++) {
-      this.datatoDelete[i] = this.multipleDeletes[i].id;
+      this.dataToDelete[i] = this.multipleDeletes[i].id;
     }
     if (confirm('Are you sure to delete this document')) {
-      this.deleteMultipleDocuments.emit(this.datatoDelete);
+      this.deleteMultipleDocuments.emit(this.dataToDelete);
     }
   }
 
