@@ -2,9 +2,7 @@
     .document-header {
         padding: 20px 100px;
         @media (max-width: 425px) {
-            & {
-                padding: 20px 20px;
-            }
+            padding: 20px 20px;
         }
     }
     /* Company Main Content */
