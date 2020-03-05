@@ -1,9 +1,9 @@
 <section class="wrapper d-flex h-100 overflow-hidden">
-    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right  bg-white" *ngIf="isLoggedIn$ | async as isLoggedIn">
-        <cmp-sidebar class="overflow-hidden d-flex flex-column"></cmp-sidebar>
+    <aside class="primary-nav overflow-hidden d-flex flex-column side-navbar-color border-right  bg-white" *ngIf="showHeaderSidebar" >
+        <cmp-sidebar class="overflow-hidden d-flex flex-column" ></cmp-sidebar>
     </aside>
-    <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden">
-        <cmp-header class="flex-shrink-0"></cmp-header>
+    <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden" >
+        <cmp-header class="flex-shrink-0" *ngIf="showHeaderSidebar" ></cmp-header>
         <div class="flex-grow-1 overflow-hidden">
             <router-outlet>
             </router-outlet>

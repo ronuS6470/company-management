@@ -10,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
+
 @NgModule({
   declarations: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
   imports: [
@@ -20,7 +21,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   exports: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
   entryComponents: []
-})
+ })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {

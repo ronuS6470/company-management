@@ -1,4 +1,4 @@
-<header class="border-bottom py-1 bg-white" *ngIf="isLoggedIn$ | async as isLoggedIn">
+<header  class="border-bottom py-1 bg-white" >
     <div class="d-flex justify-content-between">
         <div class=" d-flex">
             <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
@@ -11,22 +11,21 @@
 
             <div class="dropdown mr-2">
 
-                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [routerLink]="[ '/notification/list' ]" routerLinkActive="active">
                     <span class="fa fa-bell-o notification-icon position-relative">
                         <span class="badge badge-danger p-1 notification-badge uk-position-absolute">1</span>
-
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item">notification 1</a>
-                    <a class="dropdown-item my-2">notification 2</a>
-                    <a class="dropdown-item border-top  text-primary">View more</a>
+                    <a class="dropdown-item" >notification 1</a>
+                    <a class="dropdown-item my-2" >notification 2</a>
+                    <a class="dropdown-item border-top  text-primary"  >View more</a>
                 </div>
             </div>
 
             <!-- end dropdown -->
             <div class="mr-1 pt-1">
-                <!--  -->
+                <!-- 
                 <div class="btn-group ">
                     <figure class="m-0">
                         <img src="assets/images/lady-3.jpg" alt="" class="header-img-size rounded-circle">
@@ -35,12 +34,10 @@
                          
                     </button>
                     <div class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuReference">
-                        <button class="dropdown-item text-danger" (click)="onLogout()" *ngIf="isLoggedIn">Logout</button>
-                    </div>
+                    </div>-->
+                    <button  (click)="onLogout()" >Logout</button>
                 </div>
                 <!--  -->
             </div>
         </div>
-
-    </div>
 </header>
