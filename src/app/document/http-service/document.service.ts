@@ -14,24 +14,30 @@ export class DocumentService {
   constructor(private httpClient: HttpClient) {
     this.apiUrl = `${environment.baseUrl}/documents`;
   }
-
+/**
+ * get and display documents from the server
+ */
   public getDocuments(): Observable<Document[]> {
     return this.httpClient.get<Document[]>(`${this.apiUrl}`);
   }
+  /**
+   * Creates new Document
+   * @param document Documents details to be created
+   */
   public addData(document: Document): Observable<Document> {
-    return this.httpClient.post<Document>(`${this.apiUrl}`, document)
+    return this.httpClient.post<Document>(`${this.apiUrl}`, document);
   }
 
   /**
    * Updation of data for an existing Employee in local storage
-   * @param employee 
-   * @param id 
+   * @param employee Updated Details of Document
+   * @param id Id of updated Document
    */
   public editData(document: Document, id: number): Observable<Document> {
-    return this.httpClient.put<Document>(`${this.apiUrl}/${id}`, document)
+    return this.httpClient.patch<Document>(`${this.apiUrl}/${id}`, document);
   }
   /**
-   * delete a document by specified using http delete method
+   * delete single or multiple documents using http delete
    * @param id 
    */
   public deleteDocument(id: number): Observable<Document> {
@@ -40,11 +46,11 @@ export class DocumentService {
   }
 
   /**
-   * to get data after sort
+   * to get data after sort is implemented
    * @param sortField 
    */
   public sortData(sortField: string): Observable<Document[]> {
     console.log(sortField)
-    return this.httpClient.get<Document[]>(`${this.apiUrl}?${sortField}`)
+    return this.httpClient.get<Document[]>(`${this.apiUrl}?${sortField}`);
   }
 }

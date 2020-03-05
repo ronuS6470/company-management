@@ -13,10 +13,10 @@ import { shareReplay } from 'rxjs/operators';
 
 export class CompanyListContainer {
 
-  public companyList$: Observable<Company[]>
+  public companyList$: Observable<Company[]>;
 
   // Get Filter Data
-  public getFilterData: any;
+  public getFilterData: Company;
 
   constructor(private companyService: CompanyService) {
     this.getDetails();
@@ -63,8 +63,8 @@ export class CompanyListContainer {
     );
   }
 
-  deleteCompanies(deleteCompanies){
-    for( let i=0 ; i<deleteCompanies.length; i++){
+  deleteCompanies(deleteCompanies) {
+    for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {
           this.getDetails();
