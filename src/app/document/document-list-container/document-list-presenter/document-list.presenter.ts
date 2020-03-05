@@ -18,7 +18,7 @@ export class DocumentListPresenter implements OnDestroy {
   /**
    * Open Overlay
    */
-  open(data: object): MyOverlayRef {
+  public open(data: object): MyOverlayRef {
     const configs = new OverlayConfig();
 
     configs.positionStrategy = this.overlay.position()
@@ -46,7 +46,7 @@ export class DocumentListPresenter implements OnDestroy {
    * @param ref overlay reference
    * @param inj injector
    */
-  createInjecter(ref: MyOverlayRef, inj: Injector) {
+  public createInjecter(ref: MyOverlayRef, inj: Injector): PortalInjector {
     const injectorTokens = new WeakMap([[MyOverlayRef, ref]]);
     return new PortalInjector(inj, injectorTokens);
   }

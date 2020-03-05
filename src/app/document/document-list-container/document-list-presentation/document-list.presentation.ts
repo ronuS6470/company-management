@@ -97,7 +97,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   /**
    * open filter overlay and get filter data
    */
-  public openFilter() {
+  public openFilter(): void {
     const ref = this.documentListPresenter.open(null);
     ref.afterClosed$.subscribe(res => {
       this.filter.emit(res);
