@@ -86,11 +86,11 @@ export class CompanyFormPresentation implements OnInit {
 
   /**
    * get and set name of file to 'selectedFile' 
-   * @param $event get the input file
+   * @param event get the input file
    */
-  public onChange($event): void {
-    if ($event.target.files.length > 0) {
-      this.selectedFile = $event.target.files[0].name;
+  public onChange(event): void {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0].name;
       this.companyForm.controls['attachment'].setValue(this.selectedFile);
     }
   }
