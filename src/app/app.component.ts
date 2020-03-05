@@ -7,8 +7,9 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+ 
   title = 'company-management';
-
+  
   showHeaderSidebar: boolean = false; //showHeaderSidebar to hide and show header and sidebar wherever needed.
 
   ngOnInit() {
