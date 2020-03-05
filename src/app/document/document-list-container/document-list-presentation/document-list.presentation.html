@@ -29,7 +29,7 @@
                 <tr class="text-muted text-uppercase">
                     <th>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" (change)="selectAllDocuments($event)">
                             <label class="custom-control-label" for="customCheck1"></label>
                         </div>
                     </th>
@@ -37,7 +37,7 @@
                     <th> <span class="mr-3">Owner</span>&nbsp;</th>
                     <th> <span class="mr-3">Created</span>&nbsp; <button id="created" (click)="sortAscending()" href="#"
                             class="short-up"><span class="fa fa-caret-down text-muted "></span></button>
-                        <button (click)="sortDescending()" href="#" class="short-down"><span
+                        <button (click)="sortDescending()" id="created" href="#" class="short-down"><span
                                 class="fa fa-caret-up text-muted "></span></button> </th>
                     <th class="td-mwidth"><span class="mr-3">modified</span>&nbsp;</th>
                     <th><span class="mr-3">Activity</span>&nbsp;</th>

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 import { Document } from 'src/app/document/document.model';
@@ -13,7 +13,7 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
- 
+
   @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
@@ -25,23 +25,32 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   get documentData() {
     return this.document;
   }
+  // for sorting on created field
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
   @Output() public filter: EventEmitter<any>;
-  @Output() public addDocument: EventEmitter<Document>
+  @Output() public addDocument: EventEmitter<Document>;
+  //event to delete a single document
   @Output() public delete;
+  //event to delete multiple documents
   @Output() public deleteMultipleDocuments;
-  todayDate: Date = new Date();
+
   // filter key and value
-  public multipleDeletes:any
-  public datatoDelete=[]
+
   public subscribeData: any;
   public updatedDetails: any;
   // store filterd data
   public filteredDocument: any[] = [];
   // temporory variable for getter and setter of document data
-  private sortBy: string;
   private document: any[] = [];
+  // for sorting on created field
+  private sortBy: string;
+  //stores multiple documents to delete them
+  private multipleDeletes: Array<Document>;
+  // refrence to stored documents to delete
+  private datatoDelete = [];
+  private todayDate: Date = new Date();
+
   constructor(
     private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
@@ -51,8 +60,8 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.updatedDocument = new EventEmitter();
     this.addDocument = new EventEmitter(/* isAsync = */ false);
     this.filter = new EventEmitter<any>();
-    this.delete=new EventEmitter<number>();
-    this.deleteMultipleDocuments=new EventEmitter<any>();
+    this.delete = new EventEmitter<number>();
+    this.deleteMultipleDocuments = new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -64,39 +73,29 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     }
   }
 
-  /**
-    * Emits a delete event with specified id
-    * @param id 
-    */
-  public deleteDocument(id: number) {
-    if (confirm('Are you sure to delete this document')) {
-      this.delete.emit(id);
-    }
-  }
-  // public deleteDocument(id:number){
-  //   this.delete.emit(id);
+  // openConfirmation(id: number) {
+  //   this.deleteConfirmation.showOverlay(id)
   // }
-  openConfirmation(id: number) {
-    this.deleteConfirmation.showOverlay(id)
-  }
-
+  /**
+   * Emit sort event for ascending order
+   */
   public sortAscending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=asc`);
   }
 
   /**
-   * Emits an sort event with the field for descending order
+   * Emits an sort event for descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=desc`);
   }
 
   /**
    * open filter overlay and get filter data
    */
-  public openFilter() {
+  public openFilter(): void {
     const ref = this.documentListPresenter.open(null);
     ref.afterClosed$.subscribe(res => {
       this.subscribeData = res;
@@ -126,41 +125,66 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     }
     this.filteredDocument = this.document.filter(filterDocument);
   }
+
   /**
      * Function for loading the document form dynamically
      * @param document //Includes the details of document
      */
-  loadDocumentForm(document: any,id:number): void {
-    
-    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
+  loadDocumentForm(document: any, id: number): void {
+
+    this.documentListPresenter.loadForm(document).subscribe((data: Document) => {
       this.updatedDetails = data
-      if (id!=null) {
+      if (id != null) {
         this.updatedDetails.id = id
-        this.updatedDetails.created=this.todayDate
+        this.updatedDetails.created = this.todayDate
         this.updatedDocument.emit(this.updatedDetails)
       }
-      else if(id == null)
-      {
-        this.updatedDetails.created=this.todayDate
+      else if (id == null) {
+        this.updatedDetails.created = this.todayDate
         this.addDocument.emit(this.updatedDetails)
       }
     })
   }
- 
-/**
- * Tried multiple delete functionality
- */
-deleteDocuments() {
-   this.multipleDeletes= this.documentData.filter(item=>item.checked)
-    for(let i=0;i<this.multipleDeletes.length;i++)
-    {
-      this.datatoDelete[i]=this.multipleDeletes[i].id
+
+  /**
+   * Emits a delete event with specified id
+   * @param id 
+   */
+  public deleteDocument(id: number): void {
+    if (confirm('Are you sure to delete this document')) {
+      this.delete.emit(id);
     }
-    this.deleteMultipleDocuments.emit(this.datatoDelete)
-    
-    
-   //  for (var data in this.documentData){
-   //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
-   //  }
-   }
+  }
+
+  /**
+  * method to select all documents
+  * @param event // checked event
+  */
+  public selectAllDocuments(checkeEvent): void {
+    if (checkeEvent.target.checked) {
+      this.documentData.map(user => {
+        user.checked = true;
+        return user;
+      })
+    } else {
+      this.documentData.map(user => {
+        user.checked = false;
+        return user;
+      })
+    }
+  }
+
+  /**
+   * Delete multiple documents 
+   */
+  public deleteDocuments(): void {
+    this.multipleDeletes = this.documentData.filter(item => item.checked);
+    for (let i = 0; i < this.multipleDeletes.length; i++) {
+      this.datatoDelete[i] = this.multipleDeletes[i].id;
+    }
+    if (confirm('Are you sure to delete this document')) {
+      this.deleteMultipleDocuments.emit(this.datatoDelete);
+    }
+  }
+
 }
