@@ -34,7 +34,7 @@ export class DocumentFilterPresentation implements OnInit {
    * submit filters vales with fields
    * @param filters filter fields
    */
-  search(filters: object): void {
+  public search(filters: object): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
     this.ref.close(filters);
   }
@@ -42,7 +42,7 @@ export class DocumentFilterPresentation implements OnInit {
   /**
    * close overlay
    */
-  closeOverlay() {
+  public closeOverlay(): void {
     this.ref.overlay.dispose();
   }
 }

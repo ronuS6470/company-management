@@ -14,7 +14,7 @@ export class DocumentFilterPresenter {
     /**
      * build form
      */
-    buildForm(): FormGroup {
+    public buildForm(): FormGroup {
         return this.fb.group({
             documentName: new FormControl(''),
             ownerName: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
