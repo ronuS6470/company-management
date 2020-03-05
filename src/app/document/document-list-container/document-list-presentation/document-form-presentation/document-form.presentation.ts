@@ -1,5 +1,5 @@
 /**
- * Author : Bhargav Baleja
+ * @Author : Bhargav Baleja
  */
 
 import { Component, ChangeDetectionStrategy,Inject,EventEmitter, Output} from '@angular/core';

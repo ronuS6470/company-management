@@ -1,5 +1,5 @@
 /**
- * Author : Bhargav Baleja
+ * @Author : Bhargav Baleja
  */
 
 import { Injectable } from '@angular/core';
@@ -21,7 +21,7 @@ export class DocumentFormPresenter {
     return this.documentForm=this.fb.group({
     documentName:['',[Validators.required,Validators.minLength(4)]],
     ownerName:['',[Validators.required]],
-    activity:['',[Validators.required]],
+    activity:['',[Validators.required]]
     })
   }
 }

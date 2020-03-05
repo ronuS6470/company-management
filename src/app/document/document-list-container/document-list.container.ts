@@ -46,7 +46,7 @@ export class DocumentListContainer implements OnInit {
 
   /**
    * For updating existing document
-   * @param documentDetails //Updated Document details
+   * @param documentDetails Updated Document details
    */
   public updateDocument(documentDetails: Document):void
    {
@@ -57,7 +57,7 @@ export class DocumentListContainer implements OnInit {
 
   /**
    * For creating new document
-   * @param documentDetails //Created Document details
+   * @param documentDetails Created Document details
    */
   public addDocument(documentDetails: Document) :void {
     this.documentService.addData(documentDetails).subscribe(() => {

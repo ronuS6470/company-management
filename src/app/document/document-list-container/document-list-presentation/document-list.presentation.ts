@@ -131,9 +131,10 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     }
     this.filteredDocument = this.document.filter(filterDocument);
   }
+
   /**
      * Function for loading the document form dynamically
-     * @param document //Includes the details of document
+     * @param document Includes the details of document
   */
     public loadDocumentForm(document: Document,id:any): void {
 

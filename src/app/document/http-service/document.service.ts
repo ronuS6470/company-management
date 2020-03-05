@@ -19,7 +19,7 @@ export class DocumentService {
   }
   /**
    * Creates new Document
-   * @param document //Documents details to be created
+   * @param document Documents details to be created
    */
   public addData(document: Document): Observable<Document> {
     return this.httpClient.post<Document>(`${this.apiUrl}`, document);
@@ -27,8 +27,8 @@ export class DocumentService {
 
   /**
    * Updation of data for an existing Employee in local storage
-   * @param employee //Updated Details of Document
-   * @param id //Id of updated Document
+   * @param employee Updated Details of Document
+   * @param id Id of updated Document
    */
   public editData(document: Document, id: number): Observable<Document> {
     return this.httpClient.put<Document>(`${this.apiUrl}/${id}`, document);

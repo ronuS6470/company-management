@@ -12,9 +12,10 @@ import { Observable, Subject } from 'rxjs';
 export class DocumentListPresenter implements OnDestroy{
   public componentRef;
   //Subject for getting details of form
-  public formDetails = new Subject<Document>();
+  public formDetails:Subject<Document>;
   constructor(public viewContainerRef: ViewContainerRef, private overlay: Overlay, private injector: Injector) {
-   }
+    this.formDetails= new Subject<Document>(); 
+  }
 
 
   /**
@@ -51,10 +52,10 @@ export class DocumentListPresenter implements OnDestroy{
 
   /**
    * Creates an injector
-   * @param documentDetails //Stores documentDetails
-   * @param overlayRef //Overlay Reference
+   * @param documentDetails Stores documentDetails
+   * @param overlayRef Overlay Reference
    */
-  createInjector(documentDetails: Document, overlayRef: OverlayRef): PortalInjector {
+  private createInjector(documentDetails: Document, overlayRef: OverlayRef): PortalInjector {
     const injectorTokens = new WeakMap();
     injectorTokens.set(OverlayRef, overlayRef);
     injectorTokens.set(DOCUMENT_DETAILS, documentDetails);
@@ -65,7 +66,7 @@ export class DocumentListPresenter implements OnDestroy{
      * Opens an overlay for document form
      * @param documentDetails //Contains the details of document
   */
-  loadForm(documentDetails: any): Observable<Document> {
+  public loadForm(documentDetails: any): Observable<Document> {
     let config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
@@ -85,7 +86,7 @@ export class DocumentListPresenter implements OnDestroy{
     return this.formDetails.asObservable();
   }
 
-  ngOnDestroy()
+  public ngOnDestroy()
   {
     this.formDetails.unsubscribe();
   }
