@@ -42,17 +42,27 @@ export class DocumentListContainer implements OnInit {
   public sortData(sortField: string): void {
     this.documentData = this.documentService.sortData(sortField);
   }
-  updateDocument(documentDetails: Document) {
+
+  /**
+   * For updating existing document
+   * @param documentDetails Updated Document details
+   */
+  public updateDocument(documentDetails: Document):void
+   {
     this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
-      this.getDocuments()
-    })
-  }
-  addDocument(documentDetails: Document) {
-    this.documentService.addData(documentDetails).subscribe(() => {
-      this.getDocuments()
+      this.getDocuments();
     })
   }
 
+  /**
+   * For creating new document
+   * @param documentDetails Created Document details
+   */
+  public addDocument(documentDetails: Document) :void {
+    this.documentService.addData(documentDetails).subscribe(() => {
+      this.getDocuments();
+    })
+  }
 
 
   /**

@@ -27,22 +27,30 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     return this.document;
   }
   @Output() public sort: EventEmitter<string>;
+  //Emits an update event  
   @Output() public updatedDocument: EventEmitter<any>;
   // send filter data
   @Output() public filter: EventEmitter<any>;
+  //Emits an create event
   @Output() public addDocument: EventEmitter<Document>;
   @Output() public delete;
   @Output() public deleteMultipleDocuments;
-  todayDate: Date = new Date();
-  // filter key and value
-  public multipleDeletes: any;
-  public datatoDelete = [];
-  public updatedDetails: any;
+  
+  //Stores the Date when document is modified
+  public modifiedDate: Date;
+
+  public multipleDeletes: any
+  public datatoDelete = []
+  public subscribeData: any;
+  //Stored details from the form 
+  private updatedDetails: Document;
   // store filterd data
   public filteredDocument: Document[];
   // variable for getter and setter of document data
   private document: Document[];
   private sortBy: string;
+  //Creates a new Date
+  private todayDate: Date = new Date();
   constructor(
     private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
@@ -50,7 +58,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
 
     this.sort = new EventEmitter<string>();
     this.updatedDocument = new EventEmitter();
-    this.addDocument = new EventEmitter(/* isAsync = */ false);
+    this.addDocument = new EventEmitter();
     this.filter = new EventEmitter<any>();
     this.delete = new EventEmitter<number>();
     this.deleteMultipleDocuments = new EventEmitter<any>();
@@ -129,29 +137,33 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     };
     this.filteredDocument = this.document.filter(filterDocument);
   }
-  /**
-   * Function for loading the document form dynamically
-   * @param document //Includes the details of document
-   */
-  loadDocumentForm(document: any, id: number): void {
 
-    this.documentListPresenter.loadForm(document).subscribe((data: Document) => {
-      this.updatedDetails = data
-      if (id != null) {
-        this.updatedDetails.id = id
-        this.updatedDetails.created = this.todayDate
-        this.updatedDocument.emit(this.updatedDetails)
+  /**
+     * Function for loading the document form dynamically
+     * @param document Includes the details of document
+  */
+  public loadDocumentForm(document: Document, id: any): void {
+
+    this.documentListPresenter.loadForm(document).subscribe((updatedDocument: any) => {
+      this.updatedDetails = updatedDocument;
+      for (let i = 0; i < this.documentData.length; i++) {
+        if (id == this.documentData[i].id) {
+          this.updatedDetails.id = id;
+          this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
+          this.modifiedDate = new Date();
+          this.updatedDocument.emit(this.updatedDetails);
+          break;
+        }
       }
-      else if (id == null) {
-        this.updatedDetails.created = this.todayDate
-        this.addDocument.emit(this.updatedDetails)
+      if (id == null) {
+        this.updatedDetails.createdDate = this.todayDate;
+        this.updatedDetails.updatedDate = this.todayDate;
+        this.modifiedDate = new Date();
+        this.addDocument.emit(this.updatedDetails);
       }
     })
   }
 
-  /**
-   * Tried multiple delete functionality
-   */
   deleteDocuments() {
     this.multipleDeletes = this.documentData.filter(item => item.checked)
     for (let i = 0; i < this.multipleDeletes.length; i++) {

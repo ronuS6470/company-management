@@ -5,8 +5,9 @@ export class Document {
 
     documentName: string;
     ownerName: string;
-    created: DatePipe;
-    modified: string;
+    createdDate : Date;
+    updatedDate :Date;
+    modified : string;
     activity: string;
     id: number;
     checked: boolean;

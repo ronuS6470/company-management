@@ -15,20 +15,20 @@ import { DocumentListContainer } from './document-list-container/document-list.c
 import { DocumentListPresentation } from './document-list-container/document-list-presentation/document-list.presentation';
 import { DocumentRoutingModule } from './document-routing.module';
 import { DocumentService } from 'src/app/document/http-service/document.service';
-import { SharedModule } from 'src/app/shared/shared.module';
 
+import { ModifiedPipe } from './pipe/modified.pipe'
 @NgModule({
   declarations: [
     DocumentFormPresentation,
     DocumentListContainer,
     DocumentListPresentation,
     DocumentFilterPresentation,
-
+    ModifiedPipe,
+    
   ],
   imports: [
     CommonModule,
     DocumentRoutingModule,
-    SharedModule,
     PortalModule,
     OverlayModule,
     FormsModule,

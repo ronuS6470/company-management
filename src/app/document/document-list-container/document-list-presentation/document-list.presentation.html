@@ -63,11 +63,11 @@
                         <span class="mx-2">{{document.ownerName}}</span>
                     </td>
                     <td class="td-mwidth">
-                        <span>{{document.created | date : 'longDate'}}</span><span
-                            class="ml-2 text-muted">{{document.created | date : 'mediumTime'}}</span>
+                        <span>{{document.createdDate | date : 'longDate'}}</span><span
+                            class="ml-2 text-muted">{{document.createdDate | date : 'mediumTime'}}</span>
                     </td>
                     <td>
-                        {{document.modified}}
+                        {{document.createdDate | modified : 'modifiedDate'}}
                     </td>
                     <td>
                         <span class="text-primary">{{document.activity}}</span>
