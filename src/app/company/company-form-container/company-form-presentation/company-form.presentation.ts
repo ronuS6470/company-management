@@ -18,15 +18,15 @@ import { Observable } from 'rxjs';
 
 export class CompanyFormPresentation implements OnInit {
 
-  // add event for company data
+  // add event for add company data
   @Output() add: EventEmitter<Company>;
   // event for update company
   @Output() update: EventEmitter<Company>;
 
-  companyForm: FormGroup; //company form
-  submitted: boolean; // to check form valid/invalid
-  selectedFile: string = 'file name'; // set file name
-  private _companies: Observable<Company[]>; //company list
+  public companyForm: FormGroup; //company form
+  public submitted: boolean; // to check form valid/invalid
+  public selectedFile: string = 'file name'; // set file name
+  private _company: Observable<Company>; //company list
 
   /**
    * set company data
@@ -34,14 +34,14 @@ export class CompanyFormPresentation implements OnInit {
   @Input()
   set company(value: any) {
     if (value) {
-      this._companies = value;
+      this._company = value;
       this.companyForm.patchValue(value);
       this.selectedFile = value.attachment;
     }
   }
 
   get company() {
-    return this._companies;
+    return this._company;
   }
 
   constructor(private companyFormPresenter: CompanyFormPresenter) {
@@ -71,13 +71,13 @@ export class CompanyFormPresentation implements OnInit {
       return;
     }
     if (this.companyForm.valid) {
-      if (!this._companies) {
+      if (!this._company) {
         this.companyFormPresenter.addCompany();
-        this.add.emit(this.companyFormPresenter.companyObj);
+        this.add.emit(this.companyFormPresenter.companyDetail);
       }
       else {
         this.companyFormPresenter.updateCompany();
-        this.update.emit(this.companyFormPresenter.companyObj);
+        this.update.emit(this.companyFormPresenter.companyDetail);
       }
     }
   }

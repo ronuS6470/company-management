@@ -10,8 +10,8 @@ import { Company } from '../../company.model';
 
 export class CompanyFormPresenter {
 
-    companyForm: FormGroup;
-    companyObj: Company;
+    public companyForm: FormGroup;
+    public companyDetail: Company;
 
     constructor(private formBuilder: FormBuilder) { }
 
@@ -39,14 +39,14 @@ export class CompanyFormPresenter {
      * add company data
      */
     public addCompany(): void {
-        this.companyObj = new Company();
-        this.companyObj = this.companyForm.value;
+        this.companyDetail = new Company();
+        this.companyDetail = this.companyForm.value;
     }
 
     /**
    * update company data
    */
     public updateCompany(): void {
-        this.companyObj = this.companyForm.value;
+        this.companyDetail = this.companyForm.value;
     }
 }
