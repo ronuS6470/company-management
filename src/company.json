@@ -1,135 +1,4 @@
 {
-  "documents": [
-    {
-      "documentName": "Contacts information",
-      "ownerName": "Kiran Tandel",
-      "created": "2020-05-15 23:59:20",
-      "modified": "3 days ago",
-      "activity": "General",
-      "id": 4
-    },
-    {
-      "documentName": "dhdf",
-      "ownerName": "fdds",
-      "activity": "General",
-      "id": 5,
-      "created": "2020-03-04T12:22:18.517Z"
-    },
-    {
-      "documentName": "Contacts information",
-      "ownerName": "Bhargav Baleja",
-      "created": "2020-04-15 23:59:20",
-      "modified": "3 days ago",
-      "activity": "General",
-      "id": 6
-    }
-  ],
-  "login": [
-    {
-      "id": 1,
-      "username": "tapasvashi",
-      "password": "tapas@123"
-    },
-    {
-      "id": 2,
-      "username": "shivdesai",
-      "password": "tapas@123"
-    },
-    {
-      "id": 3,
-      "username": "samipkarbhari",
-      "password": "tapas@123"
-    },
-    {
-      "id": 4,
-      "username": "bhargavbaleja",
-      "password": "bhargav@123"
-    },
-    {
-      "id": 5,
-      "username": "kirantandel",
-      "password": "tapas@123"
-    },
-    {
-      "id": 6,
-      "username": "dhruvitmakadia",
-      "password": "tapas@123"
-    },
-    {
-      "id": 7,
-      "username": "aasthayadav",
-      "password": "tapas@123"
-    },
-    {
-      "id": 8,
-      "username": "amitAC81",
-      "password": "tapas@123"
-    },
-    {
-      "username": "mitulpatel",
-      "password": "mitul@123",
-      "id": 13
-    },
-    {
-      "username": "sonikkapadia",
-      "password": "sonik@123",
-      "id": 14
-    },
-    {
-      "username": "ronakpatel",
-      "password": "ronak@123",
-      "id": 15
-    },
-    {
-      "username": "nehalpatel",
-      "password": "nehal@123",
-      "id": 16
-    },
-    {
-      "username": "onishmistry",
-      "password": "onisj@123",
-      "id": 17
-    },
-    {
-      "username": "vishalpatel",
-      "password": "vishal@123",
-      "id": 18
-    },
-    {
-      "username": "rachityagnik",
-      "password": "rachit@123",
-      "id": 19
-    },
-    {
-      "username": "dhruvit",
-      "password": "dhruvit@12",
-      "id": 20
-    },
-    {
-      "username": "niteshsir",
-      "password": "nitesh@123",
-      "id": 21
-    },
-    {
-      "username": "aaaa",
-      "password": "aaaaaa",
-      "id": 22
-    }
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
   "company": [
     {
       "id": 3,
@@ -284,17 +153,76 @@
       "contactPersonMobile": "7878787878",
       "attachment": "file2",
       "id": 10
-    }
-  ],
-  "notifications": [
+    },
     {
-      "id": 1,
-      "date": "13-march-2020",
-      "time": "9:50",
-      "notification": "Notification 1"
+      "clientName": "anil",
+      "companySite": "http://www.abcd.com",
+      "clientType": "both",
+      "businessType": "private",
+      "contactNumber": 4564564566,
+      "location": "USA",
+      "email": "anil@gmail.com",
+      "contactPersonName": "mahi",
+      "designation": "employee",
+      "contactPersonMobile": "5678787878",
+      "attachment": "fileR",
+      "id": 11
+    },
+    {
+      "clientName": "tejas",
+      "companySite": "https://www.xyz.com",
+      "clientType": "client",
+      "businessType": "public",
+      "contactNumber": 2345656565,
+      "location": "USA",
+      "email": "tejas@gmail.com",
+      "contactPersonName": "tej",
+      "designation": "manager",
+      "contactPersonMobile": "6786756567",
+      "attachment": "fileW",
+      "id": 12
+    },
+    {
+      "clientName": "hhhhh",
+      "companySite": "http://www.abb.com",
+      "clientType": "both",
+      "businessType": "private",
+      "contactNumber": 4545454545,
+      "location": "London",
+      "email": "assd@gmail.com",
+      "contactPersonName": "nits",
+      "designation": "manager",
+      "contactPersonMobile": "1231231231",
+      "attachment": "FileZilla.txt",
+      "id": 13
+    },
+    {
+      "clientName": "rachit",
+      "companySite": "http://www.nnn.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": 4545454545,
+      "location": "USA",
+      "email": "nnn@gmail.com",
+      "contactPersonName": "fghfgh",
+      "designation": "manager",
+      "contactPersonMobile": "6777887878",
+      "attachment": "FileZilla.txt",
+      "id": 14
+    },
+    {
+      "clientName": "amitQ",
+      "companySite": "http://www.amit.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": 1233333333,
+      "location": "USA",
+      "email": "amit@gmail.com",
+      "contactPersonName": "ajay",
+      "designation": "manager",
+      "contactPersonMobile": "5666665656",
+      "attachment": "FileZilla.txt",
+      "id": 15
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

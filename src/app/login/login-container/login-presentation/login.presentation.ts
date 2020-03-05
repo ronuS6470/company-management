@@ -21,7 +21,7 @@ export class LoginPresentation {
   // Input property of login
   @Input() public login$: Login[]; 
 
-  model: Login[]; //model Login of type array
+  model: any = {} //model Login of type array
 
   constructor(private service: LoginPresenter, private routes: Router) {}
 

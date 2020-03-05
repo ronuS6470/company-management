@@ -59,6 +59,36 @@
       "username": "nehalpatel",
       "password": "nehal@123",
       "id": 16
+    },
+    {
+      "username": "onishmistry",
+      "password": "onisj@123",
+      "id": 17
+    },
+    {
+      "username": "vishalpatel",
+      "password": "vishal@123",
+      "id": 18
+    },
+    {
+      "username": "rachityagnik",
+      "password": "rachit@123",
+      "id": 19
+    },
+    {
+      "username": "dhruvit",
+      "password": "dhruvit@12",
+      "id": 20
+    },
+    {
+      "username": "niteshsir",
+      "password": "nitesh@123",
+      "id": 21
+    },
+    {
+      "username": "aaaa",
+      "password": "aaaaaa",
+      "id": 22
     }
   ]
 }
