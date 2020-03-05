@@ -13,8 +13,9 @@ import { DocumentListPresenter } from '../document-list-presenter/document-list.
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
-
+  // filter data
   @Input() public groupFilter: object;
+  // get document details
   @Input() set documentData(value: Document[]) {
     if (value) {
       this.document = value;
@@ -27,6 +28,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
   @Output() public sort: EventEmitter<string>;
   @Output() public updatedDocument: EventEmitter<any>;
+  // send filter data
   @Output() public filter: EventEmitter<any>;
   @Output() public addDocument: EventEmitter<Document>;
   @Output() public delete;
@@ -38,9 +40,9 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   public updatedDetails: any;
   // store filterd data
   public filteredDocument: Document[];
-  // temporory variable for getter and setter of document data
-  private sortBy: string;
+  // variable for getter and setter of document data
   private document: Document[];
+  private sortBy: string;
   constructor(
     private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
