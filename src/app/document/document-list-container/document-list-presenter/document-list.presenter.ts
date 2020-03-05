@@ -47,6 +47,12 @@ export class DocumentListPresenter implements OnDestroy{
     const injectorTokens = new WeakMap([[MyOverlayRef, ref]]);
     return new PortalInjector(inj, injectorTokens);
   }
+
+  /**
+   * 
+   * @param documentDetails //Stores 
+   * @param overlayRef 
+   */
   createInjector(documentDetails: any, overlayRef: OverlayRef): PortalInjector {
     const injectorTokens = new WeakMap();
     injectorTokens.set(OverlayRef, overlayRef);

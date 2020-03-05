@@ -25,7 +25,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     return this.document;
   }
   @Output() public sort: EventEmitter<string>;
-  @Output() public updatedDocument: EventEmitter<any>;
+  @Output() public updatedDocument: EventEmitter<Document>;
   @Output() public filter: EventEmitter<any>;
   @Output() public addDocument: EventEmitter<Document>
   @Output() public delete;
@@ -128,22 +128,24 @@ export class DocumentListPresentation implements OnInit, OnChanges {
      * Function for loading the document form dynamically
      * @param document //Includes the details of document
      */
-  updateDocumentForm(document: Document,id:number): void {
-    
-    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
-      this.updatedDetails = data
-        console.log('Edit');
-        this.updatedDetails.id=id
-        this.updatedDetails.created=this.todayDate
-        this.updatedDocument.emit(this.updatedDetails)
-    })
-  }
-  addDocumentForm(document:any)
-  {
-    this.documentListPresenter.loadForm(document).subscribe((data:Document) => {
+    loadDocumentForm(document: any,id:any): void {
+      this.documentListPresenter.loadForm(document).subscribe((data) => {
         this.updatedDetails = data
-        this.updatedDetails.created=this.todayDate
-        this.addDocument.emit(this.updatedDetails)
-    })
-  }
+        for(let i=0;i<this.documentData.length;i++)
+        {
+          if(id==this.documentData[i].id)
+          {
+            this.updatedDetails.id = id
+            this.updatedDetails.created=this.todayDate
+            this.updatedDocument.emit(this.updatedDetails)
+            break
+          }
+        }
+        if(id==null)
+        {
+          this.updatedDetails.created=this.todayDate
+          this.addDocument.emit(this.updatedDetails)
+        }
+      })
+    }
 } 
