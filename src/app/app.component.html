@@ -5,7 +5,7 @@
     <section class="content-wrapper flex-grow-1 d-flex flex-column  overflow-hidden">
         <cmp-header class="flex-shrink-0"></cmp-header>
         <div class="flex-grow-1 overflow-hidden">
-            <router-outlet>
+            <router-outlet (activate)="changeOfRoutes()">
             </router-outlet>
         </div>
     </section>

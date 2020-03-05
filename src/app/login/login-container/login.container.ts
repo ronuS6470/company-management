@@ -1,10 +1,10 @@
 /**
  * @author TapasVashi
  */
-import { Component } from '@angular/core';
 import { AuthenticateService } from '../authenticate.service';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { Login } from '../login.model';
+import { Observable } from 'rxjs';
 import { OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +12,9 @@ import { OnInit } from '@angular/core';
   templateUrl: './login.container.html'
 })
 export class LoginContainer implements OnInit {
-  public loginDetails$: Observable<Login[]>;
+  
+  // loginDetails of type observable 
+  public loginDetails$: Observable<Login[]>; 
 
   constructor(private authService: AuthenticateService) {}
 
