@@ -1,330 +1,408 @@
-<div class="bg-body h-100">
-    <!-- Document Section -->
-    <section class="h-100">
-        <!-- Document Header  -->
-        <div class="d-flex justify-content-between align-items-center flex-wrap document-header ">
-            <div class="d-flex align-items-center">
-                <h3>Documents</h3>&nbsp;
-                <p class="m-0 text-primary">(128)</p>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <button class="btn btn-white rounded-0 mx-2 mb-sm-0 mb-3 delete-btn "><span
-                    class="text-danger fa fa-trash"></span></button>
-                <button class="btn btn-white bg-white rounded-0 mx-2 mb-sm-0 mb-3"><span
-                    class="text-dark">Filter</span>&nbsp;&nbsp;<span class="fa fa-filter text-primary"></span></button>
-                <button class="btn btn-outline-primary mx-2 px-4 mb-sm-0 mb-3"><span
-                    class="fa fa-upload"></span>&nbsp;<span>Upload</span></button>
-                <button class="btn btn-primary mx-2 px-4 mb-sm-0 mb-3"><span
-                    class="fa fa-plus"></span>&nbsp;<span>New</span></button>
-            </div>
+<!-- Document List -->
+<main class="main-content h-100">
+    <!-- document Header -->
+    <header class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="d-flex align-items-center">
+            <h3>Documents</h3>
+            <p class="mb-0 ml-2 text-primary font-weight-bold ">(128)</p>
         </div>
-        <!-- End: Document Header -->
-        <!-- Document Table -->
-            <div class="table-responsive document-table">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr class="text-muted text-uppercase">
-                            <th>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1"></label>
-                                </div>
-                            </th>
-                            <th class="td-mwidth"> <span class="mr-3">Name</span>&nbsp;</th>
-                            <th> <span class="mr-3">Owner</span>&nbsp;</th>
-                            <th> <span class="mr-3">Created</span>&nbsp; <button href="#" class="short-up"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
-                                <button href="#" class="short-down"><span class="fa fa-caret-up text-muted "></span></button> </th>
-                            <th class="td-mwidth"><span class="mr-3">modified</span>&nbsp;</th>
-                            <th><span class="mr-3">Activity</span>&nbsp;</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody class="h-100">
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2"></label>
-                                </div>
-                            </td>
-                            <td class="td-mwidth">
-                                <div><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                    Report</span>&nbsp;&nbsp;<span class="fa fa-star text-primary"></span></div>
-                            </td>
-                            <td class="d-flex align-items-center">
-                                <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td class="td-mwidth">
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center td-mwidth">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                                <!-- <div class="dropdown dropleft">
-                                    <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"><span
-                                        class="text-muted fa fa-ellipsis-h"></span></a>
-                                    <div class="dropdown-menu show" aria-labelledby="dropdownMenuButton">
-                                        <button class="dropdown-item" href="#">Edit</button>
-                                        <button class="dropdown-item text-danger" href="#">Delete</button>
-                                    </div>
-                                </div> -->
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label" for="customCheck4"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                    <label class="custom-control-label" for="customCheck5"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                    <label class="custom-control-label" for="customCheck6"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                    <label class="custom-control-label" for="customCheck7"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                    <label class="custom-control-label" for="customCheck8"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck9">
-                                    <label class="custom-control-label" for="customCheck9"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck10">
-                                    <label class="custom-control-label" for="customCheck10"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white align-items-center">
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                    <label class="custom-control-label" for="customCheck11"></label>
-                                </div>
-                            </td>
-                            <td><span class="fa fa-folder-o text-primary"></span>&nbsp;&nbsp;<span>General Personal
-                                Report</span>&nbsp;&nbsp;</td>
-                            <td class="d-flex align-items-center">
-                                <img src="assets/images/girl.jpg" class="rounded-circle user-icon" alt="table-user">
-                                <span class="mx-2">Diane West</span>
-                            </td>
-                            <td>
-                                <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
-                            </td>
-                            <td>
-                                15 min ago
-                            </td>
-                            <td>
-                                <span class="text-primary">Compliance</span>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-danger mr-3">Delete</button>
-                                <button class="btn btn-primary">Edit</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        <!-- End: Document Table -->
-    </section>
-    <!-- End: Document Section -->
-</div>
+        <div class="d-flex align-items-center flex-wrap">
+            <button class="btn  rounded-0 mx-md-2 mx-0 btn-delete ">
+                <span class="text-danger fa fa-trash-o"></span>
+            </button>
+            <button class="btn rounded-0mx-md-2 mx-1  btn-document-filter shadow-sm">
+                <span class="fa fa-filter text-primary mr-sm-0 mr-md-2"></span>
+                <span class="text-dark">Filter</span>
+            </button>
+            <button class="btn mx-md-2 mx-1 px-md-4 px-1 btn-upload shadow-sm">
+                <span class="fa fa-upload mr-sm-0 mr-md-2"></span>
+                <span>Upload</span>
+            </button>
+            <button class="btn mx-md-2 mx-1 px-md-4 px-1  btn-add shadow-sm">
+                <span class="fa fa-plus mr-sm-0 mr-md-2"></span>
+                <span>New</span>
+            </button>
+        </div>
+    </header>
+    <!--End: document Header -->
+    <!--document Table -->
+    <div class="table-responsive overflow-auto mt-2">
+        <table class="table table-borderless">
+            <thead>
+                <tr class="text-muted text-uppercase">
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </th>
+                    <th class="fix-min-width"> <span class="mr-3">Name</span></th>
+                    <th> <span class="mr-3">Owner</span></th>
+                    <th> <span class="mr-3">Created</span> <button href="#" class="sort-asc">
+                            <span class="fa fa-caret-down text-muted "></span>
+                        </button>
+                        <button href="#" class="sort-desc">
+                            <span class="fa fa-caret-up text-muted "></span>
+                        </button>
+                    </th>
+                    <th class="fix-min-width"><span class="mr-3">modified</span></th>
+                    <th><span class="mr-3">Activity</span></th>
+                </tr>
+            </thead>
+            <tbody class="h-100">
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal Report</span><span
+                                class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck4">
+                            <label class="custom-control-label" for="customCheck4"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck5">
+                            <label class="custom-control-label" for="customCheck5"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck6">
+                            <label class="custom-control-label" for="customCheck6"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck7">
+                            <label class="custom-control-label" for="customCheck7"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck8">
+                            <label class="custom-control-label" for="customCheck8"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck9">
+                            <label class="custom-control-label" for="customCheck9"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="bg-white">
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck10">
+                            <label class="custom-control-label" for="customCheck10"></label>
+                        </div>
+                    </td>
+                    <td class="fix-min-width">
+                        <div>
+                            <span class="fa fa-folder-o fa-lg text-primary"></span>
+                            <span class="mx-2">General Personal
+                                Report</span><span class="fa fa-star text-primary"></span>
+                        </div>
+                    </td>
+                    <td class="d-flex align-items-center">
+                        <img src="../../../../assets/images/girl.jpg" class="rounded-circle user-icon mr-1"
+                            alt="table-user">
+                        <span class="mx-2">Diane West</span>
+                    </td>
+                    <td class="fix-min-width">
+                        <span>11 Feb 2019</span><span class="ml-2 text-muted">10:39 AM</span>
+                    </td>
+                    <td>
+                        <span>15 min ago</span>
+                    </td>
+                    <td>
+                        <span class="text-primary">Compliance</span>
+                    </td>
+                    <td class="text-center fix-min-width">
+                        <button class="btn btn-transparent mr-3">
+                            <span class="text-danger fa fa-trash-o fa-lg"></span>
+                        </button>
+                        <button class="btn btn-transparent">
+                            <span class="text-primary fa fa-edit fa-lg"></span>
+                        </button>
+                        <!-- <div class="dropdown dropleft">
+                            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                                <span class="text-muted fa fa-ellipsis-h"></span>
+                            </a>
+                            <div class="dropdown-menu show" aria-labelledby="dropdownMenuButton">
+                                <button class="dropdown-item" href="#">Edit</button>
+                                <button class="dropdown-item text-danger" href="#">Delete</button>
+                            </div>
+                        </div> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--End: document Table -->
+</main>

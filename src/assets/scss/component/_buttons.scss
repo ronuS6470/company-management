@@ -1,11 +1,45 @@
 // Button styles goes here
-
 .btn-delete {
   font-size: 25px;
 }
 
-.btn-filter {
+.btn-upload {
+  color: $primary;
+  border-color: $primary;
   background-color: $white;
+  &:hover {
+    color: $primary;
+  }
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border: none;
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-document-filter {
+  background-color: $white;
+  @media (max-width: 768px) {
+    background-color: transparent;
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-company-filter {
+  background-color: $white;
+  color: $primary;
   @media (max-width: 768px) {
     background-color: transparent;
   }
@@ -20,8 +54,16 @@
 
 .btn-add {
   background-color: $primary;
+  color: $white;
+  &:hover {
+    color: $white;
+  }
   @media (max-width: 768px) {
     background-color: transparent;
+    color: $primary;
+    &:hover {
+      color: $primary;
+    }
   }
   span {
     &:nth-child(2) {
