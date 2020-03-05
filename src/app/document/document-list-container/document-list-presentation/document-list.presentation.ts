@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, DoCheck, OnChanges } from '@angular/core';
 // ---------------------------------- //
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
-import { Document } from 'src/app/document/document.model';
+import { Document } from '../../document.model';
 import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
 
 @Component({
@@ -13,11 +13,12 @@ import { ConfirmationModalService } from 'src/app/core/services/confirmation-mod
 })
 
 export class DocumentListPresentation implements OnInit, OnChanges {
+ 
   @Input() public groupFilter: any;
   @Input() set documentData(value: Document[]) {
     if (value) {
-      this.filteredDocument = value;
       this.document = value;
+      this.filteredDocument = value;
       this.filteredDocument = this.filteredDocument.length > 0 ? this.filteredDocument : value;
     }
   }
@@ -25,28 +26,38 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     return this.document;
   }
   @Output() public sort: EventEmitter<string>;
+   //Emits an update event
   @Output() public updatedDocument: EventEmitter<Document>;
   @Output() public filter: EventEmitter<any>;
-  @Output() public addDocument: EventEmitter<Document>
+  //Emits an create event
+  @Output() public addDocument: EventEmitter<Document>;
   @Output() public delete;
-
-  todayDate: Date = new Date();
+  @Output() public deleteMultipleDocuments;
+  //Creates a new Date
+  private todayDate: Date = new Date();
+  //Stores the Date when document is modified
+  public modifiedDate: Date ;
   // filter key and value
+  public multipleDeletes:any
+  public datatoDelete=[]
   public subscribeData: any;
-  public updatedDetails: Document;
+  private updatedDetails: Document; //Stored details from the form 
   // store filterd data
   public filteredDocument: any[] = [];
   // temporory variable for getter and setter of document data
-  private docData: Document[];
   private sortBy: string;
   private document: any[] = [];
-  constructor(private deleteConfirmation: ConfirmationModalService, private documentListPresenter: DocumentListPresenter) {
+  constructor(
+    private deleteConfirmation: ConfirmationModalService,
+    private documentListPresenter: DocumentListPresenter
+  ) {
 
     this.sort = new EventEmitter<string>();
-    this.updatedDocument = new EventEmitter();
-    this.addDocument = new EventEmitter(/* isAsync = */ false);
+    this.updatedDocument = new EventEmitter();   
+    this.addDocument = new EventEmitter();   
     this.filter = new EventEmitter<any>();
-    this.delete = new EventEmitter<number>();
+    this.delete=new EventEmitter<number>();
+    this.deleteMultipleDocuments=new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -56,10 +67,6 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     if (this.groupFilter) {
       this.filterList(this.groupFilter);
     }
-    // if (this.docData != null) {
-    //   this.filteredDocument = this.docData;
-    //   this.docData = null;
-    // }
   }
 
   /**
@@ -127,25 +134,44 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   /**
      * Function for loading the document form dynamically
      * @param document //Includes the details of document
-     */
-    loadDocumentForm(document: any,id:any): void {
-      this.documentListPresenter.loadForm(document).subscribe((data) => {
-        this.updatedDetails = data
+  */
+    public loadDocumentForm(document: Document,id:any): void {
+
+      this.documentListPresenter.loadForm(document).subscribe((updatedDocument:any) => {
+        this.updatedDetails = updatedDocument;
         for(let i=0;i<this.documentData.length;i++)
         {
           if(id==this.documentData[i].id)
           {
-            this.updatedDetails.id = id
-            this.updatedDetails.created=this.todayDate
-            this.updatedDocument.emit(this.updatedDetails)
-            break
+            this.updatedDetails.id=id;
+            this.updatedDetails.createdDate=this.updatedDetails.updatedDate;
+            this.modifiedDate=new Date();
+            this.updatedDocument.emit(this.updatedDetails);
+            break;
           }
         }
         if(id==null)
         {
-          this.updatedDetails.created=this.todayDate
-          this.addDocument.emit(this.updatedDetails)
+          this.updatedDetails.createdDate=this.todayDate;
+          this.updatedDetails.updatedDate=this.todayDate;
+          this.modifiedDate=new Date();
+          this.addDocument.emit(this.updatedDetails);
         }
       })
     }
+
+    deleteDocuments() 
+    {
+      this.multipleDeletes= this.documentData.filter(item=>item.checked)
+       for(let i=0;i<this.multipleDeletes.length;i++)
+       {
+         this.datatoDelete[i]=this.multipleDeletes[i].id
+       }
+       this.deleteMultipleDocuments.emit(this.datatoDelete)
+       
+       
+      //  for (var data in this.documentData){
+      //    this.documentListPresenter.removeData(this.documentData[data].id).subscribe()
+      //  }
+      }
 } 

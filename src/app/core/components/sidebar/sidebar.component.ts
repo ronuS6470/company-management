@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from '../../auth/authentication.service';
 
 @Component({
   selector: 'cmp-sidebar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
 }

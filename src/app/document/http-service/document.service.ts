@@ -11,23 +11,27 @@ export class DocumentService {
   private apiUrl;
 
   constructor(private httpClient: HttpClient) {
-    this.apiUrl = environment.baseUrlDocument
+    this.apiUrl = `${environment.baseUrl}/documents`
   }
 
   public getDocuments(): Observable<Document[]> {
     return this.httpClient.get<Document[]>(`${this.apiUrl}`);
   }
+  /**
+   * Creates new Document
+   * @param document //Documents details to be created
+   */
   public addData(document: Document): Observable<Document> {
-    return this.httpClient.post<Document>(`${this.apiUrl}`, document)
+    return this.httpClient.post<Document>(`${this.apiUrl}`, document);
   }
 
   /**
    * Updation of data for an existing Employee in local storage
-   * @param employee 
-   * @param id 
+   * @param employee //Updated Details of Document
+   * @param id //Id of updated Document
    */
   public editData(document: Document, id: number): Observable<Document> {
-    return this.httpClient.put<Document>(`${this.apiUrl}/${id}`, document)
+    return this.httpClient.put<Document>(`${this.apiUrl}/${id}`, document);
   }
   /**
    * delete a document by specified using http delete method

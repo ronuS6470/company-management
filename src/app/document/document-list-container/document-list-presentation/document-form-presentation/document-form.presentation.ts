@@ -1,3 +1,7 @@
+/**
+ * Author : Bhargav Baleja
+ */
+
 import { Component, ChangeDetectionStrategy,Inject,EventEmitter, Output} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Document } from 'src/app/document/document.model';
@@ -15,17 +19,21 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentFormPresentation  {
-  public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
 
-  @Output() public updatedDocument=new EventEmitter<Document>()
+  //Variable of type FormGroup for storing FormGroup
+  public documentFormDetails:FormGroup;       
+
+  //Emits an event containing new or updated document
+  @Output() public updatedDocument:EventEmitter<Document>;
 
   constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
   { 
-    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
+    this.updatedDocument=new EventEmitter<Document>();
+    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm();
       
     if(this.document!=null)
     {
-      this.documentFormDetails.patchValue(document)
+      this.documentFormDetails.patchValue(document);
     }
   }
 
@@ -34,9 +42,12 @@ export class DocumentFormPresentation  {
     return this.documentFormDetails.controls;
   }
 
+  /**
+   * Submits new or updated form
+   */
    public onSubmit():void
   {
-    this.overlayRef.dispose()
-    this.updatedDocument.emit(this.documentFormDetails.value)
+    this.overlayRef.dispose();
+    this.updatedDocument.emit(this.documentFormDetails.value);
   }
 }

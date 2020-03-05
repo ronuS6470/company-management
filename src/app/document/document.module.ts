@@ -18,13 +18,15 @@ import { ConfirmationModalComponent } from 'src/app/core/components/confirmation
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SharedModule } from 'src/app/shared/shared.module'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ModifiedPipe } from './pipe/modified.pipe'
 @NgModule({
   declarations: [
     DocumentFormPresentation,
     DocumentListContainer,
     DocumentListPresentation,
     DocumentFilterPresentation,
+    ModifiedPipe,
     
   ],
   imports: [

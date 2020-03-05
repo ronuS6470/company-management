@@ -1,9 +1,14 @@
+/**
+ * Author : Bhargav Baleja
+ */
+
 import { Injectable } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 
 @Injectable()
 export class DocumentFormPresenter {
-
+  
+  //Contains fields of document in form 
     public documentForm:FormGroup;
     
   constructor(private fb:FormBuilder){}
