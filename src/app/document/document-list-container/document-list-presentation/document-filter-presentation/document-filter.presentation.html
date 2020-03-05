@@ -1,37 +1,43 @@
 <div class="d-flex justify-content-center m-0 m-md-5 justify-content-md-end rounded-lg">
-    <form class="document-filter  bg-white">
+    <form class="document-filter  bg-white" [formGroup]="filterForm" (ngSubmit)="search(filterForm.value)">
         <div class="d-flex align-items-center justify-content-between px-3 pt-2">
             <h5 class="modal-title" id="exampleModalLabel">Document <span class="fa fa-filter text-primary"></span></h5>
-            <a><span class="fa fa-times-circle fa-lg d-flex text-primary"></span></a>
+            <a (click)="closeOverlay()"><span class="fa fa-times-circle fa-lg d-flex text-primary"></span></a>
         </div>
         <div class="dropdown-divider"></div>
         <div class="p-3">
             <div class="form-group">
                 <label for="InputName">Name</label>
-                <input type="email" class="form-control" id="InputName" placeholder="Enter Document Name">
+                <input type="email" formControlName="documentName" class="form-control" id="InputName" placeholder="Enter Document Name">
             </div>
             <div class="form-group">
                 <label for="InputOwnerName">Owner</label>
-                <input type="email" class="form-control" id="InputOwnerName" placeholder="Enter Owner Name">
+                <input type="email" formControlName="ownerName" class="form-control" id="InputOwnerName" placeholder="Enter Owner Name">
+                <div *ngIf="filterForm.controls.ownerName.invalid && (filterForm.controls.ownerName.dirty || filterForm.controls.ownerName.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="filterForm.controls.ownerName.errors.pattern">
+                        Number Not Allow!
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="InputFromDate"> Date</label>
-                <input type="date" class="form-control" id="InputFromDate">
+                <input type="date" formControlName="created" class="form-control" id="InputFromDate">
             </div>
             <div class="form-group">
-                <label for="InputActivity">Activity</label>
-                <select class="form-control" id="InputActivity">
-                <option disabled>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            </div>
+                    <label for="exampleFormControlSelect1">Activity</label>
+                    <select formControlName="activity" class="form-control" id="exampleFormControlSelect1">
+                      <option disabled value="">Activity</option>
+                      <option>General</option>
+                      <option>Training</option>
+                    <option>Security</option>
+                      
+                    </select>
+                  </div>
         </div>
         <div class="my-4 px-3 mt-sm-0 flex-wrap">
-            <button type="submit" class="btn btn-md btn-primary py-2">Filter</button>
-            <button class="btn btn-md btn-danger py-2  ml-3">Clear</button>
+            <button type="submit" [disabled]="!filterForm.valid" class="btn btn-md btn-primary py-2">Filter</button>
+            <button type="reset" class="btn btn-md btn-danger py-2  ml-3">Clear</button>
         </div>
     </form>
 </div>

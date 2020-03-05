@@ -14,7 +14,6 @@ import { shareReplay } from 'rxjs/operators';
 export class CompanyListContainer {
 
   public companyList$: Observable<Company[]>
-
   // Get Filter Data
   public getFilterData: any;
 
@@ -37,7 +36,6 @@ export class CompanyListContainer {
    * @param id This is the number whose record will be deleted
    */
   public deleteCompany(id: number): void {
-    console.log(id);
     this.companyService.deleteCompanies(id).subscribe(
       () => {
         this.getDetails();
@@ -47,10 +45,10 @@ export class CompanyListContainer {
 
   /**
    * Company Filter
-   * @param $event Company Filter Data
+   * @param companies Company Filter Data
    */
-  getCompany($event) {
-    this.getFilterData = $event;
+  getCompany(companies) {
+    this.getFilterData = companies;
   }
 
   /**
@@ -63,7 +61,7 @@ export class CompanyListContainer {
     );
   }
 
-  deleteCompanies(deleteCompanies){
+ public deleteCompanies(deleteCompanies:number[]):void{
     for( let i=0 ; i<deleteCompanies.length; i++){
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {

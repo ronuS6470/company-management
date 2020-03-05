@@ -1,8 +1,8 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
 // ---------------------------------- //
+import { Company } from '../../company.model';
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
 import { FormGroup } from '@angular/forms';
-import { Company } from '../../company.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,32 +13,35 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyFormPresentation {
-  // add event for company data
+export class CompanyFormPresentation implements OnInit {
 
+  // add event for company data
   @Output() add: EventEmitter<Company>;
   // event for update company
   @Output() update: EventEmitter<Company>;
 
   companyForm: FormGroup;
   submitted: boolean;
-  attachmentFile: string = "file name";
-
+  selectedFile: string = 'file name';
   //company list
   private _companies: Observable<Company[]>;
 
-  get company(): any {
-    debugger
-    return this._companies;
-  }
-
+  /**
+   * set company data
+   */
   @Input()
   set company(value: any) {
     if (value) {
       this._companies = value;
       this.companyForm.patchValue(value);
+      this.selectedFile = value.attachment;
     }
   }
+
+  get company(): any {
+    return this._companies;
+  }
+
   constructor(private companyFormPresenter: CompanyFormPresenter) {
     this.submitted = false;
     this.add = new EventEmitter<Company>();
@@ -46,16 +49,21 @@ export class CompanyFormPresentation {
   }
 
   /**
+   * build company form
+   */
+  ngOnInit() {
+    this.companyForm = this.companyFormPresenter.buildCompanyForm();
+  }
+
+  /**
    * getter for form controls
    */
-  get controls() { return this.companyForm.controls; }
-
+  get formControls() { return this.companyForm.controls; }
 
   /**
    * add and update company data
    */
-  onSubmit() {
-    debugger;
+  public onSubmit(): void {
     this.submitted = true;
     if (this.companyForm.invalid) {
       return;
@@ -69,6 +77,13 @@ export class CompanyFormPresentation {
         this.companyFormPresenter.updateCompany();
         this.update.emit(this.companyFormPresenter.companyObj);
       }
+    }
+  }
+
+  public onChange($event) : void {
+    if ($event.target.files.length > 0) {
+      this.selectedFile = $event.target.files[0].name;
+      this.companyForm.controls['attachment'].setValue( this.selectedFile);
     }
   }
 }

@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, DoCheck, OnChanges, OnInit } from '@angular/core';
 
-import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
 import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
 import { ComponentPortal } from '@angular/cdk/portal';
@@ -24,7 +23,6 @@ export class CompanyListPresentation implements OnChanges {
   }
   // Get Filter Data
   @Input() getFilterData;
-  
   @Output() public deleteCompany = new EventEmitter<number>();
   @Output() public sort = new EventEmitter<string>();
   @Output() sendData = new EventEmitter<any>();
@@ -32,18 +30,18 @@ export class CompanyListPresentation implements OnChanges {
   public sortBy: string;
   public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
   subscribeData = null;
-  public multipleDeletes;
-  public companiestoDelete = []
-  
-  
-  constructor(
-    private companyListPresenter: CompanyListPresenter,
-  ) {
+  public multipleDeletes: any[] ;
+  public companiesToDelete: number[];
+  public users: any;
+  // store filtered data
+  filteredUsers: any[] = [];
 
+  constructor( private companyListPresenter: CompanyListPresenter) 
+  {
     this.sort = new EventEmitter<string>();
   }
 
-  ngDoCheck(): void {
+  public ngOnInit(): void {
 
   }
 
@@ -75,24 +73,17 @@ export class CompanyListPresentation implements OnChanges {
     this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
   }
 
-
-  // Temp for store data
-  users: any;
-  // store filtered data
-  filteredUsers: any[] = [];
-
-
-  public ngOnInit(): void {
-    this.loadCompany();
-  }
-
   public ngOnChanges(): void {
     if (this.getFilterData) {
       this.filteredUsers = this.companyListPresenter.filterUserList(this.getFilterData, this.users, this.filteredUsers);
     }
   }
 
-  public selectAll(event){
+  /**
+   * This method will select or unselect checkbox
+   * @param event 
+   */
+  public selectAllCompanies(event){
    if(event.target.checked)  
    { this.filteredUsers.map(user=>{
       user.checked=true;
@@ -109,29 +100,25 @@ export class CompanyListPresentation implements OnChanges {
 }
 
   /**
-   * Load Company List data..
-   */
-  loadCompany(): void {
-    this.users = this.companyList$;
-    this.filteredUsers = this.filteredUsers.length > 0 ? this.filteredUsers : this.users;
-  }
-
-  /**
    * filter
    */
   public filter(): void {
-    this.companyListPresenter.filter();
+    this.companyListPresenter.filter(this.users);
     this.companyListPresenter.subject.subscribe(data => {
       this.sendData.emit(data);
     });
   }
-    multipleDelete(){
-    
-      this.multipleDeletes = this.filteredUsers.filter(data=>data.checked);
-      for(let i=0; i<this.multipleDeletes.length; i++){
-      this.companiestoDelete[i]=this.multipleDeletes[i].id
-      }
-         // console.log(this.companiestoDelete);
-        this.deleteCompanies.emit(this.companiestoDelete)
-      }
+
+  /**
+   * This method will delete multiple records from JSON
+   */
+  public multipleDelete():void{
+    this.multipleDeletes = this.filteredUsers.filter(data => data.checked);
+    for (let i = 0; i < this.multipleDeletes.length; i++) {
+      this.companiesToDelete[i] = this.multipleDeletes[i].id
+    }
+    // console.log(this.companiestoDelete);
+    if(confirm("Are you sure you want to delete?"))
+    this.deleteCompanies.emit(this.companiesToDelete)
+  }
 }
