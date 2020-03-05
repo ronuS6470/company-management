@@ -9,7 +9,7 @@ export class Document {
     updatedDate :Date;
     modified : string;
     activity: string;
-    id:number;
-   checked: boolean;
+    id: number;
+    checked: boolean;
 
 }

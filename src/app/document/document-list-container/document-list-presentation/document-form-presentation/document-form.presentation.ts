@@ -4,10 +4,9 @@
 
 import { Component, ChangeDetectionStrategy, Inject, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Document } from 'src/app/document/document.model';
-import { DOCUMENT_DETAILS } from '../../../token';
 import { OverlayRef } from '@angular/cdk/overlay';
-// ---------------------------------- //
+
+import { DOCUMENT_DETAILS } from '../../../token';
 import { DocumentFormPresenter } from '../document-form-presenter/document-form.presenter';
 
 

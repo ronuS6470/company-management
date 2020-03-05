@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Document } from 'src/app/document/document.model'
-import { DocumentService } from 'src/app/document/http-service/document.service'
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
+import { Document } from 'src/app/document/document.model';
+import { DocumentService } from 'src/app/document/http-service/document.service';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'cmp-document-list-container',
@@ -10,9 +9,9 @@ import { Observable } from 'rxjs';
 })
 
 export class DocumentListContainer implements OnInit {
-  documentData: Observable<Document[]>
+  documentData: Observable<Document[]>;
   // filter data
-  public groupFilter: any;
+  public groupFilter: object;
   constructor(private documentService: DocumentService) {
 
   }
@@ -65,21 +64,20 @@ export class DocumentListContainer implements OnInit {
     })
   }
 
-    /**
-     * get filter data and pass to presentation
-     * @param filters filter data
-     */
-    filterData(filters): void {
-      this.groupFilter = filters;
-    }
 
-    deleteMultiple(multipleDataDelete)
-    {
-      for(let i=0;i<multipleDataDelete.length;i++)
-      {
-        this.documentService.deleteDocument(multipleDataDelete[i]).subscribe(()=>{
-          this.getDocuments();
-        })
-      }
+  /**
+   * get filter data and pass to presentation
+   * @param filters filter data
+   */
+  public filterData(filters: object): void {
+    this.groupFilter = filters;
+  }
+
+  deleteMultiple(multipleDataDelete) {
+    for (let i = 0; i < multipleDataDelete.length; i++) {
+      this.documentService.deleteDocument(multipleDataDelete[i]).subscribe(() => {
+        this.getDocuments();
+      })
     }
   }
+}

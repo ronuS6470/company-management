@@ -1,27 +1,27 @@
-
-import { Injectable, Injector, ViewContainerRef, OnDestroy } from '@angular/core';
-import { OverlayConfig, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { Injectable, Injector, OnDestroy, ViewContainerRef } from '@angular/core';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+
+import { DOCUMENT_DETAILS } from '../../token';
 import { DocumentFilterPresentation } from '../document-list-presentation/document-filter-presentation/document-filter.presentation';
-import { DOCUMENT_DETAILS } from '../../token'
 import { DocumentFormPresentation } from '../document-list-presentation/document-form-presentation/document-form.presentation';
 import { MyOverlayRef } from '../../overlay/myoverlay-ref';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable()
-export class DocumentListPresenter implements OnDestroy{
-  public componentRef;
+export class DocumentListPresenter implements OnDestroy {
+  public updatedDetails: Document;
   //Subject for getting details of form
   public formDetails:Subject<Document>;
   constructor(public viewContainerRef: ViewContainerRef, private overlay: Overlay, private injector: Injector) {
     this.formDetails= new Subject<Document>(); 
-  }
+   }
 
 
   /**
    * Open Overlay
    */
-  open(data): MyOverlayRef {
+  public open(data: object): MyOverlayRef {
     const configs = new OverlayConfig();
 
     configs.positionStrategy = this.overlay.position()
@@ -35,7 +35,11 @@ export class DocumentListPresenter implements OnDestroy{
     const myOverlayRef = new MyOverlayRef(overlayRef, data);
 
     const injector = this.createInjecter(myOverlayRef, this.injector);
-    this.componentRef = overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
+    overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
+
+    overlayRef.backdropClick().subscribe(() => {
+      overlayRef.dispose();
+    });
 
     return myOverlayRef;
   }
@@ -45,7 +49,7 @@ export class DocumentListPresenter implements OnDestroy{
    * @param ref overlay reference
    * @param inj injector
    */
-  createInjecter(ref: MyOverlayRef, inj: Injector) {
+  public createInjecter(ref: MyOverlayRef, inj: Injector): PortalInjector {
     const injectorTokens = new WeakMap([[MyOverlayRef, ref]]);
     return new PortalInjector(inj, injectorTokens);
   }
