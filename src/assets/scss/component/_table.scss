@@ -2,7 +2,6 @@
 .table {
   border-collapse: separate;
   border-spacing: 0 1em;
-  thead {
     tr {
       th {
         font-weight: map-get($font-weights, "regular");
@@ -27,20 +26,13 @@
           margin: 0;
         }
       }
-    }
   }
   tbody {
-    tr {
       td {
         font-weight: map-get($font-weights, "medium");
         vertical-align: middle;
       }
-    }
   }
-}
-
-.table-responsive {
-  height: 90%;
 }
 
 .user-icon {
