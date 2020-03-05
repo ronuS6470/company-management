@@ -6,8 +6,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { PortalModule } from '@angular/cdk/portal';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { RouterModule } from '@angular/router';
-import { AuthenticateService } from '../login/authenticate.service';
-import { AuthenticationGuard } from './auth/authentication.guard';
+
 
 
 
@@ -20,9 +19,8 @@ import { AuthenticationGuard } from './auth/authentication.guard';
     RouterModule
   ],
   exports: [HeaderComponent, SidebarComponent, ConfirmationModalComponent],
-  entryComponents: [],
-  providers: [AuthenticateService,AuthenticationGuard]
-})
+  entryComponents: []
+ })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {

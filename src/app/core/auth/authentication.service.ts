@@ -3,7 +3,9 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/login/login.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationService {
 
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false); //loggedIn to check whether user is logged in or not
@@ -24,7 +26,7 @@ export class AuthenticationService {
    * @param user of type Login Model
    * If username and password exists then navigate to given route
    */
-  login(user: Login) {
+  public login(user: Login):void {
     if (user.username !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
       this.router.navigate(['']);
@@ -34,7 +36,7 @@ export class AuthenticationService {
    * logout method to navigate login 
    * and also remove existing username from localstorage
    */
-  logout() {
+  public logout(): void{
     this.loggedIn.next(false);
     localStorage.removeItem('username');
     this.router.navigate(['login']);
