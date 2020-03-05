@@ -10,8 +10,8 @@
             <input class="input-field" type="text" formControlName="username" autofocus="true" required />
             <span class="input-label">Username</span>
             <span class="input-underline"></span>
-            <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
-              <div *ngIf="f.username.errors.minlength" style="color: red;">
+            <div *ngIf="formControls.username.invalid && (formControls.username.dirty || formControls.username.touched)">
+              <div *ngIf="formControls.username.errors.minlength" style="color: red;">
                 <b>Name must be at least 4 characters long.</b>
               </div>
             </div>
@@ -21,11 +21,11 @@
             <input class="input-field" type="password" formControlName="password" required />
             <span class="input-label">Password</span>
             <div class="input-underline"></div>
-            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
-              <div *ngIf="f.password.errors.minlength" style="color: red;">
+            <div *ngIf="formControls.password.invalid && (formControls.password.dirty || formControls.password.touched)">
+              <div *ngIf="formControls.password.errors.minlength" style="color: red;">
                 <b>Password must be at least 4 characters long.</b>
               </div>
-              <div *ngIf="f.password.errors.maxlength" style="color: red;">
+              <div *ngIf="formControls.password.errors.maxlength" style="color: red;">
                 <b>Password must not be more than 10 characters long.</b>
               </div>
             </div>
@@ -35,14 +35,14 @@
             <input class="input-field" type="password" formControlName="confirmPassword" required />
             <span class="input-label">Confirm Password</span>
             <div class="input-underline"></div>
-            <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
-              <div *ngIf="f.confirmPassword.errors.minlength" style="color: red;">
+            <div *ngIf="formControls.confirmPassword.invalid && (formControls.confirmPassword.dirty || formControls.confirmPassword.touched)">
+              <div *ngIf="formControls.confirmPassword.errors.minlength" style="color: red;">
                 <b>Password must be at least 4 characters long.</b>
               </div>
-              <div *ngIf="f.confirmPassword.errors.maxlength" style="color: red;">
+              <div *ngIf="formControls.confirmPassword.errors.maxlength" style="color: red;">
                 <b>Password must not be more than 10 characters long.</b>
               </div>
-              <div *ngIf="f.confirmPassword.errors.mustMatch" style="color: red;">
+              <div *ngIf="formControls.confirmPassword.errors.mustMatch" style="color: red;">
                 Passwords must match
               </div>
             </div>

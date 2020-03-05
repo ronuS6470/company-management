@@ -31,7 +31,7 @@ export class LoginPresentation {
    * @param username function parameter of username
    * @param password function parameter of password
    */
-  public authenticate(username: string, password: string) {
+  public authenticate(username: string, password: string): void {
     const output = this.service.authenticate(username, password, this.login$);
     if (output === true) {                  // If service returns true, then navigate
       this.routes.navigate(['/company/list']);

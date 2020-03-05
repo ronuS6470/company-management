@@ -16,7 +16,7 @@ export class AppComponent {
       if (event instanceof NavigationStart) {
         if (event['url'] === '/login' || event['url'] === '/registration' || event['url'] === '/')
         { 
-          //if url is /login or /registration then showHeaderSidebar will be false
+          // if url is /login or /registration then showHeaderSidebar will be false
           this.showHeaderSidebar = false;
         } else {
           this.showHeaderSidebar = true;
@@ -28,7 +28,7 @@ export class AppComponent {
   /**
    * Function which runs on every route change
    */
-  public changeOfRoutes() {
+  public changeOfRoutes(): void {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/')) {

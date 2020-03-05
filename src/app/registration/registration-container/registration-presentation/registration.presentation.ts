@@ -26,15 +26,14 @@ export class RegistrationPresentation {
   @Output() add: EventEmitter<object>;
 
   constructor(private registrationService: RegistrationPresenter) {
-    this.add = new EventEmitter<object>();
-    this.add = new EventEmitter<Registration>(); // Initialised add event
-    this.userDetails = this.registrationService.addUserDetail();
+    this.add = new EventEmitter<Registration>(); // Initialised add event for new object
+    this.userDetails = this.registrationService.addUserDetail(); // Initialised add event for userDetail object
   }
 
   /**
    * Function to return formcontrols
    */
-  get f() {
+  get formControls() {
     return this.userDetails.controls;
   }
 
