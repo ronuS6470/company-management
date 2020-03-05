@@ -53,6 +53,7 @@ export class CompanyFilterPresentation implements OnInit {
     this.filterData.emit(filters);
   }
 
+  // Close overlay
   public close(): void {
     this.overlayRef.dispose();
   }
