@@ -40,8 +40,10 @@
 .btn-company-filter {
   background-color: $white;
   color: $primary;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
   @media (max-width: 768px) {
     background-color: transparent;
+    box-shadow: none;
   }
   span {
     &:nth-child(1) {
@@ -55,12 +57,14 @@
 .btn-add {
   background-color: $primary;
   color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
   &:hover {
     color: $white;
   }
   @media (max-width: 768px) {
     background-color: transparent;
     color: $primary;
+    box-shadow: none;
     &:hover {
       color: $primary;
     }
