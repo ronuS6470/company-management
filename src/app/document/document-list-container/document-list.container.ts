@@ -81,7 +81,7 @@ public deleteDocument(id: number): void {
  * service call to delete multiple documents
  * @param multipleDataDelete stores data of multiple documents to delete
  */
-  deleteMultiple(multipleDataDelete) {
+ public deleteMultiple(multipleDataDelete) : void {
     for (let i = 0; i < multipleDataDelete.length; i++) {
       this.documentService.deleteDocument(multipleDataDelete[i]).subscribe(() => {
         this.getDocuments();
