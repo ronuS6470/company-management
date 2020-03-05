@@ -61,7 +61,7 @@
             </thead>
             <tbody class="h-100">
 
-                <tr class="bg-white" *ngFor="let companyData of filteredUsers">
+                <tr class="bg-white" *ngFor="let companyData of filteredCompany">
                     <td>
                         <div class="custom-control custom-checkbox">
                             <input [(ngModel)]="companyData.checked" type="checkbox" class="custom-control-input rounded-lg  pointer" id={{companyData.id}}>
@@ -70,7 +70,7 @@
                     </td>
                     <td>{{companyData.id}}</td>
                     <td>
-                        <img src="../../../../assets/img/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        <img src="../../../../assets/images/Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
                     </td>
                     <td>{{companyData.clientName}}</td>
                     <td>{{companyData.location}}</td>

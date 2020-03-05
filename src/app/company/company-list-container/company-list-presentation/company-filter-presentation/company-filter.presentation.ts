@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Company } from 'src/app/company/company.model';
+import { CompanyToken } from '../../../token';
+import { FormGroup } from '@angular/forms';
+import { OverlayRef } from '@angular/cdk/overlay';
 // ---------------------------------- //
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
-import { FormGroup } from '@angular/forms';
-import { CompanyToken } from '../../../token';
-import { OverlayRef } from '@angular/cdk/overlay';
 
 /**
  * @author amit
@@ -17,14 +18,16 @@ import { OverlayRef } from '@angular/cdk/overlay';
 })
 export class CompanyFilterPresentation implements OnInit {
 
+  // Filter Data
   @Output() filterData = new EventEmitter<any>();
+
   // search text
   public searchText: string;
 
   // form group instance
   public form: FormGroup;
   constructor(
-    @Inject(CompanyToken) public data:any, public overlayRef: OverlayRef,
+    @Inject(CompanyToken) public companyData: Company, public overlayRef: OverlayRef,
     private companyFilterPresenter: CompanyFilterPresenter,
   ) { }
 
@@ -44,11 +47,14 @@ export class CompanyFilterPresentation implements OnInit {
    * Filter field wise
    * @param filters filter keyword
    */
-  public search(filters: any): void {
+  public search(filters: Company): void {
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    // this.searchText = filters;
     this.overlayRef.dispose();
     this.filterData.emit(filters);
+  }
+
+  public close(): void {
+    this.overlayRef.dispose();
   }
 
   // Instance of company form
