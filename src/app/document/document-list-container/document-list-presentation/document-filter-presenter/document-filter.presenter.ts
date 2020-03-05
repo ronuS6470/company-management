@@ -1,8 +1,9 @@
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 /**
  * @author Dhruvit Makadia
  */
-import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Injectable()
 export class DocumentFilterPresenter {
@@ -14,12 +15,12 @@ export class DocumentFilterPresenter {
     /**
      * build form
      */
-    buildForm(): FormGroup {
+    public buildForm(): FormGroup {
         return this.fb.group({
             documentName: new FormControl(''),
             ownerName: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
             activity: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
-            created: new FormControl('')
+            createdDate: new FormControl('')
         });
     }
 }

@@ -1,10 +1,13 @@
-import { Component, ChangeDetectionStrategy,Inject,EventEmitter, Output} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Document } from 'src/app/document/document.model';
-import { DOCUMENT_DETAILS } from '../../../token';
 import { OverlayRef } from '@angular/cdk/overlay';
-// ---------------------------------- //
+
+import { DOCUMENT_DETAILS } from '../../../token';
 import { DocumentFormPresenter } from '../document-form-presenter/document-form.presenter';
+
+/**
+ * @Author : Bhargav Baleja
+ */
 
 
 @Component({
@@ -14,29 +17,36 @@ import { DocumentFormPresenter } from '../document-form-presenter/document-form.
   viewProviders: [DocumentFormPresenter],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentFormPresentation  {
-  public documentFormDetails:FormGroup;       //Variable of type FormGroup for storing FormGroup
+export class DocumentFormPresentation {
 
-  @Output() public updatedDocument=new EventEmitter<any>()
+  //Emits an event containing new or updated document
+  @Output() public updatedDocument: EventEmitter<Document>;
 
-  constructor(@Inject(DOCUMENT_DETAILS) public document:any,public overlayRef:OverlayRef ,private documentFormPresenter:DocumentFormPresenter) 
-  { 
-    this.documentFormDetails=this.documentFormPresenter.createEmployeeForm()
-      
-    if(this.document!=null)
-    {
-      this.documentFormDetails.patchValue(document)
+  //Variable of type FormGroup for storing FormGroup
+  public documentFormDetails: FormGroup;
+
+  constructor(
+    @Inject(DOCUMENT_DETAILS) public document: any,
+    public overlayRef: OverlayRef,
+    private documentFormPresenter: DocumentFormPresenter
+    ) {
+    this.updatedDocument = new EventEmitter<Document>();
+    this.documentFormDetails = this.documentFormPresenter.createEmployeeForm();
+
+    if (this.document != null) {
+      this.documentFormDetails.patchValue(document);
     }
   }
 
-  get controls()
-  {
+  get controls() {
     return this.documentFormDetails.controls;
   }
 
-   public onSubmit():void
-  {
-    this.overlayRef.dispose()
-    this.updatedDocument.emit(this.documentFormDetails.value)
+  /**
+   * Submits new or updated form
+   */
+  public onSubmit(): void {
+    this.overlayRef.dispose();
+    this.updatedDocument.emit(this.documentFormDetails.value);
   }
 }

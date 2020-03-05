@@ -65,9 +65,7 @@ export class CompanyService {
    * update company 
    * @param company single company data
    */
-  public updateCompanyData(company, id: number): Observable<Company> {
+  public updateCompanyData(company:Company, id: number): Observable<Company> {
     return this.http.put<Company>(`${this.companyUrl}/${id}`, company);
   }
-
-  
 }
