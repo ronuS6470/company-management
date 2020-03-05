@@ -3,7 +3,7 @@
  */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Registration } from './registration.model';
 
@@ -18,12 +18,11 @@ export class RegistrationService {
   }
 
   /**
-   * 
-   * @param registration of type Model 
+   * addUser function is used to add entry into json-server
+   * @param registration of type Model
    * Post API call to register
    */
-  public addUser(registration: Registration): Observable<Registration>
-  {
+  public addUser(registration: Registration): Observable<Registration> {
     return this.httpClient.post<Registration>(`${this.apiUrl}/login`, registration);
   }
 }

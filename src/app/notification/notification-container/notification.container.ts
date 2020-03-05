@@ -19,7 +19,7 @@ export class NotificationContainer {
 
   ngOnInit()
   {
-    //Fetch Data from db.json.
+    //Fetch Data from json server
       this.notificationData$ = this.notify.getNotifications();
  }
 

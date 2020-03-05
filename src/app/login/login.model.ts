@@ -1,3 +1,6 @@
+/**
+ * @author TapasVashi
+ */
 /** model class for Login */
 export class Login {
     username: string;
