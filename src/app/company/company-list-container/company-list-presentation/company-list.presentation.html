@@ -27,34 +27,47 @@
                 <tr>
                     <th scope="col" class="checkbox-col">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" (change)="selectAllCompanies($event)" class="custom-control-input rounded-lg pointer" id="customCheck">
+                            <input type="checkbox" (change)="selectAllCompanies($event)"
+                                class="custom-control-input rounded-lg pointer" id="customCheck">
                             <label class="custom-control-label" for="customCheck"></label>
                         </div>
                     </th>
                     <th scope="col" class="text-uppercase text-muted">reg &nbsp;
-                        <button class="short-up" (click)="sortDescending()" id="id"><span class="fa fa-caret-down text-muted "></span></button>
-                        <button class="short-down" id="id" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" (click)="sortDescending()" id="id"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="id" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
                     </th>
                     <th scope="col" class="text-uppercase text-muted">company&nbsp;
-                        <button class="short-up" id="clientName" (click)="sortDescending()"><span class="fa fa-caret-down text-muted "></span></button >
-                            <button  class="short-down" id="clientName" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" id="clientName" (click)="sortDescending()"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="clientName" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
 
                     </th>
                     <th scope="col" class="text-uppercase text-muted td-compnymwitg">client name&nbsp;
-                        <button class="short-up" id="clientName" (click)="sortDescending()"><span class="fa fa-caret-down text-muted "></span></button >
-                            <button  class="short-down" id="clientName" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" id="clientName" (click)="sortDescending()"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="clientName" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
                     </th>
                     <th scope="col" class="text-uppercase text-muted">location&nbsp;
-                        <button class="short-up" id="location" (click)="sortDescending()"><span class="fa fa-caret-down text-muted "></span></button>
-                        <button class="short-down" id="location" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" id="location" (click)="sortDescending()"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="location" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
                     </th>
                     <th scope="col" class="text-uppercase text-muted td-compnymwitg">contact number&nbsp;
-                        <button class="short-up" id="contactNumber" (click)="sortDescending()"><span class="fa fa-caret-down text-muted "></span></button >
-                            <button  class="short-down" id="contactNumber" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" id="contactNumber" (click)="sortDescending()"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="contactNumber" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
                     </th>
                     <th scope="col" class="text-uppercase text-muted">email&nbsp;
-                        <button class="short-up" id="email" (click)="sortDescending()"><span class="fa fa-caret-down text-muted "></span></button>
-                        <button class="short-down" id="email" (click)="sortAscending()"><span class="fa fa-caret-up text-muted "></span></button>
+                        <button class="short-up" id="email" (click)="sortDescending()"><span
+                                class="fa fa-caret-down text-muted "></span></button>
+                        <button class="short-down" id="email" (click)="sortAscending()"><span
+                                class="fa fa-caret-up text-muted "></span></button>
                     </th>
                     <th scope="col"></th>
                 </tr>
@@ -64,13 +77,15 @@
                 <tr class="bg-white" *ngFor="let companyData of filteredCompany">
                     <td>
                         <div class="custom-control custom-checkbox">
-                            <input [(ngModel)]="companyData.checked" type="checkbox" class="custom-control-input rounded-lg  pointer" id={{companyData.id}}>
+                            <input [(ngModel)]="companyData.checked" type="checkbox"
+                                class="custom-control-input rounded-lg  pointer" id={{companyData.id}}>
                             <label class="custom-control-label " for={{companyData.id}}></label>
                         </div>
                     </td>
                     <td>{{companyData.id}}</td>
                     <td>
-                        <img src="../../../../assets/images//Dominos-logo.png" class="img-fluid company-img" alt="NBC-logo">
+                        <img src="../../../../assets/images//Dominos-logo.png" class="img-fluid company-img"
+                            alt="NBC-logo">
                     </td>
                     <td>{{companyData.clientName}}</td>
                     <td>{{companyData.location}}</td>

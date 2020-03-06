@@ -2,20 +2,16 @@
 
   <form class="shadow-sm document-form bg-white p-4" [formGroup]="documentFormDetails" (ngSubmit)="onSubmit()">
 
-    <h1 class="text-primary form-name">Document Details</h1>
+    <h1 class="text-primary">Document Details</h1>
 
     <div class="p-3">
-
-      <!-- hidden field -->
       <div class="form-group">
         <input type="hidden" id="inputId" formControlName="id">
       </div>
-
       <div class="form-group">
         <label for="inputName">Document Name</label>
         <input type="text" class="form-control px-2" id="inputName" placeholder="Document Name" formControlName="documentName">
       </div>
-
       <div class="form-group">
         <label for="inputOwnerName">Owner Name</label>
         <input type="text" class="form-control px-2" id="inputOwnerName" placeholder="Owner Name" formControlName="ownerName">
@@ -43,5 +39,4 @@
       <button type="submit" class="btn  btn-primary py-2 px-4 btn-submit" [disabled]="!documentFormDetails.valid">Submit</button>
     </div>
 
-  </form>
-</div>
+</form>
