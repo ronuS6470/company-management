@@ -19,9 +19,10 @@ export class DocumentFormPresenter {
   public createEmployeeForm():FormGroup
   {
     return this.documentForm=this.fb.group({
-    documentName:['',[Validators.required,Validators.minLength(4)]],
-    ownerName:['',[Validators.required]],
-    activity:['',[Validators.required]]
+    documentName:['',[Validators.required]],
+    ownerName:['',[Validators.required,Validators.pattern("[A-Za-z]+[' ]*[A-Za-z]+")]],
+    activity:['',[Validators.required]],
+    id:['']
     })
   }
 }

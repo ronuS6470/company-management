@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
 import { Document } from 'src/app/document/document.model';
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 
@@ -28,8 +27,8 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
   // for sorting on created field
   @Output() public sort: EventEmitter<string>;
-  // Emits an update event
-  @Output() public updatedDocument: EventEmitter<any>;
+  //Emits an update event  
+  @Output() public updateDocument: EventEmitter<any>;
   // send filter data
   @Output() public filter: EventEmitter<any>;
   // Emits an create event
@@ -58,12 +57,11 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   private updatedDetails: Document;
 
   constructor(
-    private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
   ) {
 
     this.sort = new EventEmitter<string>();
-    this.updatedDocument = new EventEmitter();
+    this.updateDocument = new EventEmitter();
     this.addDocument = new EventEmitter();
     this.filter = new EventEmitter<any>();
     this.delete = new EventEmitter<number>();
@@ -133,28 +131,30 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
 
   /**
-   * Function for loading the document form dynamically
-   * @param document Includes the details of document
-   */
-  public loadDocumentForm(document: Document, id: any): void {
+     * Function for loading the document form dynamically
+     * @param document Includes the details of document
+  */
+  public loadDocumentForm(document: Document): void {
 
-    this.documentListPresenter.loadForm(document).subscribe((updatedDocument: any) => {
-      this.updatedDetails = updatedDocument;
-      // tslint:disable-next-line: prefer-for-of
-      for (let i = 0; i < this.documentData.length; i++) {
-        if (id === this.documentData[i].id) {
-          this.updatedDetails.id = id;
-          this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
-          this.modifiedDate = new Date();
-          this.updatedDocument.emit(this.updatedDetails);
-          break;
-        }
-      }
-      if (id === null) {
+    let flag = 0;
+    this.documentListPresenter.loadForm(document);
+
+    this.documentListPresenter.addFormDetails.subscribe((addedFormDetails: any) => {
+      if (flag == 0) {
+        flag = 1;
+        this.updatedDetails = addedFormDetails;
         this.updatedDetails.createdDate = this.todayDate;
         this.updatedDetails.updatedDate = this.todayDate;
-        this.modifiedDate = new Date();
         this.addDocument.emit(this.updatedDetails);
+      }
+    })
+
+    this.documentListPresenter.updateFormDetails.subscribe((updatedFormDetails: any) => {
+      if (flag == 0) {
+        flag = 1;
+        this.updatedDetails = updatedFormDetails;
+        this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
+        this.updateDocument.emit(this.updatedDetails);
       }
     });
   }
