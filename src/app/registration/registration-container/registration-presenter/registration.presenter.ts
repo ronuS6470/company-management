@@ -18,9 +18,9 @@ export class RegistrationPresenter {
      */
     public addUserDetail(): FormGroup {
         return this.userDetailForm = this.fb.group({
-            username: ['', [Validators.required, Validators.minLength(4)]],
-            password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
-            confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]]
+            username: ['', [Validators.required, Validators.minLength(4), Validators.pattern('[a-zA-Z]+(?:(?:\. |[\' ])[a-zA-Z]+)*')]],
+            password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+            confirmPassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
         }, {
                 validator: MustMatch('password', 'confirmPassword')
             });

@@ -20,7 +20,8 @@ import { MyOverlayRef } from 'src/app/document/overlay/myoverlay-ref';
 export class DocumentFilterPresentation implements OnInit {
   // filter form group
   public filterForm: FormGroup;
-
+  // old filter data
+  public oldFilters: object;
   constructor(
     private filterPresenter: DocumentFilterPresenter,
     private ref: MyOverlayRef
@@ -28,6 +29,9 @@ export class DocumentFilterPresentation implements OnInit {
 
   ngOnInit() {
     this.filterForm = this.filterPresenter.buildForm();
+    if (this.oldFilters) {
+      this.filterForm.patchValue(this.oldFilters);
+    }
   }
 
   /**
@@ -39,6 +43,13 @@ export class DocumentFilterPresentation implements OnInit {
     this.ref.close(filters);
   }
 
+  /**
+   * clear filter form
+   */
+  public resetForm(): void {
+    this.filterForm.reset();
+    this.filterForm = this.filterPresenter.buildForm();
+  }
   /**
    * close overlay
    */

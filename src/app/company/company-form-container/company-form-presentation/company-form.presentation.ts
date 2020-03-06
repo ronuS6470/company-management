@@ -1,9 +1,11 @@
 
 import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 // ---------------------------------- //
 import { Company } from '../../company.model';
 import { CompanyFormPresenter } from '../company-form-presenter/company-form.presenter';
-import { FormGroup } from '@angular/forms';
 
 /**
  * @author Kiran Tandel
@@ -23,7 +25,7 @@ export class CompanyFormPresentation implements OnInit {
    * set company data
    */
   @Input()
-  set company(value:Company) {
+  set company(value: Company) {
     if (value) {
       this._company = value;
       this.companyForm.patchValue(value);
@@ -31,26 +33,33 @@ export class CompanyFormPresentation implements OnInit {
     }
   }
 
+  get company() {
+    return this._company;
+  }
+
   // add event for add company data
   @Output() public add: EventEmitter<Company>;
   // event for update company
   @Output() public update: EventEmitter<Company>;
   //company form
-  public companyForm: FormGroup; 
+  public companyForm: FormGroup;
   // to check form valid/invalid
   public submitted: boolean;
   // set file name 
-  public selectedFile: string; 
+  public selectedFile: string;
+  // company id
+  public companyId: number;
+  // display label add/edit
+  public addEditLabel: string;
   //company list
-  private _company: Company; 
+  private _company: Company;
 
-  get company() {
-    return this._company;
-  }
-
-  constructor(private companyFormPresenter: CompanyFormPresenter) {
+  constructor(
+    private companyFormPresenter: CompanyFormPresenter,
+    private route: ActivatedRoute) {
     this.submitted = false;
-    this.selectedFile='file name';
+    this.selectedFile = 'file name';
+    this.addEditLabel = 'add';
     this.add = new EventEmitter<Company>();
     this.update = new EventEmitter<Company>();
   }
@@ -59,11 +68,15 @@ export class CompanyFormPresentation implements OnInit {
    * build company form
    */
   ngOnInit() {
+    this.companyId = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.companyId) {
+      this.addEditLabel = 'edit';
+    }
     this.companyForm = this.companyFormPresenter.buildCompanyForm();
   }
 
   /**
-   * getter for form controls
+   * instance of company form form controls
    */
   get formControls() { return this.companyForm.controls; }
 

@@ -11,13 +11,16 @@ import { Observable, Subject } from 'rxjs';
 @Injectable()
 export class DocumentListPresenter implements OnDestroy {
 
-  //Details of updated Document
+  // Details of updated Document
   public updatedDetails: Document;
-  //Subject for getting details of form
-  public formDetails:Subject<Document>;
+  //Subject for getting updated details of form
+  public addFormDetails: Subject<Document>;
+  //Subject for getting added details of form
+  public updateFormDetails: Subject<Document>;
   constructor(public viewContainerRef: ViewContainerRef, private overlay: Overlay, private injector: Injector) {
-    this.formDetails= new Subject<Document>(); 
-   }
+    this.addFormDetails = new Subject<Document>();
+    this.updateFormDetails = new Subject<Document>();
+  }
 
 
   /**
@@ -37,8 +40,8 @@ export class DocumentListPresenter implements OnDestroy {
     const myOverlayRef = new MyOverlayRef(overlayRef, data);
 
     const injector = this.createInjecter(myOverlayRef, this.injector);
-    overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
-
+    const compontentRef = overlayRef.attach(new ComponentPortal(DocumentFilterPresentation, null, injector));
+    compontentRef.instance.oldFilters = data;
     overlayRef.backdropClick().subscribe(() => {
       overlayRef.dispose();
     });
@@ -72,29 +75,40 @@ export class DocumentListPresenter implements OnDestroy {
      * Opens an overlay for document form
      * @param documentDetails //Contains the details of document
   */
-  public loadForm(documentDetails: any): Observable<Document> {
+  public loadForm(documentDetails: any): void {
     let config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
     config.hasBackdrop = true;
 
-    let overlayRef = this.overlay.create(config);
+    const overlayRef = this.overlay.create(config);
 
-    let ref = overlayRef.attach(new ComponentPortal(DocumentFormPresentation, this.viewContainerRef, this.createInjector(documentDetails, overlayRef)));
+    const ref = overlayRef.attach(
+      new ComponentPortal(DocumentFormPresentation, this.viewContainerRef, this.createInjector(documentDetails, overlayRef))
+    );
 
     overlayRef.backdropClick().subscribe(() => {
       overlayRef.dispose();
+    });
+
+
+    ref.instance.updateDocument.subscribe((formData: Document) => {
+      if (formData) {
+        this.updateFormDetails.next(formData);
+      }
     })
 
-    ref.instance.updatedDocument.subscribe((formData) => {
-      this.formDetails.next(formData);
+    ref.instance.addDocument.subscribe((formData: Document) => {
+      if (formData) {
+        this.addFormDetails.next(formData);
+      }
     })
-    return this.formDetails.asObservable();
+
   }
 
-  public ngOnDestroy():void
-  {
-    this.formDetails.unsubscribe();
+  public ngOnDestroy(): void {
+    this.addFormDetails.unsubscribe();
+    this.updateFormDetails.unsubscribe();
   }
 }
 
