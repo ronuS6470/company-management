@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 
 export class CompanyListContainer {
 
-  public companyList$: Observable<Company[]>
+  public companyList$: Observable<Company[]>;
   // Get Filter Data
   public getFilterData: Company;
 
@@ -24,7 +24,7 @@ export class CompanyListContainer {
    * This method will fetch all the records
    */
   public getDetails(): void {
-    this.companyList$ = this.companyService.getCompanies()
+    this.companyList$ = this.companyService.getCompanies();
   }
 
   /**
@@ -52,10 +52,14 @@ export class CompanyListContainer {
    * @param sortField this is the name of the field that needs to be sorted
    */
   public sortData(sortField: string): void {
-    this.companyList$ = this.companyService.sortData(sortField)
+    this.companyList$ = this.companyService.sortData(sortField);
   }
 
-  public deleteCompanies(deleteCompanies):void {
+  /**
+   * This function delete multiple companies
+   * @param deleteCompanies The list of id that need to be deleted
+   */
+  public deleteCompanies(deleteCompanies:number[]):void {
     for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {

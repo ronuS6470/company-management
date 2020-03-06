@@ -31,11 +31,11 @@ export class CompanyListPresentation implements OnChanges {
   @Output() public deleteCompanies: EventEmitter<any>;
 
   
-  public sortBy: string;
+  public sortBy: string; // name of the column
   public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
   subscribeData = null;
-  public multipleDeletes = [] ;
-  public companiesToDelete = [];
+  public multipleDeletes; // This has the object from selected records
+  public companiesToDelete:number[]; // It contains Id which need to be deleted
   public users: any;
   private companyTempData: Company;
 
@@ -50,6 +50,8 @@ export class CompanyListPresentation implements OnChanges {
     this.sort = new EventEmitter<string>();
     this.deleteCompanies = new EventEmitter<any>(); 
     this.deleteCompany = new EventEmitter<number>();
+    this.multipleDeletes = [];
+    this.companiesToDelete = [];
   }
 
   public ngOnInit(): void {}
@@ -76,23 +78,23 @@ export class CompanyListPresentation implements OnChanges {
    * This method will sort data in ascending order
    */
   public sortAscending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=asc`);
   }
 
   /**
    * This method will sort data in descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=desc`);
   }
 
   /**
    * This method will select or unselect checkbox
    * @param event 
    */
-  public selectAllCompanies(event){
+  public selectAllCompanies(event:any){
    if(event.target.checked)  
    { this.filteredCompany.map(user=>{
       user.checked=true;
