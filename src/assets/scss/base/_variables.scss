@@ -12,10 +12,14 @@ $font-weights:("light": 300, "regular": 400, "medium": 700, "bold": 900);
 $form-margin-bottom: 1rem;
   $label-font-size: 1rem;
   $label-font-size-focus: .85rem;
-  $input-padding-top: 0.5rem;
+  $label-icon-spacing: 2.25rem;
+  $input-padding-top: 1.5rem;
   $input-padding-right: 0;
   $input-padding-bottom: .5rem;
-  $input-padding-left: .5rem;
+  $input-padding-left: 0;
+  $input-underline-color: #868e96;
+  $input-underline-color-focus: color("irenic");
+
 
 $form-margin-bottom: 1rem;
   $label-font-size: 1rem;

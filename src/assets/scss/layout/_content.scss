@@ -1,19 +1,22 @@
-/* Main Content */
-.main-content {
-  padding: 0px 100px 20px 100px;
-  @media (max-width: 1024px) {
-    padding: 0px 80px 20px 80px;
-  }
-  @media (max-width: 768px) {
-    padding: 0px 50px 20px 50px;
-  }
-}
-.main-header {
-  padding: 20px 100px 0px 100px;
-  @media (max-width: 1024px) {
-    padding: 20px 80px 0px 80px;
-  }
-  @media (max-width: 768px) {
-    padding: 20px 50px 0px 50px;
-  }
-}
+    /* document Main Content */
+    .document-header {
+        padding: 20px 100px;
+        @media (max-width: 425px) {
+            & {
+                padding: 20px 20px;
+            }
+        }
+    }
+    /* Company Main Content */
+    .company-header{
+        padding: 20px 50px;
+        @media (max-width: 425px) {
+            & {
+                padding: 20px 20px;
+            }
+        }
+    }
+    
+    .delete-btn {
+        font-size: 25px;
+    }
