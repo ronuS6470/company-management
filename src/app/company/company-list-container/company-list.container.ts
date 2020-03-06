@@ -12,7 +12,9 @@ import { Observable } from 'rxjs';
 
 export class CompanyListContainer {
 
+  // Company List
   public companyList$: Observable<Company[]>;
+
   // Get Filter Data
   public getFilterData: Company;
 
@@ -43,8 +45,8 @@ export class CompanyListContainer {
    * Company Filter
    * @param companies Company Filter Data
    */
-  getCompany(companies) {
-    this.getFilterData = companies;
+  public getFilterCompany(event: Company): void {
+    this.getFilterData = event;
   }
 
   /**
@@ -59,13 +61,14 @@ export class CompanyListContainer {
    * This function delete multiple companies
    * @param deleteCompanies The list of id that need to be deleted
    */
-  public deleteCompanies(deleteCompanies:number[]):void {
+  public deleteCompanies(deleteCompanies: number[]): void {
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {
           this.getDetails();
         }
-      )
+      );
     }
   }
 

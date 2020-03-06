@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CompanyListContainer } from './company-list-container/company-list.container';
-import { CompanyFormContainer } from './company-form-container/company-form.container';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from '../core/services/guard/auth.guard';
+import { CompanyFormContainer } from './company-form-container/company-form.container';
+import { CompanyListContainer } from './company-list-container/company-list.container';
 
 const routes: Routes = [
   {

@@ -6,7 +6,7 @@
       "createdDate": "2020-06-15 23:59:20",
       "updatedDate": "2020-06-15 23:59:20",
       "modified": "15 mins ago",
-      "activity": "General",
+      "activity": "Training",
       "id": 3
     },
     {
@@ -204,18 +204,74 @@
   ],
   "company": [
     {
-      "clientName": "Samip Karbhari",
-      "companySite": "http://localhost:4200/compan",
+      "clientName": "viren",
+      "companySite": "http://www.abc.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": "+91121212111",
+      "location": "USA",
+      "email": "viren@gmail.com",
+      "contactPersonName": "kk",
+      "designation": "manager",
+      "contactPersonMobile": "+912342342344",
+      "attachment": "C:\\fakepath\\FileZilla.txt",
+      "id": 7
+    },
+    {
+      "clientName": "jjj",
+      "companySite": "http://www.abc.com",
       "clientType": "supplier",
       "businessType": "private",
-      "contactNumber": "+919879843411",
+      "contactNumber": 2323237777,
+      "location": "USA",
+      "email": "jjj@gmail.com",
+      "contactPersonName": "jjkk",
+      "designation": "manager",
+      "contactPersonMobile": "6788888888",
+      "attachment": "fileQ",
+      "id": 8
+    },
+    {
+      "clientName": "samay",
+      "companySite": "http://www.abc.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": 9898989898,
       "location": "USA",
       "email": "samip@gmail.com",
-      "contactPersonName": "Bhargav Baleja",
-      "designation": "student",
-      "contactPersonMobile": "+919879843411",
-      "attachment": "FileCS.ashx",
-      "id": 1
+      "contactPersonName": "shiv",
+      "designation": "manager",
+      "contactPersonMobile": "7878787878",
+      "attachment": "file2",
+      "id": 10
+    },
+    {
+      "clientName": "vivek",
+      "companySite": "https://www.vbvb.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": "1231231231",
+      "location": "London",
+      "email": "vivek@gmail.com",
+      "contactPersonName": "hardik",
+      "designation": "employee",
+      "contactPersonMobile": "4567456747",
+      "attachment": "PRGs.txt",
+      "id": 12
+    },
+    {
+      "clientName": "bhargav",
+      "companySite": "http://www.bhargav.com",
+      "clientType": "both",
+      "businessType": "public",
+      "contactNumber": "5656565656",
+      "location": "LA",
+      "email": "bhargav@gmail.com",
+      "contactPersonName": "samip",
+      "designation": "manager",
+      "contactPersonMobile": "4567898789",
+      "attachment": "tsconfig.json",
+      "id": 13
     }
   ],
   "notifications": [

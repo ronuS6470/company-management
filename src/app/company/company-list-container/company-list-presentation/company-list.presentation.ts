@@ -13,7 +13,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CompanyListPresentation implements OnChanges {
+export class CompanyListPresentation implements OnInit, OnChanges {
 
   // Get Company list
   @Input() set companyList$(value: Company) {
@@ -22,39 +22,37 @@ export class CompanyListPresentation implements OnChanges {
   }
   // Get Filter Data
   @Input() getFilterData: Company;
- // delete single  
+  // delete single
   @Output() public deleteCompany: EventEmitter<number>;
-//sorting the column
-  @Output() public sort:EventEmitter<string>;
+  // sorting the column
+  @Output() public sort: EventEmitter<string>;
+  // Emit Company Data
   @Output() sendData: EventEmitter<any>;
- // delete multiple companies
+  // delete multiple companies
   @Output() public deleteCompanies: EventEmitter<any>;
 
-  
   public sortBy: string; // name of the column
   public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
-  subscribeData = null;
   public multipleDeletes; // This has the object from selected records
-  public companiesToDelete:number[]; // It contains Id which need to be deleted
-  public users: any;
-  private companyTempData: Company;
-
+  public companiesToDelete: number[]; // It contains Id which need to be deleted
   // store filtered data
-  private filteredCompany: any;
+  public filteredCompany: any;
 
+  // Temp for store data
+  private companyTempData: Company;
 
   constructor(
     private companyListPresenter: CompanyListPresenter,
   ) {
-    this.sendData = new EventEmitter<any>();
+    this.sendData = new EventEmitter<Company>();
     this.sort = new EventEmitter<string>();
-    this.deleteCompanies = new EventEmitter<any>(); 
+    this.deleteCompanies = new EventEmitter<any>();
     this.deleteCompany = new EventEmitter<number>();
     this.multipleDeletes = [];
     this.companiesToDelete = [];
   }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void { }
 
   public ngOnChanges(): void {
     if (this.getFilterData) {
@@ -67,9 +65,7 @@ export class CompanyListPresentation implements OnChanges {
    * @param id This is the id that need to be deleted 
    */
   public delete(id: number): void {
-    // console.log(id);
-    if(confirm("Are you sure you want to delete?"))
-    {
+    if (confirm('Are you sure you want to delete?')) {
       this.deleteCompany.emit(id);
     }
   }
@@ -92,44 +88,41 @@ export class CompanyListPresentation implements OnChanges {
 
   /**
    * This method will select or unselect checkbox
-   * @param event 
+   * @param event
    */
-  public selectAllCompanies(event:any){
-   if(event.target.checked)  
-   { this.filteredCompany.map(user=>{
-      user.checked=true;
-      return user;
-    })
+  public selectAllCompanies(event: any): any {
+    if (event.target.checked) {
+      this.filteredCompany.map(user => {
+        user.checked = true;
+        return user;
+      });
+    } else {
+      this.filteredCompany.map(user => {
+        user.checked = false;
+        return user;
+      });
+    }
   }
-  else
-  {
-    this.filteredCompany.map(user=>{
-      user.checked=false;
-      return user;
-    })
-  }
-}
 
   /**
-   * filter
+   * filter data
    */
   public filter(): void {
-    this.companyListPresenter.filter(this.companyTempData);
+    this.companyListPresenter.filter(this.getFilterData);
     this.companyListPresenter.subjectComplay$.subscribe(data => {
       this.sendData.emit(data);
     });
   }
 
   /**
-   * This method is useful for multiple delete 
+   * This method is useful for multiple delete
    */
-    public multipleDelete():void {
+  public multipleDelete(): void {
     this.multipleDeletes = this.filteredCompany.filter(data => data.checked);
     for (let i = 0; i < this.multipleDeletes.length; i++) {
       this.companiesToDelete[i] = this.multipleDeletes[i].id;
     }
-    if(confirm("Are you sure you want to delete?"))
-    {
+    if (confirm('Are you sure you want to delete?')) {
       this.deleteCompanies.emit(this.companiesToDelete);
     }
   }
