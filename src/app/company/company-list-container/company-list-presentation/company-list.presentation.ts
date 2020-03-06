@@ -22,9 +22,12 @@ export class CompanyListPresentation implements OnChanges {
   }
   // Get Filter Data
   @Input() getFilterData: Company;
+ // delete single  
   @Output() public deleteCompany: EventEmitter<number>;
+//sorting the column
   @Output() public sort:EventEmitter<string>;
   @Output() sendData: EventEmitter<any>;
+ // delete multiple companies
   @Output() public deleteCompanies: EventEmitter<any>;
 
   

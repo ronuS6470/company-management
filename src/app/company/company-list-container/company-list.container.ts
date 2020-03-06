@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { Company } from '../company.model';
 import { CompanyService } from '../company.service';
 import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'cmp-company-list-container',
@@ -56,7 +55,7 @@ export class CompanyListContainer {
     this.companyList$ = this.companyService.sortData(sortField)
   }
 
-  deleteCompanies(deleteCompanies) {
+  public deleteCompanies(deleteCompanies):void {
     for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {
