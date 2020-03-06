@@ -123,6 +123,9 @@ export class CompanyListPresentation implements OnChanges {
     for (let i = 0; i < this.multipleDeletes.length; i++) {
       this.companiesToDelete[i] = this.multipleDeletes[i].id;
     }
-    this.deleteCompanies.emit(this.companiesToDelete);
+    if(confirm("Are you sure you want to delete?"))
+    {
+      this.deleteCompanies.emit(this.companiesToDelete);
+    }
   }
 }
