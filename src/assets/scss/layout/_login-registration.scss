@@ -24,6 +24,9 @@
       bottom: $input-padding-bottom;
       left: $input-padding-left;
     };
+    &:focus{
+      padding-left: 0.6rem;
+    }
     & ~ .input-label {
       color: $grey;
       font-size: $label-font-size;
