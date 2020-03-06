@@ -1,3 +1,9 @@
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+button:focus,
+a:focus,
+.btn:focus {
+  outline: none;
 }

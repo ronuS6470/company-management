@@ -6,14 +6,14 @@
             <h3 class="font-regular">Companies</h3>
         </div>
         <div class="d-flex align-items-center">
-            <button class="mr-3 bg-transparent border-0 btn-delete mx-md-2 mx-1">
+            <button class="mr-3 bg-transparent border-0 btn-delete rounded mx-md-2 mx-1 px-md-3 px-1">
                 <span class="fa fa-trash-o text-danger"></span>
             </button>
-            <button class="btn btn-filter mx-md-2 mx-1 px-md-3 px-1">
+            <button class="btn btn-filter rounded mx-md-2 mx-1 px-md-3 px-1 ">
                 <span class="text-dark d-md-inline d-none">Filter</span>
-                <span class="fa fa-filter ml-2"></span>
+                <span class="fa fa-filter text-primary ml-2"></span>
             </button>
-            <button class="btn btn-add ml-md-2 ml-1 px-md-3 px-1">
+            <button class="btn btn-add rounded ml-md-2 ml-1 px-md-3 px-1">
                 <span class="fa fa-plus mr-2"></span>
                 <span class="d-md-inline d-none">Add Companies</span>
             </button>
@@ -27,7 +27,7 @@
             <table class="table table-borderless">
                 <thead>
                     <tr>
-                        <th scope="col" class="checkbox-col">
+                        <th scope="col">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input rounded-lg pointer" id="customCheck">
                                 <label class="custom-control-label " for="customCheck"></label>
@@ -35,45 +35,65 @@
                         </th>
                         <th scope="col" class="text-uppercase text-muted th-smallwidth">
                             <span class="mr-2">reg</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted"></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted"></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                        <th scope="col" class="text-uppercase text-muted th-smallwidth">
                             <span class="mr-2">company</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted"></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted"></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                        <th scope="col" class="text-uppercase text-muted th-largewidth">
                             <span class="mr-2 word-space">client name</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted"></span></button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted"></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                        <th scope="col" class="text-uppercase text-muted th-largewidth">
                             <span class="mr-2 word-space">Company Website</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted"></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted"></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                        <th scope="col" class="text-uppercase text-muted th-smallwidth">
                             <span class="mr-2">location</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted"></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted"></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                        <th scope="col" class="text-uppercase text-muted th-largewidth">
                             <span class="mr-2 word-space"> contact number</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted "></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted "></span>
+                            </button>
                         </th>
-                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                        <th scope="col" class="text-uppercase text-muted th-smallwidth">
                             <span class="mr-2">email</span>
-                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                            <button href="#" class="sort-desc"><span
-                                    class="fa fa-caret-down text-muted "></span></button>
+                            <button href="#" class="sort-asc">
+                                <span class="fa fa-caret-up text-muted "></span>
+                            </button>
+                            <button href="#" class="sort-desc">
+                                <span class="fa fa-caret-down text-muted "></span>
+                            </button>
                         </th>
                         <th scope="col" class="th-smallwidth"></th>
                     </tr>
