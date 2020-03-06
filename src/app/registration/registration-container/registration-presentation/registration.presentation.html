@@ -14,6 +14,9 @@
               <div *ngIf="formControls.username.errors.minlength" style="color: red;">
                 <b>Name must be at least 4 characters long.</b>
               </div>
+              <div *ngIf="formControls.username.errors.pattern" style="color: red;">
+                <b>Only characters allowed.</b>
+              </div>
             </div>
           </div>
 
@@ -23,7 +26,7 @@
             <div class="input-underline"></div>
             <div *ngIf="formControls.password.invalid && (formControls.password.dirty || formControls.password.touched)">
               <div *ngIf="formControls.password.errors.minlength" style="color: red;">
-                <b>Password must be at least 4 characters long.</b>
+                <b>Password must be at least 6 characters long.</b>
               </div>
               <div *ngIf="formControls.password.errors.maxlength" style="color: red;">
                 <b>Password must not be more than 10 characters long.</b>
@@ -37,7 +40,7 @@
             <div class="input-underline"></div>
             <div *ngIf="formControls.confirmPassword.invalid && (formControls.confirmPassword.dirty || formControls.confirmPassword.touched)">
               <div *ngIf="formControls.confirmPassword.errors.minlength" style="color: red;">
-                <b>Password must be at least 4 characters long.</b>
+                <b>Password must be at least 6 characters long.</b>
               </div>
               <div *ngIf="formControls.confirmPassword.errors.maxlength" style="color: red;">
                 <b>Password must not be more than 10 characters long.</b>

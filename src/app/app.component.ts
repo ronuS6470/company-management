@@ -11,18 +11,6 @@ export class AppComponent {
   constructor(private router: Router) {
     this.changeOfRoutes();
     this.showHeaderSidebar = false;
-    // on route change to '/login' and '/registration', set the variable showHead to false
-    this.router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] === '/login' || event['url'] === '/registration' || event['url'] === '/')
-        { 
-          // if url is /login or /registration then showHeaderSidebar will be false
-          this.showHeaderSidebar = false;
-        } else {
-          this.showHeaderSidebar = true;
-        }
-      }
-    });
   }
 
   /**
@@ -31,8 +19,18 @@ export class AppComponent {
   public changeOfRoutes(): void {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/')) {
+        if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/') || event.url === '/registration') {
           this.router.navigate(['/company']);
+        } else if (localStorage.getItem('username') === null &&
+        (event.url === '/company/list' || event.url === '/document/list' || event.url === '/registration'))
+        {
+          this.router.navigate(['/login']);
+        } else if (localStorage.getItem('username') != null)
+        {
+          this.showHeaderSidebar = true;
+        } else 
+        {
+          this.showHeaderSidebar = false;
         }
       }
     });
