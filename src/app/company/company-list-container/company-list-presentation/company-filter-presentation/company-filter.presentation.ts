@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { Company } from 'src/app/company/company.model';
 import { CompanyToken } from '../../../token';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { OverlayRef } from '@angular/cdk/overlay';
 // ---------------------------------- //
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
@@ -25,22 +25,25 @@ export class CompanyFilterPresentation implements OnInit {
   public searchText: string;
 
   // form group instance
-  public form: FormGroup;
+  public companyFormControls: FormGroup;
+
+  // Save old search value...
+  private oldSearchValue: object;
+
   constructor(
     @Inject(CompanyToken) public companyData: Company, public overlayRef: OverlayRef,
     private companyFilterPresenter: CompanyFilterPresenter,
   ) { }
 
-  public ngOnInit(): void {
-    this.buildForm();
-    this.form = this.companyFilterPresenter.form;
-  }
-
-  /**
-   * CompanyFilterPresenter call
-   */
-  private buildForm(): void {
-    this.companyFilterPresenter.buildForm();
+  public ngOnInit() {
+    /**
+     * CompanyFilterPresenter call
+     */
+    this.companyFormControls = this.companyFilterPresenter.buildForm();
+    this.oldSearchValue = this.companyData;
+    if (this.oldSearchValue) {
+      this.companyFormControls.patchValue(this.oldSearchValue);
+    }
   }
 
   /**
@@ -48,6 +51,7 @@ export class CompanyFilterPresentation implements OnInit {
    * @param filters filter keyword
    */
   public search(filters: Company): void {
+    this.oldSearchValue = filters;
     Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
     this.overlayRef.dispose();
     this.filterData.emit(filters);
@@ -58,6 +62,12 @@ export class CompanyFilterPresentation implements OnInit {
     this.overlayRef.dispose();
   }
 
+  // Clear Company field..
+  public formClear(): void {
+    this.companyFormControls.reset();
+    this.companyFormControls = this.companyFilterPresenter.buildForm();
+  }
+
   // Instance of company form
-  get companyForm() { return this.form.controls; }
+  get companyForm() { return this.companyFormControls.controls; }
 }

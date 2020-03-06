@@ -37,7 +37,6 @@ export class CompanyListContainer {
    * @param id This is the number whose record will be deleted
    */
   public deleteCompany(id: number): void {
-    console.log(id);
     this.companyService.deleteCompanies(id).subscribe(
       () => {
         this.getDetails();

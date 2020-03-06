@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class CompanyListPresenter {
   public subjectComplay$ = new Subject();
-  public data: string;
+  public data: object;
   constructor(
     private overlay: Overlay,
     public injector: Injector,
@@ -22,7 +22,7 @@ export class CompanyListPresenter {
    * @param data Comapany Data
    * @param overlayRef Overlay Reference
    */
-  public createInjector(data: Company, overlayRef: OverlayRef): PortalInjector {
+  public createInjector(data: Company= null, overlayRef: OverlayRef): PortalInjector {
     const injectorTokens = new WeakMap();
     injectorTokens.set(OverlayRef, overlayRef);
     injectorTokens.set(CompanyToken, data);
@@ -44,7 +44,7 @@ export class CompanyListPresenter {
     let componentInstance = overlayRef.attach(new ComponentPortal(
       CompanyFilterPresentation, this.viewContainerRef, this.createInjector(filter, overlayRef)));
     overlayRef.backdropClick().subscribe(() => {
-      this.data = componentInstance.instance.searchText;
+      this.data = componentInstance.instance.filterData;
       overlayRef.detach();
     });
     componentInstance.instance.filterData.subscribe(data => {
@@ -58,11 +58,12 @@ export class CompanyListPresenter {
    * @param users Stored data
    * @param filteredUsers filter data
    */
-  public filterCompanyList(filters: Company, companyTempData: any, filteredUsers: Company): void {
+  public filterCompanyList(filters: Company, companyTempData: any, filteredUsers: Company): boolean {
     filteredUsers = companyTempData; // Reset User List
     const keys = Object.keys(filters);
     const filterUser = user => {
       let result = keys.map(key => {
+        // tslint:disable-next-line: no-bitwise
         if (!~key.indexOf('age')) {
           if (user[key]) {
             return String(user[key]).toLowerCase().startsWith(String(filters[key]).toLowerCase())
@@ -72,6 +73,7 @@ export class CompanyListPresenter {
       // To Clean Array from undefined if the age is passed so the map will fill the gap with (undefined)
       result = result.filter(it => it !== undefined); // Filter the Age out from the other filters
       return result.reduce((acc, cur: any) => {
+        // tslint:disable-next-line: no-bitwise
         return acc & cur;
       }, 1);
     };

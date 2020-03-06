@@ -26,22 +26,23 @@ export class CompanyListPresentation implements OnInit, OnChanges {
   @Output() public deleteCompany = new EventEmitter<number>();
   @Output() public sort = new EventEmitter<string>();
 
+  // Emit Company Data
   @Output() sendData: EventEmitter<any>;
 
   public multipleDeletes: any;
   public companiestoDelete = [];
 
   // Temp for store data
-  private companyTempData: Company;
+  public companyTempData: Company;
   // store filtered data
-  private filteredCompany: any;
+  public filteredCompany: any;
 
   public sortBy: string;
 
   constructor(
     private companyListPresenter: CompanyListPresenter,
   ) {
-    this.sendData = new EventEmitter<any>();
+    this.sendData = new EventEmitter<Company>();
 
     this.sort = new EventEmitter<string>();
   }
@@ -85,7 +86,7 @@ export class CompanyListPresentation implements OnInit, OnChanges {
    * filter
    */
   public filter(): void {
-    this.companyListPresenter.filter(this.companyTempData);
+    this.companyListPresenter.filter(this.getFilterData);
     this.companyListPresenter.subjectComplay$.subscribe(data => {
       this.sendData.emit(data);
     });

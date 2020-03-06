@@ -50,7 +50,6 @@ export class DocumentService {
    * @param sortField 
    */
   public sortData(sortField: string): Observable<Document[]> {
-    console.log(sortField)
     return this.httpClient.get<Document[]>(`${this.apiUrl}?${sortField}`);
   }
 }
