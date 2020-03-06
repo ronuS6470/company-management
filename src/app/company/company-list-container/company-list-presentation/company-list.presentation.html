@@ -1,7 +1,6 @@
-<!-- Company List -->
-<main class="main-content h-100 d-flex flex-column">
+<section class="h-100 d-flex flex-column">
     <!-- Company Header -->
-    <header class="row no-gutters justify-content-between align-items-center">
+    <header class=" d-flex justify-content-between align-items-center main-header">
         <div>
             <h3 class="font-regular">Companies</h3>
         </div>
@@ -20,286 +19,307 @@
         </div>
     </header>
     <!--End: Company Header -->
-    <!--Company Table -->
-    <div class="table-responsive overflow-auto mt-2">
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col" class="checkbox-col">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg pointer" id="customCheck">
-                            <label class="custom-control-label " for="customCheck"></label>
-                        </div>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted th-smallwidth">
-                        <span class="mr-2">reg</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-smallwidth">
-                        <span class="mr-2">company</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-largewidth">
-                        <span class="mr-2 word-space">client name</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-largewidth">
-                        <span class="mr-2 word-space">Company Website</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-smallwidth">
-                        <span class="mr-2">location</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-largewidth">
-                        <span class="mr-2 word-space"> contact number</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="text-uppercase text-muted  th-smallwidth">
-                        <span class="mr-2">email</span>
-                        <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
-                        <button href="#" class="sort-desc"><span class="fa fa-caret-down text-muted "></span></button>
-                    </th>
-                    <th scope="col" class="th-smallwidth"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck1">
-                            <label class="custom-control-label " for="customCheck1"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img" alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                            <!-- <div class="dropdown mr-1">
+    <!-- Company List -->
+    <main class="main-content overflow-auto flex-grow-1">
+        <!--Company Table -->
+        <div class="table-responsive mt-2">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col" class="checkbox-col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg pointer" id="customCheck">
+                                <label class="custom-control-label " for="customCheck"></label>
+                            </div>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted th-smallwidth">
+                            <span class="mr-2">reg</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                            <span class="mr-2">company</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                            <span class="mr-2 word-space">client name</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                            <span class="mr-2 word-space">Company Website</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted  "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                            <span class="mr-2">location</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-largewidth">
+                            <span class="mr-2 word-space"> contact number</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="text-uppercase text-muted  th-smallwidth">
+                            <span class="mr-2">email</span>
+                            <button href="#" class="sort-asc"><span class="fa fa-caret-up text-muted "></span></button>
+                            <button href="#" class="sort-desc"><span
+                                    class="fa fa-caret-down text-muted "></span></button>
+                        </th>
+                        <th scope="col" class="th-smallwidth"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck1">
+                                <label class="custom-control-label " for="customCheck1"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                                <!-- <div class="dropdown mr-1">
                                             <span class="fa fa-ellipsis-h pointer" id="dropdownMenuOffset" data-toggle="dropdown"></span>
                                             <div class="dropdown-menu-position dropdown-menu dropleft show dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="dropdownMenuOffset">
                                                 <a class="dropdown-item" href="#">Add</a>
                                                 <a class="dropdown-item" href="#">Delete</a>
                                             </div>
                             </div> -->
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck2">
-                            <label class="custom-control-label " for="customCheck2"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/Dominos-logo.png" class="img-fluid company-img"
-                            alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck3">
-                            <label class="custom-control-label " for="customCheck3"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/starbucks-logo.png" class="img-fluid company-img"
-                            alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck4">
-                            <label class="custom-control-label " for="customCheck4"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/Dominos-logo.png" class="img-fluid company-img"
-                            alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck5">
-                            <label class="custom-control-label " for="customCheck5"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/starbucks-logo.png" class="img-fluid company-img"
-                            alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck6">
-                            <label class="custom-control-label " for="customCheck6"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img" alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck7">
-                            <label class="custom-control-label " for="customCheck7"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img" alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white">
-                    <td>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rounded-lg  pointer" id="customCheck8">
-                            <label class="custom-control-label " for="customCheck8"></label>
-                        </div>
-                    </td>
-                    <td>1#</td>
-                    <td>
-                        <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img" alt="NBC-logo">
-                    </td>
-                    <td>Angelica Ramos</td>
-                    <td>www.nbc.com</td>
-                    <td>London</td>
-                    <td>5-(450)630-7997</td>
-                    <td>angelica.r@nbc.com</td>
-                    <td>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn">
-                                <span class="fa fa-trash-o text-danger fa-lg"></span>
-                            </button>
-                            <button class="btn">
-                                <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!--End: Company Table -->
-</main>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck2">
+                                <label class="custom-control-label " for="customCheck2"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/Dominos-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck3">
+                                <label class="custom-control-label " for="customCheck3"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/starbucks-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck4">
+                                <label class="custom-control-label " for="customCheck4"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/Dominos-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck5">
+                                <label class="custom-control-label " for="customCheck5"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/starbucks-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck6">
+                                <label class="custom-control-label " for="customCheck6"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck7">
+                                <label class="custom-control-label " for="customCheck7"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input rounded-lg  pointer"
+                                    id="customCheck8">
+                                <label class="custom-control-label " for="customCheck8"></label>
+                            </div>
+                        </td>
+                        <td>1#</td>
+                        <td>
+                            <img src="../../../../assets/images/nbc-logo.png" class="img-fluid company-img"
+                                alt="NBC-logo">
+                        </td>
+                        <td>Angelica Ramos</td>
+                        <td>www.nbc.com</td>
+                        <td>London</td>
+                        <td>5-(450)630-7997</td>
+                        <td>angelica.r@nbc.com</td>
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn">
+                                    <span class="fa fa-trash-o text-danger fa-lg"></span>
+                                </button>
+                                <button class="btn">
+                                    <span class="fa fa-pencil-square-o text-primary fa-lg"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End: Company Table -->
+    </main>
+</section>
