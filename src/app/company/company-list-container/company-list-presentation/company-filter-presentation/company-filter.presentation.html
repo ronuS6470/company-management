@@ -1,72 +1,59 @@
-<div class="d-flex justify-content-end h-100">
-    <div class="company-form-container document-filter bg-white d-flex flex-column overflow-hidden shadow-lg">
-        <div class="d-flex align-items-center justify-content-between px-3 pt-2 flex-shrink-0">
-            <h5 class="modal-title" id="exampleModalLabel">Filter </h5>
-            <a><span (click)="close()" class="fa fa-times fa-lg d-flex close-icon px-3"></span></a>
-        </div>
-        <div class="dropdown-divider"></div>
-        <div class=" no-gutters px-3 overflow-auto">
-            <form [formGroup]="companyFormControls" class="py-3 mt-4">
-                <div class="form-row mx-0">
-                    <div class="col-12 px-0">
-                        <div class="form-group d-flex flex-column">
-                            <label for="companyUrl" class="label text-secondary mb-0">Company URL</label>
-                            <input formControlName="companySite" type="text" class="form-control" id="companyUrl">
-                            <div *ngIf="companyForm.companySite.invalid && (companyForm.companySite.dirty || companyForm.companySite.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="companyForm.companySite.errors.pattern">
-                                    Invalid URL!
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="clientName" class="label text-secondary mb-0">Client Name</label>
-                            <input formControlName="clientName" type="text" class="form-control" id="clientName">
-                            <div *ngIf="companyForm.clientName.invalid && (companyForm.clientName.dirty || companyForm.clientName.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="companyForm.clientName.errors.pattern">
-                                    Input Client Name!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 px-0">
-                        <div class="form-group d-flex flex-column">
-                            <label for="selectLocation" class="label text-secondary mb-0">location</label>
-                            <select formControlName="location" class="form-control" id="selectLocation">
-                                <option></option>
-                                <option>London</option>
-                                <option>Dubai</option>
-                                <option>NewYork</option>
+<!-- company filter -->
+<div class="d-flex justify-content-center m-0 m-md-5 justify-content-md-end rounded-lg">
+    <!-- form starts -->
+    <form [formGroup]="companyFormControls" (ngSubmit)="search(companyFormControls.value)" class="company-filter  bg-white">
 
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 px-0">
-                        <div class="form-group d-flex flex-column">
-                            <label for="mobile" class="label text-secondary mb-0">Contact</label>
-                            <input formControlName="contactNumber" type="text" class="form-control" id="mobile">
-                            <div *ngIf="companyForm.contactNumber.invalid && (companyForm.contactNumber.dirty || companyForm.contactNumber.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="companyForm.contactNumber.errors.pattern">
-                                    Only Mobile Number!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 px-0">
-                        <div class="form-group d-flex flex-column">
-                            <label for="companyEmail" class="label text-secondary mb-0">Email id</label>
-                            <input formControlName="email" type="Email" class="form-control" id="companyEmail">
-                        </div>
+        <div class="d-flex align-items-center justify-content-between px-3 pt-2">
+            <h5 class="modal-title" id="exampleModalLabel">Company <span class="fa fa-filter text-primary"></span></h5>
+            <a><span (click)="close()" class="fa fa-times-circle fa-lg d-flex text-primary"></span></a>
+        </div>
+
+        <div class="p-3">
+            <div class="form-group">
+                <label for="company-name">company Site</label>
+                <input formControlName="companySite" type="text" class="form-control" id="company-name" placeholder="Enter company name">
+                <div *ngIf="companyForm.companySite.invalid && (companyForm.companySite.dirty || companyForm.companySite.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.companySite.errors.pattern">
+                        Invalid URL!
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="form-group">
+                <label for="client-name">Client Name</label>
+                <input formControlName="clientName" type="text" class="form-control" id="client-name" placeholder="Enter client name">
+                <div *ngIf="companyForm.clientName.invalid && (companyForm.clientName.dirty || companyForm.clientName.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.clientName.errors.pattern">
+                        Input Client Name!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Location</label>
+                <select formControlName="location" class="form-control" id="exampleFormControlSelect1">
+                    <option>London</option>
+                    <option>Dubai</option>
+                    <option>NewYork</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ContactNo">Contact</label>
+                <input formControlName="contactNumber" type="text" class="form-control" id="ContactNo" placeholder="Conatct number">
+                <div *ngIf="companyForm.contactNumber.invalid && (companyForm.contactNumber.dirty || companyForm.contactNumber.touched)" class="alert alert-danger">
+                    <div *ngIf="companyForm.contactNumber.errors.pattern">
+                        Only Mobile Number!
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input formControlName="email" type="Email" class="form-control" id="email" placeholder="Email">
+            </div>
         </div>
-        <div class=" px-3 mt-sm-0 flex-wrap flex-shrink-0 mb-4">
-            <button type="button" (click)="search(companyFormControls.value)" [disabled]="!companyFormControls.valid"
-                class="btn btn-md btn-primary py-2 mt-5">Filter</button>
-            <button type="button" (click)="formClear()" class="btn btn-md btn-secondary py-2  ml-3 mt-5">Clear</button>
+        <div class="my-4 px-3 mt-sm-0 flex-wrap">
+            <button type="submit" [disabled]="!companyFormControls.valid" class="btn btn-md btn-primary py-2">Filter</button>
+            <button type="button" (click)="formClear()" class="btn btn-md btn-danger py-2  ml-3">Clear</button>
         </div>
-    </div>
+    </form>
 </div>

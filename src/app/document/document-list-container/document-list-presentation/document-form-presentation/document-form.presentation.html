@@ -1,47 +1,42 @@
-<div class="d-flex justify-content-center m-0 m-md-5 justify-content-md-center rounded-lg">
-  <form class="document-form bg-white  add-edit-r p-4" [formGroup]="documentFormDetails" (ngSubmit)="onSubmit()">
-    
-      <h1 class="text-primary">Document Details</h1>
-     
-      <div class="p-3">
-        <div class="form-group">
-          <input type="hidden" class="form-control" id="InputId" placeholder="Document Name" formControlName="id">
-        </div>
-        <div class="form-group">
-          <label for="InputName">Document Name</label>
-          <input type="email" class="form-control" id="InputName" placeholder="Document Name" formControlName="documentName">
-        </div>
-        <div class="form-group">
-          <label for="InputOwnerName">Owner Name</label>
-          <input type="email" class="form-control" id="InputOwnerName" placeholder="Owner Name" formControlName="ownerName">
-          <div *ngIf="controls.ownerName.invalid && (controls.ownerName.dirty || controls.ownerName.touched)">
-            <div *ngIf="controls.ownerName.errors.pattern" style="color: red;">
-              <b>Only characters allowed</b>
-            </div>
-          </div>
-        </div>
+<div class="form-wrapper d-flex justify-content-center m-0 m-md-5 justify-content-md-center rounded-lg overflow-auto">
 
-        <div class="form-group">
-          <label for="InputActivity">Activity</label>
-          <select class="form-control" id="InputActivity" formControlName="activity">
-            <option value="">---Select Activity---</option>
-            <option>General</option>
-            <option>Training</option>
-            <option>Security</option>
-          </select>
+  <form class="shadow-sm document-form bg-white p-4" [formGroup]="documentFormDetails" (ngSubmit)="onSubmit()">
+
+    <h1 class="text-primary">Document Details</h1>
+
+    <div class="p-3">
+      <div class="form-group">
+        <input type="hidden" id="inputId" formControlName="id">
+      </div>
+      <div class="form-group">
+        <label for="inputName">Document Name</label>
+        <input type="text" class="form-control px-2" id="inputName" placeholder="Document Name" formControlName="documentName">
+      </div>
+      <div class="form-group">
+        <label for="inputOwnerName">Owner Name</label>
+        <input type="text" class="form-control px-2" id="inputOwnerName" placeholder="Owner Name" formControlName="ownerName">
+        <div *ngIf="controls.ownerName.invalid && (controls.ownerName.dirty || controls.ownerName.touched)">
+          <div *ngIf="controls.ownerName.errors.pattern" style="color: red;">
+            <b>Only characters allowed</b>
+          </div>
         </div>
       </div>
 
-        <button type="reset"class="btn py-2 px-5">Clear</button>
-        <button type="submit" class="btn  btn-primary py-2 px-5 ml-3" [disabled]="!documentFormDetails.valid">Submit</button>
+      <div class="form-group">
+        <label for="inputActivity">Activity</label>
+        <select class="form-control px-2" id="inputActivity" formControlName="activity">
+          <option value="">---Select Activity---</option>
+          <option>General</option>
+          <option>Training</option>
+          <option>Security</option>
+        </select>
       </div>
     </div>
 
     <!-- Action Button -->
     <div class="mb-4 px-3 mt-sm-0 action-button">
-      <button class="btn btn-clear btn-secondary">Clear</button>
-      <button type="submit" class="btn  btn-primary py-2 px-4 btn-submit">Submit</button>
+      <button type="reset" class="btn btn-clear btn-secondary">Clear</button>
+      <button type="submit" class="btn  btn-primary py-2 px-4 btn-submit" [disabled]="!documentFormDetails.valid">Submit</button>
     </div>
 
-  </form>
-</div>
+</form>
