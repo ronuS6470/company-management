@@ -1,61 +1,17 @@
 .primary-nav {
-  max-width: $collapse-sidebar-width;
-  flex: 0 0 $collapse-sidebar-width;
-  .navbar {
-    padding: 0;
-    .nav-link {
-      padding: 20px 20px;
-      border-left: 5px solid transparent;
-      transition: all 0.6s;
-      &:hover,
-      &.active {
-        border-left: 5px solid $primary;
-        color: $primary;
-        transition: all 0.5s;
-      }
+    max-width: $collapse-sidebar-width;
+    flex: 0 0 $collapse-sidebar-width;
+    .navbar {
+        padding: 0;
+        .nav-link {
+            padding: 20px 20px;
+            border-left: 5px solid transparent;
+            transition: all .6s;
+            &:hover {
+                border-left: 5px solid $primary;
+                color: $primary;
+                transition: all .5s;
+            }
+        }
     }
-  }
 }
-
-@media (max-width: 576px) {
-  .navbar {
-    display: none;
-  }
-
-  #toggleSidebar:checked ~ .navbar {
-    display: block;
-  }
-}
-
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {
-//         .navbar {
-//     display: none;
-//     }
-
-//   #toggleSidebar:checked ~ .navbar{
-//     display: block;
-//   }
-// }
-
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) {
-//         .navbar {
-//     display: none;
-//     }
-
-//   #toggleSidebar:checked ~ .navbar{
-//     display: block;
-//   }
-// }
-
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) {
-//         .navbar {
-//     display: none;
-//     }
-
-//   #toggleSidebar:checked ~ .navbar{
-//     display: block;
-//   }
-// }
