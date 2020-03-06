@@ -2,6 +2,7 @@
 export class Company {
     id: number;
     clientName: string;
+    companySite: string;
     clientType: string;
     businessType: string;
     contactNumber: number;

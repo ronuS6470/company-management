@@ -139,8 +139,7 @@
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactNumber.errors.required">contact no. is required
                                         </div>
-                                        <div *ngIf="formControls.contactNumber.errors.pattern">contact no. should be 10
-                                            to 12 digit
+                                        <div *ngIf="formControls.contactNumber.errors.pattern">invalid mobile no.
                                         </div>
                                     </div>
                                 </div>
@@ -217,9 +216,7 @@
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactPersonMobile.errors.required">mobile no. is
                                             required</div>
-                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern"> mobile no. should
-                                            be
-                                            10 to 12 digit
+                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern"> invalid mobile no.
                                         </div>
                                     </div>
                                 </div>
