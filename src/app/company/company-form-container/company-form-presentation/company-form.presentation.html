@@ -7,12 +7,13 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent px-0">
                 <li class="breadcrumb-item"><a routerLink="/company" class="text-secondary">Companies</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add</li>
+                <li class="breadcrumb-item active" aria-current="page">{{addEditLabel}}</li>
             </ol>
         </nav>
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
-            <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0" routerLink="/company">Cancel</button>
+            <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0"
+                routerLink="/company">Cancel</button>
             <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1 my-2 my-sm-0"
                 (click)="onSubmit()">Save</button>
         </div>
@@ -37,11 +38,15 @@
                                     <label for="clientName" class="label text-secondary mb-0">Client
                                         Name</label>
                                     <input type="text" class="form-control" id="clientName" formControlName="clientName"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.clientName.errors }">
-                                    <div *ngIf="submitted && formControls.clientName.errors" class="invalid-feedback">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.clientName.touched) && formControls.clientName.errors }">
+                                    <div *ngIf="(submitted || formControls.clientName.touched) && formControls.clientName.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.clientName.errors.required">client name is required
                                         </div>
                                         <div *ngIf="formControls.clientName.errors.pattern">only characters allowed
+                                        </div>
+                                        <div *ngIf="formControls.clientName.errors.maxlength">maximum 20 characters
+                                            allowed
                                         </div>
                                     </div>
                                 </div>
@@ -53,11 +58,15 @@
                                         Website</label>
                                     <input type="text" class="form-control" id="companyWebsite"
                                         formControlName="companySite" placeholder="company site"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.companySite.errors }">
-                                    <div *ngIf="submitted && formControls.companySite.errors" class="invalid-feedback">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.companySite.touched) && formControls.companySite.errors }">
+                                    <div *ngIf="(submitted || formControls.companySite.touched) && formControls.companySite.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.companySite.errors.required">company site is required
                                         </div>
                                         <div *ngIf="formControls.companySite.errors.pattern">invalid company site
+                                        </div>
+                                        <div *ngIf="formControls.companySite.errors.maxlength">maximum 30 characters
+                                            allowed
                                         </div>
                                     </div>
                                 </div>
@@ -88,12 +97,13 @@
                                         Business</label>
                                     <select formControlName="businessType" class="form-control bg-transparent"
                                         id="businessType"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.businessType.errors }">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.businessType.touched) && formControls.businessType.errors }">
                                         <option value="">--select business type--</option>
                                         <option value="private">Private</option>
                                         <option value="public">Public</option>
                                     </select>
-                                    <div *ngIf="submitted && formControls.businessType.errors" class="invalid-feedback">
+                                    <div *ngIf="(submitted || formControls.businessType.touched) && formControls.businessType.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.businessType.errors.required">business type is required
                                         </div>
                                     </div>
@@ -105,13 +115,14 @@
                                     <label for="location" class="label text-secondary mb-0">Location</label>
                                     <select formControlName="location" class="form-control bg-transparent"
                                         id="businessType"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.location.errors }">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.location.touched) && formControls.location.errors }">
                                         <option value="">--select location--</option>
                                         <option value="London">London</option>
                                         <option value="USA">USA</option>
                                         <option value="LA">LA</option>
                                     </select>
-                                    <div *ngIf="submitted && formControls.location.errors" class="invalid-feedback">
+                                    <div *ngIf="(submitted || formControls.location.touched) && formControls.location.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.location.errors.required">location is required
                                         </div>
                                     </div>
@@ -123,13 +134,12 @@
                                     <label for="contactNo" class="label text-secondary mb-0">Contact Number</label>
                                     <input type="text" formControlName="contactNumber" class="form-control "
                                         id="contactNo"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactNumber.errors }">
-                                    <div *ngIf="submitted && formControls.contactNumber.errors"
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.contactNumber.touched) && formControls.contactNumber.errors }">
+                                    <div *ngIf="(submitted || formControls.contactNumber.touched) && formControls.contactNumber.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactNumber.errors.required">contact no. is required
                                         </div>
-                                        <div *ngIf="formControls.contactNumber.errors.pattern">contact no. should be 10
-                                            to 12 digit
+                                        <div *ngIf="formControls.contactNumber.errors.pattern">invalid mobile no.
                                         </div>
                                     </div>
                                 </div>
@@ -140,8 +150,9 @@
                                     <label for="emailAddress" class="label text-secondary mb-0">Email
                                         Adress</label>
                                     <input type="email" formControlName="email" class="form-control " id="emailAddress"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.email.errors }">
-                                    <div *ngIf="submitted && formControls.email.errors" class="invalid-feedback">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.email.touched) && formControls.email.errors }">
+                                    <div *ngIf="(submitted || formControls.email.touched) && formControls.email.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.email.errors.required">email is required</div>
                                         <div *ngIf="formControls.email.errors.pattern">invalid email</div>
                                     </div>
@@ -157,14 +168,17 @@
                                         Person</label>
                                     <input type="text" formControlName="contactPersonName" class="form-control"
                                         id="contactPerson"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactPersonName.errors }">
-                                    <div *ngIf="submitted && formControls.contactPersonName.errors"
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.contactPersonName.touched) && formControls.contactPersonName.errors }">
+                                    <div *ngIf="(submitted || formControls.contactPersonName.touched) && formControls.contactPersonName.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactPersonName.errors.required"> contact person name
                                             is required
                                         </div>
                                         <div *ngIf="formControls.contactPersonName.errors.pattern"> only character
                                             allowed
+                                        </div>
+                                        <div *ngIf="formControls.contactPersonName.errors.maxlength"> maximum 20
+                                            character allowed
                                         </div>
                                     </div>
                                 </div>
@@ -176,11 +190,15 @@
                                     <label for="designation" class="label text-secondary mb-0">Designation</label>
                                     <input type="text" formControlName="designation" class="form-control"
                                         id="designation"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.designation.errors }">
-                                    <div *ngIf="submitted && formControls.designation.errors" class="invalid-feedback">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.designation.touched) && formControls.designation.errors }">
+                                    <div *ngIf="(submitted || formControls.designation.touched) && formControls.designation.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.designation.errors.required">designation is required
                                         </div>
                                         <div *ngIf="formControls.designation.errors.pattern">only character allowed
+                                        </div>
+                                        <div *ngIf="formControls.designation.errors.maxlength"> maximum 20 character
+                                            allowed
                                         </div>
                                     </div>
                                 </div>
@@ -193,13 +211,12 @@
                                         Number</label>
                                     <input type="text" formControlName="contactPersonMobile" class="form-control"
                                         id="clientName"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.contactPersonMobile.errors }">
-                                    <div *ngIf="submitted && formControls.contactPersonMobile.errors"
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.contactPersonMobile.touched) && formControls.contactPersonMobile.errors }">
+                                    <div *ngIf="(submitted || formControls.contactPersonMobile.touched) && formControls.contactPersonMobile.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.contactPersonMobile.errors.required">mobile no. is
                                             required</div>
-                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern"> mobile should be
-                                            10 to 12 digit
+                                        <div *ngIf="formControls.contactPersonMobile.errors.pattern"> invalid mobile no.
                                         </div>
                                     </div>
                                 </div>
@@ -218,9 +235,10 @@
                                 <div class="custom-file position-relative">
                                     <input type="file" (change)="onChange($event)" class="custom-file-input"
                                         id="customFile"
-                                        [ngClass]="{ 'is-invalid': submitted && formControls.attachment.errors }">
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.attachment.touched) && formControls.attachment.errors }">
                                     <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
-                                    <div *ngIf="submitted && formControls.attachment.errors" class="invalid-feedback">
+                                    <div *ngIf="(submitted || formControls.attachment.touched) && formControls.attachment.errors"
+                                        class="invalid-feedback">
                                         <div *ngIf="formControls.attachment.errors.required">attachment is required
                                         </div>
                                     </div>
