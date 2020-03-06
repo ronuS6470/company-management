@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
+import { Observable } from 'rxjs';
 import { CompanyService } from '../company.service';
 import { Company } from '../company.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 /**
  * @author Kiran Tandel
