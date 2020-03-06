@@ -1,1 +1,45 @@
 // Button styles goes here
+.btn-delete {
+  font-size: 25px;
+}
+
+.btn-upload {
+  color: $primary;
+  border-color: $primary;
+  background-color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  &:hover {
+    color: $primary;
+  }
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.btn-filter {
+  background-color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  @media (max-width: 768px) {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.btn-add {
+  background-color: $primary;
+  color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  &:hover {
+    color: $white;
+  }
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: $primary;
+    box-shadow: none;
+    &:hover {
+      color: $primary;
+    }
+  }
+}

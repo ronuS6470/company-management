@@ -1,85 +1,58 @@
+/*Table*/
 .table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    thead {
-        tr {
-            th {
-                font-weight: map-get($font-weights, 'regular');
-                position: relative;
-                .short-up {
-                    position: absolute;
-                    bottom: 7px;
-                    background: none;
-                    border: none;
-                    padding: 0;
-                    margin: 0;
-                }
-                .short-down {
-                    position: absolute;
-                    top: 7px;
-                    background: none;
-                    border: none;
-                    padding: 0;
-                    margin: 0;
-                }
-            }
-        }
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  tr {
+    th {
+      font-weight: map-get($font-weights, "regular");
+      position: relative;
+      font-size: 14px;
+      vertical-align: middle;
+      padding: 0 0 0 0.75rem;
+      .sort-asc {
+        position: absolute;
+        bottom: 7px;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sort-desc {
+        position: absolute;
+        top: 5px;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
     }
-    tbody {
-        tr {
-            td {
-                font-weight: map-get($font-weights, 'medium')
-            }
-        }
+  }
+  tbody {
+    td {
+      font-weight: map-get($font-weights, "medium");
+      vertical-align: middle;
     }
+  }
 }
 
 .user-icon {
-    height: 2em;
-    width: 2em;
+  height: 2em;
+  width: 2em;
 }
 
-.td-mwidth {
-    min-width: 172px;
+.brand-img {
+  width: 30px;
+  height: 30px;
 }
 
-.td-compnymwitg {
-    min-width: 195px;
+.fix-min-width {
+  min-width: 172px;
 }
 
-.table-responsive {
-    height: 85%;
+.th-largewidth {
+  min-width: 195px;
 }
 
-.company-img {
-    width: 30px;
-    height: 30px;
-}
-
-.document-table {
-    padding: 15px 97px;
-    @media (max-width: 425px) {
-        & {
-            padding: 15px 20px;
-        }
-    }
-}
-
-.company-table {
-    padding: 20px 50px;
-    @media (max-width: 425px) {
-        & {
-            padding: 20px 20px;
-        }
-    }
-}
-
-.company-table,
-.document-table {
-    padding: 20px 97px;
-    @media (max-width: 425px) {
-        & {
-            padding: 20px 20px;
-        }
-    }
+.th-smallwidth {
+  min-width: 140px;
 }
