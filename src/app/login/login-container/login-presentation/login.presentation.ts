@@ -20,7 +20,7 @@ export class LoginPresentation {
   // Input property of login
   @Input() public login$: Login[];
 
-  public model: object; //model Login of type array
+  public model: object; // model Login of type array
 
   constructor(private service: LoginPresenter, private routes: Router) {
     this.model = {};
