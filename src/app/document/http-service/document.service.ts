@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class DocumentService {
-  public id: number;
   private apiUrl;
 
   constructor(private httpClient: HttpClient) {
@@ -41,7 +40,6 @@ export class DocumentService {
    * @param id 
    */
   public deleteDocument(id: number): Observable<Document> {
-    this.id = id;
     return this.httpClient.delete<Document>(`${this.apiUrl}/${id}`);
   }
 

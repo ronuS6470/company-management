@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class DocumentListContainer implements OnInit {
   //store documents data
-  documentData: Observable<Document[]>;
+ public documentData$: Observable<Document[]>;
   // filter data
   public groupFilter: object;
   constructor(private documentService: DocumentService) {
@@ -24,7 +24,7 @@ export class DocumentListContainer implements OnInit {
    * get all the documents data by service call
    */
   public getDocuments(): void {
-    this.documentData = this.documentService.getDocuments();
+    this.documentData$ = this.documentService.getDocuments();
   }
 
 
@@ -34,7 +34,7 @@ export class DocumentListContainer implements OnInit {
    * @param sortField 
    */
   public sortData(sortField: string): void {
-    this.documentData = this.documentService.sortData(sortField);
+    this.documentData$ = this.documentService.sortData(sortField);
   }
 
   /**
@@ -45,7 +45,7 @@ export class DocumentListContainer implements OnInit {
    {
     this.documentService.editData(documentDetails, documentDetails.id).subscribe(() => {
       this.getDocuments();
-    })
+    });
   }
 
   /**
@@ -55,7 +55,7 @@ export class DocumentListContainer implements OnInit {
   public addDocument(documentDetails: Document) :void {
     this.documentService.addData(documentDetails).subscribe(() => {
       this.getDocuments();
-    })
+    });
   }
 
 

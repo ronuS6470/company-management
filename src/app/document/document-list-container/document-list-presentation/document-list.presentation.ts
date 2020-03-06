@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
 import { Document } from 'src/app/document/document.model';
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 
@@ -58,7 +57,6 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   private updatedDetails: Document;
 
   constructor(
-    private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
   ) {
 

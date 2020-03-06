@@ -1,4 +1,4 @@
-<cmp-document-list-ui [documentData]="documentData | async" [groupFilter]="groupFilter"
+<cmp-document-list-ui [documentData]="documentData$ | async" [groupFilter]="groupFilter"
     (delete)="deleteDocument($event)" (sort)="sortData($event)" (updatedDocument)="updateDocument($event)"
     (addDocument)="addDocument($event)" (filter)="filterData($event)"
     (deleteMultipleDocuments)="deleteMultiple($event)"></cmp-document-list-ui>
