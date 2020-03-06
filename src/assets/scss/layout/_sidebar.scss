@@ -1,13 +1,14 @@
 .primary-nav {
-    max-width: $collapse-sidebar-width;
-    flex: 0 0 $collapse-sidebar-width;
+  max-width: $collapse-sidebar-width;
+  flex: 0 0 $collapse-sidebar-width;
   .navbar {
     padding: 0;
     .nav-link {
       padding: 20px 20px;
       border-left: 5px solid transparent;
       transition: all 0.6s;
-      &:hover {
+      &:hover,
+      &.active {
         border-left: 5px solid $primary;
         color: $primary;
         transition: all 0.5s;
@@ -17,11 +18,11 @@
 }
 
 @media (max-width: 576px) {
-    .navbar {
+  .navbar {
     display: none;
-    }
+  }
 
-  #toggleSidebar:checked ~ .navbar{
+  #toggleSidebar:checked ~ .navbar {
     display: block;
   }
 }

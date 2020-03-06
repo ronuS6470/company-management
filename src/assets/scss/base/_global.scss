@@ -8,16 +8,13 @@ html,
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 body {
+    overflow: hidden;
   font-family: $font-family-base;
   font-size: $font-size-base;
   font-weight: $font-weight-base;
-}
-.bg-body {
-  background-color: $body-bg;
 }
 
 li {
@@ -43,7 +40,7 @@ figure {
     margin-bottom: 0;
 }
 
-.pointer {
+.cursor-pointer {
     cursor: pointer;
 }
 
