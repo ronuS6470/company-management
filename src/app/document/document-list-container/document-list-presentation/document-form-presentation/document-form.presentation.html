@@ -5,22 +5,26 @@
      
       <div class="p-3">
         <div class="form-group">
+          <input type="hidden" class="form-control" id="InputId" placeholder="Document Name" formControlName="id">
+        </div>
+        <div class="form-group">
           <label for="InputName">Document Name</label>
           <input type="email" class="form-control" id="InputName" placeholder="Document Name" formControlName="documentName">
-          <div *ngIf="controls.documentName.invalid && (controls.documentName.dirty || controls.documentName.touched)">
-            <div *ngIf="controls.documentName.errors.minlength" style="color: red;">
-              <b>Document Name must be at least 4 characters long.</b>
-            </div>
-          </div>
         </div>
         <div class="form-group">
           <label for="InputOwnerName">Owner Name</label>
           <input type="email" class="form-control" id="InputOwnerName" placeholder="Owner Name" formControlName="ownerName">
+          <div *ngIf="controls.ownerName.invalid && (controls.ownerName.dirty || controls.ownerName.touched)">
+            <div *ngIf="controls.ownerName.errors.pattern" style="color: red;">
+              <b>Only characters allowed</b>
+            </div>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="InputActivity">Activity</label>
           <select class="form-control" id="InputActivity" formControlName="activity">
+            <option value="">---Select Activity---</option>
             <option>General</option>
             <option>Training</option>
             <option>Security</option>
