@@ -233,9 +233,8 @@
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="custom-file position-relative">
-                                    <input type="file" (change)="onChange($event)" class="custom-file-input"
-                                        id="customFile"
-                                        [ngClass]="{ 'is-invalid': (submitted || formControls.attachment.touched) && formControls.attachment.errors }">
+                                    <input type="file" (change)="onChange($event)" class="custom-file-input" id="customFile"
+                                    [ngClass]="{ 'is-invalid': (submitted || formControls.attachment.touched) && formControls.attachment.errors }">
                                     <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
                                     <div *ngIf="(submitted || formControls.attachment.touched) && formControls.attachment.errors"
                                         class="invalid-feedback">
