@@ -6,7 +6,6 @@ import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from '../company-list-presentation/company-filter-presentation/company-filter.presentation';
 import { CompanyToken } from '../../token';
 import { Subject } from 'rxjs';
-
 @Injectable()
 export class CompanyListPresenter {
   public subjectComplay$ = new Subject();

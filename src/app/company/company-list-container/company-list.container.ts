@@ -48,7 +48,7 @@ export class CompanyListContainer {
    * Company Filter
    * @param $event Company Filter Data
    */
-  getCompany($event) {
+  public getCompany($event) {
     this.getFilterData = $event;
   }
 

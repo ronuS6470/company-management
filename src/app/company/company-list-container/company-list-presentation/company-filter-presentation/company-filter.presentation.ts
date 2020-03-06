@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { Company } from 'src/app/company/company.model';
-import { CompanyToken } from '../../../token';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { OverlayRef } from '@angular/cdk/overlay';
-// ---------------------------------- //
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+import { Company } from 'src/app/company/company.model';
 import { CompanyFilterPresenter } from '../company-filter-presenter/company-filter.presenter';
+import { CompanyToken } from '../../../token';
 
 /**
  * @author amit
