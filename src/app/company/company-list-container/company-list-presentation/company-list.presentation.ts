@@ -1,7 +1,9 @@
 import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, OnChanges, OnInit } from '@angular/core';
 
+import { CompanyFilterPresentation } from './company-filter-presentation/company-filter.presentation';
 import { Company } from '../../company.model';
 import { CompanyListPresenter } from '../company-list-presenter/company-list.presenter';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'cmp-company-list-ui',
@@ -18,38 +20,39 @@ export class CompanyListPresentation implements OnInit, OnChanges {
     this.filteredCompany = value;
     this.companyTempData = value;
   }
-
   // Get Filter Data
   @Input() getFilterData: Company;
-
-  @Output() public deleteCompanies = new EventEmitter<any>();
-  @Output() public deleteCompany = new EventEmitter<number>();
-  @Output() public sort = new EventEmitter<string>();
-
+  // delete single
+  @Output() public deleteCompany: EventEmitter<number>;
+  // sorting the column
+  @Output() public sort: EventEmitter<string>;
   // Emit Company Data
   @Output() sendData: EventEmitter<any>;
+  // delete multiple companies
+  @Output() public deleteCompanies: EventEmitter<any>;
 
-  public multipleDeletes: any;
-  public companiestoDelete = [];
-
-  // Temp for store data
-  public companyTempData: Company;
+  public sortBy: string; // name of the column
+  public portalRef: ComponentPortal<CompanyFilterPresentation>; // ComponentPortal Instance
+  public multipleDeletes; // This has the object from selected records
+  public companiesToDelete: number[]; // It contains Id which need to be deleted
   // store filtered data
   public filteredCompany: any;
 
-  public sortBy: string;
+  // Temp for store data
+  private companyTempData: Company;
 
   constructor(
     private companyListPresenter: CompanyListPresenter,
   ) {
     this.sendData = new EventEmitter<Company>();
-
     this.sort = new EventEmitter<string>();
+    this.deleteCompanies = new EventEmitter<any>();
+    this.deleteCompany = new EventEmitter<number>();
+    this.multipleDeletes = [];
+    this.companiesToDelete = [];
   }
 
-  public ngOnInit(): void {
-
-  }
+  public ngOnInit(): void { }
 
   public ngOnChanges(): void {
     if (this.getFilterData) {
@@ -62,28 +65,47 @@ export class CompanyListPresentation implements OnInit, OnChanges {
    * @param id This is the id that need to be deleted 
    */
   public delete(id: number): void {
-    // console.log(id);
-    this.deleteCompany.emit(id);
+    if (confirm('Are you sure you want to delete?')) {
+      this.deleteCompany.emit(id);
+    }
   }
 
   /**
    * This method will sort data in ascending order
    */
   public sortAscending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=asc`);
   }
 
   /**
    * This method will sort data in descending order
    */
   public sortDescending(): void {
-    this.sortBy = document.activeElement.id
-    this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
+    this.sortBy = document.activeElement.id;
+    this.sort.emit(`_sort=${this.sortBy}&_order=desc`);
   }
 
   /**
-   * filter
+   * This method will select or unselect checkbox
+   * @param event
+   */
+  public selectAllCompanies(event: any): any {
+    if (event.target.checked) {
+      this.filteredCompany.map(user => {
+        user.checked = true;
+        return user;
+      });
+    } else {
+      this.filteredCompany.map(user => {
+        user.checked = false;
+        return user;
+      });
+    }
+  }
+
+  /**
+   * filter data
    */
   public filter(): void {
     this.companyListPresenter.filter(this.getFilterData);
@@ -92,12 +114,16 @@ export class CompanyListPresentation implements OnInit, OnChanges {
     });
   }
 
-  multipleDelete() {
+  /**
+   * This method is useful for multiple delete
+   */
+  public multipleDelete(): void {
     this.multipleDeletes = this.filteredCompany.filter(data => data.checked);
     for (let i = 0; i < this.multipleDeletes.length; i++) {
-      this.companiestoDelete[i] = this.multipleDeletes[i].id;
+      this.companiesToDelete[i] = this.multipleDeletes[i].id;
     }
-    // console.log(this.companiestoDelete);
-    this.deleteCompanies.emit(this.companiestoDelete);
+    if (confirm('Are you sure you want to delete?')) {
+      this.deleteCompanies.emit(this.companiesToDelete);
+    }
   }
 }

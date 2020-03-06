@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { Company } from '../company.model';
 import { CompanyService } from '../company.service';
 import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'cmp-company-list-container',
@@ -13,6 +12,7 @@ import { shareReplay } from 'rxjs/operators';
 
 export class CompanyListContainer {
 
+  // Company List
   public companyList$: Observable<Company[]>;
 
   // Get Filter Data
@@ -26,10 +26,7 @@ export class CompanyListContainer {
    * This method will fetch all the records
    */
   public getDetails(): void {
-    this.companyList$ = this.companyService.getCompanies().pipe(
-      shareReplay(1)
-    )
-
+    this.companyList$ = this.companyService.getCompanies();
   }
 
   /**
@@ -46,10 +43,10 @@ export class CompanyListContainer {
 
   /**
    * Company Filter
-   * @param $event Company Filter Data
+   * @param companies Company Filter Data
    */
-  public getCompany($event) {
-    this.getFilterData = $event;
+  public getFilterCompany(event: Company): void {
+    this.getFilterData = event;
   }
 
   /**
@@ -57,18 +54,21 @@ export class CompanyListContainer {
    * @param sortField this is the name of the field that needs to be sorted
    */
   public sortData(sortField: string): void {
-    this.companyList$ = this.companyService.sortData(sortField).pipe(
-      shareReplay(1)
-    );
+    this.companyList$ = this.companyService.sortData(sortField);
   }
 
-  deleteCompanies(deleteCompanies) {
+  /**
+   * This function delete multiple companies
+   * @param deleteCompanies The list of id that need to be deleted
+   */
+  public deleteCompanies(deleteCompanies: number[]): void {
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {
           this.getDetails();
         }
-      )
+      );
     }
   }
 

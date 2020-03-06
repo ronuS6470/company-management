@@ -50,15 +50,15 @@
     },
     {
       "documentName": "Company Management",
-      "ownerName": "Dhruvit",
-      "activity": "Training",
+      "ownerName": "Dhruvit Makadia",
+      "activity": "Security",
       "createdDate": "2020-03-05T11:53:24.585Z",
       "updatedDate": "2020-03-05T11:53:24.585Z",
       "id": 9
     },
     {
       "documentName": "Maggi",
-      "ownerName": "Kiran",
+      "ownerName": "Kiran Tandel",
       "activity": "Training",
       "createdDate": "2020-03-05T11:56:58.077Z",
       "updatedDate": "2020-03-05T11:56:58.077Z",
@@ -188,30 +188,16 @@
   ],
   "company": [
     {
-      "clientName": "jayesh",
-      "companySite": "http://www.abc.com",
-      "clientType": "client",
-      "businessType": "public",
-      "contactNumber": 1234567890,
-      "location": "USA",
-      "email": "bhavin@gmail.com",
-      "contactPersonName": "dhruv",
-      "designation": "manager",
-      "contactPersonMobile": "1212121212",
-      "attachment": "C:\\fakepath\\FileZilla.txt",
-      "id": 6
-    },
-    {
       "clientName": "viren",
       "companySite": "http://www.abc.com",
       "clientType": "supplier",
       "businessType": "public",
-      "contactNumber": 1212121212,
+      "contactNumber": "+91121212111",
       "location": "USA",
       "email": "viren@gmail.com",
       "contactPersonName": "kk",
       "designation": "manager",
-      "contactPersonMobile": "2342342344",
+      "contactPersonMobile": "+912342342344",
       "attachment": "C:\\fakepath\\FileZilla.txt",
       "id": 7
     },
@@ -275,6 +261,30 @@
   "notifications": [
     {
       "id": 1,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 2,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 3,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 4,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 5,
       "date": "13-march-2020",
       "time": "9:50",
       "notification": "Notification 1"
