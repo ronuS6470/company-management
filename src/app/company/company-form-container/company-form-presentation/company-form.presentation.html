@@ -1,27 +1,26 @@
 <!-- company form content -->
 <div class="content h-100 overflow-hidden d-flex flex-column">
     <!-- content header -->
-    <div
-        class="top-bar d-flex flex-wrap justify-content-between align-items-center px-3 px-md-4 flex-shrink-0 mb-3 mb-md-0">
-        <!-- breadcrum -->
+    <div class="top-bar d-flex flex-wrap justify-content-between align-items-center flex-shrink-0 mb-3 mb-md-0">
+        <!-- breadcrumb -->
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent px-0">
-                <li class="breadcrumb-item"><a routerLink="/company" class="text-secondary">Companies</a></li>
+            <ol class="breadcrumb bg-transparent p-0 mb-0">
+                <li class="breadcrumb-item"><a routerLink="/company" class="text-secondary"
+                        class="text-secondary">Companies</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{addEditLabel}}</li>
             </ol>
         </nav>
         <!-- form action buttons -->
         <div class="d-flex flex-wrap d-md-block">
-            <button class="btn bg-white px-5 py-2 rounded-0 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0"
+            <button class="btn bg-white px-5 py-2 mr-0 mr-sm-3 flex-grow-1 my-2 my-sm-0"
                 routerLink="/company">Cancel</button>
-            <button class="btn btn-primary px-5 py-2 rounded-0 flex-grow-1 my-2 my-sm-0"
-                (click)="onSubmit()">Save</button>
+            <button class="btn btn-primary px-5 py-2 flex-grow-1 my-2 my-sm-0" (click)="onSubmit()">Save</button>
         </div>
     </div>
     <!-- content body -->
-    <div class="content-body overflow-auto">
+    <div class="content-body overflow-auto pt-0">
         <!-- form container -->
-        <div class="company-form-container bg-white mt-2 mb-5 py-4">
+        <div class="company-form-container bg-white mt-2 mb-3 py-4">
             <figure class="text-center pt-4 pb-4">
                 <img src="../../../../assets/images/nbc-logo.png" class="nbc-logo rounded-circle" alt="Company Logo">
             </figure>
@@ -31,7 +30,8 @@
                     <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
                         <div class="form-row mx-0">
                             <!-- Personal Information  -->
-                            <h6 class="font-medium text-secondary">Personal Information</h6>
+                            <h6 class="font-medium text-secondary text-uppercase mb-3 form-title">Personal Information
+                            </h6>
                             <!-- client name  -->
                             <div class="col-12 px-0">
                                 <div class="form-group d-flex flex-column">
@@ -91,45 +91,50 @@
                             </div>
 
                             <!-- type of business  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="businessType" class="label text-secondary mb-0">Type of
                                         Business</label>
-                                    <select formControlName="businessType" class="form-control bg-transparent"
-                                        id="businessType"
-                                        [ngClass]="{ 'is-invalid': (submitted || formControls.businessType.touched) && formControls.businessType.errors }">
-                                        <option value="">--select business type--</option>
-                                        <option value="private">Private</option>
-                                        <option value="public">Public</option>
-                                    </select>
-                                    <div *ngIf="(submitted || formControls.businessType.touched) && formControls.businessType.errors"
-                                        class="invalid-feedback">
-                                        <div *ngIf="formControls.businessType.errors.required">business type is required
+                                    <div class="custom-select-arrow position-relative cursor-pointer">
+                                        <select formControlName="businessType"
+                                            class="form-control bg-transparent cursor-pointer" id="businessType"
+                                            [ngClass]="{ 'is-invalid': (submitted || formControls.businessType.touched) && formControls.businessType.errors }">
+                                            <option value="">--select business type--</option>
+                                            <option value="private">Private</option>
+                                            <option value="public">Public</option>
+                                        </select>
+                                        <div *ngIf="(submitted || formControls.businessType.touched) && formControls.businessType.errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="formControls.businessType.errors.required">business type is
+                                                required
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Location  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="location" class="label text-secondary mb-0">Location</label>
-                                    <select formControlName="location" class="form-control bg-transparent"
-                                        id="businessType"
-                                        [ngClass]="{ 'is-invalid': (submitted || formControls.location.touched) && formControls.location.errors }">
-                                        <option value="">--select location--</option>
-                                        <option value="London">London</option>
-                                        <option value="USA">USA</option>
-                                        <option value="LA">LA</option>
-                                    </select>
-                                    <div *ngIf="(submitted || formControls.location.touched) && formControls.location.errors"
+                                    <div class="custom-select-arrow position-relative cursor-pointer">
+                                        <select formControlName="location"
+                                            class="form-control bg-transparent cursor-pointer" id="businessType"
+                                            [ngClass]="{ 'is-invalid': (submitted || formControls.location.touched) && formControls.location.errors }">
+                                            <option value="">--select location--</option>
+                                            <option value="London">London</option>
+                                            <option value="USA">USA</option>
+                                            <option value="LA">LA</option>
+                                        </select>
+                                        <div *ngIf="(submitted || formControls.location.touched) && formControls.location.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.location.errors.required">location is required
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- contact no  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="contactNo" class="label text-secondary mb-0">Contact Number</label>
                                     <input type="text" formControlName="contactNumber" class="form-control "
@@ -145,7 +150,7 @@
                                 </div>
                             </div>
                             <!-- email  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="emailAddress" class="label text-secondary mb-0">Email
                                         Adress</label>
@@ -160,7 +165,8 @@
                             </div>
 
                             <!-- Other Information  -->
-                            <h6 class="font-medium text-secondary">Other Information</h6>
+                            <h6 class="font-medium text-secondary text-uppercase mt-3 mb-3 form-title">Other Information
+                            </h6>
                             <!-- Contact Person  -->
                             <div class="col-12 px-0">
                                 <div class="form-group d-flex flex-column">
@@ -185,7 +191,7 @@
                             </div>
 
                             <!-- Designation  -->
-                            <div class="col-md-6 pl-0 pr-0 pr-md-3">
+                            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
                                 <div class="form-group d-flex flex-column">
                                     <label for="designation" class="label text-secondary mb-0">Designation</label>
                                     <input type="text" formControlName="designation" class="form-control"
@@ -205,7 +211,7 @@
                             </div>
 
                             <!-- contact no  -->
-                            <div class="col-md-6 px-0">
+                            <div class="col-12 col-md-6 px-0">
                                 <div class="form-group d-flex flex-column">
                                     <label for="otherContactNo" class="label text-secondary mb-0">Contact
                                         Number</label>
@@ -221,29 +227,35 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Attachment  -->
-                            <h6 class="font-medium text-secondary">Attachment</h6>
-                            <div class="col-6 ml-auto">
-                                <label for="customFile" class="text-primary float-right">
-                                    <span class="fa fa-plus-square-o fa-lg"></span>
-                                </label>
+                            <div class="col-12 pl-0 pr-0 d-flex">
+                                <h6 class="font-medium text-secondary text-uppercase mt-3 mb-3 form-title">Attachment
+                                </h6>
+                                <div class="col-6 ml-auto mt-3 pr-0">
+                                    <label for="customFile" class="text-primary float-right cursor-pointer">
+                                        <span class="fa fa-plus-square-o fa-lg"></span>
+                                    </label>
+                                </div>
                             </div>
-
                             <!-- attached files -->
                             <div class="col-12 col-md-6 pl-0 pr-0 pr-md-3">
-                                <div class="custom-file position-relative">
-                                    <input type="file" (change)="onChange($event)" class="custom-file-input" id="customFile"
-                                    [ngClass]="{ 'is-invalid': (submitted || formControls.attachment.touched) && formControls.attachment.errors }">
-                                    <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
+                                <!-- <div class="custom-file position-relative">
+                                    <input type="file" class="attachedfile custom-file-input cursor-pointer" id="customFile" placeholder="file name">
+                                    <label class="attachedFile custom-file-label text-secondary pt-0 pr-0 pb-0" for="customFile">file name</label>
+                                </div> -->
+                                <div class="custom-file position-relative mb-3">
+                                    <input type="file" (change)="onChange($event)"
+                                        class="attachedfile custom-file-input cursor-pointer" id="customFile"
+                                        name="filename">
+                                    <label class="attachedFile custom-file-label" for="customFile"
+                                        [ngClass]="{ 'is-invalid': (submitted || formControls.attachment.touched) && formControls.attachment.errors }">{{selectedFile}}</label>
                                     <div *ngIf="(submitted || formControls.attachment.touched) && formControls.attachment.errors"
                                         class="invalid-feedback">
                                         <div *ngIf="formControls.attachment.errors.required">attachment is required
                                         </div>
                                     </div>
                                 </div>
-                                <label id="closeFile"
-                                    class="fa fa-times-circle position-absolute text-secondary"></label>
+                                <label id="closeFile" class="fa fa-times-circle fa-lg position-absolute"></label>
                             </div>
                         </div>
                     </form>

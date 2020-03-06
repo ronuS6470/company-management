@@ -27,11 +27,17 @@
           </select>
         </div>
       </div>
-      <div class="my-4 px-3 mt-sm-0 flex-wrap">
 
         <button type="reset"class="btn py-2 px-5">Clear</button>
         <button type="submit" class="btn  btn-primary py-2 px-5 ml-3" [disabled]="!documentFormDetails.valid">Submit</button>
       </div>
-   
+    </div>
+
+    <!-- Action Button -->
+    <div class="mb-4 px-3 mt-sm-0 action-button">
+      <button class="btn btn-clear btn-secondary">Clear</button>
+      <button type="submit" class="btn  btn-primary py-2 px-4 btn-submit">Submit</button>
+    </div>
+
   </form>
 </div>

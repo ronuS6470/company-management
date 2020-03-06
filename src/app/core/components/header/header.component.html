@@ -1,14 +1,14 @@
 <header  class="border-bottom py-1 bg-white" >
     <div class="d-flex justify-content-between">
         <div class=" d-flex">
-            <form class="form-inline my-2 my-lg-0 nav-search-relative ml-3">
-                <label class="fa fa-search search-icon-absolute m-0 py-2" for="searchLink"></label>
-                <input class="form-control mr-sm-2 pr-5 border-0 rounded-0 " type="search" placeholder="Search..." aria-label="Search" id="searchLink">
+            <form class="form-inline my-2 my-lg-0 navbar-search position-relative ml-3">
+                <label class="fa fa-search navbar-search-icon m-0 py-2 text-muted toggle-sidebar" for="searchLink"></label>
+                <input class="form-control mr-sm-2 pr-5 border-0 rounded-0 " type="search" placeholder="Search..."
+                    aria-label="Search" id="searchLink">
             </form>
         </div>
         <div class="d-flex align-items-center">
             <!-- dropdown -->
-
             <div class="dropdown mr-2">
 
                 <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [routerLink]="[ '/notification/list' ]" routerLinkActive="active">
@@ -22,7 +22,6 @@
                     <a class="dropdown-item border-top  text-primary"  >View more</a>
                 </div>
             </div>
-
             <!-- end dropdown -->
             <div class="mr-1 pt-1">
                 <!-- 
@@ -37,7 +36,7 @@
                     </div>-->
                     <button class="btn btn-danger" (click)="onLogout()" >Logout</button>
                 </div>
-                <!--  -->
             </div>
+            <!-- end profile dropdown -->
         </div>
 </header>
