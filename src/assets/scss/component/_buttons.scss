@@ -7,12 +7,14 @@
   color: $primary;
   border-color: $primary;
   background-color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
   &:hover {
     color: $primary;
   }
   @media (max-width: 768px) {
     background-color: transparent;
     border: none;
+    box-shadow: none;
   }
   span {
     &:nth-child(2) {
