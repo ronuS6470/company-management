@@ -1,14 +1,19 @@
+
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Company } from '../../company.model';
 
+/**
+ * @author Kiran Tandel
+ */
+
 @Injectable()
 
 export class CompanyFormPresenter {
 
-    companyForm: FormGroup;
-    companyObj: Company;
+    public companyForm: FormGroup; //company form
+    public companyDetail: Company; // company detail to add|update
 
     constructor(private formBuilder: FormBuilder) { }
 
@@ -36,14 +41,14 @@ export class CompanyFormPresenter {
      * add company data
      */
     public addCompany(): void {
-        this.companyObj = new Company();
-        this.companyObj = this.companyForm.value;
+        this.companyDetail = new Company();
+        this.companyDetail = this.companyForm.value;
     }
 
     /**
    * update company data
    */
     public updateCompany(): void {
-        this.companyObj = this.companyForm.value;
+        this.companyDetail = this.companyForm.value;
     }
 }

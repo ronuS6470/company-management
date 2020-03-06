@@ -2,13 +2,14 @@ import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Injectable, Injector, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
+import { Company } from '../../company.model';
 import { CompanyFilterPresentation } from '../company-list-presentation/company-filter-presentation/company-filter.presentation';
-import { Subject } from 'rxjs';
 import { CompanyToken } from '../../token';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class CompanyListPresenter {
-  subject = new Subject();
+  public subjectComplay$ = new Subject();
   public data: string;
   constructor(
     private overlay: Overlay,
@@ -16,7 +17,12 @@ export class CompanyListPresenter {
     public viewContainerRef: ViewContainerRef,
   ) { }
 
-  createInjector(data: any, overlayRef: OverlayRef): PortalInjector {
+  /**
+   * CreateInjector
+   * @param data Comapany Data
+   * @param overlayRef Overlay Reference
+   */
+  public createInjector(data: Company, overlayRef: OverlayRef): PortalInjector {
     const injectorTokens = new WeakMap();
     injectorTokens.set(OverlayRef, overlayRef);
     injectorTokens.set(CompanyToken, data);
@@ -24,8 +30,11 @@ export class CompanyListPresenter {
   }
 
   // Filter overlay open
-  public filter(filter): any {
-    let config = new OverlayConfig(); 
+  public filter(filter: Company): void {
+
+    // Instance Of OverlayConfig
+    let config = new OverlayConfig();
+
     config.positionStrategy = this.overlay.position()
       .global()
       .centerVertically()
@@ -39,7 +48,7 @@ export class CompanyListPresenter {
       overlayRef.detach();
     });
     componentInstance.instance.filterData.subscribe(data => {
-      this.subject.next(data);
+      this.subjectComplay$.next(data);
     });
   }
 
@@ -49,8 +58,8 @@ export class CompanyListPresenter {
    * @param users Stored data
    * @param filteredUsers filter data
    */
-  public filterUserList(filters: any, users: any, filteredUsers: any): any {
-    filteredUsers = users; // Reset User List
+  public filterCompanyList(filters: Company, companyTempData: any, filteredUsers: Company): void {
+    filteredUsers = companyTempData; // Reset User List
     const keys = Object.keys(filters);
     const filterUser = user => {
       let result = keys.map(key => {
@@ -66,6 +75,6 @@ export class CompanyListPresenter {
         return acc & cur;
       }, 1);
     };
-    return users.filter(filterUser);
+    return companyTempData.filter(filterUser);
   }
 }

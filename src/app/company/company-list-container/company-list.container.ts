@@ -15,7 +15,7 @@ export class CompanyListContainer {
 
   public companyList$: Observable<Company[]>
   // Get Filter Data
-  public getFilterData: any;
+  public getFilterData: Company;
 
   constructor(private companyService: CompanyService) {
     this.getDetails();
@@ -25,10 +25,7 @@ export class CompanyListContainer {
    * This method will fetch all the records
    */
   public getDetails(): void {
-    this.companyList$ = this.companyService.getCompanies().pipe(
-      shareReplay(1)
-    )
-
+    this.companyList$ = this.companyService.getCompanies()
   }
 
   /**
@@ -56,13 +53,11 @@ export class CompanyListContainer {
    * @param sortField this is the name of the field that needs to be sorted
    */
   public sortData(sortField: string): void {
-    this.companyList$ = this.companyService.sortData(sortField).pipe(
-      shareReplay(1)
-    );
+    this.companyList$ = this.companyService.sortData(sortField)
   }
 
- public deleteCompanies(deleteCompanies:number[]):void{
-    for( let i=0 ; i<deleteCompanies.length; i++){
+  deleteCompanies(deleteCompanies) {
+    for (let i = 0; i < deleteCompanies.length; i++) {
       this.companyService.deleteCompanies(deleteCompanies[i]).subscribe(
         () => {
           this.getDetails();

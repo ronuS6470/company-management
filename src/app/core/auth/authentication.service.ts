@@ -8,8 +8,11 @@ import { Login } from 'src/app/login/login.model';
 })
 export class AuthenticationService {
 
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false); //loggedIn to check whether user is logged in or not
 
+  /**
+   * isLoggedIn variable return observable
+   */
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
@@ -18,16 +21,24 @@ export class AuthenticationService {
     private router: Router
   ) {}
 
-  login(user: Login) {
+  /**
+   * 
+   * @param user of type Login Model
+   * If username and password exists then navigate to given route
+   */
+  public login(user: Login):void {
     if (user.username !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     }
   }
-
-  logout() {
+  /**
+   * logout method to navigate login 
+   * and also remove existing username from localstorage
+   */
+  public logout(): void{
     this.loggedIn.next(false);
     localStorage.removeItem('username');
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 }
