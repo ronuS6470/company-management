@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
-import { ConfirmationModalService } from 'src/app/core/services/confirmation-modal.service';
 import { Document } from 'src/app/document/document.model';
 import { DocumentListPresenter } from '../document-list-presenter/document-list.presenter';
 
@@ -58,7 +57,6 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   private updatedDetails: Document;
 
   constructor(
-    private deleteConfirmation: ConfirmationModalService,
     private documentListPresenter: DocumentListPresenter
   ) {
 
@@ -142,7 +140,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     this.documentListPresenter.loadForm(document);
 
     this.documentListPresenter.addFormDetails.subscribe((addedFormDetails: any) => {
-      if (flag === 0) {
+      if (flag == 0) {
         flag = 1;
         this.updatedDetails = addedFormDetails;
         this.updatedDetails.createdDate = this.todayDate;
@@ -152,7 +150,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
     })
 
     this.documentListPresenter.updateFormDetails.subscribe((updatedFormDetails: any) => {
-      if (flag === 0) {
+      if (flag == 0) {
         flag = 1;
         this.updatedDetails = updatedFormDetails;
         this.updatedDetails.createdDate = this.updatedDetails.updatedDate;

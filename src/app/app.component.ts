@@ -22,7 +22,8 @@ export class AppComponent {
         if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/' || event.url === '/registration')) {
           this.router.navigate(['/company']);
         } else if (localStorage.getItem('username') === null &&
-        (event.url === '/company/list' || event.url === '/document/list'))
+        (event.url === '/company/list' || event.url === '/document/list' || 
+        event.url === '/company' || event.url === '/document'))
         {
           this.router.navigate(['/login']);
         } else if (localStorage.getItem('username') != null)
