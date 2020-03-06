@@ -1,1 +1,81 @@
 // Button styles goes here
+.btn-delete {
+  font-size: 25px;
+}
+
+.btn-upload {
+  color: $primary;
+  border-color: $primary;
+  background-color: $white;
+  &:hover {
+    color: $primary;
+  }
+  @media (max-width: 768px) {
+    background-color: transparent;
+    border: none;
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-document-filter {
+  background-color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  @media (max-width: 768px) {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-company-filter {
+  background-color: $white;
+  color: $primary;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  @media (max-width: 768px) {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  span {
+    &:nth-child(1) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-add {
+  background-color: $primary;
+  color: $white;
+  box-shadow: 0 0.125rem 0.25rem $shadow;
+  &:hover {
+    color: $white;
+  }
+  @media (max-width: 768px) {
+    background-color: transparent;
+    color: $primary;
+    box-shadow: none;
+    &:hover {
+      color: $primary;
+    }
+  }
+  span {
+    &:nth-child(2) {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
