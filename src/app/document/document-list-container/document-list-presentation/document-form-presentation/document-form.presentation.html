@@ -27,11 +27,27 @@
           </select>
         </div>
       </div>
-      <div class="my-4 px-3 mt-sm-0 flex-wrap">
 
+<<<<<<< HEAD
         <button type="reset"class="btn py-2 px-5">Clear</button>
         <button type="submit" class="btn  btn-primary py-2 px-5 ml-3" [disabled]="!documentFormDetails.valid">Submit</button>
+=======
+      <div class="form-group">
+        <label for="inputActivity">Activity</label>
+        <select class="form-control px-2" id="inputActivity">
+          <option>General</option>
+          <option>Training</option>
+          <option>Security</option>
+        </select>
+>>>>>>> 738bf87f4480ea7e2507fbca5f02e775d7b9136d
       </div>
-   
+    </div>
+
+    <!-- Action Button -->
+    <div class="mb-4 px-3 mt-sm-0 action-button">
+      <button class="btn btn-clear btn-secondary">Clear</button>
+      <button type="submit" class="btn  btn-primary py-2 px-4 btn-submit">Submit</button>
+    </div>
+
   </form>
 </div>

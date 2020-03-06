@@ -1,51 +1,54 @@
-<div class="h-100 position-relative form-content ">
-    <div class="row">
+<div class="h-100 d-flex justify-content-center align-items-center ">
+    <div class="col-md-6  m-0  p-2 p-md-5">
         <!--form-->
         <form class="form-details bg-white col-md-6" name="form" #f="ngForm"
             (ngSubmit)="f.form.valid && authenticate(username.value, password.value)" novalidate>
-            <div class="col-md-12 p-5">
-                <div class="form-group flex-wrap">
-                    <div class="user-avtaar-holder d-flex align-items-center justify-content-center rounded-circle ">
-                        <figure>
-                            <img src="../../../../assets/images/login-avtaar.jpg" class="user-avtaar rounded-circle"
-                                alt="login avtaar">
-                        </figure>
-                    </div>
-                    <h4 class="text-center">Login</h4>
-                    <div class="form-input mt-5">
-                        <input class="input-field" type="text" name="username" autofocus="true"
-                            [(ngModel)]="model.username" #username="ngModel"
-                            [ngClass]="{'is-invalid':f.submitted && username.invalid}" required />
-                        <span class="input-label">Username</span>
-                        <span class="input-underline"></span>
-                        <div class="invalid-feedback">
-                            <div>Username is required</div>
+            <div
+                class="d-flex justify-content-center  align-items-center bg-white  shadow-lg m-0 p-0 position-relative">
+                <div class="user-avatar-holder d-flex align-items-center justify-content-center rounded-circle ">
+                    <figure>
+                        <img src="../../../../assets/images/avatar-img.jpg" class="user-avatar rounded-circle"
+                            alt="login avatar">
+                    </figure>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="form-group flex-wrap p-2 ">
+                        <h4 class="text-center mt-md-5 mt-4">Login</h4>
+                        <div class="form-input mt-3 mt-md-2">
+                            <input class="input-field " id="inputUsername" type="text" autofocus="true" name="username"
+                                [(ngModel)]="model.username" #username="ngModel"
+                                [ngClass]="{'is-invalid':f.submitted && username.invalid}" required />
+                            <span class="input-label p-2 text-center">Username</span>
+                            <span class="input-underline"></span>
+                            <div class="invalid-feedback">
+                                <div>Username is required</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-input mb-5">
-                        <input class="input-field" type="password" name="password" [(ngModel)]="model.password"
-                            #password="ngModel" [ngClass]="{'is-invalid':f.submitted && password.invalid}" required />
-                        <span class="input-label">Password</span>
-                        <div class="input-underline"></div>
-                        <div class="invalid-feedback">
-                            <div>Password is required</div>
+                        <div class="form-input">
+                            <input id="Password" class="input-field" type="password" name="password"
+                                [(ngModel)]="model.password" #password="ngModel"
+                                [ngClass]="{'is-invalid':f.submitted && password.invalid}" required />
+                            <span class="input-label p-2">Password</span>
+                            <div class="input-underline"></div>
+                            <div class="invalid-feedback">
+                                <div>Password is required</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-5 mt-sm-0   ">
-                        <button (click)="authenticate(username.value, password.value)"
-                            class="btn btn-md  btn-primary py-2 px-4 mr-2 mr-md-0  mb-2 mb-sm-0">Submit</button>
-                        <button type="reset"
-                            class="btn btn-md btn-danger text-white py-2 px-4 ml-md-3  ml-0 mt-md-0 mb-2 mb-sm-0">Clear</button>
-                    </div>
-                    <div class="mt-5 flex-wrap d-flex justify-content-between">
-                        <div class="signup-area"><span>Create a new account</span>
-                            <button routerLink='/registration' class="btn btn-md btn-success px-5  ml-4">Sign
-                                Up</button>
+                        <div class="mt-1  d-flex justify-content-center py-1   flex-wrap">
+                            <button (click)="authenticate(username.value, password.value)"
+                                class="btn py-2 px-5 btn-primary">Sign In</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
         <!--end:form-->
+        <!-- sign -->
+        <div class="col-md-12 bg-white px-4 pb-4 d-flex align-items-center justify-content-center justify-content-md-between ">
+            <span>
+                Create a new account?
+            </span>
+            <button routerLink='/registration' class="btn  btn-success ml-2 mt-md-0">Sign up</button>
+        </div>
     </div>
 </div>
