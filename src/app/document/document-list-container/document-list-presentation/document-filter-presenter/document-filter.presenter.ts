@@ -18,8 +18,9 @@ export class DocumentFilterPresenter {
     public buildForm(): FormGroup {
         return this.fb.group({
             documentName: new FormControl(''),
-            ownerName: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
-            activity: new FormControl('', Validators.pattern('[a-zA-Z ]*')),
+            // tslint:disable-next-line: quotemark
+            ownerName: new FormControl('', Validators.pattern("[a-zA-Z]+(?:(?:\. |[' ])[a-zA-Z]+)*")),
+            activity: new FormControl(''),
             createdDate: new FormControl('')
         });
     }
