@@ -5,7 +5,7 @@
       "ownerName": "Samip Karbhari",
       "createdDate": "2020-05-15 23:59:20",
       "updatedDate": "3 days ago",
-      "activity": "Training",
+      "activity": "General",
       "id": 3
     },
     {
@@ -43,18 +43,18 @@
     {
       "documentName": "Rxjs",
       "ownerName": "Amit",
-      "createdDate": "2020-01-15 20:59:20",
-      "updatedDate": "3 days ago",
       "activity": "Security",
-      "id": 8
+      "id": 8,
+      "createdDate": "2020-03-06T10:17:13.561Z",
+      "updatedDate": "2020-03-06T10:17:13.561Z"
     },
     {
-      "documentName": "Company Management",
-      "ownerName": "Dhruvit",
-      "activity": "General",
-      "createdDate": "2020-03-06T09:02:38.675Z",
-      "updatedDate": "2020-03-06T09:02:38.675Z",
-      "id": 9
+      "documentName": "Routing",
+      "ownerName": "Tapas",
+      "activity": "Security",
+      "id": 9,
+      "createdDate": "2020-03-06T10:20:08.181Z",
+      "updatedDate": "2020-03-06T10:20:08.181Z"
     }
   ],
   "login": [
@@ -180,93 +180,47 @@
   ],
   "company": [
     {
-      "clientName": "jayesh",
-      "companySite": "http://www.abc.com",
-      "clientType": "client",
-      "businessType": "public",
-      "contactNumber": 1234567890,
-      "location": "USA",
-      "email": "bhavin@gmail.com",
-      "contactPersonName": "dhruv",
-      "designation": "manager",
-      "contactPersonMobile": "1212121212",
-      "attachment": "C:\\fakepath\\FileZilla.txt",
-      "id": 6
-    },
-    {
-      "clientName": "viren",
-      "companySite": "http://www.abc.com",
-      "clientType": "supplier",
-      "businessType": "public",
-      "contactNumber": 1212121212,
-      "location": "USA",
-      "email": "viren@gmail.com",
-      "contactPersonName": "kk",
-      "designation": "manager",
-      "contactPersonMobile": "2342342344",
-      "attachment": "C:\\fakepath\\FileZilla.txt",
-      "id": 7
-    },
-    {
-      "clientName": "jjj",
-      "companySite": "http://www.abc.com",
+      "clientName": "Samip Karbhari",
+      "companySite": "http://localhost:4200/compan",
       "clientType": "supplier",
       "businessType": "private",
-      "contactNumber": 2323237777,
-      "location": "USA",
-      "email": "jjj@gmail.com",
-      "contactPersonName": "jjkk",
-      "designation": "manager",
-      "contactPersonMobile": "6788888888",
-      "attachment": "fileQ",
-      "id": 8
-    },
-    {
-      "clientName": "samay",
-      "companySite": "http://www.abc.com",
-      "clientType": "supplier",
-      "businessType": "public",
-      "contactNumber": 9898989898,
+      "contactNumber": "+919879843411",
       "location": "USA",
       "email": "samip@gmail.com",
-      "contactPersonName": "shiv",
-      "designation": "manager",
-      "contactPersonMobile": "7878787878",
-      "attachment": "file2",
-      "id": 10
-    },
-    {
-      "clientName": "vivek",
-      "companySite": "https://www.vbvb.com",
-      "clientType": "client",
-      "businessType": "private",
-      "contactNumber": "1231231231",
-      "location": "London",
-      "email": "vivek@gmail.com",
-      "contactPersonName": "hardik",
-      "designation": "employee",
-      "contactPersonMobile": "4567456747",
-      "attachment": "PRGs.txt",
-      "id": 12
-    },
-    {
-      "clientName": "bhargav",
-      "companySite": "http://www.bhargav.com",
-      "clientType": "both",
-      "businessType": "public",
-      "contactNumber": "5656565656",
-      "location": "LA",
-      "email": "bhargav@gmail.com",
-      "contactPersonName": "samip",
-      "designation": "manager",
-      "contactPersonMobile": "4567898789",
-      "attachment": "tsconfig.json",
-      "id": 13
+      "contactPersonName": "Bhargav Baleja",
+      "designation": "student",
+      "contactPersonMobile": "+919879843411",
+      "attachment": "FileCS.ashx",
+      "id": 1
     }
   ],
   "notifications": [
     {
       "id": 1,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 2,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 3,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 4,
+      "date": "13-march-2020",
+      "time": "9:50",
+      "notification": "Notification 1"
+    },
+    {
+      "id": 5,
       "date": "13-march-2020",
       "time": "9:50",
       "notification": "Notification 1"

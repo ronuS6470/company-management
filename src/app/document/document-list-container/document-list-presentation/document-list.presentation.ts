@@ -32,29 +32,29 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   @Output() public updateDocument: EventEmitter<any>;
   // send filter data
   @Output() public filter: EventEmitter<any>;
-  //Emits an create event
+  // Emits an create event
   @Output() public addDocument: EventEmitter<Document>;
-  // event to delete 
+  // event to delete
   @Output() public delete: EventEmitter<number>;
-  //event to delete multiple documents
+  // event to delete multiple documents
   @Output() public deleteMultipleDocuments: EventEmitter<any>;
 
 
   // store filterd data
   public filteredDocument: Document[];
-  //stores the modified date
+  // stores the modified date
   public modifiedDate: Date;
   // variable for getter and setter of document data
   private document: Document[];
   // for sorting on created field
   private sortBy: string;
-  //stores multiple documents to delete them
+  // stores multiple documents to delete them
   private multipleDeletes: Array<Document>;
   // refrence to stored documents to delete
   private dataToDelete = [];
-  //Creates a new Date
+  // Creates a new Date
   private todayDate: Date;
-  //Stored details from the form 
+  // Stored details from the form
   private updatedDetails: Document;
 
   constructor(
@@ -100,7 +100,7 @@ export class DocumentListPresentation implements OnInit, OnChanges {
    * open filter overlay and get filter data
    */
   public openFilter(): void {
-    const ref = this.documentListPresenter.open(null);
+    const ref = this.documentListPresenter.open(this.groupFilter);
     ref.afterClosed$.subscribe(res => {
       this.filter.emit(res);
     });
@@ -145,25 +145,25 @@ export class DocumentListPresentation implements OnInit, OnChanges {
       if (flag == 0) {
         flag = 1;
         this.updatedDetails = addedFormDetails;
-        this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
+        this.updatedDetails.createdDate = this.todayDate;
+        this.updatedDetails.updatedDate = this.todayDate;
         this.addDocument.emit(this.updatedDetails);
       }
     })
-    
+
     this.documentListPresenter.updateFormDetails.subscribe((updatedFormDetails: any) => {
       if (flag == 0) {
         flag = 1;
         this.updatedDetails = updatedFormDetails;
-        this.updatedDetails.createdDate = this.todayDate;
-        this.updatedDetails.updatedDate = this.todayDate;
+        this.updatedDetails.createdDate = this.updatedDetails.updatedDate;
         this.updateDocument.emit(this.updatedDetails);
       }
-    })
+    });
   }
 
   /**
    * Emits a delete event with specified id
-   * @param id 
+   * @param id document id
    */
   public deleteDocument(id: number): void {
     if (confirm('Are you sure to delete this document')) {
@@ -172,25 +172,25 @@ export class DocumentListPresentation implements OnInit, OnChanges {
   }
 
   /**
-  * method to select all documents
-  * @param event // checked event
-  */
+   * method to select all documents
+   * @param event checked event
+   */
   public selectAllDocuments(checkEvent): void {
     if (checkEvent.target.checked) {
       this.documentData.map(user => {
         user.checked = true;
         return user;
-      })
+      });
     } else {
       this.documentData.map(user => {
         user.checked = false;
         return user;
-      })
+      });
     }
   }
 
   /**
-   * Delete multiple documents 
+   * Delete multiple documents
    */
   public deleteDocuments(): void {
     this.multipleDeletes = this.documentData.filter(item => item.checked);
