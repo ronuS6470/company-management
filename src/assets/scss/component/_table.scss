@@ -2,39 +2,35 @@
 .table {
   border-collapse: separate;
   border-spacing: 0 1em;
-  thead {
-    tr {
-      th {
-        font-weight: map-get($font-weights, "regular");
-        position: relative;
-        font-size: 14px;
-        vertical-align: middle;
-        padding: 0 0 0 0.75rem;
-        .sort-asc {
-          position: absolute;
-          bottom: 7px;
-          background: none;
-          border: none;
-          padding: 0;
-          margin: 0;
-        }
-        .sort-desc {
-          position: absolute;
-          top: 5px;
-          background: none;
-          border: none;
-          padding: 0;
-          margin: 0;
-        }
+  tr {
+    th {
+      font-weight: map-get($font-weights, "regular");
+      position: relative;
+      font-size: 14px;
+      vertical-align: middle;
+      padding: 0 0 0 0.75rem;
+      .sort-asc {
+        position: absolute;
+        bottom: 7px;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sort-desc {
+        position: absolute;
+        top: 5px;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
       }
     }
   }
   tbody {
-    tr {
-      td {
-        font-weight: map-get($font-weights, "medium");
-        vertical-align: middle;
-      }
+    td {
+      font-weight: map-get($font-weights, "medium");
+      vertical-align: middle;
     }
   }
 }
@@ -44,7 +40,7 @@
   width: 2em;
 }
 
-.company-img {
+.brand-img {
   width: 30px;
   height: 30px;
 }
@@ -57,10 +53,6 @@
   min-width: 195px;
 }
 
-.th-smallwidth{
+.th-smallwidth {
   min-width: 140px;
 }
-
-
-
-
