@@ -19,16 +19,17 @@ export class AppComponent {
   public changeOfRoutes(): void {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/') || event.url === '/registration') {
+        if (localStorage.getItem('username') != null && (event.url === '/login' || event.url === '/' || event.url === '/registration')) {
           this.router.navigate(['/company']);
         } else if (localStorage.getItem('username') === null &&
-        (event.url === '/company/list' || event.url === '/document/list' || event.url === '/registration'))
+        (event.url === '/company/list' || event.url === '/document/list' ||
+        event.url === '/company' || event.url === '/document'))
         {
           this.router.navigate(['/login']);
         } else if (localStorage.getItem('username') != null)
         {
           this.showHeaderSidebar = true;
-        } else 
+        } else
         {
           this.showHeaderSidebar = false;
         }

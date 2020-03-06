@@ -33,14 +33,6 @@
       "id": 6
     },
     {
-      "documentName": "Contact information",
-      "ownerName": "Aastha Yadav",
-      "activity": "General",
-      "updatedDate": "3 days ago",
-      "createdDate": "2020-03-04T12:22:18.517Z",
-      "id": 7
-    },
-    {
       "documentName": "Preview Document",
       "ownerName": "Shiv Desai",
       "createdDate": "2020-01-15 20:59:20",
@@ -170,6 +162,11 @@
       "username": "qwertyuiop",
       "password": "qwerty",
       "id": 25
+    },
+    {
+      "username": "aaaaa",
+      "password": "aaaaaa",
+      "id": 26
     }
   ],
   "posts": [
@@ -186,7 +183,134 @@
       "postId": 1
     }
   ],
-  "company": [],
+  "company": [
+    {
+      "clientName": "jayesh",
+      "companySite": "http://www.abc.com",
+      "clientType": "client",
+      "businessType": "public",
+      "contactNumber": 1234567890,
+      "location": "USA",
+      "email": "bhavin@gmail.com",
+      "contactPersonName": "dhruv",
+      "designation": "manager",
+      "contactPersonMobile": "1212121212",
+      "attachment": "C:\\fakepath\\FileZilla.txt",
+      "id": 6
+    },
+    {
+      "clientName": "viren",
+      "companySite": "http://www.abc.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": 1212121212,
+      "location": "USA",
+      "email": "viren@gmail.com",
+      "contactPersonName": "kk",
+      "designation": "manager",
+      "contactPersonMobile": "2342342344",
+      "attachment": "C:\\fakepath\\FileZilla.txt",
+      "id": 7
+    },
+    {
+      "clientName": "jjj",
+      "companySite": "http://www.abc.com",
+      "clientType": "supplier",
+      "businessType": "private",
+      "contactNumber": 2323237777,
+      "location": "USA",
+      "email": "jjj@gmail.com",
+      "contactPersonName": "jjkk",
+      "designation": "manager",
+      "contactPersonMobile": "6788888888",
+      "attachment": "fileQ",
+      "id": 8
+    },
+    {
+      "clientName": "samay",
+      "companySite": "http://www.abc.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": 9898989898,
+      "location": "USA",
+      "email": "samip@gmail.com",
+      "contactPersonName": "shiv",
+      "designation": "manager",
+      "contactPersonMobile": "7878787878",
+      "attachment": "file2",
+      "id": 10
+    },
+    {
+      "clientName": "vivek",
+      "companySite": "https://www.vbvb.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": "1231231231",
+      "location": "London",
+      "email": "vivek@gmail.com",
+      "contactPersonName": "hardik",
+      "designation": "employee",
+      "contactPersonMobile": "4567456747",
+      "attachment": "PRGs.txt",
+      "id": 12
+    },
+    {
+      "clientName": "bhargav",
+      "companySite": "http://www.bhargav.com",
+      "clientType": "both",
+      "businessType": "public",
+      "contactNumber": "+912342342343",
+      "location": "LA",
+      "email": "bhargav@gmail.com",
+      "contactPersonName": "samip",
+      "designation": "manager",
+      "contactPersonMobile": "+916642342343",
+      "attachment": "tsconfig.json",
+      "id": 13
+    },
+    {
+      "clientName": "suresh",
+      "companySite": "http://www.suresh.com",
+      "clientType": "supplier",
+      "businessType": "public",
+      "contactNumber": "+911234567123",
+      "location": "USA",
+      "email": "suresh@gmail.com",
+      "contactPersonName": "mohit",
+      "designation": "manager",
+      "contactPersonMobile": "+911231231234",
+      "attachment": "PRGs.txt",
+      "id": 14
+    },
+    {
+      "clientName": "dhruvi",
+      "companySite": "http://www.ddd.com",
+      "clientType": "client",
+      "businessType": "public",
+      "contactNumber": "+912333332223",
+      "location": "LA",
+      "email": "dhruvi@gmail.com",
+      "contactPersonName": "mayur",
+      "designation": "employee",
+      "contactPersonMobile": "+912342345678",
+      "attachment": "PRGs.txt",
+      "id": 15
+    },
+    {
+      "clientName": "hetal",
+      "companySite": "http://www.htyty.com",
+      "clientType": "client",
+      "businessType": "private",
+      "contactNumber": "+917687687687",
+      "location": "USA",
+      "email": "hetal@gmail.com",
+      "contactPersonName": "rohit",
+      "designation": "manager",
+      "contactPersonMobile": "+915678345345",
+      "attachment": "FileZilla.txt",
+      "id": 16
+    }
+  ],
   "notifications": [
     {
       "id": 1,
