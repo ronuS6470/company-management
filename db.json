@@ -5,15 +5,15 @@
       "ownerName": "Samip Karbhari",
       "createdDate": "2020-05-15 23:59:20",
       "updatedDate": "3 days ago",
-      "activity": "General",
+      "activity": "Training",
       "id": 3
     },
     {
       "documentName": "Preview Document",
       "ownerName": "Amit Chauhan",
-      "createdDate": "2020-12-15 23:59:20",
-      "updatedDate": "3 days ago",
-      "activity": "General",
+      "createdDate": "2020-03-06T09:02:38.675Z",
+      "updatedDate": "2020-03-06T09:02:38.675Z",
+      "activity": "Training",
       "id": 4
     },
     {
@@ -41,28 +41,20 @@
       "id": 7
     },
     {
-      "documentName": "Preview Document",
-      "ownerName": "Shiv Desai",
+      "documentName": "Rxjs",
+      "ownerName": "Amit",
       "createdDate": "2020-01-15 20:59:20",
       "updatedDate": "3 days ago",
-      "activity": "General",
+      "activity": "Security",
       "id": 8
     },
     {
       "documentName": "Company Management",
       "ownerName": "Dhruvit",
-      "activity": "Training",
-      "createdDate": "2020-03-05T11:53:24.585Z",
-      "updatedDate": "2020-03-05T11:53:24.585Z",
+      "activity": "General",
+      "createdDate": "2020-03-06T09:02:38.675Z",
+      "updatedDate": "2020-03-06T09:02:38.675Z",
       "id": 9
-    },
-    {
-      "documentName": "Maggi",
-      "ownerName": "Kiran",
-      "activity": "Training",
-      "createdDate": "2020-03-05T11:56:58.077Z",
-      "updatedDate": "2020-03-05T11:56:58.077Z",
-      "id": 10
     }
   ],
   "login": [
